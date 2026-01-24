@@ -1,0 +1,9 @@
+{
+  "name": "business",
+  "version": "0.0.1",
+  "description": "Business planning and strategy tools for SWOT analysis, competitive analysis, business model generation, and strategic planning workflows",
+  "author": {
+    "name": "Brian Sunter"
+  },
+  "license": "MIT"
+}

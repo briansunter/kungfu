@@ -1,11 +1,6 @@
 ---
 name: technical-automation-architect
-description:
-  Design technical architecture and automation strategies for solo SaaS
-  products. Use when selecting tech stacks, deciding build vs buy, or
-  implementing AI automation to scale operations. Covers boring tech philosophy,
-  managed services, SaaS boilerplates, and AI automation stack for $1M ARR solo
-  businesses.
+description: Design technical architecture and automation strategies for solo SaaS products. Use when selecting tech stacks, deciding build vs buy, or implementing AI automation to scale operations.
 license: MIT
 ---
 

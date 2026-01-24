@@ -1,10 +1,6 @@
 ---
 name: community-growth-specialist
-description:
-  Build and engage communities for sustainable customer acquisition. Use when
-  growing audience without paid ads, launching on community platforms, or
-  implementing build-in-public strategies. Covers Indie Hackers (23.1%
-  conversion), Reddit (18.4%), and the 90/10 value-to-promotion rule.
+description: Build and engage communities for sustainable customer acquisition. Use when growing audience without paid ads, launching on community platforms, or implementing build-in-public strategies.
 license: MIT
 ---
 

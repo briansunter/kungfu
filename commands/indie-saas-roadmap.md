@@ -1,10 +1,6 @@
 ---
-name: Indie SaaS Roadmap
-description:
-  Generate a complete 18-month roadmap for building a solo SaaS business from
-  validation to scaling decision point. Use this command when starting a new
-  SaaS venture or planning your indie SaaS journey. Generates phase-by-phase
-  milestones, tactics, success metrics, and time investment expectations.
+name: indie-saas-roadmap
+description: Generate a complete 18-month roadmap for building a solo SaaS business from validation to scaling decision point. Use when starting a new SaaS venture or planning your indie SaaS journey.
 ---
 
 # Indie SaaS Roadmap Generator

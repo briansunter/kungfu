@@ -1,10 +1,6 @@
 ---
 name: indie-saas-validation-master
-description:
-  Validate SaaS product ideas before building through fake door testing,
-  pre-selling, and MVP scoping. Use when testing business concepts, proving
-  demand exists, or deciding whether to build a product. Includes pre-selling
-  strategies, no-code MVP validation, and community immersion tactics.
+description: Validate SaaS product ideas before building through fake door testing, pre-selling, and MVP scoping. Use when testing business concepts, proving demand exists, or deciding whether to build a product.
 license: MIT
 ---
 

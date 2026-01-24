@@ -1,8 +1,6 @@
 ---
 name: business-model
-description:
-  Generate business model canvas and documentation for products, services, or
-  business ideas
+description: Generate business model canvas and documentation for products, services, or business ideas.
 ---
 
 # Business Model Command

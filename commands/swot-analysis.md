@@ -1,7 +1,6 @@
 ---
 name: swot-analysis
-description:
-  Generate comprehensive SWOT analysis for businesses, products, or projects
+description: Generate comprehensive SWOT analysis for businesses, products, or projects.
 ---
 
 # SWOT Analysis Command

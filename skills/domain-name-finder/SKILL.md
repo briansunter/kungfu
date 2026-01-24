@@ -1,11 +1,6 @@
 ---
 name: domain-name-finder
-description:
-  Find, validate, and register domain names through requirements gathering,
-  brainstorming, trademark screening, availability checking, and registration
-  guidance. Use when choosing domains for SaaS products, startups, e-commerce
-  stores, personal brands, or any web presence requiring a memorable,
-  legally-safe domain name.
+description: Find, validate, and register domain names through requirements gathering, brainstorming, trademark screening, availability checking, and registration guidance.
 ---
 
 # Domain Name Finder Skill

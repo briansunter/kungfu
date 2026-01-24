@@ -1,10 +1,6 @@
 ---
 name: business-strategist
-description:
-  Specialized agent for business strategy, market analysis, and strategic
-  planning. Use when analyzing markets, developing business models, or planning
-  growth strategies. Triggers on "business strategy", "market analysis",
-  "competitive research", "SWOT", "go-to-market".
+description: Specialized agent for business strategy, market analysis, and strategic planning. Use when analyzing markets, developing business models, or planning growth strategies.
 model: inherit
 permissionMode: bypassPermissions
 ---

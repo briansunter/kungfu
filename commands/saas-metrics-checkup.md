@@ -1,10 +1,6 @@
 ---
-name: SaaS Metrics Checkup
-description:
-  Analyze business health across all critical SaaS metrics (MRR, ARR, churn,
-  LTV:CAC, NRR, ARPU, growth rate). Benchmarks against industry standards and
-  identifies areas needing attention. Use this command for monthly business
-  reviews, performance tracking, or health checks.
+name: saas-metrics-checkup
+description: Analyze business health across all critical SaaS metrics (MRR, ARR, churn, LTV:CAC, NRR, ARPU, growth rate). Use for monthly business reviews or health checks.
 ---
 
 # SaaS Metrics Checkup

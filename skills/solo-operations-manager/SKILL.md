@@ -1,11 +1,6 @@
 ---
 name: solo-operations-manager
-description:
-  Optimize solo founder operations with structured weekly rhythms, time
-  blocking, and burnout prevention strategies. Use when managing competing
-  priorities, reducing context-switching fatigue, or creating sustainable work
-  routines. Includes themed day structures, prioritization frameworks
-  (RICE/ICE), and boundary setting.
+description: Optimize solo founder operations with structured weekly rhythms, time blocking, and burnout prevention strategies. Use when managing competing priorities or reducing context-switching fatigue.
 license: MIT
 ---
 

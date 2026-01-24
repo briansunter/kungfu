@@ -1,11 +1,6 @@
 ---
 name: pricing-strategy-designer
-description:
-  Design strategic pricing models for SaaS products with tiered structures,
-  psychological pricing tactics, and A/B testing frameworks. Use when launching
-  new pricing pages, optimizing ARPU, or reducing churn through pricing
-  psychology. Includes 3-tier pricing models, anchoring effects, charm pricing,
-  and real-world case studies with revenue impact.
+description: Design strategic pricing models for SaaS products with tiered structures, psychological pricing tactics, and A/B testing frameworks. Use when launching new pricing pages, optimizing ARPU, or reducing churn.
 license: MIT
 ---
 

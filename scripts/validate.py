@@ -133,6 +133,29 @@ def is_kebab_case(s: str) -> bool:
     return bool(re.match(r"^[a-z][a-z0-9]*(-[a-z0-9]+)*$", s))
 
 
+def check_description_block_scalar(yaml_text: str) -> bool:
+    """Check if description uses YAML block scalar syntax (multi-line in source).
+
+    Returns True if block scalar is detected (which is an error).
+    """
+    lines = yaml_text.split('\n')
+    for line in lines:
+        stripped = line.strip()
+        # Check if 'description:' is on its own line (nothing after colon except whitespace)
+        if stripped == 'description:':
+            return True  # Block scalar detected
+        if re.match(r'^description:\s*$', stripped):
+            return True  # Block scalar detected
+        if stripped.startswith('description:'):
+            # Has something after colon
+            after_colon = stripped[len('description:'):].strip()
+            # Check for block scalar indicators
+            if after_colon in ('|', '>', '|+', '>+', '|-', '>-'):
+                return True  # Block scalar indicator
+
+    return False
+
+
 def validate_skill_schema(frontmatter: dict, path: Path, result: ValidationResult, verbose: bool):
     """Validate skill frontmatter against JSON schema."""
     validator = Draft7Validator(SKILL_FRONTMATTER_SCHEMA)
@@ -328,6 +351,14 @@ def validate_skill(path: Path, result: ValidationResult, verbose: bool):
         result.fail(error)
         return
 
+    # Get raw YAML text for block scalar check
+    parts = content.split("---", 2)
+    yaml_text = parts[1] if len(parts) >= 2 else ""
+
+    # Check for block scalar syntax in description (must be single line in source)
+    if check_description_block_scalar(yaml_text):
+        result.fail("description uses YAML block scalar syntax (must be single line in source)")
+
     # Validate against JSON schema (catches extraneous fields, validates format)
     validate_skill_schema(frontmatter, path, result, verbose)
 
@@ -363,6 +394,14 @@ def validate_command(path: Path, result: ValidationResult, verbose: bool):
         result.fail(error)
         return
 
+    # Get raw YAML text for block scalar check
+    parts = content.split("---", 2)
+    yaml_text = parts[1] if len(parts) >= 2 else ""
+
+    # Check for block scalar syntax in description
+    if check_description_block_scalar(yaml_text):
+        result.fail("description uses YAML block scalar syntax (must be single line in source)")
+
     # Required fields
     if "name" not in frontmatter:
         result.fail("Missing required field: name")
@@ -372,11 +411,7 @@ def validate_command(path: Path, result: ValidationResult, verbose: bool):
     if "description" not in frontmatter:
         result.fail("Missing required field: description")
     else:
-        desc = frontmatter["description"]
-        if isinstance(desc, str) and "\n" not in desc:
-            result.pass_("description is single-line", verbose)
-        else:
-            result.warn("description should be a single-line string")
+        result.pass_("description: valid", verbose)
 
     # Validate links
     validate_links(path, content, result, verbose)
@@ -393,6 +428,14 @@ def validate_agent(path: Path, result: ValidationResult, verbose: bool):
         result.fail(error)
         return
 
+    # Get raw YAML text for block scalar check
+    parts = content.split("---", 2)
+    yaml_text = parts[1] if len(parts) >= 2 else ""
+
+    # Check for block scalar syntax in description
+    if check_description_block_scalar(yaml_text):
+        result.fail("description uses YAML block scalar syntax (must be single line in source)")
+
     # Required fields
     if "name" not in frontmatter:
         result.fail("Missing required field: name")
@@ -402,11 +445,7 @@ def validate_agent(path: Path, result: ValidationResult, verbose: bool):
     if "description" not in frontmatter:
         result.fail("Missing required field: description")
     else:
-        desc = frontmatter["description"]
-        if isinstance(desc, str) and "\n" not in desc:
-            result.pass_("description is single-line", verbose)
-        else:
-            result.warn("description should be a single-line string")
+        result.pass_("description: valid", verbose)
 
     # Validate model field if present
     valid_models = {"sonnet", "opus", "haiku", "inherit"}

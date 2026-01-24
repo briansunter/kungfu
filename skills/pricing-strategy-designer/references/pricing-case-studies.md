@@ -1,8 +1,5 @@
 # Pricing Strategy Case Studies with Real Results
 
-**Source**: Report 1: Business Planning, Economics & Pricing (lines 119-165,
-265-280) **Confidence**: HIGH - Real-world A/B tests with actual revenue numbers
-
 ---
 
 ## Case Study 1: Sean M Clancy - 74% ARPU Increase
@@ -401,6 +398,7 @@ strategy.
 
 ---
 
-**Source**: Full research at `/docs/ams/notes/research-indie-saas-business/`
+## Sources
 
-- Report 1: Business Planning, Economics & Pricing
+- [Smart Micro-SaaS Pricing Strategies for Indie Founders | Freemius Blog](https://freemius.com/blog/micro-saas-pricing-strategies/)
+- [How I Successfully Doubled My SaaS Price (and Lowered Churn) | DevAsLife](https://www.devas.life/how-i-successfully-doubled-my-saas-price-to-10-month-and-lowered-the-churn-rate-to-3)

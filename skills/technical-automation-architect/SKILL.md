@@ -194,7 +194,7 @@ authentication or 3 months acquiring your first 100 customers?"
 For comprehensive technical strategies, tools, and frameworks, see the
 references:
 
-**`references/stack-comparison.md`**
+**[references/stack-comparison.md](references/stack-comparison.md)**
 
 - Django vs Rails vs Go comparison
 - Frontend options: React vs NextJS vs HTMX
@@ -202,7 +202,7 @@ references:
 - Hosting infrastructure options
 - Real-world stack examples from successful solo SaaS
 
-**`references/managed-services.md`**
+**[references/managed-services.md](references/managed-services.md)**
 
 - Authentication: Auth0, Supabase Auth, Clerk comparison
 - Payments: Stripe vs Paddle configuration
@@ -210,7 +210,7 @@ references:
 - Databases: RDS, Supabase, PlanetScale evaluation
 - Cost-benefit calculations for each service
 
-**`references/automation-checklist.md`**
+**[references/automation-checklist.md](references/automation-checklist.md)**
 
 - 50+ automation opportunities identified
 - No-code tools comparison (Zapier vs Make vs n8n)
@@ -222,12 +222,7 @@ references:
 
 This skill synthesizes findings from technical operations research:
 
-**Primary Frameworks**:
-
-- Final Report: Tech Stack Selection lines 395-425
-- Final Report: Build vs Buy lines 428-461
-- Final Report: AI Automation Stack lines 727-770+
-- Report 3: Technical Operations sections
+**Primary Research**:
 
 **Key Principles**:
 
@@ -268,7 +263,5 @@ Use `systemization-documentation-expert` skill for SOPs Use
 
 ## Sources
 
-- How Solo Founders Are Building $1M+ SaaS Businesses Using Only AI | Medium
-  https://aakashgupta.medium.com/how-solo-founders-are-building-1m-saas-businesses-using-only-ai-complete-playbook-3ab2f11fb6db
-- The Rise of the Solopreneur Tech Stack in 2026 | PrometAI
-  https://prometai.app/blog/solopreneur-tech-stack-2026
+- [How Solo Founders Are Building $1M+ SaaS Businesses Using Only AI | Medium](https://aakashgupta.medium.com/how-solo-founders-are-building-1m-saas-businesses-using-only-ai-complete-playbook-3ab2f11fb6db)
+- [The Rise of the Solopreneur Tech Stack in 2026 | PrometAI](https://prometai.app/blog/solopreneur-tech-stack-2026)

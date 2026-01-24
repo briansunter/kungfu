@@ -1,8 +1,5 @@
 # Fake Door Testing Templates and Frameworks
 
-**Source**: Report 1: Business Planning, Economics & Pricing (lines 85-100)
-**Confidence**: HIGH - Multiple case studies with results
-
 ---
 
 ## What is Fake Door Testing?
@@ -430,6 +427,7 @@ $500-5,000 and 4-12 weeks. Always test the door first.
 
 ---
 
-**Source**: Full research at `/docs/ams/notes/research-indie-saas-business/`
+## Sources
 
-- Report 1: Business Planning, Economics & Pricing
+- [From Founding to Exit in Two Years: The FeedbackPanda Story | The Bootstrapped Founder](https://thebootstrappedfounder.com/from-founding-to-exit-in-two-years-the-feedbackpanda-story/)
+- [This teacher built a student feedback tool and hit $55K MRR | They Got Acquired](https://theygotacquired.com/saas/feedback-panda-acquired-by-sureswift-capital/)

@@ -1,8 +1,5 @@
 # Prioritization Frameworks: RICE and ICE Scoring
 
-**Source**: Report 3: Project Management & Technical Operations (lines 91-116)
-**Confidence**: HIGH - Industry-standard frameworks with proven results
-
 ---
 
 ## Why Prioritization Frameworks Matter
@@ -321,6 +318,7 @@ inform decisions, not replace thinking.
 
 ---
 
-**Source**: Full research at `/docs/ams/notes/research-indie-saas-business/`
+## Sources
 
-- Report 3: Project Management & Technical Operations
+- [RICE Prioritization Framework | Intercom](https://www.intercom.com/blog/rice-prioritization/)
+- [ICE Scoring Model | Product Management resources](https://www.productboard.com/guides/ice-scoring/) (Multiple industry-standard sources)

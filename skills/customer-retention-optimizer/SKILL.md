@@ -201,7 +201,7 @@ retention and revenue without acquiring new customers.
 For comprehensive retention strategies, templates, and frameworks, see the
 references:
 
-**`references/onboarding-checklist.md`**
+**[references/onboarding-checklist.md](references/onboarding-checklist.md)**
 
 - Interactive checklist templates (25% higher activation)
 - Welcome email sequences (Day 0, 1, 3, 7)
@@ -209,7 +209,7 @@ references:
 - Time-to-value optimization strategies
 - Success call scripts for high-value customers
 
-**`references/email-sequences.md`**
+**[references/email-sequences.md](references/email-sequences.md)**
 
 - Day 3/30/90 resequence email templates
 - Proactive check-in email frameworks
@@ -217,7 +217,7 @@ references:
 - Exit survey questions and analysis
 - NPS survey templates and scoring
 
-**`references/health-score-calculation.md`**
+**[references/health-score-calculation.md](references/health-score-calculation.md)**
 
 - Customer health score methodology
 - Churn prediction model framework
@@ -229,10 +229,8 @@ references:
 
 This skill synthesizes findings from customer retention research:
 
-**Primary Frameworks**:
+**Primary Research**:
 
-- Final Report: Churn Reduction Playbook lines 610-662
-- Report 4: Growth, Scaling & Automation (retention sections)
 - Onboarding optimization studies with 25% activation improvements
 
 **Key Benchmarks**:
@@ -273,7 +271,5 @@ Use `indie-saas-validation-master` skill for pre-launch retention planning Use
 
 ## Sources
 
-- Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)
-  https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578
-- The 8-Step Customer Success Process for Reducing Churn | Gong
-  https://www.gong.io/blog/customer-success-process
+- [Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)](https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578)
+- [The 8-Step Customer Success Process for Reducing Churn | Gong](https://www.gong.io/blog/customer-success-process)

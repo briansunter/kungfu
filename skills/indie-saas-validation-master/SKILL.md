@@ -126,7 +126,7 @@ Validation methods ranked by effectiveness:
 For comprehensive validation frameworks, templates, and case studies, see the
 references:
 
-**`references/validation-checklist.md`**
+**[references/validation-checklist.md](references/validation-checklist.md)**
 
 - Complete 5-point validation checklist with detailed criteria
 - Quantifiable pain assessment framework
@@ -134,7 +134,7 @@ references:
 - MVP scoping guidelines (4-week target)
 - Pricing validation benchmarks
 
-**`references/fake-door-templates.md`**
+**[references/fake-door-templates.md](references/fake-door-templates.md)**
 
 - Landing page copy templates (headline, benefits, CTA)
 - A/B testing framework for messaging variations
@@ -142,7 +142,7 @@ references:
 - Conversion rate benchmarks by channel
 - Real-world fake door case studies with results
 
-**`references/community-platforms.md`**
+**[references/community-platforms.md](references/community-platforms.md)**
 
 - Indie Hackers engagement strategy (23.1% conversion vs Product Hunt 3.1%)
 - Reddit niche community identification and engagement
@@ -154,12 +154,7 @@ references:
 
 This skill synthesizes findings from comprehensive indie SaaS research:
 
-**Primary Frameworks**:
-
-- Final Report: Framework 1 (The Idea-Seeking Approach) lines 75-107
-- Final Report: Framework 2 Phase 1 (Validation Phase) lines 110-120
-- Report 1: 2-Hour Validation Framework lines 101-106
-- Report 1: Validation Checklist lines 107-114
+**Primary Research**:
 
 **Key Case Studies**:
 
@@ -194,7 +189,5 @@ Use `pricing-strategy-designer` skill for pricing optimization Use
 
 ## Sources
 
-- From Founding to Exit in Two Years: The FeedbackPanda Story | The Bootstrapped Founder
-  https://thebootstrappedfounder.com/from-founding-to-exit-in-two-years-the-feedbackpanda-story/
-- This teacher built a student feedback tool and hit $55K MRR | They Got Acquired
-  https://theygotacquired.com/saas/feedback-panda-acquired-by-sureswift-capital/
+- [From Founding to Exit in Two Years: The FeedbackPanda Story | The Bootstrapped Founder](https://thebootstrappedfounder.com/from-founding-to-exit-in-two-years-the-feedbackpanda-story/)
+- [This teacher built a student feedback tool and hit $55K MRR | They Got Acquired](https://theygotacquired.com/saas/feedback-panda-acquired-by-sureswift-capital/)

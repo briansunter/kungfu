@@ -746,8 +746,7 @@ research:
 
 **Primary Benchmarks**:
 
-- Report 1: Business Economics & Pricing (all metrics sections)
-- Industry standards from 54 sources
+- Industry standards from multiple sources
 - Real-world case studies with concrete numbers
 - 2026 updated benchmarks (not outdated 2010s data)
 

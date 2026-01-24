@@ -200,7 +200,7 @@ Friday: [Review Theme] - [Specific activities]
 For comprehensive operations frameworks, templates, and strategies, see the
 references:
 
-**`references/weekly-templates.md`**
+**[references/weekly-templates.md](references/weekly-templates.md)**
 
 - Complete weekly rhythm templates
 - Daily structure examples with time blocks
@@ -208,7 +208,7 @@ references:
 - Boundary setting scripts and auto-responders
 - Energy management strategies
 
-**`references/prioritization-calculators.md`**
+**[references/prioritization-calculators.md](references/prioritization-calculators.md)**
 
 - RICE scoring framework with formulas
 - ICE scoring for faster decisions
@@ -216,7 +216,7 @@ references:
 - Sample calculations for feature decisions
 - Decision matrix examples
 
-**`references/boundary-scripts.md`**
+**[references/boundary-scripts.md](references/boundary-scripts.md)**
 
 - Email response templates for setting expectations
 - Auto-responder scripts for weekends/vacations
@@ -228,11 +228,9 @@ references:
 
 This skill synthesizes findings from solo founder operations research:
 
-**Primary Frameworks**:
+**Primary Research**:
 
-- Final Report: Framework 5 (Solo Founder Operating System) lines 320-389
-- Report 3: Project Management & Technical Operations
-- Weekly rhythms research from PlanStacker
+- Weekly rhythms research from successful solo founders
 
 **Key Findings**:
 
@@ -273,15 +271,9 @@ Use `technical-automation-architect` skill for leveraging your time Use
 
 ## Sources
 
-- Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)
-  https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578
-- Your Calendar Says More About Your Startup Than Your Pitch Deck | Little Pursuits
-  https://littlepursuits.substack.com/p/design-your-founder-week
-- Solopreneur Statistics 2026: 77% Profitable in First Year | FounderReports
-  https://founderreports.com/solopreneur-statistics/
-- Context Switching: Why It Kills Productivity (20-30% Productive Time) | Reclaim.ai
-  https://reclaim.ai/blog/context-switching
-- One-Person Indie SaaS Projects Built Using AI (44% Solo Founders) | AppKodes
-  https://appkodes.com/blog/one-person-indie-saas-projects-built-using-ai/
-- The Base44 Bootstrapped Startup Success Story ($80M Exit) | YouTube
-  https://www.youtube.com/watch?v=L9KvV_UOs3A
+- [Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)](https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578)
+- [Your Calendar Says More About Your Startup Than Your Pitch Deck | Little Pursuits](https://littlepursuits.substack.com/p/design-your-founder-week)
+- [Solopreneur Statistics 2026: 77% Profitable in First Year | FounderReports](https://founderreports.com/solopreneur-statistics/)
+- [Context Switching: Why It Kills Productivity (20-30% Productive Time) | Reclaim.ai](https://reclaim.ai/blog/context-switching)
+- [One-Person Indie SaaS Projects Built Using AI (44% Solo Founders) | AppKodes](https://appkodes.com/blog/one-person-indie-saas-projects-built-using-ai/)
+- [The Base44 Bootstrapped Startup Success Story ($80M Exit) | YouTube](https://www.youtube.com/watch?v=L9KvV_UOs3A)

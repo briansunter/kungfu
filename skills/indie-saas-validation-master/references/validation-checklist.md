@@ -1,8 +1,5 @@
 # Validation Checklist for Indie SaaS Ideas
 
-**Source**: Report 1: Business Planning, Economics & Pricing (lines 101-114)
-**Confidence**: HIGH - Multiple validated frameworks and case studies
-
 ---
 
 ## The 2-Hour Validation Framework
@@ -263,7 +260,7 @@ nobody wants. The best time to validate is BEFORE writing code.
 
 ---
 
-**Source**: Full research at `/docs/ams/notes/research-indie-saas-business/`
+## Sources
 
-- Report 1: Business Planning, Economics & Pricing
-- Final Report: Framework 1 (Idea-Seeking Approach)
+- [From Founding to Exit in Two Years: The FeedbackPanda Story | The Bootstrapped Founder](https://thebootstrappedfounder.com/from-founding-to-exit-in-two-years-the-feedbackpanda-story/)
+- [This teacher built a student feedback tool and hit $55K MRR | They Got Acquired](https://theygotacquired.com/saas/feedback-panda-acquired-by-sureswift-capital/)

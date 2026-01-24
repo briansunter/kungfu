@@ -293,6 +293,66 @@ def validate_links(path: Path, content: str, result: ValidationResult, verbose: 
             result.pass_(f"Reference OK: {ref}", verbose)
 
 
+def validate_sources_section(content: str, result: ValidationResult, verbose: bool):
+    """Validate that ## Sources sections use markdown link format [Title](url)."""
+    # Find Sources sections
+    sources_pattern = r'^## Sources\s*$'
+    sources_matches = list(re.finditer(sources_pattern, content, re.MULTILINE))
+
+    if not sources_matches:
+        # No sources section is OK
+        return
+
+    for match in sources_matches:
+        start_pos = match.end()
+
+        # Find the end of the sources section (next ## heading or end of file)
+        next_heading = re.search(r'^## ', content[start_pos:], re.MULTILINE)
+        if next_heading:
+            end_pos = start_pos + next_heading.start()
+        else:
+            end_pos = len(content)
+
+        sources_content = content[start_pos:end_pos]
+
+        # Check for non-markdown-link references (plain URLs or block quotes)
+        lines = sources_content.split('\n')
+        in_sources = False
+
+        for i, line in enumerate(lines):
+            stripped = line.strip()
+
+            # Skip empty lines and the "## Sources" line itself
+            if not stripped or stripped == '## Sources':
+                continue
+
+            # Check if this is a list item with a markdown link
+            if stripped.startswith('- '):
+                # Extract the part after "- "
+                item_content = stripped[2:].strip()
+
+                # Check if it's a markdown link [Title](url)
+                link_match = re.match(r'^\[([^\]]+)\]\(([^)]+)\)', item_content)
+
+                if not link_match:
+                    # This is a list item but not a markdown link
+                    # Check if it looks like a block quote format (title on one line, URL on next)
+                    if stripped and not stripped.startswith('- ['):
+                        result.fail(f"Sources section must use markdown link format [Title](url), found: {stripped[:50]}...")
+                else:
+                    # It's a markdown link, validate the URL
+                    url = link_match.group(2)
+                    if not url.startswith(('http://', 'https://')):
+                        # Could be a relative path or non-URL reference
+                        # For external sources, expect http/https
+                        if '.' in url and not url.startswith('#'):
+                            result.warn(f"Source URL should use http/https: {url}")
+                    else:
+                        result.pass_(f"Source OK: [{link_match.group(1)}]({url[:30]}...)", verbose)
+
+        result.pass_("Sources section uses markdown link format", verbose)
+
+
 def validate_orphan_files(skill_dir: Path, result: ValidationResult, verbose: bool):
     """Check for files in references/, scripts/, templates/, examples/, assets/ that aren't linked."""
     # Directories that should have their files referenced
@@ -378,6 +438,9 @@ def validate_skill(path: Path, result: ValidationResult, verbose: bool):
 
     # Validate links
     validate_links(path, content, result, verbose)
+
+    # Validate sources sections use markdown link format
+    validate_sources_section(content, result, verbose)
 
     # Check for orphan files (files in references/, scripts/, etc. not linked anywhere)
     validate_orphan_files(path.parent, result, verbose)

@@ -1,8 +1,5 @@
 # A/B Testing Framework for Pricing Optimization
 
-**Source**: Report 1: Business Planning, Economics & Pricing (lines 260-280)
-**Confidence**: HIGH - Real A/B test results with statistical significance
-
 ---
 
 ## Why A/B Test Pricing?
@@ -457,6 +454,7 @@ always room for optimization.
 
 ---
 
-**Source**: Full research at `/docs/ams/notes/research-indie-saas-business/`
+## Sources
 
-- Report 1: Business Planning, Economics & Pricing (lines 260-280)
+- [Smart Micro-SaaS Pricing Strategies for Indie Founders | Freemius Blog](https://freemius.com/blog/micro-saas-pricing-strategies/)
+- [How I Successfully Doubled My SaaS Price (and Lowered Churn) | DevAsLife](https://www.devas.life/how-i-successfully-doubled-my-saas-price-to-10-month-and-lowered-the-churn-rate-to-3)

@@ -174,7 +174,7 @@ Use this skill when you need to:
 For comprehensive pricing frameworks, templates, and case studies, see the
 references:
 
-**`references/pricing-page-templates.md`**
+**[references/pricing-page-templates.md](references/pricing-page-templates.md)**
 
 - Complete pricing page copy templates
 - Benefit-focused headline examples
@@ -182,7 +182,7 @@ references:
 - Social proof and FAQ sections
 - Visual hierarchy best practices
 
-**`references/ab-testing-framework.md`**
+**[references/ab-testing-framework.md](references/ab-testing-framework.md)**
 
 - A/B testing methodology for pricing
 - What variables to test and in what order
@@ -190,7 +190,7 @@ references:
 - Statistical significance guidelines
 - Real A/B test results with numbers
 
-**`references/pricing-case-studies.md`**
+**[references/pricing-case-studies.md](references/pricing-case-studies.md)**
 
 - Sean M Clancy: 74% ARPU increase detailed breakdown
 - Liam Derbyshire: 38% ARPU lift strategy
@@ -202,12 +202,7 @@ references:
 
 This skill synthesizes findings from comprehensive indie SaaS pricing research:
 
-**Primary Frameworks**:
-
-- Final Report: Framework 3 (The 3-Tier Pricing Strategy) lines 156-216
-- Report 1: Pricing Strategy sections lines 119-165
-- Report 1: Pricing Psychology Tactics lines 230-280
-- Report 1: Unit Economics Benchmarks lines 168-227
+**Primary Research**:
 
 **Key Case Studies**:
 
@@ -248,7 +243,5 @@ Use `customer-retention-optimizer` skill for churn reduction strategies Use
 
 ## Sources
 
-- Smart Micro-SaaS Pricing Strategies for Indie Founders | Freemius Blog
-  https://freemius.com/blog/micro-saas-pricing-strategies/
-- How I Successfully Doubled My SaaS Price (and Lowered Churn) | DevAsLife
-  https://www.devas.life/how-i-successfully-doubled-my-saas-price-to-10-month-and-lowered-the-churn-rate-to-3
+- [Smart Micro-SaaS Pricing Strategies for Indie Founders | Freemius Blog](https://freemius.com/blog/micro-saas-pricing-strategies/)
+- [How I Successfully Doubled My SaaS Price (and Lowered Churn) | DevAsLife](https://www.devas.life/how-i-successfully-doubled-my-saas-price-to-10-month-and-lowered-the-churn-rate-to-3)

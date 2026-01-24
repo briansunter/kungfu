@@ -187,7 +187,7 @@ SOPs/
 
 For comprehensive SOP frameworks, templates, and systems, see the references:
 
-**`references/sop-templates.md`**
+**[references/sop-templates.md](references/sop-templates.md)**
 
 - Templates for all 5 SOP types with examples
 - Checklist templates (fast, focused)
@@ -195,7 +195,7 @@ For comprehensive SOP frameworks, templates, and systems, see the references:
 - How-to guide structures (step-by-step)
 - Reference guide layouts (quick lookup)
 
-**`references/documentation-tools.md`**
+**[references/documentation-tools.md](references/documentation-tools.md)**
 
 - Notion + AI setup for searchable knowledge base
 - ScreenSteps for purpose-built SOP software
@@ -203,7 +203,7 @@ For comprehensive SOP frameworks, templates, and systems, see the references:
 - Screenshot and annotation tools
 - Collaboration and version control
 
-**`references/hiring-checklist.md`**
+**[references/hiring-checklist.md](references/hiring-checklist.md)**
 
 - Ready-to-hire benchmarks (revenue, profit, time, process)
 - First hire roles: Technical Support, Customer Success, Contractor
@@ -215,10 +215,8 @@ For comprehensive SOP frameworks, templates, and systems, see the references:
 
 This skill synthesizes findings from scaling and systemization research:
 
-**Primary Frameworks**:
+**Primary Research**:
 
-- Final Report: Systemize Before Hiring lines 665-725
-- Report 4: Growth, Scaling & Automation (SOP sections)
 - The E-Myth Revisited approach to process documentation
 
 **Key Principles**:
@@ -269,5 +267,4 @@ Use `solo-operations-manager` skill for weekly operational systems Use
 
 ## Sources
 
-- Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)
-  https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578
+- [Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)](https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578)

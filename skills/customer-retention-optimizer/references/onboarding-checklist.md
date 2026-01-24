@@ -1,8 +1,5 @@
 # Onboarding Optimization and Activation Checklist
 
-**Source**: Report 4: Growth, Scaling & Automation (lines 57-68) **Confidence**:
-HIGH - Proven 25% higher activation with checklists
-
 ---
 
 ## The 7-Day Activation Framework
@@ -392,6 +389,7 @@ everything else becomes easier.
 
 ---
 
-**Source**: Full research at `/docs/ams/notes/research-indie-saas-business/`
+## Sources
 
-- Report 4: Growth, Scaling & Automation (lines 57-68)
+- [Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)](https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578)
+- [The 8-Step Customer Success Process for Reducing Churn | Gong](https://www.gong.io/blog/customer-success-process)

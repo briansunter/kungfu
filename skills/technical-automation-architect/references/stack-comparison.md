@@ -1,8 +1,5 @@
 # Tech Stack Comparison for Solo SaaS
 
-**Source**: Report 3: Project Management & Technical Operations (lines 119-154)
-**Confidence**: HIGH - Real-world stacks from successful solo founders
-
 ---
 
 ## Backend Frameworks
@@ -350,6 +347,7 @@ months of productivity.
 
 ---
 
-**Source**: Full research at `/docs/ams/notes/research-indie-saas-business/`
+## Sources
 
-- Report 3: Project Management & Technical Operations
+- [How Solo Founders Are Building $1M+ SaaS Businesses Using Only AI | Medium](https://aakashgupta.medium.com/how-solo-founders-are-building-1m-saas-businesses-using-only-ai-complete-playbook-3ab2f11fb6db)
+- [The Rise of the Solopreneur Tech Stack in 2026 | PrometAI](https://prometai.app/blog/solopreneur-tech-stack-2026)

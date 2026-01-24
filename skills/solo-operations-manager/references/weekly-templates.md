@@ -1,8 +1,5 @@
 # Weekly Rhythm Templates and Daily Structures
 
-**Source**: Report 3: Project Management & Technical Operations (lines 28-48)
-**Confidence**: HIGH - Proven frameworks from successful solo founders
-
 ---
 
 ## The Weekly Themed Days Framework
@@ -354,6 +351,7 @@ your themes fiercely.
 
 ---
 
-**Source**: Full research at `/docs/ams/notes/research-indie-saas-business/`
+## Sources
 
-- Report 3: Project Management & Technical Operations
+- [Your Calendar Says More About Your Startup Than Your Pitch Deck | Little Pursuits](https://littlepursuits.substack.com/p/design-your-founder-week)
+- [Context Switching: Why It Kills Productivity (20-30% Productive Time) | Reclaim.ai](https://reclaim.ai/blog/context-switching)

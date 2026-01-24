@@ -1,8 +1,5 @@
 # Community Platforms for Validation and Engagement
 
-**Source**: Report 2: GTM, Marketing & Customer Acquisition **Confidence**:
-HIGH - 387 launches tracked with conversion data
-
 ---
 
 ## Platform Hierarchy: Where to Validate
@@ -536,6 +533,7 @@ conversion than launch events. Build relationships, not just traffic.
 
 ---
 
-**Source**: Full research at `/docs/ams/notes/research-indie-saas-business/`
+## Sources
 
-- Report 2: GTM, Marketing & Customer Acquisition
+- [Indie Hackers Launch Strategy 2025: 23% Conversion Rate vs Product Hunt's 3% | Awesome Directories](https://awesome-directories.com/blog/indie-hackers-launch-strategy-guide-2025/)
+- [11 Best Product Hunt Alternatives 2026 (89% Wouldn't Launch Again) | OpenHunts](https://openhunts.com/blog/product-hunt-alternatives-2025)

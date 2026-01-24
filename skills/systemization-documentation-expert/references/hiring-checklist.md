@@ -1,8 +1,5 @@
 # Hiring Checklist and Benchmarks
 
-**Source**: Report 4: Growth, Scaling & Automation (lines 149-183)
-**Confidence**: HIGH - Proven hiring framework from successful founders
-
 ---
 
 ## The Systemization-First Hiring Approach
@@ -491,4 +488,7 @@ anyone can produce consistent results.
 
 ---
 
-**Source**: Report 4: Growth, Scaling & Automation (lines 149-183)
+## Sources
+
+- [Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)](https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578)
+- [The E-Myth Revisited by Michael Gerber](https://www.amazon.com/E-Myth-Revisited-Michael-E-Gerber/dp/0060753187) (Book reference on business systems)

@@ -1,8 +1,5 @@
 # Community Post Templates and Structures
 
-**Source**: Report 2: GTM, Marketing & Customer Acquisition (lines 102-145)
-**Confidence**: HIGH - Proven formats with engagement data
-
 ---
 
 ## The 5-Part Post Framework
@@ -531,6 +528,7 @@ experience."
 
 ---
 
-**Source**: Full research at `/docs/ams/notes/research-indie-saas-business/`
-- Report 2: GTM, Marketing & Customer Acquisition (lines 102-145)
-```
+## Sources
+
+- [Indie Hackers Launch Strategy 2025: 23% Conversion Rate vs Product Hunt's 3% | Awesome Directories](https://awesome-directories.com/blog/indie-hackers-launch-strategy-guide-2025/)
+- [Smart Micro-SaaS Pricing Strategies for Indie Founders | Freemius Blog](https://freemius.com/blog/micro-saas-pricing-strategies/)

@@ -1,8 +1,5 @@
 # Pricing Page Templates and Copy Frameworks
 
-**Source**: Report 1: Business Planning, Economics & Pricing (lines 230-280)
-**Confidence**: HIGH - Multiple A/B tests and conversion optimization studies
-
 ---
 
 ## Pricing Page Structure
@@ -424,6 +421,6 @@ tweaks (copy, layout, presentation) can increase ARPU by 35-74%.
 
 ---
 
-**Source**: Full research at `/docs/ams/notes/research-indie-saas-business/`
+## Sources
 
-- Report 1: Business Planning, Economics & Pricing (lines 230-280)
+- [Smart Micro-SaaS Pricing Strategies for Indie Founders | Freemius Blog](https://freemius.com/blog/micro-saas-pricing-strategies/)

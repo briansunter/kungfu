@@ -1,8 +1,5 @@
 # Automation Opportunities and AI Tools for Solo Founders
 
-**Source**: Report 3 and Final Report AI Automation sections **Confidence**:
-HIGH - Emerging best practices for 2025-2026
-
 ---
 
 ## The AI Automation Stack (2025-2026)
@@ -339,7 +336,7 @@ impact. Automate ruthlessly so you can focus on what only you can do.
 
 ---
 
-**Source**: Full research at `/docs/ams/notes/research-indie-saas-business/`
+## Sources
 
-- Final Report: AI Automation Stack sections
-- Report 3: Project Management & Technical Operations
+- [How Solo Founders Are Building $1M+ SaaS Businesses Using Only AI | Medium](https://aakashgupta.medium.com/how-solo-founders-are-building-1m-saas-businesses-using-only-ai-complete-playbook-3ab2f11fb6db)
+- [The Rise of the Solopreneur Tech Stack in 2026 | PrometAI](https://prometai.app/blog/solopreneur-tech-stack-2026)

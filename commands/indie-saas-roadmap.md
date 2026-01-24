@@ -329,18 +329,10 @@ This roadmap synthesizes findings from comprehensive indie SaaS research:
 
 **Primary Framework:**
 
-- 4-Phase Solo SaaS Journey (final-report.md lines 110-153)
+- 4-Phase Solo SaaS Journey
 - Phase milestones and success criteria
 - Timeline expectations from 54 sources
 - Case studies of successful indie SaaS founders
-
-**Supporting Research:**
-
-- Validation tactics (Report 1)
-- Pricing strategy (Report 1, Framework 3)
-- Community-led growth (Report 2, Framework 4)
-- Solo founder operations (Report 3, Framework 5)
-- Churn reduction (Report 4)
 
 ---
 

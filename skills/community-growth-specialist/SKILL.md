@@ -256,7 +256,7 @@ conversion than one-time launch events.
 For comprehensive community strategies, templates, and tactics, see the
 references:
 
-**`references/post-templates.md`**
+**[references/post-templates.md](references/post-templates.md)**
 
 - Journey post templates with specific revenue numbers
 - Tactical playbook structures
@@ -264,7 +264,7 @@ references:
 - AMA and Q&A formats
 - Comment response frameworks
 
-**`references/platform-guidelines.md`**
+**[references/platform-guidelines.md](references/platform-guidelines.md)**
 
 - Indie Hackers culture and engagement patterns
 - Reddit community-specific strategies
@@ -272,7 +272,7 @@ references:
 - Multi-platform sequencing approach
 - The "Infinite Marketing Glitch" strategy
 
-**`references/content-calendar.md`**
+**[references/content-calendar.md](references/content-calendar.md)**
 
 - 4-month content plan with weekly themes
 - 90/10 content-to-promotion ratio examples
@@ -284,10 +284,8 @@ references:
 
 This skill synthesizes findings from comprehensive community marketing research:
 
-**Primary Frameworks**:
+**Primary Research**:
 
-- Final Report: Framework 4 (Community-Led Acquisition Strategy) lines 218-318
-- Report 2: GTM, Marketing & Customer Acquisition (all sections)
 - 387 tracked launches with conversion data
 - 156 founder surveys on platform effectiveness
 
@@ -335,7 +333,5 @@ Use `indie-saas-validation-master` skill for pre-launch validation Use
 
 ## Sources
 
-- Indie Hackers Launch Strategy 2025: 23% Conversion Rate vs Product Hunt's 3% | Awesome Directories
-  https://awesome-directories.com/blog/indie-hackers-launch-strategy-guide-2025/
-- 11 Best Product Hunt Alternatives 2026 (89% Wouldn't Launch Again) | OpenHunts
-  https://openhunts.com/blog/product-hunt-alternatives-2025
+- [Indie Hackers Launch Strategy 2025: 23% Conversion Rate vs Product Hunt's 3% | Awesome Directories](https://awesome-directories.com/blog/indie-hackers-launch-strategy-guide-2025/)
+- [11 Best Product Hunt Alternatives 2026 (89% Wouldn't Launch Again) | OpenHunts](https://openhunts.com/blog/product-hunt-alternatives-2025)

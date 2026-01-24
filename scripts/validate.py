@@ -36,7 +36,8 @@ SKILL_FRONTMATTER_SCHEMA = {
             "type": "string",
             "minLength": 1,
             "maxLength": 1024,
-            "description": "What the skill does and when to use it",
+            "pattern": "^[^\\n\\r]+$",
+            "description": "What the skill does and when to use it (single line, no newlines)",
         },
         "license": {
             "type": "string",
@@ -148,10 +149,17 @@ def validate_skill_schema(frontmatter: dict, path: Path, result: ValidationResul
                     result.fail(f"Extraneous field not in spec: '{key}'")
             elif error.validator == "pattern" and error.path:
                 field = list(error.path)[0]
-                result.fail(
-                    f"Field '{field}' has invalid format: {frontmatter.get(field)!r} "
-                    f"(must be kebab-case, no consecutive hyphens, no leading/trailing hyphens)"
-                )
+                if field == "name":
+                    result.fail(
+                        f"Field 'name' has invalid format: {frontmatter.get(field)!r} "
+                        f"(must be kebab-case, no consecutive hyphens, no leading/trailing hyphens)"
+                    )
+                elif field == "description":
+                    result.fail(
+                        f"Field 'description' contains newlines (must be single line)"
+                    )
+                else:
+                    result.fail(f"Field '{field}' has invalid format")
             elif error.validator == "required":
                 result.fail(f"Missing required field: {error.message}")
             elif error.validator == "maxLength":
@@ -328,12 +336,7 @@ def validate_skill(path: Path, result: ValidationResult, verbose: bool):
         result.pass_(f"name: {frontmatter['name']}", verbose)
 
     if "description" in frontmatter:
-        desc = frontmatter["description"]
-        # Check for block scalar (multiline description in YAML)
-        if isinstance(desc, str) and "\n" not in desc:
-            result.pass_("description is single-line", verbose)
-        else:
-            result.warn("description should be a single-line string (no block scalar)")
+        result.pass_("description: valid", verbose)
 
     # Word count check (Agent Skills recommends < 500 lines, ~1500 words is reasonable)
     word_count = len(content.split())

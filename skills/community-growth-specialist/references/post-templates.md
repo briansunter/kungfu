@@ -20,8 +20,7 @@ All high-engagement posts follow this structure:
 ## Template 1: Journey/Milestone Post ⭐⭐⭐⭐⭐
 
 **Use for**: Revenue milestones, product launches, progress updates
-**Engagement**: 30-50+ comments
-**Conversion**: 18-23%
+**Engagement**: 30-50+ comments **Conversion**: 18-23%
 
 ### Structure
 
@@ -74,18 +73,22 @@ DM me or check my journey posts for the full breakdown."
 ### What Makes This Work
 
 **Specific numbers** (not vague "growth"):
+
 - ✅ "$10,200 MRR, 87 customers"
 - ❌ "Significant revenue growth"
 
 **Failure transparency** (builds trust):
+
 - ✅ "Product Hunt launch...3 customers"
 - ❌ Only sharing wins
 
 **Actionable tactics** (not just inspiration):
+
 - ✅ "Posted daily to IH for 90 days"
 - ❌ "I engaged with the community"
 
 **Question at the end** (drives engagement):
+
 - ✅ "What worked for you?"
 - ❌ "Follow my journey!"
 
@@ -93,9 +96,8 @@ DM me or check my journey posts for the full breakdown."
 
 ## Template 2: Post-Mortem with Failure Transparency ⭐⭐⭐⭐⭐
 
-**Use for**: Analyzing what didn't work, lessons learned
-**Engagement**: 40-60+ comments (highest of all formats)
-**Conversion**: 20-25%
+**Use for**: Analyzing what didn't work, lessons learned **Engagement**: 40-60+
+comments (highest of all formats) **Conversion**: 20-25%
 
 ### Structure
 
@@ -176,16 +178,19 @@ What did you learn from it?"
 ### Why This Works
 
 **Vulnerability creates connection**:
+
 - People relate to struggle more than success
 - "Me too" responses drive engagement
 - Builds credibility (you're not selling a dream)
 
 **Surprising outcome** (meta-strategy):
+
 - Strategy post about PH outperformed PH itself
 - "Infinite Marketing Glitch" effect
 - People love "how I learned X" content
 
 **Actionable lessons**:
+
 - Not just "I failed"
 - "Here's what I'd do differently"
 - Others can apply these lessons
@@ -194,9 +199,8 @@ What did you learn from it?"
 
 ## Template 3: Tactical Playbook ⭐⭐⭐⭐
 
-**Use for**: Sharing specific frameworks, processes, systems
-**Engagement**: 15-25 comments
-**Conversion**: 15-18%
+**Use for**: Sharing specific frameworks, processes, systems **Engagement**:
+15-25 comments **Conversion**: 15-18%
 
 ### Structure
 
@@ -266,16 +270,19 @@ Or what failed spectacularly?"
 ### Why This Works
 
 **Specific framework** (not vague advice):
+
 - Clear steps anyone can follow
 - Time estimates for each step
 - Success/failure criteria
 
 **Real example** (proof it works):
+
 - Shows application of framework
 - Specific results (127 emails, 12 pre-orders)
 - Makes advice credible
 
 **Actionable** (do today):
+
 - "What you can do right now"
 - Not just theory
 - Implementable immediately
@@ -285,12 +292,11 @@ Or what failed spectacularly?"
 ## Template 4: Technical Deep-Dive ⭐⭐⭐
 
 **Use for**: Technical architectures, build processes, technical decisions
-**Engagement**: 10-15 comments
-**Conversion**: 10-12%
+**Engagement**: 10-15 comments **Conversion**: 10-12%
 
 ### Structure
 
-```
+````
 [Headline: Technical + outcome]
 "How we scaled from 0 to 10K users with a $50/month infrastructure"
 
@@ -367,11 +373,11 @@ At 100K users, would consider:
 create policy "Users can read own data"
 on my_table for select
 using (auth.uid() = user_id);
-```
+````
 
-[CTA]
-"What's your stack? What would you change?
-Any tools you'd recommend avoiding?"
+[CTA] "What's your stack? What would you change? Any tools you'd recommend
+avoiding?"
+
 ```
 
 ---
@@ -385,23 +391,26 @@ Any tools you'd recommend avoiding?"
 ### Structure
 
 ```
-[Headline: Clear topic + credibility]
-"AMA: I hit $10K MRR as solo founder in 18 months. Ask me anything."
 
-[Context]
-"Background:
+[Headline: Clear topic + credibility] "AMA: I hit $10K MRR as solo founder in 18
+months. Ask me anything."
+
+[Context] "Background:
+
 - Solo founder (no employees)
 - B2B SaaS for agencies
 - Bootstrapped (no VC)
 - Started as side project, quit job at $5K MRR
 
 Current state:
+
 - $10.2K MRR
 - 87 customers
 - 4.2% monthly churn
 - $117 ARPO (average revenue per user)
 
 Happy to answer questions about:
+
 - Idea validation
 - Pricing strategy
 - Community-led growth
@@ -409,20 +418,21 @@ Happy to answer questions about:
 - Tech stack decisions
 - When to quit your job"
 
-[Optional: Key insights to prime discussion]
-"Things that worked:
+[Optional: Key insights to prime discussion] "Things that worked:
+
 - Tiered pricing ($29/$99/$299)
 - Indie Hackers over Product Hunt (23% vs 3% conversion)
 - 4-month community build before launch
 - Automated onboarding (25% higher activation)
 
 Things that didn't:
+
 - Product Hunt launch (3 customers from #7 spot)
 - Facebook ads ($500, zero customers)
 - Building 10 features nobody used"
 
-[CTA]
-"Fire away. What do you want to know?"
+[CTA] "Fire away. What do you want to know?"
+
 ```
 
 ---
@@ -432,16 +442,18 @@ Things that didn't:
 ### For "Congrats!" Comments
 
 ```
+
 "Thanks @[Name]!
 
-A lot of trial and error along the way.
-Biggest breakthrough was [specific tactic].
-Happy to share details if you're building something similar.
+A lot of trial and error along the way. Biggest breakthrough was [specific
+tactic]. Happy to share details if you're building something similar.
+
 ```
 
 ### For "How did you do X?" Comments
 
 ```
+
 "Great question @[Name]!
 
 Here's what worked for me:
@@ -451,30 +463,34 @@ Here's what worked for me:
 Key insight: [Lesson learned]
 
 Hope that helps! Let me know if you want more details."
+
 ```
 
 ### For "I tried that but it didn't work" Comments
 
 ```
+
 "Totally hear you @[Name]!
 
-I had the same experience initially.
-What changed for me: [specific pivot]
+I had the same experience initially. What changed for me: [specific pivot]
 
-Different things work for different markets.
-What are you building? Maybe I can share specific context."
+Different things work for different markets. What are you building? Maybe I can
+share specific context."
+
 ```
 
 ### For Skeptical/Critical Comments
 
 ```
+
 "Fair point @[Name]!
 
-You're right that [acknowledge validity].
-In my case, [explain why it worked for you].
+You're right that [acknowledge validity]. In my case, [explain why it worked for
+you].
 
-Curious: What's worked better for you?
-Always looking to learn from others' experience."
+Curious: What's worked better for you? Always looking to learn from others'
+experience."
+
 ```
 
 ---
@@ -517,3 +533,4 @@ Always looking to learn from others' experience."
 
 **Source**: Full research at `/docs/ams/notes/research-indie-saas-business/`
 - Report 2: GTM, Marketing & Customer Acquisition (lines 102-145)
+```

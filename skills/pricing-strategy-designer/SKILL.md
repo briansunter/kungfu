@@ -248,3 +248,12 @@ Once your pricing strategy is set:
 
 Use `customer-retention-optimizer` skill for churn reduction strategies Use
 `solo-operations-manager` skill for metrics dashboards and tracking
+
+---
+
+## Sources
+
+- Smart Micro-SaaS Pricing Strategies for Indie Founders | Freemius Blog
+  https://freemius.com/blog/micro-saas-pricing-strategies/
+- How I Successfully Doubled My SaaS Price (and Lowered Churn) | DevAsLife
+  https://www.devas.life/how-i-successfully-doubled-my-saas-price-to-10-month-and-lowered-the-churn-rate-to-3

@@ -273,3 +273,12 @@ Once your retention is healthy:
 
 Use `indie-saas-validation-master` skill for pre-launch retention planning Use
 `systemization-documentation-expert` skill for SOP creation
+
+---
+
+## Sources
+
+- Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)
+  https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578
+- The 8-Step Customer Success Process for Reducing Churn | Gong
+  https://www.gong.io/blog/customer-success-process

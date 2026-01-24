@@ -268,3 +268,10 @@ Once your SOPs are documented:
 
 Use `solo-operations-manager` skill for weekly operational systems Use
 `technical-automation-architect` skill for automating documented processes
+
+---
+
+## Sources
+
+- Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)
+  https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578

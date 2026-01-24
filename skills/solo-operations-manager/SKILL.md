@@ -273,3 +273,20 @@ Once your weekly rhythm is established:
 
 Use `technical-automation-architect` skill for leveraging your time Use
 `systemization-documentation-expert` skill when preparing to hire
+
+---
+
+## Sources
+
+- Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)
+  https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578
+- Your Calendar Says More About Your Startup Than Your Pitch Deck | Little Pursuits
+  https://littlepursuits.substack.com/p/design-your-founder-week
+- Solopreneur Statistics 2026: 77% Profitable in First Year | FounderReports
+  https://founderreports.com/solopreneur-statistics/
+- Context Switching: Why It Kills Productivity (20-30% Productive Time) | Reclaim.ai
+  https://reclaim.ai/blog/context-switching
+- One-Person Indie SaaS Projects Built Using AI (44% Solo Founders) | AppKodes
+  https://appkodes.com/blog/one-person-indie-saas-projects-built-using-ai/
+- The Base44 Bootstrapped Startup Success Story ($80M Exit) | YouTube
+  https://www.youtube.com/watch?v=L9KvV_UOs3A

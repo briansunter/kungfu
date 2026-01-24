@@ -184,6 +184,41 @@ def extract_backtick_references(content: str) -> list[str]:
     return re.findall(pattern, content)
 
 
+def extract_all_file_references(content: str) -> set[str]:
+    """Extract all file references from content (backticks, code blocks, plain text)."""
+    refs = set()
+
+    # Get backtick references
+    refs.update(extract_backtick_references(content))
+
+    # Get references from code blocks and plain text
+    # Match patterns like 'scripts/file.py' or 'references/doc.md'
+    # This is more permissive to catch mentions in code blocks
+    file_pattern = r'(?:^|[\s\'"`(])([a-zA-Z0-9_\-]+/[a-zA-Z0-9_\-./]+\.(?:md|py|ts|js|json|yaml|yml))(?:[\s\'"`)]|$)'
+    refs.update(re.findall(file_pattern, content, re.MULTILINE))
+
+    return refs
+
+
+def get_all_references_from_content(content: str) -> set[str]:
+    """Extract all file references from content (links, backticks, code blocks, plain text)."""
+    refs = set()
+
+    # Get markdown links
+    for _, url in extract_markdown_links(content):
+        if not url.startswith(('http://', 'https://', 'mailto:', '#')):
+            url_path = url.split('#')[0]
+            if url_path:
+                refs.add(url_path)
+
+    # Get all file references (backticks, code blocks, plain text)
+    for ref in extract_all_file_references(content):
+        if not any(x in ref for x in ['node_modules', 'dist/', '.git', '...']):
+            refs.add(ref)
+
+    return refs
+
+
 def validate_links(path: Path, content: str, result: ValidationResult, verbose: bool):
     """Validate markdown links and file references in content."""
     base_dir = path.parent
@@ -227,6 +262,53 @@ def validate_links(path: Path, content: str, result: ValidationResult, verbose: 
             result.pass_(f"Reference OK: {ref}", verbose)
 
 
+def validate_orphan_files(skill_dir: Path, result: ValidationResult, verbose: bool):
+    """Check for files in references/, scripts/, templates/, examples/, assets/ that aren't linked."""
+    # Directories that should have their files referenced
+    resource_dirs = ['references', 'scripts', 'templates', 'examples', 'assets']
+
+    # Collect all content from markdown files in the skill directory
+    all_content = ""
+    for md_file in skill_dir.rglob("*.md"):
+        all_content += md_file.read_text()
+
+    # Get all references from the content
+    all_refs = get_all_references_from_content(all_content)
+
+    # Normalize references to just filenames for matching
+    ref_filenames = set()
+    for ref in all_refs:
+        # Handle both 'references/file.md' and 'file.md' formats
+        ref_filenames.add(Path(ref).name)
+        ref_filenames.add(ref)  # Also keep full path for exact matching
+
+    # Check each resource directory
+    for resource_dir_name in resource_dirs:
+        resource_dir = skill_dir / resource_dir_name
+        if not resource_dir.exists():
+            continue
+
+        # Find all files in the resource directory (non-recursive for simplicity)
+        for file_path in resource_dir.iterdir():
+            if file_path.is_file():
+                # Skip certain files
+                if file_path.name in ['package.json', 'bun.lock', '.gitkeep']:
+                    continue
+
+                # Check if this file is referenced
+                relative_path = f"{resource_dir_name}/{file_path.name}"
+                is_referenced = (
+                    file_path.name in ref_filenames
+                    or relative_path in ref_filenames
+                    or relative_path in all_refs
+                )
+
+                if not is_referenced:
+                    result.fail(f"Orphan file not referenced anywhere: {relative_path}")
+                else:
+                    result.pass_(f"File is referenced: {relative_path}", verbose)
+
+
 def validate_skill(path: Path, result: ValidationResult, verbose: bool):
     """Validate a SKILL.md file against Agent Skills spec."""
     print(f"\n{color('Validating skill:', Colors.BLUE)} {path}")
@@ -262,6 +344,9 @@ def validate_skill(path: Path, result: ValidationResult, verbose: bool):
 
     # Validate links
     validate_links(path, content, result, verbose)
+
+    # Check for orphan files (files in references/, scripts/, etc. not linked anywhere)
+    validate_orphan_files(path.parent, result, verbose)
 
 
 def validate_command(path: Path, result: ValidationResult, verbose: bool):

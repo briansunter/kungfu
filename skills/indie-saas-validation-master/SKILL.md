@@ -193,3 +193,12 @@ Once your idea validates successfully:
 
 Use `pricing-strategy-designer` skill for pricing optimization Use
 `community-growth-specialist` skill for audience building
+
+---
+
+## Sources
+
+- From Founding to Exit in Two Years: The FeedbackPanda Story | The Bootstrapped Founder
+  https://thebootstrappedfounder.com/from-founding-to-exit-in-two-years-the-feedbackpanda-story/
+- This teacher built a student feedback tool and hit $55K MRR | They Got Acquired
+  https://theygotacquired.com/saas/feedback-panda-acquired-by-sureswift-capital/

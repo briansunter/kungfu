@@ -52,7 +52,7 @@ async function searchUSPTO(query: string): Promise<number> {
     // Count results (this is approximate - actual parsing depends on USPTO page structure)
     const resultText = $('.results-count, .search-results-count, [data-testid="results-count"]').text();
     const match = resultText.match(/(\d+)/);
-    return match ? parseInt(match[1]) : 0;
+    return match?.[1] ? parseInt(match[1]) : 0;
   } catch {
     return 0;
   }
@@ -76,7 +76,7 @@ async function searchEUIPO(query: string): Promise<number> {
     // Count results (approximate)
     const resultText = $('.results-count, .count, [data-count]').text();
     const match = resultText.match(/(\d+)/);
-    return match ? parseInt(match[1]) : 0;
+    return match?.[1] ? parseInt(match[1]) : 0;
   } catch {
     return 0;
   }

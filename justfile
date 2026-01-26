@@ -52,3 +52,23 @@ validate-verbose:
 # Generate README skills table (use --write to update README.md)
 readme-table *args:
     bun scripts/generate-readme-table.ts {{args}}
+
+# Install git hooks
+install-hooks:
+    @echo "Installing pre-commit hook..."
+    @if [ -f .git/hooks/pre-commit ]; then \
+        if ! grep -q "pre-commit-readme-table" .git/hooks/pre-commit; then \
+            echo "" >> .git/hooks/pre-commit; \
+            echo "# Update README skills table" >> .git/hooks/pre-commit; \
+            echo "./scripts/pre-commit-readme-table.sh" >> .git/hooks/pre-commit; \
+            echo "Hook added to existing pre-commit"; \
+        else \
+            echo "Hook already installed"; \
+        fi \
+    else \
+        echo '#!/usr/bin/env bash' > .git/hooks/pre-commit; \
+        echo 'set -e' >> .git/hooks/pre-commit; \
+        echo './scripts/pre-commit-readme-table.sh' >> .git/hooks/pre-commit; \
+        chmod +x .git/hooks/pre-commit; \
+        echo "Created new pre-commit hook"; \
+    fi

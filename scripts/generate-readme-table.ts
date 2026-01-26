@@ -102,7 +102,8 @@ function generateTable(skills: SkillFrontmatter[]): string {
 	for (const skill of skills) {
 		// Escape pipe characters in description
 		const desc = skill.description.replace(/\|/g, "\\|");
-		lines.push(`| \`${skill.name}\` | ${desc} |`);
+		const link = `[${skill.name}](skills/${skill.name}/SKILL.md)`;
+		lines.push(`| ${link} | ${desc} |`);
 	}
 
 	return lines.join("\n");

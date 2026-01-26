@@ -16,8 +16,7 @@ this Privacy Policy, please do not access our website or use our services.
 
 - Email: legal@antigravity.test
 - Website: antigravity.test
-- Address: 123 Ai Lane
-Silicon Valley, CA
+- Address: 123 Ai Lane Silicon Valley, CA
 
 ## 2. Information We Collect
 
@@ -142,12 +141,9 @@ services and fulfill the purposes outlined in this Privacy Policy.
 
 - **Account Information:** Retained while your account is active, then
   deleted/anonymous within 730 days of account closure
-- **Transaction Records:** Retained for 730 years for tax and
-  legal purposes
-- **Support Communications:** Retained for 730 years for quality
-  assurance
-- **Analytics Data:** Retained in anonymized form for up to 730
-  months
+- **Transaction Records:** Retained for 730 years for tax and legal purposes
+- **Support Communications:** Retained for 730 years for quality assurance
+- **Analytics Data:** Retained in anonymized form for up to 730 months
 
 ## 7. Your Privacy Rights
 
@@ -205,7 +201,8 @@ Request deletion of your personal information, subject to certain exceptions.
 
 Opt-out of the sale or sharing of your personal information.
 
-**"Do Not Sell or Share My Personal Information" link:** antigravity.test/do-not-sell
+**"Do Not Sell or Share My Personal Information" link:**
+antigravity.test/do-not-sell
 
 ### 8.4 Right to Non-Discrimination
 
@@ -221,10 +218,10 @@ You may designate an authorized agent to make requests on your behalf.
 
 ## 9. Children's Privacy
 
-Our services are not intended for children under the age of 18. We do not knowingly collect personal information from children under
-this age. If you are a parent or guardian and believe your child has provided us
-with personal information, please contact us, and we will delete such
-information.
+Our services are not intended for children under the age of 18. We do not
+knowingly collect personal information from children under this age. If you are
+a parent or guardian and believe your child has provided us with personal
+information, please contact us, and we will delete such information.
 
 ## 10. International Data Transfers
 
@@ -291,8 +288,8 @@ understood, and agree to be bound by this Privacy Policy.
 
 ## 16. Governing Law
 
-This Privacy Policy is governed by the laws of California, USA, without regard to
-its conflict of law provisions.
+This Privacy Policy is governed by the laws of California, USA, without regard
+to its conflict of law provisions.
 
 ## 17. Contact Us
 
@@ -301,14 +298,12 @@ data practices, please contact us:
 
 - **Email:** legal@antigravity.test
 - **Website:** antigravity.test/contact
-- **Address:** Antigravity Test Co
-  123 Ai Lane
-Silicon Valley, CA
+- **Address:** Antigravity Test Co 123 Ai Lane Silicon Valley, CA
 
 **Privacy Policy Version:** 1.0 **Effective Date:** January 24, 2026
 
 ---
 
-**Antigravity Test Co** respects your privacy and is committed to protecting your
-personal data. This Privacy Policy will be updated from time to time to reflect
-changes in our practices and applicable laws.
+**Antigravity Test Co** respects your privacy and is committed to protecting
+your personal data. This Privacy Policy will be updated from time to time to
+reflect changes in our practices and applicable laws.

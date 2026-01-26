@@ -1,6 +1,10 @@
 ---
 name: indie-saas-validation-master
-description: Guide the complete 18-month solo SaaS journey from validation to scaling decision point with phase-specific tactics, success metrics, and risk mitigation. Use when starting a new SaaS venture or planning any phase of the indie SaaS journey.
+description:
+  Guide the complete 18-month solo SaaS journey from validation to scaling
+  decision point with phase-specific tactics, success metrics, and risk
+  mitigation. Use when starting a new SaaS venture or planning any phase of the
+  indie SaaS journey.
 license: MIT
 ---
 
@@ -20,12 +24,12 @@ Use this skill when you need to:
 
 # The 4-Phase Framework Overview
 
-| Phase | Timeline | Goal | Success Metric |
-|-------|----------|------|----------------|
-| **Phase 1: Validation** | Months 0-2 | Prove demand exists | 10 pre-orders or 100 validated emails |
-| **Phase 2: MVP Launch** | Months 2-6 | Launch to early adopters | $1K-$3K MRR |
-| **Phase 3: Growth** | Months 6-18 | Reach sustainable revenue | $10K MRR with <5% churn |
-| **Phase 4: Scaling Decision** | 18+ months | Choose your path | Lifestyle ($30-100K MRR) or Scale ($100K+ ARR) |
+| Phase                         | Timeline    | Goal                      | Success Metric                                 |
+| ----------------------------- | ----------- | ------------------------- | ---------------------------------------------- |
+| **Phase 1: Validation**       | Months 0-2  | Prove demand exists       | 10 pre-orders or 100 validated emails          |
+| **Phase 2: MVP Launch**       | Months 2-6  | Launch to early adopters  | $1K-$3K MRR                                    |
+| **Phase 3: Growth**           | Months 6-18 | Reach sustainable revenue | $10K MRR with <5% churn                        |
+| **Phase 4: Scaling Decision** | 18+ months  | Choose your path          | Lifestyle ($30-100K MRR) or Scale ($100K+ ARR) |
 
 # Core Concepts
 

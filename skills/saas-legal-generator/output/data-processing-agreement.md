@@ -1,7 +1,7 @@
 # Data Processing Agreement (DPA)
 
-**This Data Processing Agreement ("DPA") is entered into as of
-January 24, 2026**
+**This Data Processing Agreement ("DPA") is entered into as of January 24,
+2026**
 
 **BETWEEN:**
 
@@ -118,11 +118,11 @@ The Controller generally authorizes the Processor to engage other processors
 The Processor has obtained the Controller's prior authorization for the
 following subprocessors:
 
-| Subprocessor Name    | Services           | Location   |
-| -------------------- | ------------------ | ---------- |
-| [CLOUD_PROVIDER]     | Cloud hosting      | [Location] |
-| Stripe  | Payment processing | [Location] |
-| Plausible | Analytics services | [Location] |
+| Subprocessor Name | Services           | Location   |
+| ----------------- | ------------------ | ---------- |
+| [CLOUD_PROVIDER]  | Cloud hosting      | [Location] |
+| Stripe            | Payment processing | [Location] |
+| Plausible         | Analytics services | [Location] |
 
 #### 3.5.3 New Subprocessors
 
@@ -366,13 +366,13 @@ be deemed delivered when:
 
 ## APPENDIX A: Processing Activities
 
-| Description of Processing | Nature and Purpose                          | Type of Data                        | Data Subjects    | Retention Period                             |
-| ------------------------- | ------------------------------------------- | ----------------------------------- | ---------------- | -------------------------------------------- |
+| Description of Processing | Nature and Purpose                          | Type of Data                        | Data Subjects    | Retention Period              |
+| ------------------------- | ------------------------------------------- | ----------------------------------- | ---------------- | ----------------------------- |
 | User account management   | Authenticate users and manage accounts      | Name, email, password hash          | Service users    | Account lifetime + 730 days   |
 | Payment processing        | Process subscription payments               | Payment details, billing address    | Customers        | 730 years (legal requirement) |
 | Analytics                 | Analyze usage patterns and improve services | Usage data, IP address, device info | Website visitors | 730 months (anonymized)       |
 | Customer support          | Respond to user inquiries                   | Support messages, account details   | Service users    | 730 years                     |
-| Email communications      | Send transactional and marketing emails     | Email address, engagement data      | Subscribers      | Until opt-out/unsubscribe                    |
+| Email communications      | Send transactional and marketing emails     | Email address, engagement data      | Subscribers      | Until opt-out/unsubscribe     |
 
 ## APPENDIX B: Technical and Organizational Measures
 
@@ -438,10 +438,9 @@ By: `_________________` Name: `_________________` Title: `_________________`
 
 ---
 
-**Data Processing Agreement Version:** 1.0 **Effective Date:**
-January 24, 2026
+**Data Processing Agreement Version:** 1.0 **Effective Date:** January 24, 2026
 
 ---
 
-**Antigravity Test Co** is committed to protecting personal data and complying with
-the GDPR and other applicable data protection laws.
+**Antigravity Test Co** is committed to protecting personal data and complying
+with the GDPR and other applicable data protection laws.

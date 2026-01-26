@@ -220,10 +220,10 @@ You may designate an authorized agent to make requests on your behalf.
 
 ## 9. Children's Privacy
 
-Our services are not intended for children under the age of [MIN_AGE]. We do not knowingly collect personal information from children under
-this age. If you are a parent or guardian and believe your child has provided us
-with personal information, please contact us, and we will delete such
-information.
+Our services are not intended for children under the age of [MIN_AGE]. We do not
+knowingly collect personal information from children under this age. If you are
+a parent or guardian and believe your child has provided us with personal
+information, please contact us, and we will delete such information.
 
 ## 10. International Data Transfers
 
@@ -300,8 +300,7 @@ data practices, please contact us:
 
 - **Email:** [CONTACT_EMAIL]
 - **Website:** [DOMAIN]/contact
-- **Address:** [COMPANY_NAME]
-  [COMPANY_ADDRESS]
+- **Address:** [COMPANY_NAME] [COMPANY_ADDRESS]
 
 **Privacy Policy Version:** [VERSION] **Effective Date:** [EFFECTIVE_DATE]
 

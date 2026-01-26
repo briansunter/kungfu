@@ -229,20 +229,19 @@ tracking technologies, please contact us:
 
 - **Email:** legal@antigravity.test
 - **Website:** antigravity.test/contact
-- **Address:** Antigravity Test Co 123 Ai Lane
-Silicon Valley, CA [CITY], [STATE/REGION]
-  [POSTAL_CODE] [COUNTRY]
+- **Address:** Antigravity Test Co 123 Ai Lane Silicon Valley, CA [CITY],
+  [STATE/REGION] [POSTAL_CODE] [COUNTRY]
 
 ## 14. Cookie Audit
 
 As of January 24, 2026, we use the following cookies on our website:
 
-| Cookie Name     | Type          | Purpose          | Duration                | Provider             |
-| --------------- | ------------- | ---------------- | ----------------------- | -------------------- |
-| `[COOKIE_NAME]` | Essential     | Authentication   | Session                 | Antigravity Test Co       |
-| `[COOKIE_NAME]` | Analytics     | Usage tracking   | 730 days | Plausible |
-| `[COOKIE_NAME]` | Functionality | User preferences | 730 days | Antigravity Test Co       |
-| `[COOKIE_NAME]` | Marketing     | Ad targeting     | 730 days | [AD_PROVIDER]        |
+| Cookie Name     | Type          | Purpose          | Duration | Provider            |
+| --------------- | ------------- | ---------------- | -------- | ------------------- |
+| `[COOKIE_NAME]` | Essential     | Authentication   | Session  | Antigravity Test Co |
+| `[COOKIE_NAME]` | Analytics     | Usage tracking   | 730 days | Plausible           |
+| `[COOKIE_NAME]` | Functionality | User preferences | 730 days | Antigravity Test Co |
+| `[COOKIE_NAME]` | Marketing     | Ad targeting     | 730 days | [AD_PROVIDER]       |
 
 _Note: This table is a template. Replace with actual cookies used on your
 website._
@@ -251,8 +250,8 @@ website._
 
 **Cookie Policy Version:** 1.0 **Effective Date:** January 24, 2026
 
-**Antigravity Test Co** is committed to transparency about how we use cookies and
-similar technologies. We regularly review our cookie practices to ensure
+**Antigravity Test Co** is committed to transparency about how we use cookies
+and similar technologies. We regularly review our cookie practices to ensure
 compliance with applicable laws and regulations.
 
 ---
@@ -270,5 +269,6 @@ Cookies:** Can be disabled in browser settings or cookie consent manager
 - Accept Essential Only
 - Customize Preferences
 
-**Cookie Consent Manager:** antigravity.test/cookie-settings **Do Not Sell (CCPA):**
-antigravity.test/do-not-sell **Privacy Policy:** antigravity.test/privacy
+**Cookie Consent Manager:** antigravity.test/cookie-settings **Do Not Sell
+(CCPA):** antigravity.test/do-not-sell **Privacy Policy:**
+antigravity.test/privacy

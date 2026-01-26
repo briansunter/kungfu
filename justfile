@@ -48,3 +48,7 @@ clean:
 # Show validation in verbose mode
 validate-verbose:
     uv run scripts/validate.py --verbose
+
+# Generate README skills table (use --write to update README.md)
+readme-table *args:
+    bun scripts/generate-readme-table.ts {{args}}

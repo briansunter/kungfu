@@ -10,8 +10,8 @@ Act (CPRA)**
 California residents have the right to opt-out of the "sale" or "sharing" of
 their personal information.
 
-At **Antigravity Test Co**, we respect your privacy and provide you with the ability
-to opt-out of the sale or sharing of your personal information.
+At **Antigravity Test Co**, we respect your privacy and provide you with the
+ability to opt-out of the sale or sharing of your personal information.
 
 ---
 
@@ -26,8 +26,9 @@ Under the CCPA/CPRA:
 
 ### Our Practices
 
-At Antigravity Test Co, we [DO/DO NOT] sell your personal information. We [MAY/MAY
-NOT] share certain information with third parties for advertising purposes.
+At Antigravity Test Co, we [DO/DO NOT] sell your personal information. We
+[MAY/MAY NOT] share certain information with third parties for advertising
+purposes.
 
 See our [Privacy Policy](antigravity.test/privacy) for details about:
 
@@ -69,8 +70,8 @@ days.
 
 ### Option 2: Email Us
 
-Send an email to legal@antigravity.test with the subject line "CCPA Opt-Out Request"
-and include:
+Send an email to legal@antigravity.test with the subject line "CCPA Opt-Out
+Request" and include:
 
 - Your name
 - Email address associated with your account
@@ -190,9 +191,8 @@ Changes will take effect within [TIMEFRAME] days.
 If you have questions about this opt-out page or need assistance with your
 request, please contact our **CCPA Agent**:
 
-**Antigravity Test Co** Attn: CCPA Agent 123 Ai Lane
-Silicon Valley, CA [CITY], [STATE]
-[POSTAL_CODE] Email: privacy@antigravity.test
+**Antigravity Test Co** Attn: CCPA Agent 123 Ai Lane Silicon Valley, CA [CITY],
+[STATE] [POSTAL_CODE] Email: privacy@antigravity.test
 
 ---
 
@@ -243,16 +243,17 @@ By submitting this opt-out request, you acknowledge that:
 
 ---
 
-**Antigravity Test Co** respects your privacy and is committed to complying with the
-CCPA and CPRA. We regularly review and update our practices to ensure ongoing
-compliance with California privacy laws.
+**Antigravity Test Co** respects your privacy and is committed to complying with
+the CCPA and CPRA. We regularly review and update our practices to ensure
+ongoing compliance with California privacy laws.
 
 ---
 
 ## Quick Reference
 
-**Opt-Out Email:** legal@antigravity.test **CCPA Agent Email:** privacy@antigravity.test
-**Processing Time:** [TIMEFRAME] days **Verification:** May be required
+**Opt-Out Email:** legal@antigravity.test **CCPA Agent Email:**
+privacy@antigravity.test **Processing Time:** [TIMEFRAME] days **Verification:**
+May be required
 
 **Your Rights:**
 

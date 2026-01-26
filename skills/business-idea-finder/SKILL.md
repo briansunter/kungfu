@@ -1,6 +1,10 @@
 ---
 name: business-idea-finder
-description: Find, validate, and document business ideas through problem signal mining, competitor analysis, SWOT analysis, and Business Model Canvas generation. Use when searching for business opportunities or creating complete business briefs.
+description:
+  Find, validate, and document business ideas through problem signal mining,
+  competitor analysis, SWOT analysis, and Business Model Canvas generation. Use
+  when searching for business opportunities or creating complete business
+  briefs.
 license: MIT
 ---
 

@@ -27,11 +27,13 @@ npx -y bun scripts/index.ts
 
 ### Agent Mode
 
-1. **Analyze**: Check user's source code/website to infer details (domain, tech stack, tracking).
-2. **Prompt**: Ask user for key details (Company Name, Contact Email, Jurisdiction).
-3. **Configure**: Create a `config.json` file with the details (see `example_config.json`).
+1. **Analyze**: Check user's source code/website to infer details (domain, tech
+   stack, tracking).
+2. **Prompt**: Ask user for key details (Company Name, Contact Email,
+   Jurisdiction).
+3. **Configure**: Create a `config.json` file with the details (see
+   `example_config.json`).
 4. **Generate**: Run `npx -y bun scripts/index.ts config.json`.
-
 
 The generator prompts for:
 
@@ -46,15 +48,18 @@ Output: Ready-to-use documents in `output/` directory.
 
 ## Context-Aware Adaptation
 
-After generating the boilerplate, use the agent's capabilities to refine the documents:
+After generating the boilerplate, use the agent's capabilities to refine the
+documents:
 
 1. **Verify Tech Stack**:
-   - Scan `package.json` or source code for analytics tools (Google Analytics, Mixpanel), payment providers (Stripe), email services (SendGrid).
-   - Update the *Third-Party Services* section in the Privacy Policy accordingly.
+   - Scan `package.json` or source code for analytics tools (Google Analytics,
+     Mixpanel), payment providers (Stripe), email services (SendGrid).
+   - Update the _Third-Party Services_ section in the Privacy Policy
+     accordingly.
 
 2. **Check Tracking**:
    - Inspect website source or `index.html` for tracking scripts/pixels.
-   - Update *Cookie Policy* to reflect actual cookies used.
+   - Update _Cookie Policy_ to reflect actual cookies used.
 
 3. **Validate URLs**:
    - Ensure `[DOMAIN]` placeholders match the actual project URL.
@@ -62,9 +67,12 @@ After generating the boilerplate, use the agent's capabilities to refine the doc
 
 ## Agent Usage Guidelines
 
-- **Always prompt** the user for the "Company Name" and "Jurisdiction" if not explicitly stated.
-- **Do not invent** legal contact emails; ask the user or default to `legal@[domain]`.
-- **Review generated files**: After generation, do a quick read of the Markdown files to ensure no `[PLACEHOLDERS]` remain for critical fields.
+- **Always prompt** the user for the "Company Name" and "Jurisdiction" if not
+  explicitly stated.
+- **Do not invent** legal contact emails; ask the user or default to
+  `legal@[domain]`.
+- **Review generated files**: After generation, do a quick read of the Markdown
+  files to ensure no `[PLACEHOLDERS]` remain for critical fields.
 
 ## Document Types
 

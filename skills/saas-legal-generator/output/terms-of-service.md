@@ -4,19 +4,20 @@
 
 ## 1. Acceptance of Terms
 
-Welcome to **Antigravity Test Co** ("we," "our," or "us"). By accessing or using our
-website **antigravity.test** and our services (collectively, the "Service"), you agree
-to be bound by these Terms of Service ("Terms"). If you do not agree to these
-Terms, please do not use our Service.
+Welcome to **Antigravity Test Co** ("we," "our," or "us"). By accessing or using
+our website **antigravity.test** and our services (collectively, the "Service"),
+you agree to be bound by these Terms of Service ("Terms"). If you do not agree
+to these Terms, please do not use our Service.
 
-These Terms constitute a legally binding agreement between you and
-Antigravity Test Co. If you are accepting these Terms on behalf of a company or other
-legal entity, you represent that you have the authority to bind such entity to
-these Terms.
+These Terms constitute a legally binding agreement between you and Antigravity
+Test Co. If you are accepting these Terms on behalf of a company or other legal
+entity, you represent that you have the authority to bind such entity to these
+Terms.
 
 ## 2. Description of Service
 
-Antigravity Test Co provides An AI-powered testing service., including but not limited to:
+Antigravity Test Co provides An AI-powered testing service., including but not
+limited to:
 
 - AI Generation
 - Legal Compliance
@@ -133,8 +134,8 @@ the right to use such feedback without obligation to compensate you.
 ## 7. User Data and Privacy
 
 Your use of the Service is also governed by our Privacy Policy, which is
-available at antigravity.test/privacy. Please review our Privacy Policy to understand
-how we collect, use, and protect your information.
+available at antigravity.test/privacy. Please review our Privacy Policy to
+understand how we collect, use, and protect your information.
 
 ## 8. Service Availability and Support
 
@@ -166,7 +167,8 @@ OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
 
 ### 9.2 Limitation of Liability
 
-TO THE MAXIMUM EXTENT PERMITTED BY LAW, Antigravity Test Co SHALL NOT BE LIABLE FOR:
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, Antigravity Test Co SHALL NOT BE LIABLE
+FOR:
 
 - **Indirect, Incidental, Special, or Consequential Damages:** Including lost
   profits, data loss, or business interruption
@@ -198,8 +200,8 @@ attorneys' fees, arising from or relating to:
 ### 11.1 Data Processing
 
 For customers in the European Economic Area, we offer a Data Processing
-Agreement (DPA) that complies with GDPR requirements. Contact legal@antigravity.test to
-obtain a DPA.
+Agreement (DPA) that complies with GDPR requirements. Contact
+legal@antigravity.test to obtain a DPA.
 
 ### 11.2 Security Measures
 
@@ -321,9 +323,8 @@ including emails, notifications, and postings on our website.
 
 All notices to Antigravity Test Co should be sent to:
 
-**Antigravity Test Co** Attn: Legal Department 123 Ai Lane
-Silicon Valley, CA [CITY], [STATE]
-[POSTAL_CODE] [COUNTRY] Email: legal@antigravity.test
+**Antigravity Test Co** Attn: Legal Department 123 Ai Lane Silicon Valley, CA
+[CITY], [STATE] [POSTAL_CODE] [COUNTRY] Email: legal@antigravity.test
 
 Notices to you will be sent to the email address associated with your account.
 
@@ -333,9 +334,8 @@ If you have questions about these Terms, please contact us:
 
 - **Email:** legal@antigravity.test
 - **Website:** antigravity.test/contact
-- **Address:** Antigravity Test Co 123 Ai Lane
-Silicon Valley, CA [CITY], [STATE/REGION]
-  [POSTAL_CODE] [COUNTRY]
+- **Address:** Antigravity Test Co 123 Ai Lane Silicon Valley, CA [CITY],
+  [STATE/REGION] [POSTAL_CODE] [COUNTRY]
 
 ---
 

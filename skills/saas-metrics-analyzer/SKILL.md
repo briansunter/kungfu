@@ -1,6 +1,10 @@
 ---
 name: saas-metrics-analyzer
-description: Analyze SaaS business health across all critical metrics (MRR, ARR, churn, LTV:CAC, NRR, ARPU, growth rate) with benchmarks and actionable recommendations. Use for monthly business reviews, health checks, or diagnosing growth problems.
+description:
+  Analyze SaaS business health across all critical metrics (MRR, ARR, churn,
+  LTV:CAC, NRR, ARPU, growth rate) with benchmarks and actionable
+  recommendations. Use for monthly business reviews, health checks, or
+  diagnosing growth problems.
 license: MIT
 ---
 
@@ -10,7 +14,8 @@ Use this skill when you need to:
 
 - **Run monthly business health checks** to track progress
 - **Benchmark metrics** against industry standards for indie SaaS
-- **Diagnose growth problems** (stuck at plateau, high churn, poor unit economics)
+- **Diagnose growth problems** (stuck at plateau, high churn, poor unit
+  economics)
 - **Calculate missing metrics** from partial data
 - **Identify red flags** requiring immediate attention
 - **Get actionable recommendations** for metric improvement
@@ -28,12 +33,12 @@ Use this skill when you need to:
 
 ## Quick Health Assessment
 
-| Score | Rating | Interpretation |
-|-------|--------|----------------|
-| 90-100 | Excellent | Best-in-class across most metrics |
-| 70-89 | Healthy | Solid business, room for optimization |
-| 50-69 | Warning | Some red flags, needs attention |
-| <50 | Critical | Major issues, immediate action required |
+| Score  | Rating    | Interpretation                          |
+| ------ | --------- | --------------------------------------- |
+| 90-100 | Excellent | Best-in-class across most metrics       |
+| 70-89  | Healthy   | Solid business, room for optimization   |
+| 50-69  | Warning   | Some red flags, needs attention         |
+| <50    | Critical  | Major issues, immediate action required |
 
 # Step-by-Step Analysis Process
 
@@ -104,13 +109,13 @@ Prioritize actions by impact: churn → pricing → acquisition → operations.
 
 **Benchmarks**:
 
-| Stage | MRR Range | Timeline |
-|-------|-----------|----------|
-| Early stage | $1K-$3K | 0-6 months |
-| Growth stage | $5K-$10K | 6-18 months |
-| Sustainable | $10K+ | 18+ months |
-| Successful indie | $15K median | - |
-| Top performers | $30K-$100K+ | - |
+| Stage            | MRR Range   | Timeline    |
+| ---------------- | ----------- | ----------- |
+| Early stage      | $1K-$3K     | 0-6 months  |
+| Growth stage     | $5K-$10K    | 6-18 months |
+| Sustainable      | $10K+       | 18+ months  |
+| Successful indie | $15K median | -           |
+| Top performers   | $30K-$100K+ | -           |
 
 **Red flags**:
 
@@ -131,11 +136,11 @@ Prioritize actions by impact: churn → pricing → acquisition → operations.
 
 **Benchmarks**:
 
-| Range | Assessment |
-|-------|------------|
-| <$29/month | Underpriced (attracts bargain hunters) |
-| $49-$299/month | Healthy sweet spot for indie SaaS |
-| $300-$5,000/month | High-ticket (enterprise focus) |
+| Range             | Assessment                             |
+| ----------------- | -------------------------------------- |
+| <$29/month        | Underpriced (attracts bargain hunters) |
+| $49-$299/month    | Healthy sweet spot for indie SaaS      |
+| $300-$5,000/month | High-ticket (enterprise focus)         |
 
 **Red flags**:
 
@@ -161,12 +166,12 @@ Prioritize actions by impact: churn → pricing → acquisition → operations.
 
 **Benchmarks**:
 
-| CAC Range | Assessment |
-|-----------|------------|
-| <$200 | Excellent (viral/community-led) |
-| $200-$500 | Acceptable |
-| $500-$1,000 | Expensive (need high LTV) |
-| >$1,000 | Danger zone for SMB SaaS |
+| CAC Range   | Assessment                      |
+| ----------- | ------------------------------- |
+| <$200       | Excellent (viral/community-led) |
+| $200-$500   | Acceptable                      |
+| $500-$1,000 | Expensive (need high LTV)       |
+| >$1,000     | Danger zone for SMB SaaS        |
 
 **Formula**:
 
@@ -201,13 +206,13 @@ LTV = (ARPU × Gross Margin %) ÷ Monthly churn rate
 
 **Benchmarks** (LTV:CAC ratio):
 
-| Ratio | Assessment |
-|-------|------------|
-| <3:1 | Losing money on customers |
-| 3:1 | Minimum viable |
-| 4:1 | Healthy (new standard) |
-| 5:1+ | Excellent |
-| >7:1 | May be under-investing in growth |
+| Ratio | Assessment                       |
+| ----- | -------------------------------- |
+| <3:1  | Losing money on customers        |
+| 3:1   | Minimum viable                   |
+| 4:1   | Healthy (new standard)           |
+| 5:1+  | Excellent                        |
+| >7:1  | May be under-investing in growth |
 
 **Red flags**:
 
@@ -230,13 +235,13 @@ LTV = (ARPU × Gross Margin %) ÷ Monthly churn rate
 
 **Benchmarks**:
 
-| Months | Assessment |
-|--------|------------|
-| <6 | Very healthy, can scale aggressively |
-| 8-12 | Early-stage acceptable |
-| 12-15 | Excellent for established business |
-| 15-18 | Mid-stage acceptable |
-| >18 | Danger zone for SMB SaaS |
+| Months | Assessment                           |
+| ------ | ------------------------------------ |
+| <6     | Very healthy, can scale aggressively |
+| 8-12   | Early-stage acceptable               |
+| 12-15  | Excellent for established business   |
+| 15-18  | Mid-stage acceptable                 |
+| >18    | Danger zone for SMB SaaS             |
 
 ---
 
@@ -248,13 +253,13 @@ LTV = (ARPU × Gross Margin %) ÷ Monthly churn rate
 
 **Benchmarks**:
 
-| Rate | Assessment |
-|------|------------|
-| <1% | Excellent (~5% annually) |
-| 1-3% | Healthy |
-| 2.9% | Average B2B SaaS |
-| 3-5% | Warning zone |
-| >5% | Danger zone |
+| Rate | Assessment               |
+| ---- | ------------------------ |
+| <1%  | Excellent (~5% annually) |
+| 1-3% | Healthy                  |
+| 2.9% | Average B2B SaaS         |
+| 3-5% | Warning zone             |
+| >5%  | Danger zone              |
 
 **Formula**:
 
@@ -291,14 +296,14 @@ NRR = ((Starting MRR + Expansion - Churn - Downgrades) ÷ Starting MRR) × 100
 
 **Benchmarks**:
 
-| NRR | Assessment |
-|-----|------------|
-| <90% | Severe contraction |
-| <100% | Contraction (shrinking base) |
-| 100-105% | Healthy |
-| 106% | Median |
-| 110%+ | Excellent |
-| 120-130% | Best-in-class |
+| NRR      | Assessment                   |
+| -------- | ---------------------------- |
+| <90%     | Severe contraction           |
+| <100%    | Contraction (shrinking base) |
+| 100-105% | Healthy                      |
+| 106%     | Median                       |
+| 110%+    | Excellent                    |
+| 120-130% | Best-in-class                |
 
 **Red flags**:
 
@@ -322,12 +327,12 @@ NRR = ((Starting MRR + Expansion - Churn - Downgrades) ÷ Starting MRR) × 100
 
 **Benchmarks**:
 
-| Margin | Assessment |
-|--------|------------|
-| <75% | Warning (infrastructure too expensive) |
-| 77% | Median across SaaS |
-| 75%+ | Target for pure SaaS |
-| ~90% | Best-in-class (Carrd, ShipFast) |
+| Margin | Assessment                             |
+| ------ | -------------------------------------- |
+| <75%   | Warning (infrastructure too expensive) |
+| 77%    | Median across SaaS                     |
+| 75%+   | Target for pure SaaS                   |
+| ~90%   | Best-in-class (Carrd, ShipFast)        |
 
 **COGS includes**: Hosting, payment processing (2.9%), support, third-party APIs
 
@@ -339,12 +344,12 @@ NRR = ((Starting MRR + Expansion - Churn - Downgrades) ÷ Starting MRR) × 100
 
 **Benchmarks**:
 
-| Margin | Assessment |
-|--------|------------|
-| <50% | Business model issues |
-| >70% | Good |
-| 80-85% | Healthy indie SaaS |
-| >90% | Best-in-class |
+| Margin | Assessment            |
+| ------ | --------------------- |
+| <50%   | Business model issues |
+| >70%   | Good                  |
+| 80-85% | Healthy indie SaaS    |
+| >90%   | Best-in-class         |
 
 ---
 
@@ -354,12 +359,12 @@ NRR = ((Starting MRR + Expansion - Churn - Downgrades) ÷ Starting MRR) × 100
 
 **Benchmarks**:
 
-| Stage | MoM Growth | Assessment |
-|-------|------------|------------|
-| Early (0-6mo) | 20-50% | Hypergrowth expected |
-| Growth (6-18mo) | 10-20% | Healthy |
-| Mature (18+mo) | 5-10% | Sustainable |
-| Any stage | <5% | Warning - stagnation |
+| Stage           | MoM Growth | Assessment           |
+| --------------- | ---------- | -------------------- |
+| Early (0-6mo)   | 20-50%     | Hypergrowth expected |
+| Growth (6-18mo) | 10-20%     | Healthy              |
+| Mature (18+mo)  | 5-10%      | Sustainable          |
+| Any stage       | <5%        | Warning - stagnation |
 
 **Red flags**:
 
@@ -375,11 +380,11 @@ NRR = ((Starting MRR + Expansion - Churn - Downgrades) ÷ Starting MRR) × 100
 
 **Benchmarks**:
 
-| K-factor | Assessment |
-|----------|------------|
-| <0.3 | Little viral effect |
-| 0.5-1.0 | Healthy organic growth |
-| >1.0 | Viral growth (exponential) |
+| K-factor | Assessment                 |
+| -------- | -------------------------- |
+| <0.3     | Little viral effect        |
+| 0.5-1.0  | Healthy organic growth     |
+| >1.0     | Viral growth (exponential) |
 
 **Formula**:
 

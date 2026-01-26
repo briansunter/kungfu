@@ -1,6 +1,9 @@
 ---
 name: systemization-documentation-expert
-description: Create Standard Operating Procedures (SOPs) and document business processes for delegation and scaling. Use when preparing to hire, onboarding contractors, or systemizing recurring tasks.
+description:
+  Create Standard Operating Procedures (SOPs) and document business processes
+  for delegation and scaling. Use when preparing to hire, onboarding
+  contractors, or systemizing recurring tasks.
 license: MIT
 ---
 

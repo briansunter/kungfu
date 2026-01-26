@@ -13,8 +13,9 @@
  */
 
 import { resolve4, resolveCname } from 'dns/promises';
+import * as cheerio from 'cheerio';
 
-export {};
+export { };
 
 // ============================================================================
 // Interfaces
@@ -32,9 +33,12 @@ interface DomainReport {
 
   // Trademark check
   trademarkRisk: 'low' | 'medium' | 'high';
-  usptoResults?: number;
-  euiroResults?: number;
   webResults?: number;
+  trademarkLinks?: {
+    uspto: string;
+    euipo: string;
+    wipo: string;
+  };
 
   // Social handles
   twitter?: 'available' | 'taken';
@@ -103,10 +107,10 @@ async function checkDNS(domain: string): Promise<{ status: 'available' | 'regist
 // Trademark Checking (Web-based)
 // ============================================================================
 
-async function checkTrademark(name: string): Promise<{ risk: 'low' | 'medium' | 'high'; uspto: number; euiro: number; web: number }> {
+async function checkTrademark(name: string): Promise<{ risk: 'low' | 'medium' | 'high'; web: number }> {
   try {
-    // Use web search for trademark screening
-    const url = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(name + ' trademark USPTO EUIPO')}`;
+    // Use DuckDuck Go HTML version (no API key needed)
+    const url = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(name + ' "business" OR "software" OR "app"')}`;
     const response = await fetch(url, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
@@ -114,31 +118,35 @@ async function checkTrademark(name: string): Promise<{ risk: 'low' | 'medium' | 
     });
 
     if (!response.ok) {
-      return { risk: 'low', uspto: 0, euiro: 0, web: 0 };
+      return { risk: 'low', web: 0 };
     }
 
     const html = await response.text();
+    const $ = cheerio.load(html);
 
-    // Count results (approximate based on result markers)
-    const resultCount = (html.match(/result__/g) || []).length;
+    // Count web results
+    const resultCount = $('.result').length;
 
-    // Determine risk based on result count
+    // Determine preliminary risk level based on WEB presence only
     let risk: 'low' | 'medium' | 'high' = 'low';
     if (resultCount > 20) {
       risk = 'high';
-    } else if (resultCount > 10) {
+    } else if (resultCount > 5) {
       risk = 'medium';
     }
 
-    // Estimate breakdown
-    const uspto = Math.floor(resultCount * 0.3);
-    const euiro = Math.floor(resultCount * 0.2);
-    const web = resultCount - uspto - euiro;
-
-    return { risk, uspto, euiro, web };
+    return { risk, web: resultCount };
   } catch {
-    return { risk: 'low', uspto: 0, euiro: 0, web: 0 };
+    return { risk: 'low', web: 0 };
   }
+}
+
+function generateTrademarkLinks(name: string) {
+  return {
+    uspto: `https://tmsearch.uspto.gov/search/search-results?searchType=basic&query=${encodeURIComponent(name)}`,
+    euipo: `https://euipo.europa.eu/eSearch/#/trademark/search?find=${encodeURIComponent(name)}`,
+    wipo: `https://www3.wipo.int/branddb/en/#{"keys":"${name}"}`
+  };
 }
 
 // ============================================================================
@@ -226,7 +234,7 @@ function calculateScore(report: DomainReport): DomainReport['scores'] {
 
   // Trademark risk (1-10, higher is better)
   const trademarkRisk = report.trademarkRisk === 'low' ? 10 :
-                        report.trademarkRisk === 'medium' ? 5 : 1;
+    report.trademarkRisk === 'medium' ? 5 : 1;
 
   // SEO potential (1-10)
   let seoPotential = 5;
@@ -271,7 +279,7 @@ function getRecommendation(report: DomainReport): { recommendation: string; reas
   }
 
   if (report.trademarkRisk === 'high') {
-    return { recommendation: 'avoid', reasons: ['High trademark risk'] };
+    return { recommendation: 'avoid', reasons: ['High web activity/potential trademark'] };
   }
 
   if (report.scores.total >= 35) {
@@ -362,9 +370,9 @@ for (const domain of domains) {
     // Populate report
     report.dnsStatus = dnsResult.status;
     report.trademarkRisk = trademarkResult.risk;
-    report.usptoResults = trademarkResult.uspto;
-    report.euiroResults = trademarkResult.euiro;
     report.webResults = trademarkResult.web;
+    report.trademarkLinks = generateTrademarkLinks(name);
+
     report.twitter = twitter;
     report.instagram = instagram;
     report.github = github;
@@ -407,16 +415,14 @@ reports.sort((a, b) => b.scores.total - a.scores.total);
 
 for (const report of reports) {
   const icon = report.recommendation === 'recommended' ? '✅' :
-               report.recommendation === 'consider' ? '⚠️' : '❌';
+    report.recommendation === 'consider' ? '⚠️' : '❌';
 
   console.log(`${icon} ${report.domain}`);
   console.log(`   Status: ${report.dnsStatus.toUpperCase()}`);
   console.log(`   Score: ${report.scores.total}/40`);
   console.log(`   Breakdown: Brandability=${report.scores.brandability}, Trademark=${report.scores.trademarkRisk}, SEO=${report.scores.seoPotential}, Social=${report.scores.socialPotential}`);
 
-  if (report.trademarkRisk !== 'low') {
-    console.log(`   Trademark Risk: ${report.trademarkRisk.toUpperCase()} (USPTO: ${report.usptoResults}, EUIPO: ${report.euiroResults}, Web: ${report.webResults})`);
-  }
+  console.log(`   Web Activity: ${report.trademarkRisk.toUpperCase()} (~${report.webResults} matches)`);
 
   if (report.socialTaken! > 0) {
     console.log(`   Social Handles: ${report.socialAvailable}/5 available`);
@@ -424,6 +430,14 @@ for (const report of reports) {
 
   if (report.reasons.length > 0) {
     console.log(`   Reasons: ${report.reasons.join('; ')}`);
+  }
+
+  // Agent Hint
+  if (report.trademarkLinks) {
+    console.log(`   \n   🤖 AGENT HINT: Check these for trademark conflicts:`);
+    console.log(`   USPTO: ${report.trademarkLinks.uspto}`);
+    console.log(`   EUIPO: ${report.trademarkLinks.euipo}`);
+    console.log(`   WIPO:  ${report.trademarkLinks.wipo}`);
   }
 
   console.log();

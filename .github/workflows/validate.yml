@@ -1,0 +1,42 @@
+name: Validate
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v1
+        with:
+          version: "latest"
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Type check
+        run: bun tsc --noEmit
+
+      - name: Lint with Biome
+        run: bunx biome check --diagnostic-level=error .
+
+      - name: Validate plugins and skills
+        run: uv run scripts/validate.py

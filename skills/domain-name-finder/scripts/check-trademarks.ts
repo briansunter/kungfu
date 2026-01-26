@@ -2,8 +2,8 @@
 /**
  * Trademark Checker
  *
- * Searches for potential trademark conflicts in USPTO, EUIPO, and via web search.
- * Performs basic screening to flag names that may need legal review.
+ * Performs a preliminary web search for potential business conflicts
+ * and generates direct links to official trademark databases for manual verification.
  *
  * Usage:
  *   bun run scripts/check-trademarks.ts velora zenify taskflow
@@ -16,11 +16,13 @@ export { };
 
 interface TrademarkResult {
   name: string;
-  riskLevel: 'low' | 'medium' | 'high';
-  usptoResults?: number;
-  euiroResults?: number;
   webResults?: number;
-  conflicts?: string[];
+  riskLevel: 'low' | 'medium' | 'high'; // Based ONLY on web presence
+  links: {
+    uspto: string;
+    euipo: string;
+    wipo: string;
+  };
   error?: string;
 }
 
@@ -32,55 +34,7 @@ if (names.length === 0) {
   process.exit(1);
 }
 
-console.log(`Checking trademarks for ${names.length} name(s)...\n`);
-
-/**
- * Search USPTO TESS database for trademark conflicts
- */
-async function searchUSPTO(query: string): Promise<number> {
-  try {
-    const url = `https://www.uspto.gov/trademarks-application-process/search-trademark-database?term=${encodeURIComponent(query)}`;
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      return 0;
-    }
-
-    const html = await response.text();
-    const $ = cheerio.load(html);
-
-    // Count results (this is approximate - actual parsing depends on USPTO page structure)
-    const resultText = $('.results-count, .search-results-count, [data-testid="results-count"]').text();
-    const match = resultText.match(/(\d+)/);
-    return match?.[1] ? parseInt(match[1]) : 0;
-  } catch {
-    return 0;
-  }
-}
-
-/**
- * Search EUIPO (EU) for trademark conflicts
- */
-async function searchEUIPO(query: string): Promise<number> {
-  try {
-    const url = `https://euipo.europa.eu/eSearch/#/trademark?text=${encodeURIComponent(query)}`;
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      return 0;
-    }
-
-    const html = await response.text();
-    const $ = cheerio.load(html);
-
-    // Count results (approximate)
-    const resultText = $('.results-count, .count, [data-count]').text();
-    const match = resultText.match(/(\d+)/);
-    return match?.[1] ? parseInt(match[1]) : 0;
-  } catch {
-    return 0;
-  }
-}
+console.log(`Generating trademark search links for ${names.length} name(s)...\n`);
 
 /**
  * Perform web search for active businesses using the name
@@ -88,7 +42,7 @@ async function searchEUIPO(query: string): Promise<number> {
 async function webSearch(query: string): Promise<number> {
   try {
     // Use DuckDuck Go HTML version (no API key needed)
-    const url = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query + ' business software service')}`;
+    const url = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query + ' "business" OR "software" OR "app"')}`;
     const response = await fetch(url, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
@@ -109,46 +63,46 @@ async function webSearch(query: string): Promise<number> {
   }
 }
 
+/**
+ * Generate deep links to trademark databases
+ */
+function generateLinks(name: string) {
+  return {
+    // USPTO Basic Word Mark Search (TESS substitute)
+    // Note: USPTO URLs change often, pointing to the main search hub is safest, but we try a search query if possible.
+    // As of 2025, CloudSearch is the new system.
+    uspto: `https://tmsearch.uspto.gov/search/search-results?searchType=basic&query=${encodeURIComponent(name)}`,
+
+    // EUIPO eSearch
+    euipo: `https://euipo.europa.eu/eSearch/#/trademark/search?find=${encodeURIComponent(name)}`,
+
+    // WIPO Global Brand Database
+    wipo: `https://www3.wipo.int/branddb/en/#{"keys":"${name}"}`
+  };
+}
+
 // Check each name
 for (const name of names) {
   try {
-    console.log(`Checking "${name}"...`);
+    console.log(`Processing "${name}"...`);
 
     const result: TrademarkResult = {
       name,
       riskLevel: 'low',
+      links: generateLinks(name)
     };
 
-    // Run searches in parallel
-    const [usptoCount, euiroCount, webCount] = await Promise.all([
-      searchUSPTO(name),
-      searchEUIPO(name),
-      webSearch(name),
-    ]);
-
-    result.usptoResults = usptoCount;
-    result.euiroResults = euiroCount;
+    // Run web search
+    const webCount = await webSearch(name);
     result.webResults = webCount;
 
-    // Determine risk level based on results
-    if (usptoCount > 10 || euiroCount > 10 || webCount > 20) {
+    // Determine preliminary risk level based on WEB presence only
+    if (webCount > 20) {
       result.riskLevel = 'high';
-    } else if (usptoCount > 3 || euiroCount > 3 || webCount > 10) {
+    } else if (webCount > 5) {
       result.riskLevel = 'medium';
     } else {
       result.riskLevel = 'low';
-    }
-
-    // Collect conflicts (names of similar trademarks)
-    result.conflicts = [];
-    if (usptoCount > 0) {
-      result.conflicts.push(`USPTO: ${usptoCount} potential match(es)`);
-    }
-    if (euiroCount > 0) {
-      result.conflicts.push(`EUIPO: ${euiroCount} potential match(es)`);
-    }
-    if (webCount > 5) {
-      result.conflicts.push(`Web: ${webCount} active businesses found`);
     }
 
     results.push(result);
@@ -156,12 +110,13 @@ for (const name of names) {
     results.push({
       name,
       riskLevel: 'low',
+      links: generateLinks(name),
       error: error instanceof Error ? error.message : 'Unknown error',
     });
   }
 
-  // Delay to avoid rate limiting
-  await new Promise(resolve => setTimeout(resolve, 500));
+  // Delay to avoid rate limiting on DuckDuckGo
+  await new Promise(resolve => setTimeout(resolve, 1000));
 }
 
 // Display results
@@ -170,22 +125,20 @@ console.log('─'.repeat(80));
 
 for (const result of results) {
   const icon = result.riskLevel === 'low' ? '✅' :
-    result.riskLevel === 'medium' ? '⚠️' : '❌';
-  console.log(`${icon} ${result.name.padEnd(30)} RISK: ${result.riskLevel.toUpperCase().padEnd(8)}`);
+    result.riskLevel === 'medium' ? '⚠️' : 'hz'; // High web presence doesn't mean trademark, but it's a signal
 
-  if (result.usptoResults !== undefined) {
-    console.log(`  USPTO: ${result.usptoResults} result(s)`);
-  }
-  if (result.euiroResults !== undefined) {
-    console.log(`  EUIPO: ${result.euiroResults} result(s)`);
-  }
+  console.log(`${icon} ${result.name.padEnd(30)} WEB ACTIVITY: ${result.riskLevel.toUpperCase()}`);
+
   if (result.webResults !== undefined) {
-    console.log(`  Web: ${result.webResults} active businesses`);
+    console.log(`  Web Matches: ~${result.webResults} (DuckDuckGo hit count)`);
   }
 
-  if (result.conflicts && result.conflicts.length > 0) {
-    console.log(`  Conflicts: ${result.conflicts.join('; ')}`);
-  }
+  console.log(`  \n  🤖 AGENT HINT: Use your browser tool to protect the user.`);
+  console.log(`  1. Open these URLs to check for direct conflicts.`);
+  console.log(`  2. If blocked, search google for "trademark search [name]" and browse manually.`);
+  console.log(`  USPTO (US):  ${result.links.uspto}`);
+  console.log(`  EUIPO (EU):  ${result.links.euipo}`);
+  console.log(`  WIPO (Intl): ${result.links.wipo}`);
 
   if (result.error) {
     console.log(`  Error: ${result.error}`);
@@ -193,17 +146,8 @@ for (const result of results) {
   console.log();
 }
 
-// Summary
-const lowRisk = results.filter(r => r.riskLevel === 'low').length;
-const mediumRisk = results.filter(r => r.riskLevel === 'medium').length;
-const highRisk = results.filter(r => r.riskLevel === 'high').length;
-
-console.log('─'.repeat(80));
-console.log(`Summary: ${lowRisk} low risk, ${mediumRisk} medium risk, ${highRisk} high risk`);
-
 // Output JSON for programmatic use
 console.log('\n--- JSON OUTPUT ---');
 console.log(JSON.stringify(results, null, 2));
 
-console.log('\n⚠️  DISCLAIMER: This is preliminary screening only. Not legal advice.');
-console.log('   Consult a trademark attorney for definitive clearance.');
+console.log('\n⚠️  IMPORTANT: "Web Activity" is just a hint. You MUST check the links above for actual legal trademarks.');

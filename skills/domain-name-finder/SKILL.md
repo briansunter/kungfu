@@ -1,6 +1,9 @@
 ---
 name: domain-name-finder
-description: Find, validate, and register domain names through requirements gathering, brainstorming, trademark screening, availability checking, and registration guidance.
+description:
+  Find, validate, and register domain names through requirements gathering,
+  brainstorming, trademark screening, availability checking, and registration
+  guidance.
 ---
 
 # Domain Name Finder Skill
@@ -65,7 +68,8 @@ Creative: Kreato.com, Desqgn.com
 
 ### Phase 3: Trademark Screening
 
-Check for potential conflicts using automated searches.
+Check for potential conflicts using a combination of web signals and **assisted
+manual verification**.
 
 **Run trademark check:**
 
@@ -75,18 +79,21 @@ npx -y bun run scripts/check-trademarks.ts velora zenify taskflow
 
 **Interpret results:**
 
-- ✅ **Low risk**: Few or no conflicts
-- ⚠️ **Medium risk**: Some similar marks, review needed
-- ❌ **High risk**: Exact or confusingly similar matches exist
+- **Web Activity**: High activity suggests the name is in use, though not
+  necessarily trademarked.
+- **Agent Action (REQUIRED)**: The script outputs an "AGENT HINT" with direct
+  links.
+  - **Action**: Use your `read_web_page` or `search_web` tool to visit these
+    links.
+  - **Goal**: Confirm if an exact match exists in the trademark database.
+  - **Fallback**: If the direct link fails, perform a web search for "USPTO
+    trademark search [name]" and browse manually.
 
-**Manual verification** (if script finds conflicts):
+> [!IMPORTANT] **AGENTS**: You must not rely solely on the "Web Activity" score.
+> You are required to use your browser capabilities to verify the legal status
+> using the provided links.
 
-- USPTO TESS:
-  https://www.uspto.gov/trademarks-application-process/search-trademark-database
-- EUIPO: https://euipo.europa.eu/eSearch/
-- CIPO (Canada): https://ised-isde.canada.ca/site/trademark-search/
-
-**Output**: Trademark risk assessment categorized by risk level.
+**Output**: Web presence assessment + list of direct links for manual clearance.
 
 ### Phase 4: Domain Availability Checking
 

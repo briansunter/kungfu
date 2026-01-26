@@ -321,4 +321,5 @@ inform decisions, not replace thinking.
 ## Sources
 
 - [RICE Prioritization Framework | Intercom](https://www.intercom.com/blog/rice-prioritization/)
-- [ICE Scoring Model | Product Management resources](https://www.productboard.com/guides/ice-scoring/) (Multiple industry-standard sources)
+- [ICE Scoring Model | Product Management resources](https://www.productboard.com/guides/ice-scoring/)
+  (Multiple industry-standard sources)

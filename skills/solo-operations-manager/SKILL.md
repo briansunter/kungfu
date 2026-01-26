@@ -1,6 +1,9 @@
 ---
 name: solo-operations-manager
-description: Optimize solo founder operations with structured weekly rhythms, time blocking, and burnout prevention strategies. Use when managing competing priorities or reducing context-switching fatigue.
+description:
+  Optimize solo founder operations with structured weekly rhythms, time
+  blocking, and burnout prevention strategies. Use when managing competing
+  priorities or reducing context-switching fatigue.
 license: MIT
 ---
 
@@ -224,20 +227,11 @@ references:
 - Slack status message examples
 - "No" scripts for protecting time
 
-# Research Sources
-
-This skill synthesizes findings from solo founder operations research:
-
-**Primary Research**:
-
-- Weekly rhythms research from successful solo founders
-
 **Key Findings**:
 
 - **Context-switching is the real killer** (not workload itself)
 - **Themed days reduce decision fatigue** and protect deep work
 - **6-month survival mode is normal** (not failure)
-- **77% profitability in year 1** (but most start with <$5K capital)
 - **RICE/ICE frameworks remove bias** from prioritization
 
 **Realistic Timelines**:

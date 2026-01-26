@@ -1,0 +1,51 @@
+{
+    "company_name": "Antigravity Test Co",
+    "domain": "antigravity.test",
+    "contact_email": "legal@antigravity.test",
+    "support_email": "support@antigravity.test",
+    "address": "123 Ai Lane\nSilicon Valley, CA",
+    "jurisdiction": "California, USA",
+    "currency": "USD",
+    "service_description": "An AI-powered testing service.",
+    "features": [
+        "AI Generation",
+        "Legal Compliance",
+        "Fast Processing"
+    ],
+    "service_type": "B2B SaaS",
+    "min_age": "18",
+    "has_free_tier": true,
+    "billing_cycle": "Monthly",
+    "refund_policy": "Full refund within 30 days.",
+    "refund_days": "30",
+    "collects_email": true,
+    "collects_payment": true,
+    "collects_usage": true,
+    "uses_cookies": true,
+    "cookie_categories": [
+        "essential",
+        "analytics",
+        "functionality"
+    ],
+    "data_retention_days": "730",
+    "jurisdictions": [
+        "gdpr",
+        "ccpa"
+    ],
+    "gdpr_rep_email": "privacy@antigravity.test",
+    "ccpa_agent_email": "privacy@antigravity.test",
+    "third_parties": {
+        "payment": "Stripe",
+        "hosting": "Vercel",
+        "analytics": "Plausible",
+        "email": "Resend",
+        "support": "Helpscout"
+    },
+    "documents": [
+        "privacy_policy",
+        "terms",
+        "cookies",
+        "dpa",
+        "ccpa_opt_out"
+    ]
+}

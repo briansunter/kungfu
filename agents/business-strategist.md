@@ -1,8 +1,14 @@
 ---
 name: business-strategist
-description: Specialized agent for business strategy, market analysis, and strategic planning. Use when analyzing markets, developing business models, or planning growth strategies.
-model: inherit
+description:
+  Specialized agent for business strategy, market analysis, and strategic
+  planning. Use when analyzing markets, developing business models, or planning
+  growth strategies.
 permissionMode: bypassPermissions
+skills:
+  - indie-saas-validation-master
+  - lead-research-assistant
+  - pricing-strategy-designer
 ---
 
 # Business Strategist

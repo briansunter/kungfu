@@ -532,3 +532,4 @@ experience."
 
 - [Indie Hackers Launch Strategy 2025: 23% Conversion Rate vs Product Hunt's 3% | Awesome Directories](https://awesome-directories.com/blog/indie-hackers-launch-strategy-guide-2025/)
 - [Smart Micro-SaaS Pricing Strategies for Indie Founders | Freemius Blog](https://freemius.com/blog/micro-saas-pricing-strategies/)
+```

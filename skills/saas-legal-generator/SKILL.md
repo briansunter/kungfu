@@ -1,6 +1,9 @@
 ---
 name: saas-legal-generator
-description: Generate legal boilerplate documents for SaaS applications including Privacy Policy, Terms of Service, Cookie Policy, and GDPR/CCPA compliance. Use when launching new SaaS products or updating legal documents.
+description:
+  Generate legal boilerplate documents for SaaS applications including Privacy
+  Policy, Terms of Service, Cookie Policy, and GDPR/CCPA compliance. Use when
+  launching new SaaS products or updating legal documents.
 ---
 
 # SaaS Legal Boilerplate Generator
@@ -13,12 +16,22 @@ with a qualified attorney for legal advice.
 
 ## Quick Start
 
+### User Interactive Mode
+
 Generate a complete legal package interactively:
 
 ```bash
-cd plugins/business/skills/saas-legal-generator
-python scripts/interactive_generator.py
+cd skills/saas-legal-generator
+npx -y bun scripts/index.ts
 ```
+
+### Agent Mode
+
+1. **Analyze**: Check user's source code/website to infer details (domain, tech stack, tracking).
+2. **Prompt**: Ask user for key details (Company Name, Contact Email, Jurisdiction).
+3. **Configure**: Create a `config.json` file with the details (see `example_config.json`).
+4. **Generate**: Run `npx -y bun scripts/index.ts config.json`.
+
 
 The generator prompts for:
 
@@ -30,6 +43,28 @@ The generator prompts for:
 6. Third-party services (payment, hosting, analytics)
 
 Output: Ready-to-use documents in `output/` directory.
+
+## Context-Aware Adaptation
+
+After generating the boilerplate, use the agent's capabilities to refine the documents:
+
+1. **Verify Tech Stack**:
+   - Scan `package.json` or source code for analytics tools (Google Analytics, Mixpanel), payment providers (Stripe), email services (SendGrid).
+   - Update the *Third-Party Services* section in the Privacy Policy accordingly.
+
+2. **Check Tracking**:
+   - Inspect website source or `index.html` for tracking scripts/pixels.
+   - Update *Cookie Policy* to reflect actual cookies used.
+
+3. **Validate URLs**:
+   - Ensure `[DOMAIN]` placeholders match the actual project URL.
+   - Check if support/contact pages exist.
+
+## Agent Usage Guidelines
+
+- **Always prompt** the user for the "Company Name" and "Jurisdiction" if not explicitly stated.
+- **Do not invent** legal contact emails; ask the user or default to `legal@[domain]`.
+- **Review generated files**: After generation, do a quick read of the Markdown files to ensure no `[PLACEHOLDERS]` remain for critical fields.
 
 ## Document Types
 
@@ -115,7 +150,7 @@ Generate all essential documents for a new SaaS product:
 4. **Acceptable Use Policy** - Usage guidelines
 5. **Data Processing Agreement** - GDPR compliance (if processing user data)
 
-**Run:** `python scripts/interactive_generator.py`
+**Run:** `npx -y bun scripts/index.ts`
 
 ### Workflow 2: GDPR Compliance Only
 
@@ -241,7 +276,7 @@ Before deploying legal documents, verify:
 ## Resources
 
 - **templates/** - Complete document templates by jurisdiction
-- **scripts/** - Interactive generation script
+- **scripts/** - Interactive generation script (TypeScript)
 - **REFERENCE.md** - Detailed legal requirements and examples
 - **README.md** - Technical documentation
 
@@ -257,4 +292,4 @@ with a qualified attorney to review your legal documents before publication.
 
 - REFERENCE.md - Detailed legal requirements and examples
 - templates/ - All legal document templates
-- scripts/interactive_generator.py - Generation tool
+- scripts/index.ts - Generation tool

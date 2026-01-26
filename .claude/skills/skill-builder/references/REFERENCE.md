@@ -1,6 +1,7 @@
 # Reference Formatting Guide
 
-All references and sources in SKILL.md and reference files must use **markdown link format**.
+All references and sources in SKILL.md and reference files must use **markdown
+link format**.
 
 ## Correct Format ✅
 
@@ -21,7 +22,8 @@ Do NOT use block quotes or plain URLs:
 ```markdown
 ## Sources
 
-- Indie Hackers Launch Strategy 2025: 23% Conversion Rate vs Product Hunt's 3% | Awesome Directories
+- Indie Hackers Launch Strategy 2025: 23% Conversion Rate vs Product Hunt's 3% |
+  Awesome Directories
   https://awesome-directories.com/blog/indie-hackers-launch-strategy-guide-2025/
 - 11 Best Product Hunt Alternatives 2026 (89% Wouldn't Launch Again) | OpenHunts
   https://openhunts.com/blog/product-hunt-alternatives-2025
@@ -37,6 +39,7 @@ Do NOT use block quotes or plain URLs:
 ## Validation
 
 The validation script (`scripts/validate.py`) checks that:
+
 - All `## Sources` sections use markdown link format `[Title](url)`
 - Links are valid URLs (http:// or https://)
 - No plain URLs or block quote formatting
@@ -66,7 +69,9 @@ The validation script (`scripts/validate.py`) checks that:
 When referencing sources inline within content, also use markdown links:
 
 ```markdown
-According to [Indie Hackers launch data](https://awesome-directories.com/blog/indie-hackers-launch-strategy-guide-2025/), community-led growth delivers 7.5x better conversion than launch events.
+According to
+[Indie Hackers launch data](https://awesome-directories.com/blog/indie-hackers-launch-strategy-guide-2025/),
+community-led growth delivers 7.5x better conversion than launch events.
 ```
 
 ## Book References

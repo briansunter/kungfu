@@ -1,22 +1,23 @@
 # Privacy Policy
 
-**Last Updated:** [EFFECTIVE_DATE]
+**Last Updated:** January 24, 2026
 
 ## 1. Introduction
 
-Welcome to **[COMPANY_NAME]** ("we," "our," or "us"). We are committed to
+Welcome to **Antigravity Test Co** ("we," "our," or "us"). We are committed to
 protecting your personal information and your right to privacy. This Privacy
 Policy explains how we collect, use, disclose, and safeguard your information
-when you use our website **[DOMAIN]** and our services.
+when you use our website **antigravity.test** and our services.
 
 Please read this Privacy Policy carefully. If you do not agree with the terms of
 this Privacy Policy, please do not access our website or use our services.
 
 **Contact Information:**
 
-- Email: [CONTACT_EMAIL]
-- Website: [DOMAIN]
-- Address: [COMPANY_ADDRESS]
+- Email: legal@antigravity.test
+- Website: antigravity.test
+- Address: 123 Ai Lane
+Silicon Valley, CA
 
 ## 2. Information We Collect
 
@@ -45,7 +46,7 @@ We automatically collect certain information when you use our services:
 
 We use cookies and similar tracking technologies to collect and track
 information about your activities on our website. See our
-[Cookie Policy]([DOMAIN]/cookies) for details.
+[Cookie Policy](antigravity.test/cookies) for details.
 
 ### 2.4 Third-Party Information
 
@@ -109,11 +110,11 @@ information on the following legal bases:
 We share your information with trusted third parties who assist us in operating
 our services:
 
-- **Payment Processors:** [PAYMENT_PROCESSOR] for payment processing
-- **Hosting Providers:** [HOSTING_PROVIDER] for cloud infrastructure
-- **Analytics Providers:** [ANALYTICS_PROVIDER] for usage analytics
-- **Email Services:** [EMAIL_PROVIDER] for communications
-- **Support Tools:** [SUPPORT_TOOL] for customer support
+- **Payment Processors:** Stripe for payment processing
+- **Hosting Providers:** Vercel for cloud infrastructure
+- **Analytics Providers:** Plausible for usage analytics
+- **Email Services:** Resend for communications
+- **Support Tools:** Helpscout for customer support
 
 ### 5.2 Business Transfers
 
@@ -140,12 +141,12 @@ We retain your personal information for as long as necessary to provide our
 services and fulfill the purposes outlined in this Privacy Policy.
 
 - **Account Information:** Retained while your account is active, then
-  deleted/anonymous within [RETENTION_PERIOD] days of account closure
-- **Transaction Records:** Retained for [RETENTION_PERIOD] years for tax and
+  deleted/anonymous within 730 days of account closure
+- **Transaction Records:** Retained for 730 years for tax and
   legal purposes
-- **Support Communications:** Retained for [RETENTION_PERIOD] years for quality
+- **Support Communications:** Retained for 730 years for quality
   assurance
-- **Analytics Data:** Retained in anonymized form for up to [RETENTION_PERIOD]
+- **Analytics Data:** Retained in anonymized form for up to 730
   months
 
 ## 7. Your Privacy Rights
@@ -165,7 +166,7 @@ Depending on your location, you may have the following rights:
 
 To exercise your rights, contact us at:
 
-- Email: [CONTACT_EMAIL]
+- Email: legal@antigravity.test
 - Subject Line: "Privacy Rights Request"
 - Required Information: Name, email address, description of request
 
@@ -204,7 +205,7 @@ Request deletion of your personal information, subject to certain exceptions.
 
 Opt-out of the sale or sharing of your personal information.
 
-**"Do Not Sell or Share My Personal Information" link:** [DOMAIN]/do-not-sell
+**"Do Not Sell or Share My Personal Information" link:** antigravity.test/do-not-sell
 
 ### 8.4 Right to Non-Discrimination
 
@@ -220,7 +221,7 @@ You may designate an authorized agent to make requests on your behalf.
 
 ## 9. Children's Privacy
 
-Our services are not intended for children under the age of [MIN_AGE]. We do not knowingly collect personal information from children under
+Our services are not intended for children under the age of 18. We do not knowingly collect personal information from children under
 this age. If you are a parent or guardian and believe your child has provided us
 with personal information, please contact us, and we will delete such
 information.
@@ -279,7 +280,7 @@ as soon as it is accessible.
 
 We will notify you of material changes by:
 
-- Emailing you at [CONTACT_EMAIL]
+- Emailing you at legal@antigravity.test
 - Posting a notice on our website
 - Updating the "Last Updated" date
 
@@ -290,7 +291,7 @@ understood, and agree to be bound by this Privacy Policy.
 
 ## 16. Governing Law
 
-This Privacy Policy is governed by the laws of [JURISDICTION], without regard to
+This Privacy Policy is governed by the laws of California, USA, without regard to
 its conflict of law provisions.
 
 ## 17. Contact Us
@@ -298,15 +299,16 @@ its conflict of law provisions.
 If you have questions, concerns, or complaints about this Privacy Policy or our
 data practices, please contact us:
 
-- **Email:** [CONTACT_EMAIL]
-- **Website:** [DOMAIN]/contact
-- **Address:** [COMPANY_NAME]
-  [COMPANY_ADDRESS]
+- **Email:** legal@antigravity.test
+- **Website:** antigravity.test/contact
+- **Address:** Antigravity Test Co
+  123 Ai Lane
+Silicon Valley, CA
 
-**Privacy Policy Version:** [VERSION] **Effective Date:** [EFFECTIVE_DATE]
+**Privacy Policy Version:** 1.0 **Effective Date:** January 24, 2026
 
 ---
 
-**[COMPANY_NAME]** respects your privacy and is committed to protecting your
+**Antigravity Test Co** respects your privacy and is committed to protecting your
 personal data. This Privacy Policy will be updated from time to time to reflect
 changes in our practices and applicable laws.

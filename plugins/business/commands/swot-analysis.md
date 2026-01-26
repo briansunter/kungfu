@@ -1,1 +1,0 @@
-../../../commands/swot-analysis.md

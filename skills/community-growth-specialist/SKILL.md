@@ -1,9 +1,6 @@
 ---
 name: community-growth-specialist
-description:
-  Build and engage communities for sustainable customer acquisition. Use when
-  growing audience without paid ads, launching on community platforms, or
-  implementing build-in-public strategies.
+description: Build and engage communities for sustainable customer acquisition. Use when growing audience without paid ads, launching on community platforms, or implementing build-in-public strategies.
 license: MIT
 ---
 

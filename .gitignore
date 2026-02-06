@@ -30,6 +30,9 @@ coverage/
 *.swo
 *~
 
+# Claude Code local overrides
+.claude.local.md
+
 # Temp
 .tmp/
 .temp/

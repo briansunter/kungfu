@@ -432,7 +432,7 @@ def validate_skill(path: Path, result: ValidationResult, verbose: bool):
     # Word count check (Agent Skills recommends < 500 lines, ~1500 words is reasonable)
     word_count = len(content.split())
     if word_count > 1500:
-        result.warn(f"Word count ({word_count}) exceeds 1500 words")
+        result.fail(f"Word count ({word_count}) exceeds 1500 words")
     else:
         result.pass_(f"Word count: {word_count}", verbose)
 

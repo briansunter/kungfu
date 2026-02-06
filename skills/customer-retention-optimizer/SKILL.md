@@ -1,9 +1,6 @@
 ---
 name: customer-retention-optimizer
-description:
-  Reduce customer churn through onboarding optimization, customer success
-  strategies, and reactivation campaigns. Use when improving retention,
-  extending LTV, or fixing leaky buckets.
+description: Reduce customer churn through onboarding optimization, customer success strategies, and reactivation campaigns. Use when improving retention, extending LTV, or fixing leaky buckets.
 license: MIT
 ---
 

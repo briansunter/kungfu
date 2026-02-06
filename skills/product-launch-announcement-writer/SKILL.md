@@ -1,9 +1,6 @@
 ---
 name: product-launch-announcement-writer
-description:
-  Write compelling product launch announcements by gathering product information
-  through guided questions and analyzing repos/homepages. Use when launching
-  products on GitHub, Product Hunt, Indie Hackers, or social platforms.
+description: Write compelling product launch announcements by gathering product information through guided questions and analyzing repos/homepages. Use when launching products on GitHub, Product Hunt, Indie Hackers, or social platforms.
 license: MIT
 ---
 

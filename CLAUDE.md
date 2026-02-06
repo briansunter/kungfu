@@ -9,6 +9,12 @@ Kungfu is a modular plugin/skill marketplace for Claude Code containing reusable
 skills, commands, agents, and plugins. Each component is self-contained with
 YAML frontmatter and validated through automated CI.
 
+## Prerequisites
+
+- [Bun](https://bun.sh/) - JavaScript runtime and package manager
+- [Just](https://just.systems/) - Task runner (`brew install just`)
+- [uv](https://docs.astral.sh/uv/) - Python package runner (`brew install uv`)
+
 ## Common Commands
 
 ### Development
@@ -22,9 +28,6 @@ just check
 
 # Run lint (Biome + validation)
 just lint
-
-# Format code (Biome + Prettier)
-just fmt
 
 # Type check TypeScript
 just typecheck
@@ -43,6 +46,32 @@ just validate-verbose
 just biome
 ```
 
+### Formatting
+
+```bash
+# Format all files (Biome for code, Prettier for markdown)
+just fmt
+
+# Format markdown files only
+just fmt-md
+
+# Check formatting without writing
+just fmt-check
+```
+
+### Utilities
+
+```bash
+# Generate README skills table (use --write to update README.md)
+just readme-table --write
+
+# Install git hooks (pre-commit for README table updates)
+just install-hooks
+
+# Clean generated files and caches
+just clean
+```
+
 ### Running TypeScript Scripts
 
 Use Bun runtime for TypeScript files:
@@ -57,13 +86,18 @@ bun run scripts/your-script.ts
 
 ```
 kungfu/
-├── skills/           # Standalone skill definitions
-├── commands/         # Standalone command definitions
+├── skills/           # Standalone skill definitions (SKILL.md per directory)
+├── commands/         # Standalone command definitions (currently empty)
 ├── agents/           # Agent definitions (.md files)
-├── plugins/          # Plugin modules (self-contained)
-├── scripts/          # Build/validation scripts
-├── .claude-plugin/   # Root plugin marketplace config
-└── justfile          # Task automation
+├── plugins/          # Plugin modules (self-contained with symlinks)
+│   └── business/     # Only plugin; symlinks to root skills/agents
+├── scripts/          # Build/validation scripts (Python + TypeScript)
+├── .claude-plugin/   # Root plugin marketplace config (marketplace.json)
+├── AGENTS.md         # Symlink → CLAUDE.md
+├── biome.json        # Biome linter/formatter config
+├── tsconfig.json     # TypeScript configuration
+├── justfile          # Task automation
+└── README.md         # Repository documentation with auto-generated skills table
 ```
 
 ### Component Types
@@ -87,7 +121,8 @@ kungfu/
 
 - **File**: `<name>.md` (filename is the agent name)
 - **Required frontmatter**: `name`, `description`, `permissionMode`, `skills`
-- **Permission modes**: `bypassPermissions`, `normal`, `restricted`
+- **Permission modes**: `default`, `bypassPermissions`, `plan`
+- **Optional**: `model` (one of: `sonnet`, `opus`, `haiku`, `inherit`)
 
 #### Plugins (`plugins/*`)
 
@@ -108,14 +143,15 @@ The `scripts/validate.py` enforces:
    `examples/`, `assets/` must be referenced from parent SKILL.md/COMMAND.md
 6. **Word Count**: Skills should be under 1500 words
 7. **Description Format**: Must be single-line (no `\n` or `\r` characters)
+8. **No Block Scalars**: Description must not use YAML `|` or `>` syntax
 
 ### Technology Stack
 
 - **TypeScript**: Strict mode with `noUncheckedIndexedAccess`
 - **Bun**: Runtime and package manager (default over Node.js)
-- **Biome**: Linting and formatting (tabs, 100 char line width)
+- **Biome**: Linting and formatting (tabs, double quotes, 100 char line width)
 - **Prettier**: Markdown formatting with `prose-wrap: always`
-- **Python + uv**: For validation scripts
+- **Python + uv**: For validation scripts (inline script deps, no requirements.txt)
 - **Just**: Task runner (see `justfile`)
 
 ### CI/CD Pipeline
@@ -124,7 +160,7 @@ GitHub Actions (`.github/workflows/validate.yml`) runs on push/PR to
 master/main:
 
 1. Type check: `bun tsc --noEmit`
-2. Lint: `bunx biome check`
+2. Lint: `bunx biome check --diagnostic-level=error .`
 3. Validate: `uv run scripts/validate.py`
 
 ## Key Conventions
@@ -150,6 +186,7 @@ compatibility: Requires Bun runtime
 ### Description Field Rules
 
 - **Must be single line** - No `\n` or `\r` characters allowed
+- **No block scalars** - Cannot use `|`, `>`, `|-`, `>-` syntax in YAML source
 - Max 1024 characters
 - Describes what the component does and when to use it
 
@@ -174,7 +211,27 @@ skills/commands/agents. This allows plugin composition without duplication.
 3. **Add subdirectories** as needed (`references/`, `scripts/`, etc.)
 4. **Run validation**: `just validate`
 5. **Format**: `just fmt`
-6. **Test**: `just check`
+6. **Run all checks**: `just check`
+7. **Update README table**: `just readme-table --write`
+
+## Gotchas
+
+- **Orphan detection is strict**: Every file in `references/`, `scripts/`,
+  `templates/`, `examples/`, `assets/` must be referenced from SKILL.md via
+  markdown link or backtick reference, or validation fails.
+- **`package.json`, `bun.lock`, `.gitkeep` are exempt** from orphan checks.
+- **Validation runs from repo root**: Paths in `validate.py` are relative to
+  `cwd()`, so always run `just validate` from the repo root.
+- **Biome uses `--diagnostic-level=error`** in lint: warnings don't fail CI but
+  errors do. Use `just biome` locally which includes `--write` for auto-fixing.
+- **README skills table auto-generation**: The pre-commit hook runs
+  `just readme-table` to keep the README table in sync. Install with
+  `just install-hooks`.
+- **`AGENTS.md` is a symlink** to `CLAUDE.md` -- don't edit it directly.
+- **`marketplace.json`** in `.claude-plugin/` is the root plugin registry --
+  update it when adding new plugins to the marketplace.
+- **All skills are currently business-focused** and composed into the
+  `plugins/business` plugin via symlinks.
 
 ## TypeScript Configuration
 

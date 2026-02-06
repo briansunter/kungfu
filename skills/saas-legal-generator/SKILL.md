@@ -1,9 +1,6 @@
 ---
 name: saas-legal-generator
-description:
-  Generate legal boilerplate documents for SaaS applications including Privacy
-  Policy, Terms of Service, Cookie Policy, and GDPR/CCPA compliance. Use when
-  launching new SaaS products or updating legal documents.
+description: Generate legal boilerplate documents for SaaS applications including Privacy Policy, Terms of Service, Cookie Policy, and GDPR/CCPA compliance. Use when launching new SaaS products or updating legal documents.
 ---
 
 # SaaS Legal Boilerplate Generator
@@ -31,7 +28,7 @@ npx -y bun scripts/index.ts
    stack, tracking).
 2. **Prompt**: Ask user for key details (Company Name, Contact Email,
    Jurisdiction).
-3. **Configure**: Create a `config.json` file with the details (see
+3. **Configure**: Create a config.json file with the details (see
    `example_config.json`).
 4. **Generate**: Run `npx -y bun scripts/index.ts config.json`.
 
@@ -52,7 +49,7 @@ After generating the boilerplate, use the agent's capabilities to refine the
 documents:
 
 1. **Verify Tech Stack**:
-   - Scan `package.json` or source code for analytics tools (Google Analytics,
+   - Scan the project's package.json or source code for analytics tools (Google Analytics,
      Mixpanel), payment providers (Stripe), email services (SendGrid).
    - Update the _Third-Party Services_ section in the Privacy Policy
      accordingly.
@@ -284,6 +281,11 @@ Before deploying legal documents, verify:
 ## Resources
 
 - **templates/** - Complete document templates by jurisdiction
+  - [privacy-policy-global.md](templates/privacy-policy-global.md)
+  - [terms-of-service-saas.md](templates/terms-of-service-saas.md)
+  - [cookie-policy.md](templates/cookie-policy.md)
+  - [data-processing-agreement.md](templates/data-processing-agreement.md)
+  - [ccpa-opt-out-link.md](templates/ccpa-opt-out-link.md)
 - **scripts/** - Interactive generation script (TypeScript)
 - **REFERENCE.md** - Detailed legal requirements and examples
 - **README.md** - Technical documentation

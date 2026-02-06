@@ -7,7 +7,7 @@ set -e
 # Check if README.md exists and has markers
 if [[ -f "README.md" ]] && grep -q "SKILLS-TABLE-START" README.md; then
     # Generate updated table
-    bun scripts/generate-readme-table.ts --write
+    bun .claude/skills/generate-readme-table/scripts/generate-readme-table.ts --write
 
     # Check if README.md changed
     if ! git diff --quiet README.md 2>/dev/null; then

@@ -3,8 +3,8 @@
  * Generate a markdown table of all skills and their descriptions.
  *
  * Usage:
- *   bun scripts/generate-readme-table.ts          # Output to stdout
- *   bun scripts/generate-readme-table.ts --write  # Update README.md
+ *   bun .claude/skills/generate-readme-table/scripts/generate-readme-table.ts          # Output to stdout
+ *   bun .claude/skills/generate-readme-table/scripts/generate-readme-table.ts --write  # Update README.md
  */
 
 import { Glob } from "bun";

@@ -6,8 +6,8 @@ license: MIT
 
 # Launch Guide
 
-End-to-end product launch execution guide covering platform submissions,
-visual asset preparation, copywriting, and launch day coordination.
+End-to-end product launch execution guide covering platform submissions, visual
+asset preparation, copywriting, and launch day coordination.
 
 ## When to Use
 
@@ -24,16 +24,16 @@ Ask the user for all required launch details using this structured intake:
 
 ### Required Fields
 
-| Field | Constraints | Example |
-|-------|-------------|---------|
-| **Product name** | 12-40 characters | "Kellog Engine" |
-| **Tagline** | Up to 60 characters, required | "Build games 10x faster with ECS" |
-| **Description** | Up to 500 characters | What's new or different |
-| **Launch tags** | 1-3 tags, required | AI, Developer Tools, Open Source |
-| **Links** | Product URL + store links | App Store, Steam, web app |
-| **X account** | x.com/ handle | x.com/kellog_engine |
-| **Open source?** | Yes/No | Yes |
-| **First comment** | Essential for engagement | See template below |
+| Field             | Constraints                   | Example                           |
+| ----------------- | ----------------------------- | --------------------------------- |
+| **Product name**  | 12-40 characters              | "Kellog Engine"                   |
+| **Tagline**       | Up to 60 characters, required | "Build games 10x faster with ECS" |
+| **Description**   | Up to 500 characters          | What's new or different           |
+| **Launch tags**   | 1-3 tags, required            | AI, Developer Tools, Open Source  |
+| **Links**         | Product URL + store links     | App Store, Steam, web app         |
+| **X account**     | x.com/ handle                 | x.com/kellog_engine               |
+| **Open source?**  | Yes/No                        | Yes                               |
+| **First comment** | Essential for engagement      | See template below                |
 
 ### Additional Context to Gather
 
@@ -55,11 +55,13 @@ tagline in the name field.
 Formula: `[Action verb] + [outcome] + [differentiator]`
 
 Tagline examples:
+
 - "Ship games faster with a Bevy-inspired ECS engine for Zig"
 - "AI-powered code review that catches bugs before your team does"
 - "Turn screenshots into annotated tutorials in seconds"
 
 **Links**: Add all relevant links:
+
 - Primary product URL (required)
 - App Store / Google Play / Steam / Amazon links
 - GitHub repo (if open source)
@@ -97,7 +99,8 @@ Product Hunt allows up to 8 images/videos. Recommended gallery order:
 Capture these categories:
 
 **Hero shots**: Clean, full-screen product UI showing the main value. Remove
-distracting browser chrome. Use a clean desktop wallpaper if showing desktop app.
+distracting browser chrome. Use a clean desktop wallpaper if showing desktop
+app.
 
 **Feature highlights**: One screenshot per key feature. Show the feature in use,
 not just a settings panel. Include realistic data, not lorem ipsum.
@@ -108,8 +111,8 @@ finish. Number them or add step labels.
 **Before/after**: Side-by-side comparison showing the problem state and the
 solution state.
 
-**Results/output**: Show what the user gets — the report, the generated code, the
-final design, the dashboard with real metrics.
+**Results/output**: Show what the user gets — the report, the generated code,
+the final design, the dashboard with real metrics.
 
 ### Screenshot Best Practices
 
@@ -129,8 +132,8 @@ Add annotations to guide the viewer's eye:
 - **Arrow or pointer** to draw attention to a specific element
 - **Text overlay** at top or bottom for context
 
-Tools for annotation: Figma, Cleanshot X, Shottr, Skitch, or browser-based
-tools like Markup Hero.
+Tools for annotation: Figma, Cleanshot X, Shottr, Skitch, or browser-based tools
+like Markup Hero.
 
 ### Creating Annotated Screenshots
 
@@ -176,8 +179,8 @@ Title: Introducing [Product] — [Tagline]
 
 ### Social Media Announcements
 
-**X/Twitter** (single tweet): `[Emoji] Launching [Product] today on
-@ProductHunt! [Tagline]. [Link] #LaunchDay`
+**X/Twitter** (single tweet):
+`[Emoji] Launching [Product] today on @ProductHunt! [Tagline]. [Link] #LaunchDay`
 
 **X/Twitter** (thread): See the `product-launch-announcement-writer` skill for
 full thread templates.
@@ -193,6 +196,7 @@ personal. Include one clear CTA.
 ### Launch Day Checklist
 
 **Before launch (24-48 hours):**
+
 - [ ] All screenshots taken and annotated
 - [ ] Product Hunt submission drafted (schedule if possible)
 - [ ] Blog post written and ready to publish
@@ -201,6 +205,7 @@ personal. Include one clear CTA.
 - [ ] Rally supporters — DM friends, communities, supporters
 
 **Launch morning:**
+
 - [ ] Publish Product Hunt listing (12:01 AM PT for full day visibility)
 - [ ] Post first comment immediately
 - [ ] Publish blog post
@@ -210,12 +215,14 @@ personal. Include one clear CTA.
 - [ ] Post in relevant communities (Slack, Discord, Reddit, HN)
 
 **Throughout the day:**
+
 - [ ] Respond to every Product Hunt comment within 30 minutes
 - [ ] Engage with social media replies
 - [ ] Share updates and milestones ("We just hit #5 on Product Hunt!")
 - [ ] Thank supporters publicly
 
 **After launch (24-48 hours):**
+
 - [ ] Write a thank-you post with results
 - [ ] Share learnings and metrics
 - [ ] Follow up with new users

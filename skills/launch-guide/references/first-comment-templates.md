@@ -1,7 +1,7 @@
 # First Comment Templates for Product Hunt
 
-The first comment is posted upon launch and is essential to start the discussion.
-It sets the tone for the entire launch page.
+The first comment is posted upon launch and is essential to start the
+discussion. It sets the tone for the entire launch page.
 
 ## Why the First Comment Matters
 
@@ -129,3 +129,10 @@ Happy to nerd out on the technical details — ask me anything!
 - **Show vulnerability**: Sharing challenges makes you relatable
 - **Keep it scannable**: Use bullet points and short paragraphs
 - **Include a link**: Direct readers to try the product or see a demo
+
+## Sources
+
+- [Product Hunt Launch Guide](https://www.producthunt.com/launch)
+- [Prepare for your Product Hunt launch](https://www.producthunt.com/launch/preparing-for-launch)
+- [How to schedule a post | Product Hunt Help Center](https://help.producthunt.com/en/articles/2724119-how-to-schedule-a-post)
+- [Managing releases in a repository | GitHub Docs](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)

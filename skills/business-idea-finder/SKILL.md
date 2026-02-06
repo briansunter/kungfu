@@ -295,8 +295,8 @@ After finding and validating business ideas:
    scoping, customer development interviews
 2. **Use `pricing-strategy-designer` skill** - Monetization model design,
    pricing tier structure
-3. **Use `mvp-feature-scope` skill** - Define MVP feature set, timeline, and
-   roadmap
+3. **Use `technical-automation-architect` skill** - Define pragmatic MVP
+   architecture, build-vs-buy boundaries, and delivery approach
 4. **Use `customer-retention-optimizer` skill** - Plan retention strategies
    before launch
 

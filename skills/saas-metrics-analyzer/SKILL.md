@@ -9,7 +9,7 @@ license: MIT
 Use this skill when you need to:
 
 - **Run monthly business health checks** to track progress
-- **Benchmark metrics** against industry standards for indie SaaS
+- **Benchmark metrics** against relevant peer ranges for your segment
 - **Diagnose growth problems** (stuck at plateau, high churn, poor unit
   economics)
 - **Calculate missing metrics** from partial data
@@ -75,15 +75,16 @@ LTV:CAC = LTV ÷ CAC
 Payback = CAC ÷ (ARPU × Gross Margin %)
 ```
 
-**Annual churn** (if you have monthly):
+**Annual churn** (if you have monthly; use monthly churn as decimal):
 
 ```
 Annual = (1 - (1 - Monthly)^12) × 100
 ```
 
-## Step 3: Benchmark Against Standards
+## Step 3: Benchmark Against Peer Ranges
 
-Use the detailed benchmarks in the metric reference sections below.
+Use the benchmark ranges below as directional guidance, not universal truth.
+Segment (SMB vs enterprise), price point, geography, and channel mix all matter.
 
 ## Step 4: Identify Red Flags and Strengths
 
@@ -103,19 +104,18 @@ Prioritize actions by impact: churn → pricing → acquisition → operations.
 
 **What it measures**: Predictable monthly revenue from subscriptions
 
-**Benchmarks**:
+**Benchmarks** (directional for subscription SaaS):
 
-| Stage            | MRR Range   | Timeline    |
-| ---------------- | ----------- | ----------- |
-| Early stage      | $1K-$3K     | 0-6 months  |
-| Growth stage     | $5K-$10K    | 6-18 months |
-| Sustainable      | $10K+       | 18+ months  |
-| Successful indie | $15K median | -           |
-| Top performers   | $30K-$100K+ | -           |
+| Stage          | MRR Range   | Timeline    |
+| -------------- | ----------- | ----------- |
+| Early stage    | $1K-$3K     | 0-6 months  |
+| Growth stage   | $3K-$15K    | 6-18 months |
+| Sustainable    | $10K+       | 18+ months  |
+| Top performers | $30K-$100K+ | Varies      |
 
 **Red flags**:
 
-- ❌ Below $1K MRR after 6 months (product-market fit issues)
+- ❌ Below $1K MRR after 6 months (possible PMF or distribution issues)
 - ❌ Stuck at $3K-$5K for 3+ months (growth plateau)
 - ❌ Declining for 2+ consecutive months
 
@@ -130,22 +130,22 @@ Prioritize actions by impact: churn → pricing → acquisition → operations.
 
 **What it measures**: Average monthly revenue per customer
 
-**Benchmarks**:
+**Benchmarks** (segment-sensitive):
 
-| Range             | Assessment                             |
-| ----------------- | -------------------------------------- |
-| <$29/month        | Underpriced (attracts bargain hunters) |
-| $49-$299/month    | Healthy sweet spot for indie SaaS      |
-| $300-$5,000/month | High-ticket (enterprise focus)         |
+| Range          | Assessment                                          |
+| -------------- | --------------------------------------------------- |
+| <$30/month     | Low-ticket model; requires strong volume/efficiency |
+| $30-$300/month | Common SMB SaaS pricing band                        |
+| $300+/month    | Higher-ACV model (often more sales/support)         |
 
 **Red flags**:
 
-- ❌ ARPU <$29 with high churn
+- ❌ ARPU low relative to CAC and support burden
 - ❌ ARPU declining over time
 
 **Improvement levers**:
 
-- Introduce tiered pricing ($29/$99/$199)
+- Introduce tiered packaging and pricing
 - Add annual payment discounts
 - Implement usage-based pricing
 - Raise prices on new customers first
@@ -160,14 +160,14 @@ Prioritize actions by impact: churn → pricing → acquisition → operations.
 
 **What it measures**: Cost to acquire one new customer
 
-**Benchmarks**:
+**Benchmarks** (highly channel-dependent):
 
-| CAC Range   | Assessment                      |
-| ----------- | ------------------------------- |
-| <$200       | Excellent (viral/community-led) |
-| $200-$500   | Acceptable                      |
-| $500-$1,000 | Expensive (need high LTV)       |
-| >$1,000     | Danger zone for SMB SaaS        |
+| CAC Range   | Assessment                              |
+| ----------- | --------------------------------------- |
+| <$200       | Efficient for many SMB/self-serve       |
+| $200-$500   | Common in mixed inbound/outbound models |
+| $500-$1,000 | Requires stronger payback economics     |
+| >$1,000     | Often risky without high ACV/margins    |
 
 **Formula**:
 
@@ -177,7 +177,7 @@ CAC = (Sales + Marketing costs) ÷ New customers acquired
 
 **Red flags**:
 
-- ❌ CAC >$500 and ARPU <$50
+- ❌ CAC rising while ARPU and retention are flat
 - ❌ CAC rising over time
 - ❌ CAC > LTV × 0.33
 
@@ -200,19 +200,18 @@ CAC = (Sales + Marketing costs) ÷ New customers acquired
 LTV = (ARPU × Gross Margin %) ÷ Monthly churn rate
 ```
 
-**Benchmarks** (LTV:CAC ratio):
+**Benchmarks** (LTV:CAC ratio, directional):
 
-| Ratio | Assessment                       |
-| ----- | -------------------------------- |
-| <3:1  | Losing money on customers        |
-| 3:1   | Minimum viable                   |
-| 4:1   | Healthy (new standard)           |
-| 5:1+  | Excellent                        |
-| >7:1  | May be under-investing in growth |
+| Ratio   | Assessment                                     |
+| ------- | ---------------------------------------------- |
+| <1:1    | Unsustainable                                  |
+| 1:1-3:1 | Needs improvement for most SaaS models         |
+| 3:1-5:1 | Common target range                            |
+| >5:1    | Strong economics (or possible under-investing) |
 
 **Red flags**:
 
-- ❌ LTV:CAC <3:1
+- ❌ LTV:CAC persistently below ~3:1
 - ❌ LTV <$500
 - ❌ LTV declining over time
 
@@ -229,15 +228,14 @@ LTV = (ARPU × Gross Margin %) ÷ Monthly churn rate
 
 **What it measures**: Months to recover acquisition cost
 
-**Benchmarks**:
+**Benchmarks** (stage-dependent):
 
-| Months | Assessment                           |
-| ------ | ------------------------------------ |
-| <6     | Very healthy, can scale aggressively |
-| 8-12   | Early-stage acceptable               |
-| 12-15  | Excellent for established business   |
-| 15-18  | Mid-stage acceptable                 |
-| >18    | Danger zone for SMB SaaS             |
+| Months | Assessment                                    |
+| ------ | --------------------------------------------- |
+| <6     | Very efficient                                |
+| 6-12   | Healthy for many self-serve products          |
+| 12-18  | Often acceptable for sales-assisted SaaS      |
+| >18    | Usually a warning sign (unless very high ACV) |
 
 ---
 
@@ -247,15 +245,13 @@ LTV = (ARPU × Gross Margin %) ÷ Monthly churn rate
 
 **What it measures**: Percentage of customers canceling each month
 
-**Benchmarks**:
+**Benchmarks** (segment-sensitive):
 
 | Rate | Assessment               |
 | ---- | ------------------------ |
-| <1%  | Excellent (~5% annually) |
-| 1-3% | Healthy                  |
-| 2.9% | Average B2B SaaS         |
-| 3-5% | Warning zone             |
-| >5%  | Danger zone              |
+| <2%  | Strong for many B2B SaaS |
+| 2-5% | Common SMB range         |
+| >5%  | Warning zone             |
 
 **Formula**:
 
@@ -271,7 +267,7 @@ Monthly Churn = (Customers lost ÷ Total customers) × 100
 
 **Improvement tactics**:
 
-- Improve onboarding (<7 day TTV)
+- Improve onboarding and shorten time-to-value
 - Implement customer success
 - Build in-product stickiness
 - Exit surveys to identify causes
@@ -290,16 +286,15 @@ Monthly Churn = (Customers lost ÷ Total customers) × 100
 NRR = ((Starting MRR + Expansion - Churn - Downgrades) ÷ Starting MRR) × 100
 ```
 
-**Benchmarks**:
+**Benchmarks** (directional):
 
-| NRR      | Assessment                   |
-| -------- | ---------------------------- |
-| <90%     | Severe contraction           |
-| <100%    | Contraction (shrinking base) |
-| 100-105% | Healthy                      |
-| 106%     | Median                       |
-| 110%+    | Excellent                    |
-| 120-130% | Best-in-class                |
+| NRR      | Assessment                     |
+| -------- | ------------------------------ |
+| <90%     | Significant contraction        |
+| 90-100%  | Net contraction                |
+| 100-110% | Healthy to strong              |
+| 110-120% | Excellent                      |
+| 120%+    | Exceptional (often enterprise) |
 
 **Red flags**:
 
@@ -326,7 +321,8 @@ and a sample analysis walkthrough, see
 **Mistake 1: Ignoring Churn**
 
 - **Problem**: Churn compounds - 5% monthly = 46% annually
-- **Solution**: Target <3% monthly, measure weekly
+- **Solution**: Measure weekly, then improve onboarding, fit, and lifecycle
+  engagement before pushing harder on acquisition
 
 **Mistake 2: Vanity Metrics**
 
@@ -335,8 +331,9 @@ and a sample analysis walkthrough, see
 
 **Mistake 3: Outdated Benchmarks**
 
-- **Problem**: Using 2010s benchmarks (3:1 LTV:CAC was fine then)
-- **Solution**: Use current standards (4:1 LTV:CAC is new minimum)
+- **Problem**: Using generic benchmarks without segment context
+- **Solution**: Compare against peers by model, stage, and ACV; many teams use
+  3:1-5:1 as a working LTV:CAC band
 
 **Mistake 4: Measuring Infrequently**
 
@@ -365,6 +362,8 @@ After running your metrics checkup:
 
 ## Sources
 
-- [ChartMogul SaaS Benchmarks 2024](https://chartmogul.com/reports/saas-benchmarks/)
-- [OpenView SaaS Metrics Report](https://openviewpartners.com/)
-- [ProfitWell Retention Benchmarks](https://www.profitwell.com/)
+- [SaaS Benchmarks Report | OpenView](https://openviewpartners.com/saas-benchmarks/)
+- [State of the Cloud 2024 | Bessemer Venture Partners](https://www.bvp.com/atlas/state-of-the-cloud-2024)
+- [SaaS Metrics: What to Track and Why | Paddle](https://www.paddle.com/resources/saas-metrics)
+- [Net MRR Retention | ChartMogul Help](https://help.chartmogul.com/article/163-net-mrr-retention)
+- [Churn Rate Benchmarks 2025 | Recurly Research](https://www.recurly.com/research/churn-rate-benchmarks/)

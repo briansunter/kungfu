@@ -423,4 +423,7 @@ tweaks (copy, layout, presentation) can increase ARPU by 35-74%.
 
 ## Sources
 
-- [Smart Micro-SaaS Pricing Strategies for Indie Founders | Freemius Blog](https://freemius.com/blog/micro-saas-pricing-strategies/)
+- [Pricing Strategy: How To Price a SaaS Product | Paddle](https://www.paddle.com/resources/pricing-strategy)
+- [SaaS Benchmarks Report | OpenView](https://openviewpartners.com/saas-benchmarks/)
+- [Statistical Significance | Optimizely Glossary](https://www.optimizely.com/optimization-glossary/statistical-significance/)
+- [A/B Test Sample Size Calculator | VWO](https://vwo.com/tools/ab-test-sample-size-calculator/)

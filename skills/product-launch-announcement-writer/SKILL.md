@@ -87,7 +87,7 @@ Ask these questions to gather essential information:
 
 **If user provides a GitHub repo or homepage:**
 
-Use `mcp__web_reader__webReader` tool to analyze:
+Use available web search and page-reading tools to analyze:
 
 - Repos: README, features, installation, examples
 - Homepages: Headline, value proposition, features, testimonials
@@ -298,7 +298,7 @@ After writing the launch announcement:
 
 ## Sources
 
-- [Product Hunt Launch Guide](https://www.producthunt.com/tutorials)
-- [GitHub Release Notes Best Practices](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
-- [Indie Hackers Launch Discussions](https://www.indiehackers.com/)
-- [Y Combinator Launch Strategy](https://www.ycombinator.com/library/how-to-launch)
+- [Product Hunt Launch Guide](https://www.producthunt.com/launch)
+- [How to Launch on Product Hunt](https://blog.producthunt.com/how-to-launch-on-product-hunt)
+- [Managing releases in a repository | GitHub Docs](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+- [Reddit Content Policy](https://www.redditinc.com/policies/content-policy)

@@ -477,6 +477,7 @@ comprehensive and ignored.
 
 ## Sources
 
-- [Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)](https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578)
-- [The E-Myth Revisited by Michael Gerber](https://www.amazon.com/E-Myth-Revisited-Michael-E-Gerber/dp/0060753187)
-  (Book reference on business systems)
+- [SOP Template | Confluence](https://www.atlassian.com/software/confluence/templates/sop)
+- [SOP Template and Guide | Asana](https://asana.com/resources/sop-template)
+- [Notion Help Center](https://www.notion.so/help)
+- [Loom Help Center](https://support.loom.com/hc/en-us)

@@ -480,3 +480,10 @@ or Notion), upgrade if needed.
 ---
 
 **Source**: Documentation tools comparison and best practices
+
+## Sources
+
+- [SOP Template | Confluence](https://www.atlassian.com/software/confluence/templates/sop)
+- [SOP Template and Guide | Asana](https://asana.com/resources/sop-template)
+- [Notion Help Center](https://www.notion.so/help)
+- [Loom Help Center](https://support.loom.com/hc/en-us)

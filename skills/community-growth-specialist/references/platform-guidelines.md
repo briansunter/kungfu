@@ -1,412 +1,117 @@
 # Platform-Specific Guidelines and Strategies
 
-## Indie Hackers: The 4-6 Month Commitment
+Use this guide to choose the right community channels and avoid treating every
+platform the same.
 
-### Why Indie Hackers Converts 7.5x Better Than Product Hunt
+## Platform Selection Framework
 
-**Audience composition difference**:
+Evaluate each platform on four dimensions:
 
-- **Indie Hackers**: Founders actively building, engaged with your journey over
-  months
-- **Product Hunt**: Tech tourists browsing for novelty, low intent
+1. Audience match: are your ideal users active there?
+2. Intent: are users browsing, or actively asking for solutions?
+3. Moderation risk: how strict are self-promo and link rules?
+4. Compounding potential: do posts have lasting discovery value?
 
-**Conversion data**:
+## Platform Fit Matrix
 
-- Indie Hackers: 23.1% per engaged post
-- Product Hunt: 3.1% per launch
-- **Ratio: 7.5x better conversion**
+| Platform       | Intent Level | Best For                        | Typical Risk                            |
+| -------------- | ------------ | ------------------------------- | --------------------------------------- |
+| Indie Hackers  | High         | Founder tools, B2B SaaS         | Low engagement if you only self-promote |
+| Reddit (niche) | Medium-High  | Narrow use cases, fast feedback | Post removal if rules are ignored       |
+| Hacker News    | High         | Technical products              | Harsh feedback if hypey or vague        |
+| Product Hunt   | Event-driven | Announcement day and visibility | Short-lived spike without follow-up     |
 
-### Time Investment for Results
+## Indie Hackers Playbook
 
-| Level                 | Time/Week | Duration    | Results                              |
-| --------------------- | --------- | ----------- | ------------------------------------ |
-| **Minimum viable**    | 3-5 hrs   | 6-8 weeks   | 500-1,000 visitors                   |
-| **Professional**      | 5-10 hrs  | 4-6 months  | 1,000-3,000 visitors + relationships |
-| **Business building** | 10-15 hrs | 6-12 months | Sustainable acquisition channel      |
+### What Works
 
-### Content That Performs (Ranked by Engagement)
+- Build in public with concrete updates.
+- Share lessons, tradeoffs, and failed experiments.
+- Comment consistently on other builders' posts.
+- Ask specific questions instead of broad "thoughts?" prompts.
 
-**1. Journey/Milestone Posts with Specific Numbers** ⭐⭐⭐⭐⭐
+### What Fails
 
-- Examples: "$10K MRR in 5 months", "$0 → 1,200 visitors in 6 weeks"
-- Engagement: 30-50+ comments
-- Conversion: 18-23%
+- Product links without context.
+- Generic milestone posts with no tactics.
+- Posting only during launch windows.
 
-**2. Post-Mortems with Failure Transparency** ⭐⭐⭐⭐⭐
+### Cadence
 
-- Examples: "Why my launch failed", "The $2K mistake I made"
-- Engagement: 40-60+ comments (highest trust builder)
-- Conversion: 20-25%
+- Weekly post: progress, post-mortem, or tactical breakdown.
+- Near-daily comments: help others and build trust.
+- Monthly recap: what changed, what did not, what is next.
 
-**3. Tactical Playbooks** ⭐⭐⭐⭐
+## Reddit Playbook
 
-- Examples: "How I validated my idea", "My pricing framework"
-- Engagement: 15-25 comments
-- Conversion: 15-18%
+### Subreddit Qualification Checklist
 
-**4. Technical Deep-Dives** ⭐⭐⭐
+- Active daily discussion (not only link drops).
+- Audience overlap with your buyer persona.
+- Clear rules on promotion and link posting.
+- Evidence that builders can share work in context.
 
-- Examples: "Scaling to 10K users", "Our architecture decisions"
-- Engagement: 10-15 comments
-- Conversion: 10-12%
+### 4-Week Execution
 
-**5. AMAs/Q&A** ⭐⭐⭐
+1. Week 1: Observe and capture recurring pain points.
+2. Week 2: Add value in comments only.
+3. Week 3: Ask for feedback on problem framing.
+4. Week 4: Share a validation page with clear context and respond to every
+   comment.
 
-- Examples: "AMA: I hit $10K MRR solo"
-- Engagement: 5-15 comments
-- Conversion: 8-10%
+## Hacker News Playbook
 
-**6. Direct Product Announcements** ⭐
+### Submission Quality Bar
 
-- Examples: "Check out my new SaaS"
-- Engagement: 0-3 comments (fails)
-- Conversion: 1-3%
+- Clear title; no clickbait.
+- Plain language summary of what you built and why.
+- Honest acknowledgement of tradeoffs and limitations.
+- Active comment engagement after posting.
 
-### Indie Hackers Culture: What Works and What Doesn't
+### Avoid
 
-**DO** ✅
+- Promotional language.
+- Reposting too frequently.
+- Defensiveness in technical critique threads.
 
-- Share specific numbers (revenue, churn, customers)
-- Be transparent about failures and struggles
-- Engage in comments on other posts
-- Respond to every comment on your posts
-- Give more than you take (90/10 rule)
-- Write in your authentic voice
-- Reference your journey when helping others
+## Product Hunt Playbook
 
-**DON'T** ❌
+### When to Use It
 
-- Post "Check out my SaaS" announcements
-- Use marketing-speak or hype language
-- Ignore comments on your posts
-- Only post when you have something to promote
-- Be vague about numbers or results
-- Post and disappear (launch-and-leave)
+- You have assets ready (video, screenshots, copy).
+- You can engage heavily on launch day.
+- You treat launch day as one milestone in a longer GTM plan.
 
-### 4-Month Indie Hackers Roadmap
+### Launch Day Priorities
 
-**Month 1: Foundation**
+1. Post a clear maker first comment immediately.
+2. Reply quickly to questions and objections.
+3. Route interested users into your onboarding path (not just a vanity
+   waitlist).
+4. Publish follow-up learnings after launch day.
 
-- Join Indie Hackers
-- Read top posts of all time
-- Understand community norms
-- Comment on 3-5 posts daily
-- **Zero self-promotion**
+## Multi-Platform Sequencing
 
-**Month 2: Value-First Engagement**
+Recommended order for most early-stage products:
 
-- Continue daily comments (5-10/day)
-- Write first journey post: "I'm building X to solve Y"
-- Ask for genuine feedback
-- Respond to every comment immediately
+1. Build trust in one long-horizon community channel first.
+2. Add one niche validation channel for faster feedback loops.
+3. Run launch events only after positioning and onboarding are stable.
+4. Keep posting post-launch updates where your warm audience already exists.
 
-**Month 3: Authority Building**
+## Practical Rules
 
-- Share tactical playbook: "How I did X"
-- Post milestone: "Hit $X MRR, here's what worked"
-- Start AMAs if you have expertise
-- DM people who mention similar problems
-
-**Month 4: Community Momentum**
-
-- Journey posts every 1-2 weeks
-- Engage daily (15-20 minutes)
-- Share landing page for validation
-- Collect email addresses
-- Build waitlist for launch
-
-**Expected results by Month 4**:
-
-- 500-1,000 engaged followers
-- 50-200 email signups
-- 10-50 pre-orders
-- Deep customer relationships
-
----
-
-## Reddit: Niche Community Strategy
-
-### Why Reddit Converts at 18.4%
-
-**Community intent**: Redditors gather around specific problems and actively
-discuss solutions
-
-**Conversion data** (from 387 launches):
-
-- r/SideProject: 18.4% conversion
-- r/SaaS: 18.4% conversion
-- Niche subreddits: 15-25% conversion
-- Reddit average: 12-15% conversion
-
-### Finding Your Subreddits
-
-**Search strategy**:
-
-- `reddit [industry/profession]`
-- `reddit [problem]`
-- `reddit [tool category]`
-
-**Examples**:
-
-- Marketing agencies → r/advertising, r/marketing, r/agency
-- Freelancers → r/freelance, r/upwork
-- Developers → r/programming, r/webdev, r/SaaS
-- Designers → r/graphic_design, r/web_design
-- Writers → r/freelanceWriters, r/writing
-
-**Subreddit assessment checklist**:
-
-- ✅ 1K+ members
-- ✅ 5-10 posts/day (active)
-- ✅ Problem-sharing culture (people ask for help)
-- ✅ Discussions in comments (not just links)
-- ❌ Avoid: Dead subs, self-promo-heavy subs
-
-### Reddit Engagement Playbook
-
-**Week 1: Observe**
-
-- Join 3-5 relevant subreddits
-- Read top posts (all time, this year, this month)
-- Identify common pain points
-- Note language and terminology
-- **Don't post yet**
-
-**Week 2: Provide Value**
-
-- Answer 2-3 questions daily
-- Share insights from experience
-- Be helpful, not promotional
-- Build karma and reputation
-- **Zero product mentions**
-
-**Week 3: Soft Validation**
-
-- Post: "I'm building [X] for [problem]. Would anyone find this useful?"
-- Include mockup or description
-- Ask: "Is this a problem you actually have?"
-- **No landing page link yet**
-
-**Week 4: Fake Door Test**
-
-- Post: "Based on last week's feedback, I built a simple version"
-- Link to landing page
-- Include pricing (test willingness to pay)
-- Respond to every comment immediately
-
-### Reddit Post Template
-
-**Title format**:
-
-```
-[Building/Testing] A tool to [solve problem] - Feedback wanted
-```
-
-**Body structure**:
-
-```
-[Problem description]
-"I've noticed a lot of people here struggling with [X].
-The issue is [specific pain point]."
-
-[Your solution]
-"I built a simple tool that [benefit].
-It works by [how it works in 1-2 sentences]."
-
-[Your questions]
-"Before I go further:
-1. Is this a problem you actually have?
-2. Would you pay $X/month for this?
-3. What features are essential vs nice-to-have?
-
-Be honest - I can take the criticism."
-
-[Link]
-"Landing page: [URL]
-(Or: 'DM me if you want early access')"
-
-[Closing]
-"Thanks for the feedback, this community has been incredibly helpful."
-```
-
-### Reddit Culture: What Works and What Doesn't
-
-**DO** ✅
-
-- Follow subreddit rules (read sidebar)
-- Use self-posts for text (not links)
-- Be authentic and transparent
-- Accept criticism gracefully
-- Respond to every comment
-- Give before you take (help others first)
-- Post in relevant subreddits only
-
-**DON'T** ❌
-
-- Post to irrelevant subreddits (instant downvotes)
-- Use marketing-speak or hype
-- Delete negative comments
-- Ignore subreddit norms
-- Self-promote without providing value first
-- Post affiliate links or spam
-- Violate the 90/10 rule
-
----
-
-## Product Hunt: When (and When Not) to Launch
-
-### Product Hunt Reality Post-2024 Algorithm Change
-
-**The new reality**:
-
-- Featured rate: 10% (down from 60-98%)
-- Conversion rate: 1-3% (down from 3-5%)
-- Average cost: $1,847
-- 89% of founders wouldn't launch again
-
-### When to Use Product Hunt
-
-**Green lights** ✅:
-
-- You have $1-2K+ launch budget
-- You have 10K+ engaged audience to mobilize
-- B2C self-serve product with broad appeal
-- Want DR 91 backlink for SEO value
-- Seeking brand credibility badge for PR
-
-**Red lights** ❌:
-
-- B2B SaaS with niche audience
-- Limited marketing budget
-- No existing audience
-- Expecting PH to be primary acquisition channel
-
-### Product Hunt Launch Checklist (If You Proceed)
-
-**1 month out**:
-
-- Research successful PH launches in your category
-- Rework copy to fit your brand voice
-- Create hunter list (who will you hunt?)
-- Build email list (mobilize on launch day)
-
-**Pick optimal date**:
-
-- Best: Tuesday, Wednesday, Thursday
-- Avoid: High-profile tech event days (Google I/O, WWDC)
-- Check: Competing launches that day
-
-**Assets needed**:
-
-- Sub-1 minute video (problem → how it works → social proof → CTA)
-- Gallery images (5-10 screenshots showing product)
-- Clear headline (benefit-focused, not feature-focused)
-- Tagline (one sentence, memorable)
-
-**Launch day tactics**:
-
-- Post update every 2-3 hours
-- Respond to every comment within minutes
-- Mobilize team/friends for upvotes (first hour critical)
-- Engage with other launchers (reciprocity)
-
-**What actually works**:
-
-- Email your entire list (one founder sent 7,000 emails)
-- Announce on X/LinkedIn pre-launch
-- Use "Coming soon" page to build followers
-- Sub-1 minute video showing ease of use
-
-### Product Hunt vs Indie Hackers Decision Framework
-
-| Factor              | Choose Product Hunt         | Choose Indie Hackers    |
-| ------------------- | --------------------------- | ----------------------- |
-| **Audience**        | B2C, tech enthusiasts       | B2B, founders, builders |
-| **Time investment** | 6-8 weeks prep, 1 day event | 4-6 months ongoing      |
-| **Budget**          | $1-2K launch cost           | Free                    |
-| **Conversion**      | 1-3%                        | 23.1%                   |
-| **Relationships**   | Transactional               | Long-term               |
-| **Best for**        | Brand credibility, SEO      | Sustainable acquisition |
-
-**Recommendation**: Start with Indie Hackers for 4-6 months. Use Product Hunt
-later for SEO/credibility if it makes sense for your product.
-
----
-
-## Multi-Platform Sequencing Strategy
-
-### The Optimal Order
-
-**Phase 1: Indie Hackers (Weeks 1-16)**
-
-- Build foundational audience
-- Establish credibility
-- Engage daily (15-20 minutes)
-- Share progress weekly
-
-**Phase 2: Reddit (Weeks 2-24, parallel)**
-
-- Engage in 2-3 niche subreddits
-- Provide value daily
-- Share journey when relevant
-- Validate with broader audience
-
-**Phase 3: Product Hunt (Week 16-18)**
-
-- Launch with existing IH + Reddit momentum
-- Mobilize your engaged audience
-- Use PH for backlinks/SEO
-- Not primary acquisition channel
-
-**Phase 4: Continue IH + Reddit (Ongoing)**
-
-- Post-launch milestone updates
-- Share lessons learned
-- Continue engaging daily
-- Build long-term relationships
-
-### The "Infinite Marketing Glitch" Strategy
-
-**Framework**:
-
-1. Get any success (small or big)
-2. Tell people how you got this success (drives traffic)
-3. Tell people how telling your success drove more traffic
-4. Repeat
-
-**Case: Farid Shukurov**
-
-- Posted about his Product Hunt strategy on Reddit
-- That post drove 1,450 visitors
-- His actual #1 Product Hunt launch drove ~800 visitors
-- **The strategy post outperformed the launch itself**
-
-**Why it works**:
-
-- People love "how I did X" content
-- Meta-strategy is inherently interesting
-- Builds your authority as a marketer
-- Creates compounding returns
-
----
-
-## Platform Comparison Summary
-
-| Platform           | Conversion | Time    | Cost   | Best For           |
-| ------------------ | ---------- | ------- | ------ | ------------------ |
-| **Indie Hackers**  | 23.1%      | 4-6 mo  | Free   | B2B SaaS, builders |
-| **Reddit (niche)** | 18.4%      | 4-6 wks | Free   | Specific audiences |
-| **Product Hunt**   | 3.1%       | 6-8 wks | $1,847 | B2C, brand, SEO    |
-| **Hacker News**    | 8.9%       | 1 wk    | Free   | Developer tools    |
-| **BetaList**       | 12.7%      | 2-4 wks | Free   | Startups           |
-| **OpenHunts**      | 14.3%      | $0-23   | Cheap  | Early traction     |
-
-**Key insight**: Community platforms (IH, Reddit) require sustained effort but
-deliver 3-8x better conversion than launch events (PH).
-
----
+- Prefer consistency over volume.
+- Write with specifics (problem, audience, result, tradeoff).
+- Use a value-first ratio (for example, roughly 80-90% value and 10-20%
+  promotion).
+- Track leading indicators: quality conversations, repeat commenters, qualified
+  signups, and onboarding completions.
 
 ## Sources
 
-- [Indie Hackers Launch Strategy 2025: 23% Conversion Rate vs Product Hunt's 3% | Awesome Directories](https://awesome-directories.com/blog/indie-hackers-launch-strategy-guide-2025/)
-- [11 Best Product Hunt Alternatives 2026 (89% Wouldn't Launch Again) | OpenHunts](https://openhunts.com/blog/product-hunt-alternatives-2025)
+- [Product Hunt Launch Guide](https://www.producthunt.com/launch)
+- [Prepare for your Product Hunt launch](https://www.producthunt.com/launch/preparing-for-launch)
+- [How to schedule a post | Product Hunt Help Center](https://help.producthunt.com/en/articles/2724119-how-to-schedule-a-post)
+- [Reddit Content Policy](https://www.redditinc.com/policies/content-policy)
+- [Hacker News Guidelines](https://news.ycombinator.com/newsguidelines.html)

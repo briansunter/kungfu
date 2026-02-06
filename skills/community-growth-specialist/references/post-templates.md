@@ -528,8 +528,12 @@ experience."
 
 ---
 
+
 ## Sources
 
-- [Indie Hackers Launch Strategy 2025: 23% Conversion Rate vs Product Hunt's 3% | Awesome Directories](https://awesome-directories.com/blog/indie-hackers-launch-strategy-guide-2025/)
-- [Smart Micro-SaaS Pricing Strategies for Indie Founders | Freemius Blog](https://freemius.com/blog/micro-saas-pricing-strategies/)
+- [Product Hunt Launch Guide](https://www.producthunt.com/launch)
+- [Prepare for your Product Hunt launch](https://www.producthunt.com/launch/preparing-for-launch)
+- [How to schedule a post | Product Hunt Help Center](https://help.producthunt.com/en/articles/2724119-how-to-schedule-a-post)
+- [Reddit Content Policy](https://www.redditinc.com/policies/content-policy)
+- [Hacker News Guidelines](https://news.ycombinator.com/newsguidelines.html)
 ```

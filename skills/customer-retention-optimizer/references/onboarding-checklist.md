@@ -391,5 +391,8 @@ everything else becomes easier.
 
 ## Sources
 
-- [Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)](https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578)
-- [The 8-Step Customer Success Process for Reducing Churn | Gong](https://www.gong.io/blog/customer-success-process)
+- [Customer Retention: Why It Matters and How To Improve It | Intercom](https://www.intercom.com/blog/customer-retention/)
+- [Customer Health Score | Gainsight Glossary](https://www.gainsight.com/glossary/customer-health-score/)
+- [Churn Rate Benchmarks 2025 | Recurly Research](https://www.recurly.com/research/churn-rate-benchmarks/)
+- [The Value of Keeping the Right Customers | Harvard Business Review](https://hbr.org/2014/10/the-value-of-keeping-the-right-customers)
+- [ChartMogul Help Center](https://help.chartmogul.com/)

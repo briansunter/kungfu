@@ -155,3 +155,12 @@ Always consult a qualified trademark attorney for definitive clearance before:
 - **USPTO Trademark Basics**: https://www.uspto.gov/trademarks/basics
 - **WIPO Trademark Resources**: https://www.wipo.int/trademarks/en/
 - **International Trademark Association (INTA)**: https://www.inta.org/
+
+## Sources
+
+- [ICANN Lookup](https://lookup.icann.org/en)
+- [IANA Root Zone Database](https://www.iana.org/domains/root/db)
+- [Create DNS Records | Cloudflare Docs](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/)
+- [Search Trademarks | USPTO](https://www.uspto.gov/trademarks/search)
+- [Global Brand Database | WIPO](https://branddb.wipo.int/)
+- [Search for a Trademark | GOV.UK](https://www.gov.uk/search-for-trademark)

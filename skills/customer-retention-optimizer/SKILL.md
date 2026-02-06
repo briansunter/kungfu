@@ -13,18 +13,19 @@ Use this skill when you need to:
 - **Extend customer lifetime value (LTV)** through retention strategies
 - **Implement customer success** processes without hiring
 - **Reactivate churned customers** with targeted campaigns
-- **Achieve 100%+ Net Revenue Retention (NRR)**
+- **Work toward 100%+ Net Revenue Retention (NRR)**
 - **Scale customer operations** as solo founder
 
 # Core Concepts
 
 ## Churn: The Silent Killer
 
-**The math**: 5% monthly churn sounds manageable, but it means losing 60% of
-customers annually. At 10% monthly churn, you lose 90%+ of customers yearly.
+**The math**: churn compounds. Around 5% monthly churn implies roughly 46%
+annual logo churn, and 10% monthly churn implies roughly 72% annual logo churn.
 
-**The good news**: Targeted interventions can reduce churn by 20-30%, improving
-retention and revenue without acquiring new customers.
+**The good news**: Targeted interventions can create meaningful retention gains,
+often improving both revenue quality and growth efficiency without increasing
+acquisition spend.
 
 **The 5-Step Churn Reduction Framework**:
 
@@ -57,11 +58,12 @@ retention and revenue without acquiring new customers.
 
 ## Phase 2: Optimize Onboarding (Weeks 2-4)
 
-**Goal**: Time-to-value under 7 days (2x retention improvement)
+**Goal**: Reduce time-to-value as much as possible (often within the first 7-10
+days for product-led onboarding flows).
 
 **Implement**:
 
-1. **Interactive onboarding checklist** (25% higher activation)
+1. **Interactive onboarding checklist** (commonly improves activation clarity)
 2. **Personalized welcome email** within 15 minutes
 3. **Role-based product tours** (marketer vs developer paths)
 4. **In-app contextual help** (tooltips, guides, tips)
@@ -106,7 +108,7 @@ retention and revenue without acquiring new customers.
 - Help center and documentation
 - Community forum
 
-**Tier 2: Pro Active (15% of customers)**
+**Tier 2: Proactive (15% of customers)**
 
 - Automated onboarding + success call
 - Priority email support
@@ -121,7 +123,8 @@ retention and revenue without acquiring new customers.
 - Monthly strategy calls
 - Feature input and roadmap access
 
-**Result**: 15% better retention with tiered approach
+**Result**: Better retention focus by concentrating limited effort on the
+highest-risk and highest-value cohorts first.
 
 ## Phase 5: Reactivation Campaigns (Ongoing)
 
@@ -148,14 +151,15 @@ retention and revenue without acquiring new customers.
 - "What could we have done differently?"
 - "Would you recommend us to friends?"
 
-**Result**: 40% respond to exit surveys, 20% reactivation with discounts
+**Result**: Response and win-back rates vary by segment. Track your own baseline
+by cohort and iterate offers over time.
 
 # Common Mistakes
 
 **Mistake 1: Ignoring Onboarding**
 
 - **Problem**: Customers sign up but never reach value
-- **Solution**: Interactive checklist, time-to-value <7 days
+- **Solution**: Interactive checklist plus a clear path to first value in week 1
 
 **Mistake 2: One-Size-Fits-All Customer Success**
 
@@ -179,15 +183,15 @@ retention and revenue without acquiring new customers.
 
 # Success Metrics
 
-**Retention Health Indicators**:
+**Retention Health Indicators** (directional targets, adjust by segment):
 
 | Metric                          | Danger Zone | Healthy   | Optimal |
 | ------------------------------- | ----------- | --------- | ------- |
-| **Monthly churn**               | >5%         | 2-3%      | <1%     |
-| **NRR (Net Revenue Retention)** | <90%        | 100-105%  | 110%+   |
-| **Time-to-value**               | >14 days    | 7-10 days | <7 days |
-| **Activation rate**             | <40%        | 60-70%    | >80%    |
-| **Week 1 retention**            | <60%        | 75-85%    | >90%    |
+| **Monthly churn**               | >5%         | 2-5%      | <2%     |
+| **NRR (Net Revenue Retention)** | <95%        | 95-105%   | >105%   |
+| **Time-to-value**               | >21 days    | 7-21 days | <7 days |
+| **Activation rate**             | <40%        | 40-70%    | >70%    |
+| **Week 1 retention**            | <60%        | 60-80%    | >80%    |
 
 **Red flags**:
 
@@ -203,7 +207,7 @@ references:
 
 **[references/onboarding-checklist.md](references/onboarding-checklist.md)**
 
-- Interactive checklist templates (25% higher activation)
+- Interactive checklist templates and activation flow patterns
 - Welcome email sequences (Day 0, 1, 3, 7)
 - Role-based onboarding paths
 - Time-to-value optimization strategies
@@ -225,25 +229,31 @@ references:
 - NPS calculation and interpretation
 - Early warning trigger setup
 
-**Key Benchmarks**:
+**Key Benchmarks** (directional):
 
-- **Healthy monthly churn**: <3% (excellent), 3-5% (acceptable)
-- **NRR target**: >100% (good), 110%+ (excellent)
-- **Time-to-value**: <7 days for 2x retention
-- **Activation rate**: 80%+ with interactive checklists
+- **Monthly churn**: many B2B SaaS teams aim to drive this below ~5% monthly,
+  then improve from there.
+- **NRR target**: >100% is typically a strong sign that expansion offsets
+  contraction.
+- **Time-to-value**: shortening time-to-first-value is usually one of the
+  highest-leverage retention moves.
+- **Activation rate**: treat activation as a leading indicator; improve it
+  before churn becomes visible.
 
-**Proven Interventions**:
+**Commonly Effective Interventions**:
 
-- **Proactive onboarding**: 25% higher activation rates
-- **Tiered customer success**: 15% better retention
+- **Proactive onboarding**: reduces day-0 to day-30 drop-off.
+- **Tiered customer success**: aligns support effort to account value/risk.
 - **Early warning systems**: Predict churn before it happens
-- **Reactivation campaigns**: Recover 20% of lapsed customers with discounts
+- **Reactivation campaigns**: recover a subset of lapsed users when offers and
+  messaging match churn reasons.
 
 **Case Studies**:
 
-- EZY Journeys: 25% higher activation with checklists
-- Multiple SaaS companies: 20-30% churn reduction through targeted interventions
-- HostiFi: 100+ support guides reduced churn
+- EZY Journeys: onboarding checklist pattern used to improve activation outcomes
+- Multiple SaaS operators report lower churn after structured onboarding and
+  lifecycle messaging
+- HostiFi: documented support operations to improve customer experience
 
 ---
 
@@ -253,15 +263,21 @@ Once your retention is healthy:
 
 1. **Focus on acquisition** - Leaky bucket fixed, now fill it
 2. **Implement PLG** - Product-led growth for organic acquisition
-3. **Scale customer success** - Hire when NRR >100% and growth accelerates
+3. **Scale customer success** - Hire when NRR trends stable and coverage gaps
+   are constraining growth
 4. **Prepare for exit** - High retention = higher valuation
 
-Use `indie-saas-validation-master` skill for pre-launch retention planning Use
-`systemization-documentation-expert` skill for SOP creation
+Related skills:
+
+- `indie-saas-validation-master` for pre-launch retention planning
+- `systemization-documentation-expert` for SOP creation and delegation
 
 ---
 
 ## Sources
 
-- [Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)](https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578)
-- [The 8-Step Customer Success Process for Reducing Churn | Gong](https://www.gong.io/blog/customer-success-process)
+- [Customer Retention: Why It Matters and How To Improve It | Intercom](https://www.intercom.com/blog/customer-retention/)
+- [Customer Health Score | Gainsight Glossary](https://www.gainsight.com/glossary/customer-health-score/)
+- [Churn Rate Benchmarks 2025 | Recurly Research](https://www.recurly.com/research/churn-rate-benchmarks/)
+- [The Value of Keeping the Right Customers | Harvard Business Review](https://hbr.org/2014/10/the-value-of-keeping-the-right-customers)
+- [ChartMogul Help Center](https://help.chartmogul.com/)

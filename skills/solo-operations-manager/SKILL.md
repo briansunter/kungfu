@@ -22,12 +22,12 @@ Use this skill when you need to:
 
 **The reality**: You're not just a founder—you're developer, marketer, customer
 support, accountant, copywriter, designer, and janitor. Constant role-switching
-is mentally exhausting and kills productivity more than the workload itself.
+is mentally exhausting and can hurt productivity as much as total workload.
 
 **The impact**:
 
-- Context-switching consumes 20-30% of your time
-- Some founders spend 60-70% time firefighting due to poor decisions
+- Context-switching can consume a large share of productive time
+- Reactive firefighting can crowd out strategic work if priorities are unclear
 - Deep work becomes impossible with constant interruptions
 
 **The solution**: Weekly themed days reduce context-switching by creating
@@ -63,7 +63,7 @@ psychological space for different types of work.
 
 **Identify patterns**:
 
-- What consumes 20%+ of your time?
+- What consumes the largest blocks of your time?
 - What's constantly interrupting deep work?
 - What tasks are highest leverage vs busywork?
 - When do you have most energy?
@@ -157,7 +157,7 @@ Friday: [Review Theme] - [Specific activities]
 
 # Success Metrics
 
-**Solo Operations Health Indicators**:
+**Solo Operations Health Indicators** (directional targets):
 
 | Metric                      | Danger Zone | Healthy   | Optimal   |
 | --------------------------- | ----------- | --------- | --------- |
@@ -174,26 +174,29 @@ Friday: [Review Theme] - [Specific activities]
 - ❌ Constant context-switching (20+ switches/day)
 - ❌ Burnout symptoms (exhaustion, cynicism, inefficacy)
 
-# Realistic Revenue Expectations
+# Realistic Revenue Expectations (Directional)
 
 **Month 1-6: Survival Mode** (Normal, not failure)
 
-- **Target**: $1K-$3K MRR if executing well
-- **Reality**: Losing money, investing time
+- **Target**: Early traction and learning loops; some founders reach $1K-$3K MRR
+- **Reality**: Often low or negative profit while building distribution
 - **Need**: 6-12 months runway
 - **Mindset**: Active building phase, not passive income
 
 **End of Year 1**:
 
-- **Successful micro-SaaS**: $5K-$15K MRR
-- **77% of solopreneurs** become profitable in year 1
+- **Successful micro-SaaS**: many teams land somewhere in the low-to-mid four
+  figures MRR, with wide variance by niche and GTM
+- **Profitability timing varies widely** by niche, pricing, and distribution
 - **Many started with** <$5K capital
 
 **Years 2-3**: Inflection Point
 
-- **Growth potential**: 2-3x toward $20K-$50K MRR
+- **Growth potential**: can accelerate materially if retention and distribution
+  improve
 - **Automation kicks in**: Less firefighting, more leverage
-- **Hiring decision**: $100K ARR benchmark
+- **Hiring decision**: use workload and profitability, not a single ARR
+  threshold
 
 # Deep Dives
 
@@ -226,16 +229,18 @@ references:
 
 **Key Findings**:
 
-- **Context-switching is the real killer** (not workload itself)
+- **Context-switching is a major drag** (not just workload volume)
 - **Themed days reduce decision fatigue** and protect deep work
 - **6-month survival mode is normal** (not failure)
 - **RICE/ICE frameworks remove bias** from prioritization
 
 **Realistic Timelines**:
 
-- Months 1-6: $1K-$3K MRR (survival mode)
-- Year 1: $5K-$15K MRR for successful micro-SaaS
-- Years 2-3: 2-3x growth potential toward $20K-$50K MRR
+- Months 1-6: early traction and process stability (survival mode)
+- Year 1: outcomes vary widely; focus on retention, distribution, and
+  repeatability
+- Years 2-3: growth depends on compounding from operations quality and channel
+  fit
 
 **Prioritization Frameworks**:
 
@@ -255,16 +260,16 @@ Once your weekly rhythm is established:
 3. **Scale carefully** - Add automation before hiring
 4. **Protect sanity** - One full day off weekly minimum
 
-Use `technical-automation-architect` skill for leveraging your time Use
-`systemization-documentation-expert` skill when preparing to hire
+Related skills:
+
+- `technical-automation-architect` for leverage and automation design
+- `systemization-documentation-expert` when preparing to hire
 
 ---
 
 ## Sources
 
-- [Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)](https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578)
-- [Your Calendar Says More About Your Startup Than Your Pitch Deck | Little Pursuits](https://littlepursuits.substack.com/p/design-your-founder-week)
-- [Solopreneur Statistics 2026: 77% Profitable in First Year | FounderReports](https://founderreports.com/solopreneur-statistics/)
-- [Context Switching: Why It Kills Productivity (20-30% Productive Time) | Reclaim.ai](https://reclaim.ai/blog/context-switching)
-- [One-Person Indie SaaS Projects Built Using AI (44% Solo Founders) | AppKodes](https://appkodes.com/blog/one-person-indie-saas-projects-built-using-ai/)
-- [The Base44 Bootstrapped Startup Success Story ($80M Exit) | YouTube](https://www.youtube.com/watch?v=L9KvV_UOs3A)
+- [RICE: Simple Prioritization for Product Managers | Intercom](https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/)
+- [ICE Scoring Model | ProductPlan](https://www.productplan.com/glossary/ice-scoring-model/)
+- [Multitasking | American Psychological Association](https://www.apa.org/topics/research/multitasking)
+- [Burn-out an occupational phenomenon | WHO](https://www.who.int/standards/classifications/frequently-asked-questions/burn-out-an-occupational-phenomenon)

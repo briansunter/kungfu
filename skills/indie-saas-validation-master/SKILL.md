@@ -20,12 +20,12 @@ Use this skill when you need to:
 
 # The 4-Phase Framework Overview
 
-| Phase                         | Timeline    | Goal                      | Success Metric                                 |
-| ----------------------------- | ----------- | ------------------------- | ---------------------------------------------- |
-| **Phase 1: Validation**       | Months 0-2  | Prove demand exists       | 10 pre-orders or 100 validated emails          |
-| **Phase 2: MVP Launch**       | Months 2-6  | Launch to early adopters  | $1K-$3K MRR                                    |
-| **Phase 3: Growth**           | Months 6-18 | Reach sustainable revenue | $10K MRR with <5% churn                        |
-| **Phase 4: Scaling Decision** | 18+ months  | Choose your path          | Lifestyle ($30-100K MRR) or Scale ($100K+ ARR) |
+| Phase                         | Timeline    | Goal                      | Practical Checkpoint                               |
+| ----------------------------- | ----------- | ------------------------- | -------------------------------------------------- |
+| **Phase 1: Validation**       | Months 0-2  | Prove demand exists       | Early commitment signals (pre-orders/emails/calls) |
+| **Phase 2: MVP Launch**       | Months 2-6  | Launch to early adopters  | First paying users and repeat usage                |
+| **Phase 3: Growth**           | Months 6-18 | Reach sustainable revenue | Improving retention and repeatable acquisition     |
+| **Phase 4: Scaling Decision** | 18+ months  | Choose your path          | Clear choice: lifestyle optimization or scale push |
 
 # Core Concepts
 
@@ -36,8 +36,9 @@ founders follow the "idea-seeking" path: embed in a community, discover critical
 problems through active listening, validate demand exists, then build a
 laser-focused solution.
 
-**Why this matters**: Idea-first startups require 2-3 pivots on average.
-Idea-seeking startups have validated market fit before writing code.
+**Why this matters**: Idea-first execution often burns time on low-signal work.
+Idea-seeking founders gather evidence earlier, before committing major build
+cycles.
 
 ## The Validation Hierarchy
 
@@ -68,7 +69,8 @@ Validation methods ranked by effectiveness:
    pricing
 2. **Drive traffic to landing page** - Share in target communities, run small
    ads
-3. **Collect email addresses** - Measure conversion rate (5%+ = strong signal)
+3. **Collect email addresses** - Measure conversion quality and follow-up
+   response, not just raw volume
 4. **Pre-sell to early adopters** - Offer discount for founding members
 5. **Conduct customer interviews** - Talk to 10-15 potential customers
 
@@ -76,9 +78,10 @@ Validation methods ranked by effectiveness:
 
 **Validation success criteria**:
 
-- ✅ 10 pre-orders or 100 validated email addresses
-- ✅ 20%+ email-to-call conversion for sales calls
-- ✅ Clear willingness to pay at $49+/month pricing
+- ✅ Meaningful commitment signals (for example: pre-orders, qualified waitlist,
+  and interview demand)
+- ✅ Follow-up conversion from email to conversation shows real buyer intent
+- ✅ Clear willingness to pay at a price point that supports your economics
 - ✅ Specific pain points quantified by customers
 - ✅ Competitor gaps clearly identified
 
@@ -117,20 +120,20 @@ Validation methods ranked by effectiveness:
 
 **Validation Health Indicators**:
 
-| Metric              | Weak Signal         | Strong Signal     |
-| ------------------- | ------------------- | ----------------- |
-| Email signups       | <3% conversion      | >5% conversion    |
-| Pre-orders          | 0-5                 | 10+               |
-| Customer interviews | <5 conversations    | 15+ conversations |
-| Pricing acceptance  | "Too expensive"     | "Where do I pay?" |
-| Competitor gaps     | "Everything's fine" | "I wish X did Y"  |
+| Metric              | Weak Signal                       | Strong Signal                         |
+| ------------------- | --------------------------------- | ------------------------------------- |
+| Email signups       | Low conversion and poor follow-up | Good conversion plus interview demand |
+| Pre-orders          | No commitment behavior            | Repeated commitment signals           |
+| Customer interviews | <5 conversations                  | 10-15+ relevant conversations         |
+| Pricing acceptance  | "Too expensive"                   | "Where do I pay?"                     |
+| Competitor gaps     | "Everything's fine"               | "I wish X did Y"                      |
 
 **Red flags**:
 
 - ❌ Can't reach potential customers directly
 - ❌ Problem isn't quantifiable in time/money
 - ❌ No urgency (customers can wait months)
-- ❌ Price point needs to be <$29/month to get interest
+- ❌ Buyers only engage at very low pricing that cannot support your model
 - ❌ Target market is B2C with no viral mechanism
 
 # Deep Dives
@@ -156,13 +159,13 @@ references:
 
 **[references/community-platforms.md](references/community-platforms.md)**
 
-- Indie Hackers engagement strategy (23.1% conversion vs Product Hunt 3.1%)
+- Community engagement strategy by platform and audience intent
 - Reddit niche community identification and engagement
 - 90/10 rule for community value vs promotion
 - 4-month community-building timeline
 - Multi-platform sequencing strategy
 
-# Research Sources
+## Research Notes
 
 This skill synthesizes findings from comprehensive indie SaaS research:
 
@@ -170,18 +173,17 @@ This skill synthesizes findings from comprehensive indie SaaS research:
 
 **Key Case Studies**:
 
-- FeedbackPanda: Launched in private Facebook groups, $20K MRR in 9 months,
-  7-figure exit
-- Formula Bot: Posted to r/Excel, 100K+ visitors overnight, rejected VC from
-  Sequoia/YC
-- Geocodio: HN launch day one, $28 first month, $1M all-time revenue by 2019
+- FeedbackPanda: launched via niche communities and documented a rapid bootstrap
+  trajectory
+- Formula Bot: community-led distribution drove large initial top-of-funnel
+- Geocodio: documented long-term growth from early community exposure
 
 **Validation Benchmarks**:
 
-- 10 pre-orders or 100 validated emails = green light to build
+- Multiple commitment signals (not one metric) should drive build/no-build calls
 - B2B problems preferred (businesses pay to save time)
-- Price point >$49/month required for viable unit economics
-- MVP build time target: 4 weeks maximum
+- Price point must support CAC, support burden, and desired margins
+- Keep MVP scope small enough to ship quickly and learn fast
 
 ---
 
@@ -199,5 +201,7 @@ expectations, and risk mitigation by phase, see
 
 ## Sources
 
+- [The Lean Startup](https://theleanstartup.com/)
+- [The Mom Test](https://momtestbook.com/)
+- [How to Get Startup Ideas | Paul Graham](https://paulgraham.com/startupideas.html)
 - [From Founding to Exit in Two Years: The FeedbackPanda Story | The Bootstrapped Founder](https://thebootstrappedfounder.com/from-founding-to-exit-in-two-years-the-feedbackpanda-story/)
-- [This teacher built a student feedback tool and hit $55K MRR | They Got Acquired](https://theygotacquired.com/saas/feedback-panda-acquired-by-sureswift-capital/)

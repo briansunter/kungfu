@@ -119,3 +119,11 @@ CAC Payback: 8.2 months
 1. **IMMEDIATE**: Reduce churn with `customer-retention-optimizer`
 2. **HIGH**: Improve LTV:CAC with `pricing-strategy-designer`
 3. **MEDIUM**: Maintain growth with `community-growth-specialist`
+
+## Sources
+
+- [SaaS Benchmarks Report | OpenView](https://openviewpartners.com/saas-benchmarks/)
+- [State of the Cloud 2024 | Bessemer Venture Partners](https://www.bvp.com/atlas/state-of-the-cloud-2024)
+- [SaaS Metrics: What to Track and Why | Paddle](https://www.paddle.com/resources/saas-metrics)
+- [Net MRR Retention | ChartMogul Help](https://help.chartmogul.com/article/163-net-mrr-retention)
+- [Churn Rate Benchmarks 2025 | Recurly Research](https://www.recurly.com/research/churn-rate-benchmarks/)

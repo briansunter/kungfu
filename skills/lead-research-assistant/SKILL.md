@@ -23,12 +23,11 @@ providing actionable outreach strategies.
    proposition, and target market
 2. **Identifies Target Companies**: Finds companies that match the ideal
    customer profile based on:
-
-- Industry and sector
-- Company size and location
-- Technology stack and tools they use
-- Growth stage and funding
-- Pain points the product solves
+   - Industry and sector
+   - Company size and location
+   - Technology stack and tools they use
+   - Growth stage and funding
+   - Pain points the product solves
 
 3. **Prioritizes Leads**: Ranks companies based on fit score and relevance
 4. **Provides Contact Strategies**: Suggests how to approach each lead with
@@ -43,7 +42,7 @@ providing actionable outreach strategies.
 Simply describe the product/service and what you're looking for:
 
 ```
-'m building [product description]. Find me 10 companies in [location/industry]
+I'm building [product description]. Find me 10 companies in [location/industry]
 that would be good leads for this.
 ```
 
@@ -52,7 +51,7 @@ that would be good leads for this.
 For even better results, run this from the product's source code directory:
 
 ```
-Look at what 'm building in this repository and identify the top 10 companies
+Look at what I'm building in this repository and identify the top 10 companies
 in [location/industry] that would benefit from this product.
 ```
 
@@ -173,7 +172,7 @@ recent company news, or relevant context]
 
 ### Example 1: From Lenny's Newsletter
 
-**User**: "'m building a tool that masks sensitive data in AI coding assistant
+**User**: "I'm building a tool that masks sensitive data in AI coding assistant
 queries. Find potential leads."
 
 **Output**: Creates a prioritized list of companies that:
@@ -186,7 +185,7 @@ queries. Find potential leads."
 
 ### Example 2: Local Business
 
-**User**: " run a consulting practice for remote team productivity. Find me 10
+**User**: "I run a consulting practice for remote team productivity. Find me 10
 companies in the Bay Area that recently went remote."
 
 **Output**: Identifies companies that:
@@ -195,7 +194,7 @@ companies in the Bay Area that recently went remote."
 - Announced remote-first policies
 - Are hiring distributed teams
 - Show signs of remote work challenges
-- Provides personalized outreach strategies for each
+- Provide personalized outreach strategies for each
 
 ## Tips for Best Results
 
@@ -212,3 +211,10 @@ companies in the Bay Area that recently went remote."
 - Researching specific companies in detail
 - Analyzing competitor customer bases
 - Identifying partnership opportunities
+
+## Sources
+
+- [Market Research and Competitive Analysis | U.S. SBA](https://www.sba.gov/business-guide/plan-your-business/market-research-competitive-analysis)
+- [Statistics of U.S. Businesses (SUSB) | U.S. Census Bureau](https://www.census.gov/programs-surveys/susb.html)
+- [LinkedIn Sales Solutions](https://business.linkedin.com/sales-solutions)
+- [Crunchbase](https://www.crunchbase.com/)

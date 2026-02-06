@@ -396,3 +396,11 @@ customers, then proactively reach out to at-risk segments.
 ---
 
 **Source**: Customer success and retention best practices
+
+## Sources
+
+- [Customer Retention: Why It Matters and How To Improve It | Intercom](https://www.intercom.com/blog/customer-retention/)
+- [Customer Health Score | Gainsight Glossary](https://www.gainsight.com/glossary/customer-health-score/)
+- [Churn Rate Benchmarks 2025 | Recurly Research](https://www.recurly.com/research/churn-rate-benchmarks/)
+- [The Value of Keeping the Right Customers | Harvard Business Review](https://hbr.org/2014/10/the-value-of-keeping-the-right-customers)
+- [ChartMogul Help Center](https://help.chartmogul.com/)

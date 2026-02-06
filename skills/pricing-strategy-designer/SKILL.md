@@ -19,10 +19,11 @@ Use this skill when you need to:
 
 # Core Concepts
 
-## Tiered Pricing Outperforms Flat Pricing
+## Tiered Pricing Often Outperforms Flat Pricing
 
-**The data is clear**: Flat pricing kills ARPU and drives churn. Tiered pricing
-(3 plans) increases ARPU by 35-74% while reducing churn from 12% to under 7%.
+**Practical pattern**: Flat pricing can cap revenue potential and make packaging
+less flexible. Tiered pricing (often 2-4 plans) can better match willingness to
+pay and create natural upgrade paths.
 
 **Why tiered works**:
 
@@ -32,19 +33,19 @@ Use this skill when you need to:
 - **Pricing psychology**: Anchoring makes mid-tier feel reasonable
 - **Clear differentiation**: Each tier serves specific customer segments
 
-## Real-World Pricing Impact
+## Real-World Pricing Impact (Reported Examples)
 
-**Sean M Clancy's SaaS**:
+**Sean M Clancy's SaaS** (self-reported):
 
 - Flat pricing: $29/month, 12% churn, thin margins
-- Tiered pricing: $29/$59/$99, ARPU up 74%, churn down to <7%
-- Result: 1 in 3 customers chose the $99 tier within 6 months
+- Tiered pricing: $29/$59/$99 with materially improved ARPU
+- Result: clearer segmentation and better margin structure
 
-**Liam Derbyshire (Influize)**:
+**Liam Derbyshire (Influize)** (self-reported):
 
 - Flat pricing: £49/month, declining revenue
-- Tiered pricing: £29/£79/£199, ARPU up 38%, churn halved
-- Result: Top tier (22% revenue) despite few adopters
+- Tiered pricing: £29/£79/£199 with improved ARPU and packaging clarity
+- Result: premium tier contributed meaningful revenue despite lower adoption
 
 # Step-by-Step Pricing Design Process
 
@@ -61,7 +62,8 @@ Use this skill when you need to:
 
 1. **Choose 3 tiers** - Basic, Pro, Enterprise (or equivalent)
 2. **Assign feature differentiation** - What separates each tier?
-3. **Set price points** - Use $49-$99-$199 or $99-$299-$999 patterns
+3. **Set price points** - Anchor to customer value and competitor alternatives,
+   then pressure-test with real buyer conversations
 4. **Apply psychological tactics** - Anchoring, charm pricing, decoy effects
 
 **Deliverable**: Pricing table with clear tier differentiation
@@ -89,7 +91,8 @@ Use this skill when you need to:
 **Mistake 1: Starting with flat pricing**
 
 - **Problem**: Leaves money on table, attracts bargain hunters
-- **Solution**: Always launch with 3 tiers from day one
+- **Solution**: Start with 2-3 clear tiers once you can articulate segment
+  differences
 
 **Mistake 2: Underpricing to "get customers"**
 
@@ -118,15 +121,15 @@ Use this skill when you need to:
 
 # Success Metrics
 
-**Pricing Health Indicators**:
+**Pricing Health Indicators** (directional, adapt by market and deal size):
 
-| Metric                      | Warning         | Healthy           | Excellent        |
-| --------------------------- | --------------- | ----------------- | ---------------- |
-| **ARPU trend**              | Declining       | Flat/Slow growth  | Growing 10%+ QoQ |
-| **Churn rate**              | >5% monthly     | 2-3% monthly      | <1% monthly      |
-| **Tier distribution**       | 90% lowest tier | 60/30/10 split    | 50/35/15 split   |
-| **Upgrade rate**            | <5% convert up  | 10-15% convert up | 20%+ convert up  |
-| **Pricing page conversion** | <2%             | 3-5%              | 7%+              |
+| Metric                      | Warning         | Healthy          | Excellent       |
+| --------------------------- | --------------- | ---------------- | --------------- |
+| **ARPU trend**              | Declining       | Flat/Slow growth | Growing         |
+| **Churn rate**              | >5% monthly     | 2-5% monthly     | <2% monthly     |
+| **Tier distribution**       | 90% lowest tier | 60/30/10 split   | 50/35/15 split  |
+| **Upgrade rate**            | <5% convert up  | 5-15% convert up | 15%+ convert up |
+| **Pricing page conversion** | <2%             | 2-5%             | 5%+             |
 
 **Red flags**:
 
@@ -165,7 +168,7 @@ Use this skill when you need to:
 **Use Paid-Only if**:
 
 - Niche B2B audience with clear pain point
-- High-value tool (>49/month minimum)
+- High-value tool with clear ROI and shorter sales cycles
 - Low-volume, high-touch sales model
 - Examples: Close.io, Drip, Proponent
 
@@ -192,35 +195,39 @@ references:
 
 **[references/pricing-case-studies.md](references/pricing-case-studies.md)**
 
-- Sean M Clancy: 74% ARPU increase detailed breakdown
-- Liam Derbyshire: 38% ARPU lift strategy
+- Sean M Clancy: reported ARPU gains after tiered pricing
+- Liam Derbyshire: reported ARPU lift strategy
 - Jon Yongfook: Price raise from $9 to $49 (churn went down)
 - Inkdrop: Doubling price from $4.90 to $9.98
-- Nick Mikhalenkov: 48% ARPU rise from tiered pricing
+- Nick Mikhalenkov: reported ARPU rise after repricing
 
-# Research Sources
+## Research Notes
 
-This skill synthesizes findings from comprehensive indie SaaS pricing research:
+This skill synthesizes findings from indie SaaS pricing research and operator
+case studies:
 
 **Primary Research**:
 
 **Key Case Studies**:
 
-- **Sean M Clancy**: ARPU +74% (31 to $54), churn 12%→<7%, 1 in 3 chose $99 tier
-- **Liam Derbyshire**: ARPU +38%, churn halved, top tier 22% of revenue
-- **Jon Yongfook (Bannerbear)**: Raised $9→$49, churn actually decreased
-- **Inkdrop**: Doubled $4.90→$9.98, churn 9%→<3% over 9 months
+- **Sean M Clancy**: reported ARPU growth and lower churn after moving to tiers
+- **Liam Derbyshire**: reported ARPU gains after packaging/pricing redesign
+- **Jon Yongfook (Bannerbear)**: reported successful repricing from low to
+  premium positioning
+- **Inkdrop**: documented price increase journey with retention monitoring
 
 **Pricing Benchmarks**:
 
-- Tiered pricing increases ARPU 35-74%
-- High-ticket B2B ($99-$5,000/mo) needs 60 customers vs 6,000 for B2C
-- LTV:CAC 4:1 is new standard (up from 3:1)
-- Churn under 1% monthly = healthy B2B SaaS
+- Tiered pricing can improve ARPU when segmentation and packaging are clear.
+- Higher-ACV B2B models can reach revenue goals with fewer customers, but
+  require stronger positioning and sales execution.
+- LTV:CAC targets vary by stage and growth strategy; many teams use ~3:1 to 5:1
+  as an operating band.
+- Healthy churn depends heavily on segment (SMB vs mid-market vs enterprise).
 
 **Psychological Tactics**:
 
-- Anchoring: Show highest tier first (30% mid-tier uptake increase)
+- Anchoring: Showing premium context can shift perceived value of middle tiers.
 - Charm pricing: End with 9 ($49 vs $50)
 - Decoy effect: Unappealing plan steers to target choice
 - Social proof: "Most Popular" labels boost conversion
@@ -236,12 +243,16 @@ Once your pricing strategy is set:
 3. **Monitor metrics** - Track ARPU, conversion, churn weekly
 4. **Iterate based on data** - Make quarterly pricing optimizations
 
-Use `customer-retention-optimizer` skill for churn reduction strategies Use
-`solo-operations-manager` skill for metrics dashboards and tracking
+Related skills:
+
+- `customer-retention-optimizer` for churn reduction strategy
+- `solo-operations-manager` for metrics routines and operating cadence
 
 ---
 
 ## Sources
 
-- [Smart Micro-SaaS Pricing Strategies for Indie Founders | Freemius Blog](https://freemius.com/blog/micro-saas-pricing-strategies/)
-- [How I Successfully Doubled My SaaS Price (and Lowered Churn) | DevAsLife](https://www.devas.life/how-i-successfully-doubled-my-saas-price-to-10-month-and-lowered-the-churn-rate-to-3)
+- [Pricing Strategy: How To Price a SaaS Product | Paddle](https://www.paddle.com/resources/pricing-strategy)
+- [SaaS Benchmarks Report | OpenView](https://openviewpartners.com/saas-benchmarks/)
+- [Statistical Significance | Optimizely Glossary](https://www.optimizely.com/optimization-glossary/statistical-significance/)
+- [A/B Test Sample Size Calculator | VWO](https://vwo.com/tools/ab-test-sample-size-calculator/)

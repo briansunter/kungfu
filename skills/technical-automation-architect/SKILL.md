@@ -59,7 +59,8 @@ authentication or 3 months acquiring your first 100 customers?"
 - Features where existing solutions don't fit
 - Custom integrations that don't exist
 
-**SaaS boilerplates**: Reduce development 60-70%, days vs months for foundation
+**SaaS boilerplates**: Can significantly reduce setup time by prebuilding common
+foundation pieces.
 
 # Step-by-Step Architecture Process
 
@@ -93,9 +94,9 @@ authentication or 3 months acquiring your first 100 customers?"
 - Does it integrate well with chosen stack?
 - What's the exit strategy if service fails?
 
-**Decision criteria**:
+**Decision criteria** (rules of thumb):
 
-- Buy if: Managed service <1 month to integrate
+- Buy if: Managed service integration is clearly faster than custom build
 - Buy if: Not core differentiator
 - Build if: Core unique value prop
 - Build if: Existing solutions don't fit use case
@@ -114,13 +115,14 @@ authentication or 3 months acquiring your first 100 customers?"
 
 - Active maintenance (last commit within 3 months)
 - Community size (stars, issues, discussions)
-- Feature match (80%+ of what you need)
+- Feature match (high overlap with your immediate roadmap)
 - License terms (MIT vs paid)
 - Tech stack alignment (your preferred tools)
 
 **Decision**:
 
-- Use boilerplate: If 60%+ features match
+- Use boilerplate: If most foundational needs are covered and code quality is
+  acceptable
 - Build from scratch: If highly custom requirements
 
 **Deliverable**: Boilerplate choice or scratch-build decision
@@ -163,7 +165,7 @@ authentication or 3 months acquiring your first 100 customers?"
 **Mistake 4: No Automation Strategy**
 
 - **Problem**: Manual everything, stuck in operations
-- **Solution**: Automate ruthlessly from day 1
+- **Solution**: Automate high-frequency, low-judgment work early
 
 **Mistake 5: Ignoring Technical Debt**
 
@@ -172,7 +174,7 @@ authentication or 3 months acquiring your first 100 customers?"
 
 # Success Metrics
 
-**Technical Health Indicators**:
+**Technical Health Indicators** (directional targets):
 
 | Metric                   | Warning         | Healthy           | Optimal           |
 | ------------------------ | --------------- | ----------------- | ----------------- |
@@ -214,11 +216,11 @@ references:
 
 - 50+ automation opportunities identified
 - No-code tools comparison (Zapier vs Make vs n8n)
-- AI automation stack for 2025-2026
+- AI-assisted automation patterns for solo teams
 - Developer productivity multipliers
 - CI/CD pipeline templates
 
-# Research Sources
+## Research Notes
 
 This skill synthesizes findings from technical operations research:
 
@@ -229,8 +231,8 @@ This skill synthesizes findings from technical operations research:
 - **Boring stack philosophy** - Established tech over shiny new tools
 - **Leverage everything** - Solved problems shouldn't be rebuilt
 - **Conscious technical debt** - Documented trade-offs, scheduled repayment
-- **Ruthless automation** - AI enables $1M ARR solo businesses (new in
-  2025-2026)
+- **Ruthless automation** - Automate repetitive work to protect focus for core
+  product and customer outcomes
 
 **Recommended Stacks**:
 
@@ -243,7 +245,8 @@ This skill synthesizes findings from technical operations research:
 
 - **Buy**: Auth, payments, email, hosting, user management
 - **Build**: Core differentiator only
-- **SaaS boilerplates**: Reduce dev time 60-70% (months → days)
+- **SaaS boilerplates**: Can reduce time-to-first-version for common app
+  scaffolding
 
 ---
 
@@ -256,12 +259,19 @@ Once your tech stack is chosen:
 3. **Document decisions** - Why you chose X over Y
 4. **Monitor tech debt** - Track ratio, schedule cleanup
 
-Use `systemization-documentation-expert` skill for SOPs Use
-`customer-retention-optimizer` skill for automated onboarding
+Related skills:
+
+- `systemization-documentation-expert` for SOPs and handoffs
+- `customer-retention-optimizer` for onboarding and lifecycle automation
 
 ---
 
 ## Sources
 
-- [How Solo Founders Are Building $1M+ SaaS Businesses Using Only AI | Medium](https://aakashgupta.medium.com/how-solo-founders-are-building-1m-saas-businesses-using-only-ai-complete-playbook-3ab2f11fb6db)
-- [The Rise of the Solopreneur Tech Stack in 2026 | PrometAI](https://prometai.app/blog/solopreneur-tech-stack-2026)
+- [DORA | DevOps Research and Assessment](https://dora.dev/)
+- [The Twelve-Factor App](https://12factor.net/)
+- [Auth0 Documentation](https://auth0.com/docs)
+- [Supabase Auth Documentation](https://supabase.com/docs/guides/auth)
+- [Stripe Documentation](https://docs.stripe.com/)
+- [Vercel Documentation](https://vercel.com/docs)
+- [Fly.io Docs](https://fly.io/docs)

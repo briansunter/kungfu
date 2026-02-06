@@ -254,3 +254,10 @@ Drop a comment below! 👇
 - Ask open-ended questions to drive discussion
 - Link in bio strategy (put product link in bio, mention in posts)
 - Timing: Weekends and evenings have higher engagement on Threads
+
+## Sources
+
+- [Product Hunt Launch Guide](https://www.producthunt.com/launch)
+- [Managing releases in a repository | GitHub Docs](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+- [Reddit Content Policy](https://www.redditinc.com/policies/content-policy)
+- [Hacker News Guidelines](https://news.ycombinator.com/newsguidelines.html)

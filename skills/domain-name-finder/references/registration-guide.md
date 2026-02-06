@@ -77,7 +77,7 @@ Before registering, ensure you've:
 
 ### 1. Create Account
 
-1. Go to https://porkbun.com/register
+1. Go to https://porkbun.com/
 2. Enter username, email, password
 3. Verify email address
 
@@ -264,8 +264,17 @@ Before registering, ensure you've:
 
 ## Resources
 
-- **ICANN Domain Registration**:
-  https://www.icann.org/resources/pages/register-2012-03-07-en
+- **ICANN Registrar Accreditation**:
+  https://www.icann.org/resources/pages/accreditation-2012-02-25-en
 - **Cloudflare Registrar**: https://www.cloudflare.com/products/registrar/
 - **Porkbun**: https://porkbun.com/
 - **Namecheap**: https://www.namecheap.com/
+
+## Sources
+
+- [ICANN Lookup](https://lookup.icann.org/en)
+- [IANA Root Zone Database](https://www.iana.org/domains/root/db)
+- [Create DNS Records | Cloudflare Docs](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/)
+- [Search Trademarks | USPTO](https://www.uspto.gov/trademarks/search)
+- [Global Brand Database | WIPO](https://branddb.wipo.int/)
+- [Search for a Trademark | GOV.UK](https://www.gov.uk/search-for-trademark)

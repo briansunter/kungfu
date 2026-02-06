@@ -165,3 +165,10 @@ Best, [Your Name]
 
 P.S. [Bonus insight, additional benefit, or urgency]
 ```
+
+## Sources
+
+- [Product Hunt Launch Guide](https://www.producthunt.com/launch)
+- [Managing releases in a repository | GitHub Docs](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+- [Reddit Content Policy](https://www.redditinc.com/policies/content-policy)
+- [Hacker News Guidelines](https://news.ycombinator.com/newsguidelines.html)

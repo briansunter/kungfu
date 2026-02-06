@@ -49,8 +49,9 @@ After generating the boilerplate, use the agent's capabilities to refine the
 documents:
 
 1. **Verify Tech Stack**:
-   - Scan the project's package.json or source code for analytics tools (Google Analytics,
-     Mixpanel), payment providers (Stripe), email services (SendGrid).
+   - Scan the project's package.json or source code for analytics tools (Google
+     Analytics, Mixpanel), payment providers (Stripe), email services
+     (SendGrid).
    - Update the _Third-Party Services_ section in the Privacy Policy
      accordingly.
 
@@ -296,10 +297,9 @@ Before deploying legal documents, verify:
 legal advice.** Laws vary by jurisdiction and change frequently. Always consult
 with a qualified attorney to review your legal documents before publication.
 
----
+## Sources
 
-**See Also:**
-
-- REFERENCE.md - Detailed legal requirements and examples
-- templates/ - All legal document templates
-- scripts/index.ts - Generation tool
+- [GDPR Full Text and Recitals](https://gdpr-info.eu/)
+- [CCPA/CPRA Overview | California DOJ](https://oag.ca.gov/privacy/ccpa)
+- [UK GDPR Guidance | ICO](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/)
+- [EDPB Guidelines](https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines_en)

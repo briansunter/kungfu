@@ -249,3 +249,12 @@ Before hiring (at $100K ARR):
 - **Mitigation**: Honest self-assessment of goals
 - **Mitigation**: Don't scale just because others do
 - **Mitigation**: Lifestyle is valid success
+
+## Sources
+
+- [The Lean Startup](https://theleanstartup.com/)
+- [The Mom Test](https://momtestbook.com/)
+- [How to Get Startup Ideas | Paul Graham](https://paulgraham.com/startupideas.html)
+- [Product Hunt Launch Guide](https://www.producthunt.com/launch)
+- [Reddit Content Policy](https://www.redditinc.com/policies/content-policy)
+- [Hacker News Guidelines](https://news.ycombinator.com/newsguidelines.html)

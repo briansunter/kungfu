@@ -665,3 +665,12 @@ Threads (real-time validation) **Week 3**: Product Hunt + IndieHackers (market
 validation)
 
 **Deliverable**: 30-50 signals with cross-platform validation
+
+## Sources
+
+- [How to Get Startup Ideas | Paul Graham](https://paulgraham.com/startupideas.html)
+- [Do Things that Don't Scale | Paul Graham](https://paulgraham.com/ds.html)
+- [Market Research and Competitive Analysis | U.S. SBA](https://www.sba.gov/business-guide/plan-your-business/market-research-competitive-analysis)
+- [Google Trends](https://trends.google.com/trends/)
+- [Reddit Content Policy](https://www.redditinc.com/policies/content-policy)
+- [Hacker News Guidelines](https://news.ycombinator.com/newsguidelines.html)

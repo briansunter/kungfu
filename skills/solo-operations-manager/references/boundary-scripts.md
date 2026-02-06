@@ -524,3 +524,10 @@ feel uncomfortable. Then they become normal.
 ---
 
 **Source**: Solo founder operations best practices
+
+## Sources
+
+- [RICE: Simple Prioritization for Product Managers | Intercom](https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/)
+- [ICE Scoring Model | ProductPlan](https://www.productplan.com/glossary/ice-scoring-model/)
+- [Multitasking | American Psychological Association](https://www.apa.org/topics/research/multitasking)
+- [Burn-out an occupational phenomenon | WHO](https://www.who.int/standards/classifications/frequently-asked-questions/burn-out-an-occupational-phenomenon)

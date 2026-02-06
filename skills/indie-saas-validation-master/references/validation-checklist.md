@@ -262,5 +262,9 @@ nobody wants. The best time to validate is BEFORE writing code.
 
 ## Sources
 
-- [From Founding to Exit in Two Years: The FeedbackPanda Story | The Bootstrapped Founder](https://thebootstrappedfounder.com/from-founding-to-exit-in-two-years-the-feedbackpanda-story/)
-- [This teacher built a student feedback tool and hit $55K MRR | They Got Acquired](https://theygotacquired.com/saas/feedback-panda-acquired-by-sureswift-capital/)
+- [The Lean Startup](https://theleanstartup.com/)
+- [The Mom Test](https://momtestbook.com/)
+- [How to Get Startup Ideas | Paul Graham](https://paulgraham.com/startupideas.html)
+- [Product Hunt Launch Guide](https://www.producthunt.com/launch)
+- [Reddit Content Policy](https://www.redditinc.com/policies/content-policy)
+- [Hacker News Guidelines](https://news.ycombinator.com/newsguidelines.html)

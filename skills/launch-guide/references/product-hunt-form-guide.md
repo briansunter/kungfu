@@ -6,10 +6,11 @@ Complete reference for filling out every field in the Product Hunt launch form.
 
 ### Name (12-40 characters)
 
-The official product name. Keep it clean — no tagline, no description, just
-the name.
+The official product name. Keep it clean — no tagline, no description, just the
+name.
 
 **Rules:**
+
 - 12-40 characters
 - Use the actual product name
 - No version numbers unless essential (e.g., "Figma 2.0" is OK for major
@@ -17,28 +18,32 @@ the name.
 - No emoji in the name field
 
 **Examples:**
+
 - "Notion" (6 chars — under minimum, would need full name)
 - "Kellog Engine" (13 chars)
 - "Claude Code" (11 chars — just under minimum)
 
 ### Tagline (up to 60 characters, required)
 
-One sentence that communicates the core benefit. This appears directly below
-the product name and is the most-read text on the page.
+One sentence that communicates the core benefit. This appears directly below the
+product name and is the most-read text on the page.
 
 **Formula options:**
+
 - `[Verb] + [outcome] + [for whom]`
 - `[Category] that [key benefit]`
 - `The [adjective] way to [action]`
 - `[Outcome] without [pain point]`
 
 **Good taglines:**
+
 - "Ship production apps faster with AI pair programming" (52 chars)
 - "Open source ECS game engine for Zig" (36 chars)
 - "Turn any screenshot into a tutorial" (36 chars)
 - "API monitoring that alerts you before users complain" (52 chars)
 
 **Bad taglines:**
+
 - "The best tool ever made" (too vague)
 - "AI-powered machine learning platform for enterprise" (buzzword soup)
 - "Like Notion but better" (comparison without substance)
@@ -49,6 +54,7 @@ Answer: "What's new or different about your launch compared to existing
 products? Which features make it stand out?"
 
 **Structure:**
+
 ```
 [1-2 sentences: What it does and who it's for]
 [1-2 sentences: What makes it different]
@@ -56,6 +62,7 @@ products? Which features make it stand out?"
 ```
 
 **Example (487 chars):**
+
 ```
 Kellog is a high-performance Entity Component System game engine written
 in Zig with Sokol graphics. Inspired by Bevy's architecture, it brings
@@ -71,6 +78,7 @@ performance or memory safety.
 Select tags that match the product category. Choose specific over broad.
 
 **Common tag categories:**
+
 - Developer Tools, Open Source, API, DevOps
 - Artificial Intelligence, Machine Learning, ChatGPT
 - Productivity, Task Management, Note Taking
@@ -82,8 +90,8 @@ Select tags that match the product category. Choose specific over broad.
 - Education, E-Learning
 - Health, Fitness, Wellness
 
-**Strategy:** Pick the most specific tag first, then add broader ones.
-Example: "Game Development" + "Developer Tools" + "Open Source"
+**Strategy:** Pick the most specific tag first, then add broader ones. Example:
+"Game Development" + "Developer Tools" + "Open Source"
 
 ### First Comment (required for good launches)
 
@@ -95,6 +103,7 @@ Posted immediately upon launch. See
 ### Links
 
 Add all relevant product links:
+
 - **Primary URL**: Main product page or landing page
 - **App Store**: iOS app link
 - **Google Play**: Android app link
@@ -111,17 +120,19 @@ products get a special badge on Product Hunt.
 
 The product's X (Twitter) handle. Format: `x.com/handle`
 
-This allows Product Hunt to tag the product in their social posts and
-connects the product to its social presence.
+This allows Product Hunt to tag the product in their social posts and connects
+the product to its social presence.
 
 ### Gallery (images and video)
 
 Up to 8 assets. Recommended sizes:
+
 - **Images**: 1270x760px (or 2x: 2540x1520px)
 - **Video**: MP4, up to 3 minutes, 16:9 aspect ratio
 - **GIF**: Under 10MB, shows key interaction
 
 Gallery order recommendation:
+
 1. Hero shot with value prop overlay
 2. Problem/solution visual
 3. Feature screenshot 1 with annotation
@@ -139,6 +150,7 @@ comments and get credit on their profiles.
 ### Pricing
 
 Indicate the pricing model:
+
 - Free
 - Freemium
 - Paid (starting price)
@@ -163,3 +175,10 @@ Indicate the pricing model:
 - [ ] Makers tagged
 - [ ] Pricing information set
 - [ ] Launch date and time confirmed
+
+## Sources
+
+- [Product Hunt Launch Guide](https://www.producthunt.com/launch)
+- [Prepare for your Product Hunt launch](https://www.producthunt.com/launch/preparing-for-launch)
+- [How to schedule a post | Product Hunt Help Center](https://help.producthunt.com/en/articles/2724119-how-to-schedule-a-post)
+- [Managing releases in a repository | GitHub Docs](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)

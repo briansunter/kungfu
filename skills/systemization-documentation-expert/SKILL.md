@@ -23,12 +23,12 @@ Use this skill when you need to:
 **The critical mistake**: Hiring before systemizing leads to founder dependency
 and chaos
 
-**The proven approach**: Document 80%+ of recurring tasks before first hire
+**Practical approach**: Document most recurring tasks before the first hire
+(often targeting around 70-80% coverage for core workflows)
 
-**Case evidence**: Reilly Chase (HostiFi) spent weeks recording himself solving
-every support ticket, identifying patterns, creating written guides. Only after
-documenting 100+ guides did he hire his first employee. That hire handled 80%+
-of day-to-day support within weeks.
+**Case evidence**: Reilly Chase (HostiFi) has shared an SOP-first approach:
+recording support workflows, identifying patterns, and documenting repeatable
+playbooks before delegating more support work.
 
 **The E-Myth approach**: Create processes so almost anyone can produce
 consistent results, not clones of yourself
@@ -166,7 +166,7 @@ SOPs/
 
 # Success Metrics
 
-**SOP Health Indicators**:
+**SOP Health Indicators** (directional targets):
 
 | Metric                  | Warning    | Healthy   | Optimal  |
 | ----------------------- | ---------- | --------- | -------- |
@@ -207,11 +207,11 @@ For comprehensive SOP frameworks, templates, and systems, see the references:
 
 - Ready-to-hire benchmarks (revenue, profit, time, process)
 - First hire roles: Technical Support, Customer Success, Contractor
-- SOP coverage requirements (80%+ before hiring)
+- SOP coverage readiness guidance before hiring
 - Training and onboarding frameworks
-- HostiFi case study (100+ guides created)
+- HostiFi case study (SOP-heavy support documentation)
 
-# Research Sources
+## Research Notes
 
 This skill synthesizes findings from scaling and systemization research:
 
@@ -221,19 +221,19 @@ This skill synthesizes findings from scaling and systemization research:
 
 **Key Principles**:
 
-- **Systemize before hiring**: Document 80%+ before first employee
+- **Systemize before hiring**: Build broad process coverage before first
+  employee
 - **5 types of SOPs**: Checklists, decision trees, how-to guides, reference
   guides, foundational articles
-- **HostiFi case study**: 100+ support guides, enabled 80% delegation in weeks
+- **HostiFi case study**: SOP-heavy support operations improved delegation speed
 - **E-Myth approach**: Create processes so "almost anyone" can produce
   consistent results
 
 **Hiring Benchmarks**:
 
-- **Revenue**: $100K ARR minimum
-- **Profit**: Monthly profit approaches day job salary
-- **Time**: Work consumes all free time (burnout risk)
-- **Process**: 80%+ of recurring tasks documented as SOPs
+- **Revenue/Profit**: consistent economics to support payroll and learning curve
+- **Time**: founder bandwidth is constrained despite prioritization
+- **Process**: recurring workflows are documented enough for safe delegation
 
 **First Hire Roles**:
 
@@ -260,11 +260,16 @@ Once your SOPs are documented:
 3. **Measure consistency** - Track process standardization
 4. **Iterate quarterly** - Update SOPs based on feedback and changes
 
-Use `solo-operations-manager` skill for weekly operational systems Use
-`technical-automation-architect` skill for automating documented processes
+Related skills:
+
+- `solo-operations-manager` for weekly operating systems
+- `technical-automation-architect` for automation of documented processes
 
 ---
 
 ## Sources
 
-- [Growing My SaaS from Solo Founder to +1 Employee | HostiFi Blog (Medium)](https://medium.com/hostifi/growing-my-saas-from-solo-founder-to-1-employee-bf367061f578)
+- [SOP Template | Confluence](https://www.atlassian.com/software/confluence/templates/sop)
+- [SOP Template and Guide | Asana](https://asana.com/resources/sop-template)
+- [Notion Help Center](https://www.notion.so/help)
+- [Loom Help Center](https://support.loom.com/hc/en-us)

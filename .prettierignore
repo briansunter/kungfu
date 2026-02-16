@@ -4,9 +4,6 @@
 skills/*/SKILL.md
 commands/*.md
 agents/*.md
-plugins/*/skills/*/SKILL.md
-plugins/*/commands/*.md
-plugins/*/agents/*.md
 .claude/skills/*/SKILL.md
 .claude/agents/*.md
 README.md

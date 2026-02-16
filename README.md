@@ -1,14 +1,13 @@
 # 🥋 Kungfu
 
-A modular skill & plugin marketplace for AI coding agents — extend your
-assistant with reusable skills, agents, and plugins.
+A modular skill marketplace for AI coding agents — extend your assistant with
+reusable skills and agents.
 
 ## What Is This?
 
 Kungfu is a curated collection of **skills** (structured prompts with
 references, templates, and examples) that any AI coding agent can use to tackle
-complex business and SaaS tasks. Skills are organized into **plugins** for easy
-discovery and composition.
+complex business and SaaS tasks.
 
 Skills work with any agent that supports the
 [Agent Skills format](https://docs.anthropic.com/en/docs/claude-code) — Claude
@@ -70,10 +69,7 @@ helper scripts that require additional tools:
 kungfu/
 ├── skills/           # Standalone skill definitions (SKILL.md per directory)
 ├── agents/           # Agent definitions (.md files)
-├── plugins/          # Plugin modules — self-contained, composable via symlinks
-│   └── business/     # Business plugin; symlinks to root skills/agents
 ├── scripts/          # Build, validation & code-gen scripts (Python + TypeScript)
-├── .claude-plugin/   # Root plugin marketplace config (marketplace.json)
 ├── justfile          # Task automation (just check, just validate, etc.)
 └── README.md         # This file — skills table is auto-generated
 ```
@@ -86,9 +82,6 @@ Each skill lives in its own directory under `skills/` and contains:
   `description`) and detailed markdown guidance
 - **`references/`** — supporting data, benchmarks, and frameworks
 - **`templates/`**, **`examples/`**, **`scripts/`** — optional supporting files
-
-Skills are composed into **plugins** (e.g. `plugins/business`) via symlinks,
-allowing mix-and-match without duplication.
 
 ## Adding a New Skill
 
@@ -133,7 +126,7 @@ just check   # typecheck + lint + format + validate + docs freshness
 | Command | What it does |
 |---------|-------------|
 | `just check` | Run **all** checks (typecheck + lint + format + validate + docs) |
-| `just validate` | Validate skill/plugin structure and frontmatter |
+| `just validate` | Validate skill structure and frontmatter |
 | `just lint` | Run Biome lint checks |
 | `just lint-fix` | Lint with auto-fixes |
 | `just fmt` | Format everything (Biome for code, Prettier for markdown) |
@@ -150,7 +143,7 @@ GitHub Actions runs on every push/PR to `main`/`master`:
 2. Biome lint
 3. Prettier format check
 4. README table freshness check
-5. Full skill/plugin validation
+5. Full skill validation
 
 ## License
 

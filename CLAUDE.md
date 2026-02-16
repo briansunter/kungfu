@@ -5,9 +5,9 @@ code in this repository.
 
 ## Repository Overview
 
-Kungfu is a modular plugin/skill marketplace for Claude Code containing reusable
-skills, commands, agents, and plugins. Each component is self-contained with
-YAML frontmatter and validated through automated CI.
+Kungfu is a modular skill marketplace for Claude Code containing reusable
+skills, commands, and agents. Each component is self-contained with YAML
+frontmatter and validated through automated CI.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ just typecheck
 ### Validation
 
 ```bash
-# Run plugin/skill validation
+# Run skill validation
 just validate
 
 # Run validation with verbose output
@@ -101,10 +101,7 @@ kungfu/
 ├── skills/           # Standalone skill definitions (SKILL.md per directory)
 ├── commands/         # Standalone command definitions (currently empty)
 ├── agents/           # Agent definitions (.md files)
-├── plugins/          # Plugin modules (self-contained with symlinks)
-│   └── business/     # Only plugin; symlinks to root skills/agents
 ├── scripts/          # Build/validation scripts (Python + TypeScript)
-├── .claude-plugin/   # Root plugin marketplace config (marketplace.json)
 ├── AGENTS.md         # Symlink → CLAUDE.md
 ├── biome.json        # Biome linter/formatter config
 ├── tsconfig.json     # TypeScript configuration
@@ -135,13 +132,6 @@ kungfu/
 - **Required frontmatter**: `name`, `description`, `permissionMode`, `skills`
 - **Permission modes**: `default`, `bypassPermissions`, `plan`
 - **Optional**: `model` (one of: `sonnet`, `opus`, `haiku`, `inherit`)
-
-#### Plugins (`plugins/*`)
-
-- **Structure**: Self-contained with `.claude-plugin/plugin.json` manifest
-- **Subdirectories**: `skills/`, `commands/`, `agents/`
-- **Composition**: Can symlink to root-level components (as seen in
-  `plugins/business`)
 
 ### Validation Rules
 
@@ -186,7 +176,6 @@ master/main:
 - Skills: `skills/kebab-name/SKILL.md`
 - Commands: `commands/kebab-name.md`
 - Agents: `agents/kebab-name.md`
-- Plugins: `plugins/plugin-name/.claude-plugin/plugin.json`
 
 ### Frontmatter Pattern
 
@@ -215,11 +204,6 @@ compatibility: Requires Bun runtime
 - [Another Source](https://example.org/page)
 ```
 
-### Symlinks in Plugins
-
-The `plugins/business` directory uses symlinks to reference root-level
-skills/commands/agents. This allows plugin composition without duplication.
-
 ## Adding New Components
 
 1. **Create skill**: `mkdir skills/new-skill && touch skills/new-skill/SKILL.md`
@@ -244,10 +228,6 @@ skills/commands/agents. This allows plugin composition without duplication.
   `just readme-table --write` to keep the README table in sync. Install with
   `just install-hooks`.
 - **`AGENTS.md` is a symlink** to `CLAUDE.md` -- don't edit it directly.
-- **`marketplace.json`** in `.claude-plugin/` is the root plugin registry --
-  update it when adding new plugins to the marketplace.
-- **All skills are currently business-focused** and composed into the
-  `plugins/business` plugin via symlinks.
 
 ## TypeScript Configuration
 

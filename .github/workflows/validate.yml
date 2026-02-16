@@ -43,5 +43,5 @@ jobs:
       - name: Check README skills table
         run: bun scripts/generate-readme-table.ts --check
 
-      - name: Validate plugins and skills
+      - name: Validate skills
         run: uv run scripts/validate.py

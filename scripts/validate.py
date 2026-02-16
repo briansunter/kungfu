@@ -3,13 +3,12 @@
 # dependencies = ["pyyaml>=6.0.0", "jsonschema>=4.0.0"]
 # ///
 """
-Unified validator for Claude Code plugins, skills, commands, and agents.
+Unified validator for Claude Code skills, commands, and agents.
 
 Usage:
     uv run scripts/validate.py [--verbose]
 """
 
-import json
 import re
 import sys
 from pathlib import Path
@@ -405,27 +404,6 @@ def validate_agent(path: Path, result: ValidationResult, verbose: bool):
     validate_links(path, content, result, verbose)
 
 
-def validate_plugin_json(path: Path, result: ValidationResult, verbose: bool):
-    """Validate a plugin.json file."""
-    print(f"\n{color('Validating plugin:', Colors.BLUE)} {path}")
-
-    try:
-        data = json.loads(path.read_text())
-    except json.JSONDecodeError as e:
-        result.fail(f"Invalid JSON: {e}")
-        return
-
-    # Required fields
-    if "name" not in data:
-        result.fail("Missing required field: name")
-    else:
-        result.pass_(f"name: {data['name']}", verbose)
-
-    if "version" not in data:
-        result.fail("Missing required field: version")
-    else:
-        result.pass_(f"version: {data['version']}", verbose)
-
 
 def find_files(root: Path, pattern: str) -> list[Path]:
     """Find files matching a glob pattern."""
@@ -437,46 +415,36 @@ def main():
     root = Path.cwd()
 
     print(color("=" * 60, Colors.BOLD))
-    print(color("Plugin/Skill Validation", Colors.BOLD))
+    print(color("Skill Validation", Colors.BOLD))
     print(color("=" * 60, Colors.BOLD))
 
     result = ValidationResult()
 
-    # Find and validate skills (both root and plugins)
-    skill_files = find_files(root, "skills/**/SKILL.md") + find_files(
-        root, "plugins/**/skills/**/SKILL.md"
-    )
+    # Find and validate skills
+    skill_files = find_files(root, "skills/**/SKILL.md")
     for skill_file in skill_files:
         validate_skill(skill_file, result, verbose)
 
-    # Find and validate commands (both root and plugins)
-    command_files = find_files(root, "commands/*.md") + find_files(
-        root, "plugins/**/commands/*.md"
-    )
+    # Find and validate commands
+    command_files = find_files(root, "commands/*.md")
     for cmd_file in command_files:
         validate_command(cmd_file, result, verbose)
 
-    # Find and validate agents (both root and plugins)
-    agent_files = find_files(root, "agents/*.md") + find_files(root, "plugins/**/agents/*.md")
+    # Find and validate agents
+    agent_files = find_files(root, "agents/*.md")
     for agent_file in agent_files:
         validate_agent(agent_file, result, verbose)
-
-    # Find and validate plugin.json files
-    plugin_files = find_files(root, "plugins/**/.claude-plugin/plugin.json")
-    for plugin_file in plugin_files:
-        validate_plugin_json(plugin_file, result, verbose)
 
     # Summary
     print(color("\n" + "=" * 60, Colors.BOLD))
     print(color("Summary", Colors.BOLD))
     print(color("=" * 60, Colors.BOLD))
 
-    total_files = len(skill_files) + len(command_files) + len(agent_files) + len(plugin_files)
+    total_files = len(skill_files) + len(command_files) + len(agent_files)
     print(f"\nFiles checked: {total_files}")
     print(f"  Skills:   {len(skill_files)}")
     print(f"  Commands: {len(command_files)}")
     print(f"  Agents:   {len(agent_files)}")
-    print(f"  Plugins:  {len(plugin_files)}")
 
     print(f"\nResults:")
     print(f"  {color(f'Passed: {result.passed}', Colors.GREEN)}")

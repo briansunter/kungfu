@@ -1,4 +1,4 @@
-# Kungfu - Claude Code plugins and skills
+# Kungfu - Claude Code skills
 
 # Default recipe: show available commands
 default:
@@ -23,7 +23,7 @@ biome *args:
 biome-fix *args:
     bunx -y biome check --write --diagnostic-level=error . {{args}}
 
-# Run plugin/skill validation only
+# Run skill validation only
 validate *args:
     uv run scripts/validate.py {{args}}
 

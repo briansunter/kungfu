@@ -1,5 +1,7 @@
 # 🥋 Kungfu
 
+<img src="assets/i-know-kung-fu.jpg" alt="I know kung fu" width="300">
+
 A modular skill marketplace for AI coding agents — extend your assistant with
 reusable skills and agents.
 

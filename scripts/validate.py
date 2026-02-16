@@ -3,7 +3,7 @@
 # dependencies = ["pyyaml>=6.0.0", "jsonschema>=4.0.0"]
 # ///
 """
-Unified validator for Claude Code skills, commands, and agents.
+Unified validator for Claude Code skills and commands.
 
 Usage:
     uv run scripts/validate.py [--verbose]
@@ -359,59 +359,6 @@ def validate_command(path: Path, result: ValidationResult, verbose: bool):
     validate_links(path, content, result, verbose)
 
 
-def validate_agent(path: Path, result: ValidationResult, verbose: bool):
-    """Validate an agent markdown file."""
-    print(f"\n{color('Validating agent:', Colors.BLUE)} {path}")
-
-    content = path.read_text()
-    frontmatter, error = extract_frontmatter(content)
-
-    if error:
-        result.fail(error)
-        return
-
-    # Get raw YAML text for block scalar check
-    parts = content.split("---", 2)
-    yaml_text = parts[1] if len(parts) >= 2 else ""
-
-    # Check for block scalar syntax in description
-    if check_description_block_scalar(yaml_text):
-        result.fail("description uses YAML block scalar syntax (must be single line in source)")
-
-    # Required fields
-    if "name" not in frontmatter:
-        result.fail("Missing required field: name")
-    else:
-        result.pass_(f"name: {frontmatter['name']}", verbose)
-
-    if "description" not in frontmatter:
-        result.fail("Missing required field: description")
-    else:
-        result.pass_("description: valid", verbose)
-
-    # Validate model field if present
-    valid_models = {"sonnet", "opus", "haiku", "inherit"}
-    if "model" in frontmatter:
-        model = frontmatter["model"]
-        if model not in valid_models:
-            result.fail(f"Invalid model '{model}'. Must be one of: {', '.join(valid_models)}")
-        else:
-            result.pass_(f"model: {model}", verbose)
-
-    # Validate permissionMode if present
-    valid_modes = {"default", "bypassPermissions", "plan"}
-    if "permissionMode" in frontmatter:
-        mode = frontmatter["permissionMode"]
-        if mode not in valid_modes:
-            result.fail(f"Invalid permissionMode '{mode}'. Must be one of: {', '.join(valid_modes)}")
-        else:
-            result.pass_(f"permissionMode: {mode}", verbose)
-
-    # Validate links
-    validate_links(path, content, result, verbose)
-
-
-
 def find_files(root: Path, pattern: str) -> list[Path]:
     """Find files matching a glob pattern."""
     return list(root.glob(pattern))
@@ -437,21 +384,15 @@ def main():
     for cmd_file in command_files:
         validate_command(cmd_file, result, verbose)
 
-    # Find and validate agents
-    agent_files = find_files(root, "agents/*.md")
-    for agent_file in agent_files:
-        validate_agent(agent_file, result, verbose)
-
     # Summary
     print(color("\n" + "=" * 60, Colors.BOLD))
     print(color("Summary", Colors.BOLD))
     print(color("=" * 60, Colors.BOLD))
 
-    total_files = len(skill_files) + len(command_files) + len(agent_files)
+    total_files = len(skill_files) + len(command_files)
     print(f"\nFiles checked: {total_files}")
     print(f"  Skills:   {len(skill_files)}")
     print(f"  Commands: {len(command_files)}")
-    print(f"  Agents:   {len(agent_files)}")
 
     print(f"\nResults:")
     print(f"  {color(f'Passed: {result.passed}', Colors.GREEN)}")

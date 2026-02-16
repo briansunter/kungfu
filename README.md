@@ -3,7 +3,7 @@
 <img src="assets/i-know-kung-fu.jpg" alt="I know kung fu" width="300">
 
 A modular skill marketplace for AI coding agents — extend your assistant with
-reusable skills and agents.
+reusable skills.
 
 ## What Is This?
 
@@ -72,7 +72,6 @@ helper scripts that require additional tools:
 ```
 kungfu/
 ├── skills/           # Standalone skill definitions (SKILL.md per directory)
-├── agents/           # Agent definitions (.md files)
 ├── scripts/          # Build, validation & code-gen scripts (Python + TypeScript)
 ├── justfile          # Task automation (just check, just validate, etc.)
 └── README.md         # This file — skills table is auto-generated

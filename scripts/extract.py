@@ -65,7 +65,6 @@ def find_markdown_files(root: Path, include_all: bool) -> list[Path]:
 			"skills/*/references/*.md",
 			"skills/*/examples/*.md",
 			"commands/*.md",
-			"agents/*.md",
 		),
 	)
 
@@ -75,7 +74,6 @@ def should_check_backticks(path: Path, root: Path) -> bool:
 	return bool(
 		rel.startswith("skills/") and rel.endswith("/SKILL.md")
 		or rel.startswith("commands/")
-		or rel.startswith("agents/")
 	)
 
 

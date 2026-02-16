@@ -5,9 +5,9 @@ code in this repository.
 
 ## Repository Overview
 
-Kungfu is a modular skill marketplace for Claude Code containing reusable
-skills, commands, and agents. Each component is self-contained with YAML
-frontmatter and validated through automated CI.
+Kungfu is a modular skill marketplace for Claude Code containing reusable skills
+and commands. Each component is self-contained with YAML frontmatter and
+validated through automated CI.
 
 ## Prerequisites
 
@@ -100,7 +100,6 @@ bun run scripts/your-script.ts
 kungfu/
 ├── skills/           # Standalone skill definitions (SKILL.md per directory)
 ├── commands/         # Standalone command definitions (currently empty)
-├── agents/           # Agent definitions (.md files)
 ├── scripts/          # Build/validation scripts (Python + TypeScript)
 ├── AGENTS.md         # Symlink → CLAUDE.md
 ├── biome.json        # Biome linter/formatter config
@@ -126,13 +125,6 @@ kungfu/
 - **File**: `<name>.md` (filename is the command name)
 - **Same frontmatter structure as skills**
 - **YAML source format**: Use `|` or `>-` for multi-line command content
-
-#### Agents (`agents/*`)
-
-- **File**: `<name>.md` (filename is the agent name)
-- **Required frontmatter**: `name`, `description`, `permissionMode`, `skills`
-- **Permission modes**: `default`, `bypassPermissions`, `plan`
-- **Optional**: `model` (one of: `sonnet`, `opus`, `haiku`, `inherit`)
 
 ### Validation Rules
 
@@ -176,7 +168,6 @@ master/main:
 
 - Skills: `skills/kebab-name/SKILL.md`
 - Commands: `commands/kebab-name.md`
-- Agents: `agents/kebab-name.md`
 
 ### Frontmatter Pattern
 

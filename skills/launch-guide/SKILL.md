@@ -1,6 +1,7 @@
 ---
 name: launch-guide
 description: Guide the complete product launch process across Product Hunt, social media, blogs, and other platforms. Use when preparing a launch, filling out Product Hunt submission forms, planning screenshots and visual assets, writing taglines, or coordinating multi-platform launch day execution.
+category: business
 license: MIT
 ---
 

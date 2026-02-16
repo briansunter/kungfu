@@ -1,6 +1,8 @@
 ---
 name: lead-research-assistant
 description: Identifies high-quality leads for your product or service. Use when analyzing target companies, building prospect lists, or planning sales outreach strategies.
+category: business
+license: MIT
 ---
 
 # Lead Research Assistant

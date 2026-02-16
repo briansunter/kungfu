@@ -12,6 +12,7 @@ const END_MARKER = "<!-- SKILLS-TABLE-END -->";
 interface SkillEntry {
 	name: string;
 	description: string;
+	category: string;
 	path: string;
 }
 
@@ -74,6 +75,7 @@ async function collectSkills(): Promise<SkillEntry[]> {
 		const frontmatter = parseFrontmatter(content);
 		const name = frontmatter.name || entry.name;
 		const description = frontmatter.description;
+		const category = frontmatter.category || "uncategorized";
 
 		if (!description) {
 			throw new Error(`Missing description in ${skillPath}`);
@@ -82,6 +84,7 @@ async function collectSkills(): Promise<SkillEntry[]> {
 		skills.push({
 			name,
 			description,
+			category,
 			path: `skills/${entry.name}/SKILL.md`,
 		});
 	}
@@ -90,18 +93,45 @@ async function collectSkills(): Promise<SkillEntry[]> {
 	return skills;
 }
 
-function buildTable(skills: SkillEntry[]): string {
-	const lines = [
-		"| Skill | Description |",
-		"|-------|-------------|",
-		...skills.map((skill) => {
-			const name = escapeCell(skill.name);
-			const description = escapeCell(skill.description);
-			return `| [${name}](${skill.path}) | ${description} |`;
-		}),
-	];
+function titleCase(kebab: string): string {
+	return kebab
+		.split("-")
+		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+		.join(" ");
+}
 
-	return lines.join("\n");
+function buildGroupedTable(skills: SkillEntry[]): string {
+	const groups = new Map<string, SkillEntry[]>();
+	for (const skill of skills) {
+		const list = groups.get(skill.category) ?? [];
+		list.push(skill);
+		groups.set(skill.category, list);
+	}
+
+	const sortedCategories = [...groups.keys()].sort((a, b) =>
+		a.localeCompare(b),
+	);
+	const sections: string[] = [];
+
+	for (const category of sortedCategories) {
+		const categorySkills = groups.get(category)!;
+		categorySkills.sort((a, b) => a.name.localeCompare(b.name));
+
+		const lines = [
+			`### ${titleCase(category)}`,
+			"",
+			"| Skill | Description |",
+			"|-------|-------------|",
+			...categorySkills.map((skill) => {
+				const name = escapeCell(skill.name);
+				const description = escapeCell(skill.description);
+				return `| [${name}](${skill.path}) | ${description} |`;
+			}),
+		];
+		sections.push(lines.join("\n"));
+	}
+
+	return sections.join("\n\n");
 }
 
 function replaceSkillsTable(readmeContent: string, table: string): string {
@@ -125,7 +155,7 @@ async function main() {
 	}
 
 	const skills = await collectSkills();
-	const table = buildTable(skills);
+	const table = buildGroupedTable(skills);
 
 	if (!write && !check) {
 		console.log(table);

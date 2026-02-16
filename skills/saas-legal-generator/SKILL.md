@@ -1,6 +1,8 @@
 ---
 name: saas-legal-generator
 description: Generate legal boilerplate documents for SaaS applications including Privacy Policy, Terms of Service, Cookie Policy, and GDPR/CCPA compliance. Use when launching new SaaS products or updating legal documents.
+category: business
+license: MIT
 ---
 
 # SaaS Legal Boilerplate Generator

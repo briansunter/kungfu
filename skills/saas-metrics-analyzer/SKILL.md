@@ -1,6 +1,7 @@
 ---
 name: saas-metrics-analyzer
 description: Analyze SaaS business health across all critical metrics (MRR, ARR, churn, LTV:CAC, NRR, ARPU, growth rate) with benchmarks and actionable recommendations. Use for monthly business reviews, health checks, or diagnosing growth problems.
+category: business
 license: MIT
 ---
 

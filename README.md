@@ -47,6 +47,8 @@ helper scripts that require additional tools:
 ## Available Skills
 
 <!-- SKILLS-TABLE-START -->
+### Business
+
 | Skill | Description |
 |-------|-------------|
 | [business-idea-finder](skills/business-idea-finder/SKILL.md) | Find, validate, and document business ideas through problem signal mining, competitor analysis, SWOT analysis, and Business Model Canvas generation. Use when searching for business opportunities or creating complete business briefs. |

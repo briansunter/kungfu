@@ -115,7 +115,8 @@ kungfu/
 
 - **File**: `SKILL.md` in a kebab-case directory
 - **Required frontmatter**: `name`, `description` (single line, no newlines)
-- **Optional**: `license`, `compatibility`, `metadata`, `allowed-tools`
+- **Optional**: `category`, `license`, `compatibility`, `metadata`,
+  `allowed-tools`
 - **Subdirectories**: `references/`, `scripts/`, `examples/`, `templates/`,
   `assets/`
 - **Name validation**: Must match parent directory exactly (kebab-case)

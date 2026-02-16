@@ -1,6 +1,8 @@
 ---
 name: domain-name-finder
 description: Find, validate, and register domain names through requirements gathering, brainstorming, trademark screening, availability checking, and registration guidance.
+category: business
+license: MIT
 ---
 
 # Domain Name Finder Skill

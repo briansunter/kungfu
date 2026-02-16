@@ -63,6 +63,13 @@ SKILL_FRONTMATTER_SCHEMA = {
             "type": "string",
             "description": "Space-delimited list of pre-approved tools",
         },
+        "category": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+            "description": "Category for grouping skills (kebab-case)",
+        },
     },
 }
 

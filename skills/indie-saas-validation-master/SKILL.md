@@ -1,6 +1,7 @@
 ---
 name: indie-saas-validation-master
 description: Guide the complete 18-month solo SaaS journey from validation to scaling decision point with phase-specific tactics, success metrics, and risk mitigation. Use when starting a new SaaS venture or planning any phase of the indie SaaS journey.
+category: business
 license: MIT
 ---
 

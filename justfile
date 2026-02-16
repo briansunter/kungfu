@@ -4,15 +4,23 @@
 default:
     @just --list
 
-# Run all checks (lint + typecheck + validate)
-check: lint typecheck
+# Run all checks (typecheck + lint + formatting + validation + docs freshness)
+check: typecheck lint fmt-check validate readme-table-check
 
-# Run Biome linter/formatter and plugin validation
+# Run Biome lint checks
 lint *args:
     ./scripts/lint.sh {{args}}
 
+# Run lint with Biome autofixes
+lint-fix *args:
+    ./scripts/lint.sh --write {{args}}
+
 # Run Biome only (no validation)
 biome *args:
+    bunx -y biome check --diagnostic-level=error . {{args}}
+
+# Run Biome with autofixes
+biome-fix *args:
     bunx -y biome check --write --diagnostic-level=error . {{args}}
 
 # Run plugin/skill validation only
@@ -49,9 +57,17 @@ clean:
 validate-verbose:
     uv run scripts/validate.py --verbose
 
+# Run markdown reference diagnostics (non-blocking by default)
+extract *args:
+    uv run scripts/extract.py {{args}}
+
 # Generate README skills table (use --write to update README.md)
 readme-table *args:
     bun scripts/generate-readme-table.ts {{args}}
+
+# Verify README skills table is up to date
+readme-table-check:
+    bun scripts/generate-readme-table.ts --check
 
 # Install git hooks
 install-hooks:

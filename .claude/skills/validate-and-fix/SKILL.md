@@ -58,8 +58,8 @@ section.
 
 **Error**: `word count exceeds 1500`
 
-**Fix**: Reduce content. Move detailed reference material into
-`references/*.md` files and link to them from SKILL.md.
+**Fix**: Reduce content. Move detailed reference material into `references/*.md`
+files and link to them from SKILL.md.
 
 #### Missing required fields
 

@@ -12,11 +12,11 @@
  * Output: Unified report with scores and recommendations
  */
 
-import { resolve4, resolveCname } from 'dns/promises';
-import * as cheerio from 'cheerio';
-import { $ } from 'bun';
+import { resolve4, resolveCname } from "dns/promises";
+import * as cheerio from "cheerio";
+import { $ } from "bun";
 
-export { };
+export {};
 
 // ============================================================================
 // Interfaces
@@ -70,15 +70,20 @@ interface DomainReport {
 // DNS Checking
 // ============================================================================
 
-async function checkDNS(domain: string): Promise<{ status: 'available' | 'registered' | 'error'; records?: string[] }> {
+async function checkDNS(
+  domain: string,
+): Promise<{ status: "available" | "registered" | "error"; records?: string[] }> {
   try {
-    const result: { status: 'available' | 'registered' | 'error'; records: string[] } = { status: 'available', records: [] };
+    const result: { status: "available" | "registered" | "error"; records: string[] } = {
+      status: "available",
+      records: [],
+    };
 
     // Try A record
     try {
       const addresses = await resolve4(domain);
       if (addresses && addresses.length > 0) {
-        result.status = 'registered';
+        result.status = "registered";
         result.records = addresses;
       }
     } catch {
@@ -86,11 +91,11 @@ async function checkDNS(domain: string): Promise<{ status: 'available' | 'regist
     }
 
     // Try CNAME
-    if (result.status === 'available') {
+    if (result.status === "available") {
       try {
         const cnames = await resolveCname(domain);
         if (cnames && cnames.length > 0) {
-          result.status = 'registered';
+          result.status = "registered";
           result.records.push(...cnames);
         }
       } catch {
@@ -100,7 +105,7 @@ async function checkDNS(domain: string): Promise<{ status: 'available' | 'regist
 
     return result;
   } catch (error) {
-    return { status: 'error' };
+    return { status: "error" };
   }
 }
 
@@ -108,7 +113,13 @@ async function checkDNS(domain: string): Promise<{ status: 'available' | 'regist
 // WHOIS Checking (Primary source of truth for availability)
 // ============================================================================
 
-async function checkWHOIS(domain: string): Promise<{ status: 'available' | 'registered' | 'error'; registrar?: string; createdDate?: string }> {
+async function checkWHOIS(
+  domain: string,
+): Promise<{
+  status: "available" | "registered" | "error";
+  registrar?: string;
+  createdDate?: string;
+}> {
   try {
     const result = await $`whois ${domain}`.quiet();
     const whoisText = result.stdout.toString();
@@ -129,53 +140,52 @@ async function checkWHOIS(domain: string): Promise<{ status: 'available' | 'regi
 
     for (const pattern of notFoundPatterns) {
       if (pattern.test(whoisText)) {
-        return { status: 'available' };
+        return { status: "available" };
       }
     }
 
     // Extract registrar info
-    let registrar: string | undefined;
-    let createdDate: string | undefined;
+    const registrarMatch =
+      whoisText.match(/Registrar:\s*(.+)/i) ||
+      whoisText.match(/Registrar Name:\s*(.+)/i) ||
+      whoisText.match(/Sponsoring Registrar:\s*(.+)/i);
+    const registrar = registrarMatch?.[1]?.trim();
 
-    const registrarMatch = whoisText.match(/Registrar:\s*(.+)/i) ||
-                          whoisText.match(/Registrar Name:\s*(.+)/i) ||
-                          whoisText.match(/Sponsoring Registrar:\s*(.+)/i);
-    if (registrarMatch) {
-      registrar = registrarMatch[1].trim();
-    }
-
-    const createdMatch = whoisText.match(/Creation Date:\s*(.+)/i) ||
-                        whoisText.match(/Created On:\s*(.+)/i) ||
-                        whoisText.match(/Created:\s*(.+)/i) ||
-                        whoisText.match(/Registration Time:\s*(.+)/i);
-    if (createdMatch) {
-      createdDate = createdMatch[1].trim();
-    }
+    const createdMatch =
+      whoisText.match(/Creation Date:\s*(.+)/i) ||
+      whoisText.match(/Created On:\s*(.+)/i) ||
+      whoisText.match(/Created:\s*(.+)/i) ||
+      whoisText.match(/Registration Time:\s*(.+)/i);
+    const createdDate = createdMatch?.[1]?.trim();
 
     // If we found registrar or creation date, it's registered
     if (registrar || createdDate) {
-      return { status: 'registered', registrar, createdDate };
+      return { status: "registered", registrar, createdDate };
     }
 
     // Check for nameserver entries (strong indicator of registration)
     if (/Name Server:\s*.+/i.test(whoisText) || /nserver:\s*.+/i.test(whoisText)) {
-      return { status: 'registered' };
+      return { status: "registered" };
     }
 
     // If WHOIS returned data but no clear indicators, assume registered
     // (better to show false negative than false positive)
     if (whoisText.length > 500) {
-      return { status: 'registered' };
+      return { status: "registered" };
     }
 
-    return { status: 'available' };
+    return { status: "available" };
   } catch (error: any) {
     // Check if error message indicates availability
-    const stderr = error.stderr?.toString() || '';
-    if (stderr.includes('No match') || stderr.includes('NOT FOUND') || stderr.includes('No entries found')) {
-      return { status: 'available' };
+    const stderr = error.stderr?.toString() || "";
+    if (
+      stderr.includes("No match") ||
+      stderr.includes("NOT FOUND") ||
+      stderr.includes("No entries found")
+    ) {
+      return { status: "available" };
     }
-    return { status: 'error' };
+    return { status: "error" };
   }
 }
 

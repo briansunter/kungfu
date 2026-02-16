@@ -1,17 +1,10 @@
 #!/usr/bin/env bun
-import { createInterface } from 'node:readline/promises';
-import { existsSync } from 'node:fs';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { join, dirname } from 'node:path';
+import { existsSync } from "node:fs";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { join } from "node:path";
+import { createInterface } from "node:readline/promises";
 
 // --- Types ---
-
-declare global {
-    interface ImportMeta {
-        dir: string;
-        main: boolean;
-    }
-}
 
 interface Config {
     company_name?: string;
@@ -134,7 +127,10 @@ class LegalGenerator {
             const answer = await this.rl.question("\nEnter choice (number): ");
             const idx = parseInt(answer.trim()) - 1;
             if (!isNaN(idx) && idx >= 0 && idx < choices.length) {
-                return choices[idx];
+                const choice = choices[idx];
+                if (choice !== undefined) {
+                    return choice;
+                }
             }
             console.log(`Please enter a number between 1 and ${choices.length}`);
         }
@@ -328,7 +324,7 @@ class LegalGenerator {
         console.log("GENERATING DOCUMENTS");
         console.log("=".repeat(60));
 
-        if (!await existsSync(this.outputDir)) {
+        if (!existsSync(this.outputDir)) {
             await mkdir(this.outputDir, { recursive: true });
         }
 

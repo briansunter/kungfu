@@ -18,8 +18,8 @@ Ask the user for:
 
 - **Skill name** (kebab-case, e.g. `my-new-skill`)
 - **Description** (single line, no newlines, max 1024 chars)
-- **Subdirectories needed** (`references/`, `scripts/`, `examples/`, `templates/`,
-  `assets/` -- all optional)
+- **Subdirectories needed** (`references/`, `scripts/`, `examples/`,
+  `templates/`, `assets/` -- all optional)
 
 ### Step 2: Create Directory and SKILL.md
 
@@ -43,7 +43,8 @@ license: MIT
 
 ### Step 3: Create Requested Subdirectories
 
-If the user wants `references/`, `scripts/`, etc., create them with a `.gitkeep`:
+If the user wants `references/`, `scripts/`, etc., create them with a
+`.gitkeep`:
 
 ```bash
 mkdir -p skills/<skill-name>/references
@@ -77,7 +78,8 @@ just readme-table --write
 ## Conventions
 
 - **Name**: Must be kebab-case, must match the directory name exactly
-- **Description**: Single line, no `\n` or `\r`, no YAML block scalars (`|`, `>`)
+- **Description**: Single line, no `\n` or `\r`, no YAML block scalars (`|`,
+  `>`)
 - **Orphan rule**: Every file in subdirectories must be referenced from SKILL.md
   via markdown link or backtick
 - **Word count**: Keep under 1500 words

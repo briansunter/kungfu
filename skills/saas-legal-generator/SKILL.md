@@ -285,11 +285,12 @@ Before deploying legal documents, verify:
   - [privacy-policy-global.md](templates/privacy-policy-global.md)
   - [terms-of-service-saas.md](templates/terms-of-service-saas.md)
   - [cookie-policy.md](templates/cookie-policy.md)
+  - [acceptable-use-policy.md](templates/acceptable-use-policy.md)
   - [data-processing-agreement.md](templates/data-processing-agreement.md)
   - [ccpa-opt-out-link.md](templates/ccpa-opt-out-link.md)
-- **scripts/** - Interactive generation script (TypeScript)
-- **REFERENCE.md** - Detailed legal requirements and examples
-- **README.md** - Technical documentation
+- **scripts/index.ts** - Interactive generation script
+- **example_config.json** - Non-interactive generation input
+- **output/** - Generated document examples
 
 ## Important Disclaimer
 

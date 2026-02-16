@@ -23,11 +23,14 @@ YAML frontmatter and validated through automated CI.
 # Install dependencies
 bun install
 
-# Run all checks (lint + typecheck + validate)
+# Run all checks (typecheck + lint + formatting + validate + docs freshness)
 just check
 
-# Run lint (Biome + validation)
+# Run lint checks (Biome only)
 just lint
+
+# Run lint with autofixes
+just lint-fix
 
 # Type check TypeScript
 just typecheck
@@ -44,6 +47,9 @@ just validate-verbose
 
 # Lint code with Biome only
 just biome
+
+# Lint code with Biome autofixes only
+just biome-fix
 ```
 
 ### Formatting
@@ -64,6 +70,12 @@ just fmt-check
 ```bash
 # Generate README skills table (use --write to update README.md)
 just readme-table --write
+
+# Check README skills table is up to date
+just readme-table-check
+
+# Run reference diagnostics (add --strict to fail on findings)
+just extract --verbose
 
 # Install git hooks (pre-commit for README table updates)
 just install-hooks
@@ -151,7 +163,8 @@ The `scripts/validate.py` enforces:
 - **Bun**: Runtime and package manager (default over Node.js)
 - **Biome**: Linting and formatting (tabs, double quotes, 100 char line width)
 - **Prettier**: Markdown formatting with `prose-wrap: always`
-- **Python + uv**: For validation scripts (inline script deps, no requirements.txt)
+- **Python + uv**: For validation scripts (inline script deps, no
+  requirements.txt)
 - **Just**: Task runner (see `justfile`)
 
 ### CI/CD Pipeline
@@ -161,7 +174,10 @@ master/main:
 
 1. Type check: `bun tsc --noEmit`
 2. Lint: `bunx biome check --diagnostic-level=error .`
-3. Validate: `uv run scripts/validate.py`
+3. Formatting: `bunx biome format .` and
+   `bunx prettier --check "**/*.md" --prose-wrap always`
+4. README table check: `bun scripts/generate-readme-table.ts --check`
+5. Validate: `uv run scripts/validate.py`
 
 ## Key Conventions
 
@@ -223,9 +239,9 @@ skills/commands/agents. This allows plugin composition without duplication.
 - **Validation runs from repo root**: Paths in `validate.py` are relative to
   `cwd()`, so always run `just validate` from the repo root.
 - **Biome uses `--diagnostic-level=error`** in lint: warnings don't fail CI but
-  errors do. Use `just biome` locally which includes `--write` for auto-fixing.
+  errors do. Use `just biome-fix` locally for auto-fixing.
 - **README skills table auto-generation**: The pre-commit hook runs
-  `just readme-table` to keep the README table in sync. Install with
+  `just readme-table --write` to keep the README table in sync. Install with
   `just install-hooks`.
 - **`AGENTS.md` is a symlink** to `CLAUDE.md` -- don't edit it directly.
 - **`marketplace.json`** in `.claude-plugin/` is the root plugin registry --

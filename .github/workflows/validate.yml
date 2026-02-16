@@ -35,5 +35,13 @@ jobs:
       - name: Lint with Biome
         run: bunx biome check --diagnostic-level=error .
 
+      - name: Check formatting
+        run: |
+          bunx biome format .
+          bunx prettier --check "**/*.md" --prose-wrap always
+
+      - name: Check README skills table
+        run: bun scripts/generate-readme-table.ts --check
+
       - name: Validate plugins and skills
         run: uv run scripts/validate.py

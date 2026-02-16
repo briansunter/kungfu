@@ -16,7 +16,14 @@ from pathlib import Path
 from typing import Any
 
 import yaml
-from jsonschema import Draft7Validator, ValidationError
+from jsonschema import Draft7Validator
+
+from markdown_checks import (
+	extract_backtick_references,
+	extract_markdown_links,
+	find_orphan_resource_files,
+	find_sources_section_issues,
+)
 
 
 # JSON Schema for SKILL.md frontmatter (based on Agent Skills spec)
@@ -118,21 +125,6 @@ def extract_frontmatter(content: str) -> tuple[dict[str, Any] | None, str | None
         return None, f"YAML parse error: {e}"
 
 
-def is_kebab_case(s: str) -> bool:
-    """Check if string is kebab-case per Agent Skills spec."""
-    # Must be 1-64 characters
-    if not s or len(s) > 64:
-        return False
-    # Must not start or end with hyphen
-    if s.startswith("-") or s.endswith("-"):
-        return False
-    # Must not contain consecutive hyphens
-    if "--" in s:
-        return False
-    # Must only contain lowercase alphanumeric and hyphens
-    return bool(re.match(r"^[a-z][a-z0-9]*(-[a-z0-9]+)*$", s))
-
-
 def check_description_block_scalar(yaml_text: str) -> bool:
     """Check if description uses YAML block scalar syntax (multi-line in source).
 
@@ -201,55 +193,6 @@ def validate_skill_schema(frontmatter: dict, path: Path, result: ValidationResul
             result.fail(f"Name '{actual_name}' does not match directory name '{expected_name}'")
 
 
-def extract_markdown_links(content: str) -> list[tuple[str, str]]:
-    """Extract markdown links from content. Returns list of (text, url) tuples."""
-    # Match [text](url) pattern, excluding images ![...](...)
-    pattern = r'(?<!!)\[([^\]]*)\]\(([^)]+)\)'
-    return re.findall(pattern, content)
-
-
-def extract_backtick_references(content: str) -> list[str]:
-    """Extract backtick references that look like file paths."""
-    # Match `path/to/file.md` or `filename.ext` patterns
-    pattern = r'`([a-zA-Z0-9_\-./]+\.(?:md|py|ts|js|json|yaml|yml))`'
-    return re.findall(pattern, content)
-
-
-def extract_all_file_references(content: str) -> set[str]:
-    """Extract all file references from content (backticks, code blocks, plain text)."""
-    refs = set()
-
-    # Get backtick references
-    refs.update(extract_backtick_references(content))
-
-    # Get references from code blocks and plain text
-    # Match patterns like 'scripts/file.py' or 'references/doc.md'
-    # This is more permissive to catch mentions in code blocks
-    file_pattern = r'(?:^|[\s\'"`(])([a-zA-Z0-9_\-]+/[a-zA-Z0-9_\-./]+\.(?:md|py|ts|js|json|yaml|yml))(?:[\s\'"`)]|$)'
-    refs.update(re.findall(file_pattern, content, re.MULTILINE))
-
-    return refs
-
-
-def get_all_references_from_content(content: str) -> set[str]:
-    """Extract all file references from content (links, backticks, code blocks, plain text)."""
-    refs = set()
-
-    # Get markdown links
-    for _, url in extract_markdown_links(content):
-        if not url.startswith(('http://', 'https://', 'mailto:', '#')):
-            url_path = url.split('#')[0]
-            if url_path:
-                refs.add(url_path)
-
-    # Get all file references (backticks, code blocks, plain text)
-    for ref in extract_all_file_references(content):
-        if not any(x in ref for x in ['node_modules', 'dist/', '.git', '...']):
-            refs.add(ref)
-
-    return refs
-
-
 def validate_links(path: Path, content: str, result: ValidationResult, verbose: bool):
     """Validate markdown links and file references in content."""
     base_dir = path.parent
@@ -295,109 +238,39 @@ def validate_links(path: Path, content: str, result: ValidationResult, verbose: 
 
 def validate_sources_section(content: str, result: ValidationResult, verbose: bool):
     """Validate that ## Sources sections use markdown link format [Title](url)."""
-    # Find Sources sections
-    sources_pattern = r'^## Sources\s*$'
-    sources_matches = list(re.finditer(sources_pattern, content, re.MULTILINE))
+    errors, warnings = find_sources_section_issues(content)
 
-    if not sources_matches:
-        # No sources section is OK
+    for error in errors:
+        result.fail(error)
+    for warning in warnings:
+        result.warn(warning)
+
+    if errors or warnings:
         return
 
-    for match in sources_matches:
-        start_pos = match.end()
-
-        # Find the end of the sources section (next ## heading or end of file)
-        next_heading = re.search(r'^## ', content[start_pos:], re.MULTILINE)
-        if next_heading:
-            end_pos = start_pos + next_heading.start()
-        else:
-            end_pos = len(content)
-
-        sources_content = content[start_pos:end_pos]
-
-        # Check for non-markdown-link references (plain URLs or block quotes)
-        lines = sources_content.split('\n')
-        in_sources = False
-
-        for i, line in enumerate(lines):
-            stripped = line.strip()
-
-            # Skip empty lines and the "## Sources" line itself
-            if not stripped or stripped == '## Sources':
-                continue
-
-            # Check if this is a list item with a markdown link
-            if stripped.startswith('- '):
-                # Extract the part after "- "
-                item_content = stripped[2:].strip()
-
-                # Check if it's a markdown link [Title](url)
-                link_match = re.match(r'^\[([^\]]+)\]\(([^)]+)\)', item_content)
-
-                if not link_match:
-                    # This is a list item but not a markdown link
-                    # Check if it looks like a block quote format (title on one line, URL on next)
-                    if stripped and not stripped.startswith('- ['):
-                        result.fail(f"Sources section must use markdown link format [Title](url), found: {stripped[:50]}...")
-                else:
-                    # It's a markdown link, validate the URL
-                    url = link_match.group(2)
-                    if not url.startswith(('http://', 'https://')):
-                        # Could be a relative path or non-URL reference
-                        # For external sources, expect http/https
-                        if '.' in url and not url.startswith('#'):
-                            result.warn(f"Source URL should use http/https: {url}")
-                    else:
-                        result.pass_(f"Source OK: [{link_match.group(1)}]({url[:30]}...)", verbose)
-
+    if "## Sources" in content:
         result.pass_("Sources section uses markdown link format", verbose)
 
 
 def validate_orphan_files(skill_dir: Path, result: ValidationResult, verbose: bool):
     """Check for files in references/, scripts/, templates/, examples/, assets/ that aren't linked."""
-    # Directories that should have their files referenced
-    resource_dirs = ['references', 'scripts', 'templates', 'examples', 'assets']
+    orphaned = set(find_orphan_resource_files(skill_dir))
 
-    # Collect all content from markdown files in the skill directory
-    all_content = ""
-    for md_file in skill_dir.rglob("*.md"):
-        all_content += md_file.read_text()
-
-    # Get all references from the content
-    all_refs = get_all_references_from_content(all_content)
-
-    # Normalize references to just filenames for matching
-    ref_filenames = set()
-    for ref in all_refs:
-        # Handle both 'references/file.md' and 'file.md' formats
-        ref_filenames.add(Path(ref).name)
-        ref_filenames.add(ref)  # Also keep full path for exact matching
-
-    # Check each resource directory
-    for resource_dir_name in resource_dirs:
+    for resource_dir_name in ("references", "scripts", "templates", "examples", "assets"):
         resource_dir = skill_dir / resource_dir_name
         if not resource_dir.exists():
             continue
-
-        # Find all files in the resource directory (non-recursive for simplicity)
         for file_path in resource_dir.iterdir():
-            if file_path.is_file():
-                # Skip certain files
-                if file_path.name in ['package.json', 'bun.lock', '.gitkeep']:
-                    continue
+            if not file_path.is_file():
+                continue
+            if file_path.name in {"package.json", "bun.lock", ".gitkeep"}:
+                continue
 
-                # Check if this file is referenced
-                relative_path = f"{resource_dir_name}/{file_path.name}"
-                is_referenced = (
-                    file_path.name in ref_filenames
-                    or relative_path in ref_filenames
-                    or relative_path in all_refs
-                )
-
-                if not is_referenced:
-                    result.fail(f"Orphan file not referenced anywhere: {relative_path}")
-                else:
-                    result.pass_(f"File is referenced: {relative_path}", verbose)
+            relative_path = f"{resource_dir_name}/{file_path.name}"
+            if relative_path in orphaned:
+                result.fail(f"Orphan file not referenced anywhere: {relative_path}")
+            else:
+                result.pass_(f"File is referenced: {relative_path}", verbose)
 
 
 def validate_skill(path: Path, result: ValidationResult, verbose: bool):

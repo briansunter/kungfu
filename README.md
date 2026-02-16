@@ -1,6 +1,49 @@
-# Kungfu
+# 🥋 Kungfu
 
-A modular plugin/skill marketplace for Claude Code.
+A modular skill & plugin marketplace for AI coding agents — extend your
+assistant with reusable skills, agents, and plugins.
+
+## What Is This?
+
+Kungfu is a curated collection of **skills** (structured prompts with
+references, templates, and examples) that any AI coding agent can use to tackle
+complex business and SaaS tasks. Skills are organized into **plugins** for easy
+discovery and composition.
+
+Skills work with any agent that supports the
+[Agent Skills format](https://docs.anthropic.com/en/docs/claude-code) — Claude
+Code, Cursor, Windsurf, or any compatible tool.
+
+Think of it as a toolkit that teaches your agent domain expertise — from
+validating a SaaS idea to designing pricing, writing launch announcements, and
+analyzing metrics.
+
+## Install a Skill
+
+```bash
+npx skills add kungfu/<skill-name>
+```
+
+For example:
+
+```bash
+npx skills add kungfu/business-idea-finder
+npx skills add kungfu/pricing-strategy-designer
+```
+
+### Runtime Requirements
+
+Most skills are pure markdown and work out of the box. Some skills include
+helper scripts that require additional tools:
+
+| Tool | Required by | Install |
+|------|------------|---------|
+| [Node.js](https://nodejs.org/) ≥ 18 | All script-based skills | `brew install node` |
+| [Bun](https://bun.sh/) | TypeScript helper scripts | `brew install oven-sh/bun/bun` |
+| `whois` | domain-name-finder | pre-installed on macOS |
+| `dig` | domain-name-finder | pre-installed on macOS |
+
+## Available Skills
 
 <!-- SKILLS-TABLE-START -->
 | Skill | Description |
@@ -20,6 +63,94 @@ A modular plugin/skill marketplace for Claude Code.
 | [systemization-documentation-expert](skills/systemization-documentation-expert/SKILL.md) | Create Standard Operating Procedures (SOPs) and document business processes for delegation and scaling. Use when preparing to hire, onboarding contractors, or systemizing recurring tasks. |
 | [technical-automation-architect](skills/technical-automation-architect/SKILL.md) | Design technical architecture and automation strategies for solo SaaS products. Use when selecting tech stacks, deciding build vs buy, or implementing AI automation to scale operations. |
 <!-- SKILLS-TABLE-END -->
+
+## Project Structure
+
+```
+kungfu/
+├── skills/           # Standalone skill definitions (SKILL.md per directory)
+├── agents/           # Agent definitions (.md files)
+├── plugins/          # Plugin modules — self-contained, composable via symlinks
+│   └── business/     # Business plugin; symlinks to root skills/agents
+├── scripts/          # Build, validation & code-gen scripts (Python + TypeScript)
+├── .claude-plugin/   # Root plugin marketplace config (marketplace.json)
+├── justfile          # Task automation (just check, just validate, etc.)
+└── README.md         # This file — skills table is auto-generated
+```
+
+### How Skills Work
+
+Each skill lives in its own directory under `skills/` and contains:
+
+- **`SKILL.md`** — the main instruction file with YAML frontmatter (`name`,
+  `description`) and detailed markdown guidance
+- **`references/`** — supporting data, benchmarks, and frameworks
+- **`templates/`**, **`examples/`**, **`scripts/`** — optional supporting files
+
+Skills are composed into **plugins** (e.g. `plugins/business`) via symlinks,
+allowing mix-and-match without duplication.
+
+## Adding a New Skill
+
+```bash
+mkdir skills/my-new-skill
+touch skills/my-new-skill/SKILL.md
+```
+
+Add the required frontmatter:
+
+```yaml
+---
+name: my-new-skill
+description: Single-line description of what this skill does and when to use it.
+license: MIT
+---
+```
+
+Then validate, format, and update the README table:
+
+```bash
+just validate          # check frontmatter & links
+just fmt               # auto-format code & markdown
+just readme-table --write  # regenerate the skills table above
+```
+
+## Development
+
+### Prerequisites
+
+- [Bun](https://bun.sh/) — JavaScript runtime & package manager
+- [Just](https://just.systems/) — task runner (`brew install just`)
+- [uv](https://docs.astral.sh/uv/) — Python package runner (`brew install uv`)
+
+### Install & Verify
+
+```bash
+bun install
+just check   # typecheck + lint + format + validate + docs freshness
+```
+
+| Command | What it does |
+|---------|-------------|
+| `just check` | Run **all** checks (typecheck + lint + format + validate + docs) |
+| `just validate` | Validate skill/plugin structure and frontmatter |
+| `just lint` | Run Biome lint checks |
+| `just lint-fix` | Lint with auto-fixes |
+| `just fmt` | Format everything (Biome for code, Prettier for markdown) |
+| `just typecheck` | Type-check TypeScript |
+| `just readme-table --write` | Regenerate the skills table in this README |
+| `just install-hooks` | Install pre-commit hook for auto table updates |
+| `just clean` | Remove `node_modules`, `.cache`, `dist` |
+
+### CI
+
+GitHub Actions runs on every push/PR to `main`/`master`:
+
+1. TypeScript type check
+2. Biome lint
+3. Prettier format check
+4. README table freshness check
+5. Full skill/plugin validation
 
 ## License
 

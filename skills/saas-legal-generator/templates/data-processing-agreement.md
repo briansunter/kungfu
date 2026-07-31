@@ -1,15 +1,17 @@
 # Data Processing Agreement
 
-**Status:** Draft for factual, security, commercial, and qualified legal review  
+**Status:** Draft for factual, security, commercial, and qualified legal
+review  
 **Effective date:** [EFFECTIVE_DATE]
 
-> **Drafting note:** This template is intended for a verified controller–processor
-> relationship. It must be aligned with the main agreement, actual processing,
-> security measures, subprocessors, transfer mechanisms, service levels, and
-> governing law. Delete this note before signature.
+> **Drafting note:** This template is intended for a verified
+> controller–processor relationship. It must be aligned with the main agreement,
+> actual processing, security measures, subprocessors, transfer mechanisms,
+> service levels, and governing law. Delete this note before signature.
 
 This Data Processing Agreement (the **DPA**) forms part of
-[[REVIEW: IDENTIFY THE MAIN AGREEMENT, ORDER FORM, AND PRECEDENCE RULE]] between:
+[[REVIEW: IDENTIFY THE MAIN AGREEMENT, ORDER FORM, AND PRECEDENCE RULE]]
+between:
 
 - **Controller/customer:** [[REVIEW: LEGAL NAME, ADDRESS, AND CONTACT]]
 - **Processor/provider:** [COMPANY_NAME], [COMPANY_ADDRESS], [CONTACT_EMAIL]
@@ -144,10 +146,10 @@ entity, scope, and current status.
 
 ## 11. Controller Obligations
 
-The Controller is responsible for lawful instructions and for satisfying its
-own obligations, including transparency, lawful basis, permissions, data
-accuracy, minimization, user configuration, and request handling. This clause
-does not reduce any independent duty of the Processor.
+The Controller is responsible for lawful instructions and for satisfying its own
+obligations, including transparency, lawful basis, permissions, data accuracy,
+minimization, user configuration, and request handling. This clause does not
+reduce any independent duty of the Processor.
 
 ## 12. Liability, Priority, and Term
 

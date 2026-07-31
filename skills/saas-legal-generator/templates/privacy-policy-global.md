@@ -102,9 +102,9 @@ categories.
 [TRANSFER_DETAILS]
 
 Identify actual origin and destination countries, recipient roles, and transfer
-mechanisms. Do not state that Standard Contractual Clauses, adequacy, the EU-U.S.
-Data Privacy Framework, the UK Extension, or another mechanism applies unless
-it has been verified for the relevant transfer and entities. Document any
+mechanisms. Do not state that Standard Contractual Clauses, adequacy, the
+EU-U.S. Data Privacy Framework, the UK Extension, or another mechanism applies
+unless it has been verified for the relevant transfer and entities. Document any
 required transfer-risk assessment and supplementary measures.
 
 ## 9. Retention and Deletion

@@ -6,9 +6,9 @@ license: MIT
 
 # Generate README Skills Table
 
-Keep the generated skill catalog in `README.md` synchronized with the canonical
-frontmatter under `skills/*/SKILL.md`. Use the repository-level generator rather
-than maintaining a second implementation inside this skill.
+Keep the generated skill catalog in [README.md](../../../README.md) synchronized
+with the canonical frontmatter under `skills/*/SKILL.md`. Use the repository-level
+generator rather than maintaining a second implementation inside this skill.
 
 ## Operating Rules
 

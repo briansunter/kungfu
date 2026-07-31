@@ -101,9 +101,9 @@ Escalation Path:
 
 **Common Results**:
 
-- [Result 1]: [Solution] (Frequency: X%)
-- [Result 2]: [Solution] (Frequency: Y%)
-- [Result 3]: [Solution] (Frequency: Z%)
+- [Result 1]: [Solution] "Frequency: X%"
+- [Result 2]: [Solution] "Frequency: Y%"
+- [Result 3]: [Solution] "Frequency: Z%"
 
 **Notes**: [Edge cases, warnings, tips] **Last updated**: [Date]
 ```

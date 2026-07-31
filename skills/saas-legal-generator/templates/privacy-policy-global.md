@@ -1,311 +1,169 @@
-# Privacy Policy
+# Privacy Notice
 
-**Last Updated:** [EFFECTIVE_DATE]
+**Version:** [VERSION]  
+**Effective date:** [EFFECTIVE_DATE]
 
-## 1. Introduction
+## 1. Who We Are
 
-Welcome to **[COMPANY_NAME]** ("we," "our," or "us"). We are committed to
-protecting your personal information and your right to privacy. This Privacy
-Policy explains how we collect, use, disclose, and safeguard your information
-when you use our website **[DOMAIN]** and our services.
+[COMPANY_NAME] operates [DOMAIN] and the service described below:
 
-Please read this Privacy Policy carefully. If you do not agree with the terms of
-this Privacy Policy, please do not access our website or use our services.
+[SERVICE_DESCRIPTION]
 
-**Contact Information:**
+For the processing described in this notice, our role has been assessed as:
+**[PROCESSING_ROLE]**. A service may act in different roles for different
+processing activities; explain those distinctions where relevant.
 
-- Email: [CONTACT_EMAIL]
+**Contact**
+
+- Privacy/legal email: [CONTACT_EMAIL]
+- Postal address: [COMPANY_ADDRESS]
 - Website: [DOMAIN]
-- Address: [COMPANY_ADDRESS]
+- EU/UK representative, if legally required: [GDPR_REP_EMAIL]
 
-## 2. Information We Collect
+## 2. Scope
 
-### 2.1 Personal Information You Provide to Us
+This notice applies to the people, products, websites, applications, and
+processing activities listed here:
 
-We collect information you provide directly to us, including:
+[[REVIEW: IDENTIFY THE PEOPLE, SERVICES, DOMAINS, APPS, AND PROCESSING ACTIVITIES IN SCOPE, PLUS MATERIAL EXCLUSIONS]]
 
-- **Account Information:** Name, email address, username, password, profile
-  information
-- **Payment Information:** Billing address, payment method details (processed
-  securely by third-party payment processors)
-- **Communications:** Messages, feedback, and support inquiries
-- **Professional Information:** Job title, company name, industry (for B2B
-  services)
+If we process customer-submitted personal data only on a business customer's
+instructions, the customer's privacy notice may govern that activity and our
+Data Processing Agreement may describe our processor obligations.
 
-### 2.2 Information Automatically Collected
+## 3. Personal Data We Process
 
-We automatically collect certain information when you use our services:
+The table must reflect actual data flows, including data supplied by users,
+created by the service, received from customers or partners, and collected from
+devices or public sources.
 
-- **Device Information:** IP address, browser type, operating system, device
-  identifiers
-- **Usage Information:** Pages visited, features used, time spent, error reports
-- **Log Data:** Access logs, timestamps, referring/exit pages
+[DATA_INVENTORY_TABLE]
 
-### 2.3 Cookies and Tracking Technologies
+Do not use broad categories such as “any information you provide” when the
+actual categories can be identified. State whether providing particular data is
+required and what happens if it is not provided.
 
-We use cookies and similar tracking technologies to collect and track
-information about your activities on our website. See our
-[Cookie Policy]([DOMAIN]/cookies) for details.
+## 4. Why We Process Personal Data
 
-### 2.4 Third-Party Information
+Describe each distinct purpose. Where a law requires a legal basis or other
+condition, identify the basis that actually applies and document the supporting
+assessment outside this notice.
 
-We may receive information about you from third parties, including:
+[PROCESSING_PURPOSE_TABLE]
 
-- Analytics providers (e.g., Google Analytics)
-- Payment processors (e.g., Stripe, PayPal)
-- Identity verification services
-- Social media platforms (if you connect your account)
+Do not claim consent when the product does not obtain a valid, specific choice.
+Do not claim legitimate interests without identifying the interest, necessity,
+and balancing assessment. Contract necessity is narrower than general business
+convenience.
 
-## 3. How We Use Your Information
+## 5. Cookies and Similar Technologies
 
-We use the information we collect for the following purposes:
+We use the technologies described in our cookie notice and inventory:
+[DOMAIN]/cookies
 
-### 3.1 Service Provision
+Nonessential technologies must not load before a valid choice where prior
+consent is required. Users must be able to revisit and withdraw their choice as
+easily as they gave it. Cookie/preference settings: [COOKIE_SETTINGS_URL]
 
-- To provide, maintain, and improve our services
-- To process transactions and send related information
-- To provide customer support
-- To communicate about updates, security, and support
+## 6. Vendors, Subprocessors, and Other Recipients
 
-### 3.2 Security and Fraud Prevention
+We disclose personal data only as described below and in our contracts and data
+maps. Classify each recipient accurately—for example, processor/service
+provider, independent controller, joint controller, or other third party.
 
-- To verify your identity and prevent fraud
-- To protect against abuse, unauthorized access, and security incidents
-- To comply with legal obligations
+[VENDOR_TABLE]
 
-### 3.3 Analytics and Improvement
+Also describe any disclosure to affiliates, professional advisers, authorities,
+business-transfer counterparties, or other recipients only when it actually
+occurs and the wording is legally appropriate.
 
-- To analyze usage patterns and improve our services
-- To develop new features and services
-- To measure effectiveness of marketing campaigns
+## 7. California Disclosures
 
-### 3.4 Marketing Communications
+Publish this section only after assessing whether California law applies and
+whether any practice constitutes a sale, sharing, or use/disclosure of sensitive
+personal information subject to limitation rights.
 
-- To send promotional emails (with your consent)
-- To personalize content and recommendations
-- To display relevant advertisements
+[CALIFORNIA_DISCLOSURE]
 
-### 3.5 Legal Requirements
+Where an opt-out obligation applies, implement the required frictionless method
+and applicable opt-out preference signals, including Global Privacy Control,
+before asserting that the service honors them. The notice must also include the
+required look-back-period categories, purposes, sources, and recipient
+categories.
 
-- To comply with applicable laws, regulations, and legal processes
-- To respond to lawful requests and legal claims
-- To protect our rights, privacy, safety, and property
+## 8. International Transfers
 
-## 4. Legal Basis for Processing (GDPR)
+[TRANSFER_DETAILS]
 
-If you are located in the European Economic Area (EEA), we process your personal
-information on the following legal bases:
+Identify actual origin and destination countries, recipient roles, and transfer
+mechanisms. Do not state that Standard Contractual Clauses, adequacy, the
+EU-U.S. Data Privacy Framework, the UK Extension, or another mechanism applies
+unless it has been verified for the relevant transfer and entities. Document any
+required transfer-risk assessment and supplementary measures.
 
-- **Contract:** To fulfill our obligations under our Terms of Service
-- **Legitimate Interest:** To prevent fraud, ensure security, and improve our
-  services
-- **Consent:** For marketing communications and non-essential cookies
-- **Legal Obligation:** To comply with legal requirements
+## 9. Retention and Deletion
 
-## 5. Information Sharing and Disclosure
+[RETENTION_SCHEDULE]
 
-### 5.1 Third-Party Service Providers
+State category-specific criteria or periods for production systems, logs,
+support tools, analytics, legal/accounting records, backups, and vendor copies.
+Explain account deletion, legal holds, dispute preservation, anonymization, and
+backup expiry accurately. Do not use one arbitrary period for all data.
 
-We share your information with trusted third parties who assist us in operating
-our services:
+## 10. Privacy Choices and Rights
 
-- **Payment Processors:** [PAYMENT_PROCESSOR] for payment processing
-- **Hosting Providers:** [HOSTING_PROVIDER] for cloud infrastructure
-- **Analytics Providers:** [ANALYTICS_PROVIDER] for usage analytics
-- **Email Services:** [EMAIL_PROVIDER] for communications
-- **Support Tools:** [SUPPORT_TOOL] for customer support
+Rights vary by location and processing activity. Describe only rights and appeal
+mechanisms that apply, while preserving any broader rights the company chooses
+to offer.
 
-### 5.2 Business Transfers
+[RIGHTS_REQUEST_PROCESS]
 
-If we are involved in a merger, acquisition, or sale of assets, your information
-may be transferred.
+Explain available methods, identity/authority verification, authorized agents,
+appeals, response timing, fees or refusals permitted by law, and how to lodge a
+complaint with the appropriate regulator. Collect only information reasonably
+necessary to handle the request.
 
-### 5.3 Affiliates
+Marketing preferences, cookie choices, account deletion, and sale/share opt-out
+may require different workflows. Link each implemented method directly.
 
-We may share information with our corporate affiliates, subject to this Privacy
-Policy.
+## 11. Children and Age-Restricted Use
 
-### 5.4 With Your Consent
+[CHILDREN_POSITION]
 
-We may share your information with your consent or at your direction.
+Minimum age: [MIN_AGE]
 
-### 5.5 Legal Requirements
+Do not rely on boilerplate age language. Confirm the intended audience, age
+screening, actual knowledge, parental-consent design, app-store classification,
+and applicable children's-privacy laws before publication.
 
-We may disclose information if required to do so by law or in response to valid
-legal requests.
+## 12. Security
 
-## 6. Data Retention
+We use the verified controls summarized below:
 
-We retain your personal information for as long as necessary to provide our
-services and fulfill the purposes outlined in this Privacy Policy.
+[SECURITY_SUMMARY]
 
-- **Account Information:** Retained while your account is active, then
-  deleted/anonymous within [RETENTION_PERIOD] days of account closure
-- **Transaction Records:** Retained for [RETENTION_PERIOD] years for tax and
-  legal purposes
-- **Support Communications:** Retained for [RETENTION_PERIOD] years for quality
-  assurance
-- **Analytics Data:** Retained in anonymized form for up to [RETENTION_PERIOD]
-  months
+Describe controls at an appropriate level without exposing exploitable details
+or promising absolute security. The summary must align with customer contracts,
+security documentation, actual architecture, and vendor responsibilities.
 
-## 7. Your Privacy Rights
+## 13. Automated Decision-Making and AI
 
-### 7.1 General Rights
+[[REVIEW: DISCLOSE MATERIAL PROFILING, AUTOMATED DECISIONS, GENERATIVE-AI DATA USE, MODEL PROVIDERS, HUMAN REVIEW, TRAINING/RETENTION CHOICES, AND AVAILABLE RIGHTS IF RELEVANT; OTHERWISE REMOVE THIS SECTION]]
 
-Depending on your location, you may have the following rights:
+## 14. Changes to This Notice
 
-- **Access:** Request a copy of your personal information
-- **Rectification:** Request correction of inaccurate information
-- **Deletion:** Request deletion of your personal information
-- **Portability:** Request transfer of your data to another service
-- **Objection:** Object to processing of your information
-- **Restriction:** Request limitation of how we use your information
+State how material changes are assessed, versioned, communicated, and made
+effective. Do not promise email notice unless the company can reliably provide
+it and the applicable law or contract requires or supports that method.
 
-### 7.2 How to Exercise Your Rights
+[[REVIEW: INSERT THE ACTUAL NOTICE-OF-CHANGES PROCESS]]
 
-To exercise your rights, contact us at:
+## 15. Contact and Complaints
+
+Questions or requests may be sent to:
 
 - Email: [CONTACT_EMAIL]
-- Subject Line: "Privacy Rights Request"
-- Required Information: Name, email address, description of request
+- Address: [COMPANY_ADDRESS]
+- Rights-request method: [RIGHTS_REQUEST_PROCESS]
 
-We will respond to your request within [TIMEFRAME] days.
-
-### 7.3 California Privacy Rights (CCPA)
-
-If you are a California resident, you have specific rights under the California
-Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA). See
-Section 8 below.
-
-### 7.4 European Union Rights (GDPR)
-
-If you are located in the EEA, you have additional rights under GDPR, including
-the right to:
-
-- Withdraw consent at any time
-- Lodge a complaint with a supervisory authority
-- Receive information about data breaches
-
-## 8. California Privacy Rights (CCPA/CPRA)
-
-If you are a California resident, you have the following rights:
-
-### 8.1 Right to Know
-
-- Categories of personal information we collect
-- Purposes for collecting that information
-- Categories of third parties with whom we share information
-
-### 8.2 Right to Delete
-
-Request deletion of your personal information, subject to certain exceptions.
-
-### 8.3 Right to Opt-Out
-
-Opt-out of the sale or sharing of your personal information.
-
-**"Do Not Sell or Share My Personal Information" link:** [DOMAIN]/do-not-sell
-
-### 8.4 Right to Non-Discrimination
-
-We will not discriminate against you for exercising your privacy rights.
-
-### 8.5 Right to Correct
-
-Request correction of inaccurate personal information.
-
-### 8.6 Authorized Agent
-
-You may designate an authorized agent to make requests on your behalf.
-
-## 9. Children's Privacy
-
-Our services are not intended for children under the age of [MIN_AGE]. We do not
-knowingly collect personal information from children under this age. If you are
-a parent or guardian and believe your child has provided us with personal
-information, please contact us, and we will delete such information.
-
-## 10. International Data Transfers
-
-Your information may be transferred to and processed in countries other than
-your country of residence. When we transfer your information, we ensure
-appropriate safeguards are in place to protect your privacy.
-
-### 10.1 European Data Transfers
-
-If you are located in the EEA, we rely on Standard Contractual Clauses (SCCs)
-approved by the European Commission to transfer data to countries outside the
-EEA.
-
-## 11. Data Security
-
-We implement appropriate technical and organizational measures to protect your
-personal information, including:
-
-- **Encryption:** Data encrypted in transit and at rest
-- **Access Controls:** Limited access to personal information
-- **Security Audits:** Regular security assessments
-- **Breach Response:** Procedures for detecting and responding to breaches
-
-However, no method of transmission over the internet is 100% secure. While we
-strive to protect your information, we cannot guarantee absolute security.
-
-## 12. Data Breaches
-
-In the event of a data breach that poses a risk to your rights and freedoms, we
-will notify you:
-
-- Without undue delay and within 72 hours (GDPR)
-- In the most expedient time possible and without unreasonable delay (CCPA)
-
-Notification will include:
-
-- Description of the breach
-- Categories of data affected
-- Steps we are taking to address the breach
-- Steps you can take to protect yourself
-
-## 13. Third-Party Links and Services
-
-Our website may contain links to third-party websites and services. We are not
-responsible for the privacy practices of these third parties. We encourage you
-to review the privacy policies of any third-party sites you visit.
-
-## 14. Changes to This Privacy Policy
-
-We may update this Privacy Policy from time to time. The updated version will be
-indicated by a revised "Last Updated" date and the new version will be effective
-as soon as it is accessible.
-
-We will notify you of material changes by:
-
-- Emailing you at [CONTACT_EMAIL]
-- Posting a notice on our website
-- Updating the "Last Updated" date
-
-## 15. Acceptance of This Privacy Policy
-
-By using our website or services, you acknowledge that you have read,
-understood, and agree to be bound by this Privacy Policy.
-
-## 16. Governing Law
-
-This Privacy Policy is governed by the laws of [JURISDICTION], without regard to
-its conflict of law provisions.
-
-## 17. Contact Us
-
-If you have questions, concerns, or complaints about this Privacy Policy or our
-data practices, please contact us:
-
-- **Email:** [CONTACT_EMAIL]
-- **Website:** [DOMAIN]/contact
-- **Address:** [COMPANY_NAME] [COMPANY_ADDRESS]
-
-**Privacy Policy Version:** [VERSION] **Effective Date:** [EFFECTIVE_DATE]
-
----
-
-**[COMPANY_NAME]** respects your privacy and is committed to protecting your
-personal data. This Privacy Policy will be updated from time to time to reflect
-changes in our practices and applicable laws.
+[[REVIEW: ADD THE RELEVANT DATA PROTECTION OFFICER, REPRESENTATIVE, REGULATOR, AND APPEAL/COMPLAINT INFORMATION IF REQUIRED]]

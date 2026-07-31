@@ -1,278 +1,199 @@
 ---
 name: technical-automation-architect
-description: Design technical architecture and automation strategies for solo SaaS products. Use when selecting tech stacks, deciding build vs buy, or implementing AI automation to scale operations.
+description: Design pragmatic SaaS architecture, build-vs-buy decisions, reliability controls, and safe automation for a solo founder or small team. Use whenever the user is choosing a stack, reviewing an architecture, evaluating vendors or boilerplates, reducing manual operations, adding AI workflows, planning scale, improving deployment/observability/backups, or managing technical debt.
 category: business
 license: MIT
+compatibility: Live research is required for current service capabilities, pricing, limits, security claims, licenses, and maintenance status.
 ---
 
-# When to Use This Skill
-
-Use this skill when you need to:
-
-- **Choose a tech stack** for your solo SaaS product
-- **Decide build vs buy** for features and infrastructure
-- **Implement AI automation** to multiply your effectiveness
-- **Leverage managed services** instead of building from scratch
-- **Use SaaS boilerplates** to accelerate development
-- **Manage technical debt** strategically as solo founder
-- **Scale to $1M ARR** as solo or tiny team
-
-# Core Concepts
-
-## "Boring Stack" Philosophy
-
-**Use established technologies, not cutting-edge**:
-
-**Why boring wins**:
-
-- Faster development (you know the tools)
-- Fewer bugs (battle-tested libraries)
-- Easier hiring (common skills)
-- Better resources (tutorials, help, solutions)
-- Long-term maintainability (won't abandon you)
-
-**The cost of new/shiny**:
-
-- Learning curve: 2-3 months to become productive
-- Unknown bugs and edge cases
-- Sparse documentation and community
-- Abandonment risk (if project dies)
-
-**Principle**: Leverage existing skills over chasing new tech
-
-## Build vs Buy: Leverage Everything
-
-**The ruthless equation**: "Would you rather spend 3 months building
-authentication or 3 months acquiring your first 100 customers?"
-
-**Leverage (Buy)** for:
-
-- Authentication (Auth0, Supabase Auth, Clerk)
-- Payment processing (Stripe, Paddle)
-- Email infrastructure (SendGrid, Resend, Postmark)
-- User management frameworks
-- Managed databases (RDS, Supabase, PlanetScale)
-- Hosting (Vercel, Railway, Fly.io)
-
-**Build** only:
-
-- Your core differentiator (unique value proposition)
-- Features where existing solutions don't fit
-- Custom integrations that don't exist
-
-**SaaS boilerplates**: Can significantly reduce setup time by prebuilding common
-foundation pieces.
-
-# Step-by-Step Architecture Process
-
-## Phase 1: Stack Selection (Week 1)
-
-**Choose technologies you already know**:
-
-- Backend: Django, Rails, or Go (what you're proficient in)
-- Frontend: React, NextJS, or HTMX (leverage existing skills)
-- Database: PostgreSQL (battle-tested) or SQLite (start simple)
-- Infrastructure: Managed services (don't self-host initially)
-
-**Avoid**:
-
-- New languages you'll need to learn
-- Cutting-edge frameworks (use stable, mature tech)
-- Complex architectures (microservices, K8s) until proven need
-
-**Deliverable**: Tech stack decision document
-
-## Phase 2: Build vs Buy Matrix (Week 2)
-
-**List all components needed**:
-
-- Authentication, payments, email, database, hosting, etc.
-
-**For each component**:
-
-- What managed services exist?
-- Cost of managed service vs build time?
-- Does it integrate well with chosen stack?
-- What's the exit strategy if service fails?
-
-**Decision criteria** (rules of thumb):
-
-- Buy if: Managed service integration is clearly faster than custom build
-- Buy if: Not core differentiator
-- Build if: Core unique value prop
-- Build if: Existing solutions don't fit use case
-
-**Deliverable**: Build/buy decision matrix
-
-## Phase 3: SaaS Boilerplate Evaluation (Week 3)
-
-**Research boilerplates in your stack**:
-
-- Django: ShipFast, SaaS Pegasus
-- Rails: Jumpstart, Bullet Train
-- NextJS: Supabase SaaS Kit, various Next.js starters
-
-**Evaluation criteria**:
-
-- Active maintenance (last commit within 3 months)
-- Community size (stars, issues, discussions)
-- Feature match (high overlap with your immediate roadmap)
-- License terms (MIT vs paid)
-- Tech stack alignment (your preferred tools)
-
-**Decision**:
-
-- Use boilerplate: If most foundational needs are covered and code quality is
-  acceptable
-- Build from scratch: If highly custom requirements
-
-**Deliverable**: Boilerplate choice or scratch-build decision
-
-## Phase 4: Automation Planning (Week 4)
-
-**Identify automation opportunities**:
-
-- Repetitive tasks (daily/weekly)
-- Manual processes (customer onboarding, reporting)
-- Communication (emails, notifications, updates)
-- Operations (deployments, backups, monitoring)
-
-**Automation tools**:
-
-- No-code: Zapier, Make (n8n), Airtable
-- Code: Scripts, GitHub Actions, cron jobs
-- AI: Cursor, v0, Bolt for code generation
-- Infrastructure: Terraform, Docker for reproducibility
-
-**Deliverable**: Automation roadmap prioritized by ROI
-
-# Common Mistakes
-
-**Mistake 1: Choosing Shiny Over Familiar**
-
-- **Problem**: Spend 3 months learning Rust when you know Python
-- **Solution**: Use boring stack you're proficient in
-
-**Mistake 2: Building Solved Problems**
-
-- **Problem**: 3 months building auth from scratch
-- **Solution**: Use Auth0/Supabase in 1 day, ship features
-
-**Mistake 3: Over-Engineering Early**
-
-- **Problem**: Microservices, K8s for MVP
-- **Solution**: Monolith, managed hosting until proven need
-
-**Mistake 4: No Automation Strategy**
-
-- **Problem**: Manual everything, stuck in operations
-- **Solution**: Automate high-frequency, low-judgment work early
-
-**Mistake 5: Ignoring Technical Debt**
-
-- **Problem**: Accumulate debt unconsciously, drowning in hacks
-- **Solution**: Conscious trade-offs, scheduled repayment
-
-# Success Metrics
-
-**Technical Health Indicators** (directional targets):
-
-| Metric                   | Warning         | Healthy           | Optimal           |
-| ------------------------ | --------------- | ----------------- | ----------------- |
-| **Dev velocity**         | <1 feature/week | 2-3 features/week | 4-5 features/week |
-| **Downtime/month**       | >2 hours        | <30 minutes       | <5 minutes        |
-| **Bugs per release**     | 5+              | 1-2               | 0-1               |
-| **Deployment frequency** | Monthly         | Weekly            | Daily             |
-| **Technical debt ratio** | >40%            | 20-30%            | <20%              |
-
-**Red flags**:
-
-- ❌ Taking 2+ weeks to ship simple features
-- ❌ Constant production incidents
-- ❌ Dreading code changes (fear of breaking things)
-- ❌ Can't take time off (product breaks without you)
-
-# Deep Dives
-
-For comprehensive technical strategies, tools, and frameworks, see the
-references:
-
-**[references/stack-comparison.md](references/stack-comparison.md)**
-
-- Django vs Rails vs Go comparison
-- Frontend options: React vs NextJS vs HTMX
-- Database choices: PostgreSQL vs SQLite vs MySQL
-- Hosting infrastructure options
-- Real-world stack examples from successful solo SaaS
-
-**[references/managed-services.md](references/managed-services.md)**
-
-- Authentication: Auth0, Supabase Auth, Clerk comparison
-- Payments: Stripe vs Paddle configuration
-- Email: SendGrid, Resend, Postmark setup
-- Databases: RDS, Supabase, PlanetScale evaluation
-- Cost-benefit calculations for each service
-
-**[references/automation-checklist.md](references/automation-checklist.md)**
-
-- 50+ automation opportunities identified
-- No-code tools comparison (Zapier vs Make vs n8n)
-- AI-assisted automation patterns for solo teams
-- Developer productivity multipliers
-- CI/CD pipeline templates
-
-## Research Notes
-
-This skill synthesizes findings from technical operations research:
-
-**Primary Research**:
-
-**Key Principles**:
-
-- **Boring stack philosophy** - Established tech over shiny new tools
-- **Leverage everything** - Solved problems shouldn't be rebuilt
-- **Conscious technical debt** - Documented trade-offs, scheduled repayment
-- **Ruthless automation** - Automate repetitive work to protect focus for core
-  product and customer outcomes
-
-**Recommended Stacks**:
-
-- **Backend**: Django (Python), Rails (Ruby), Go + HTMX + SQLite
-- **Frontend**: React + SWR, NextJS, or HTMX
-- **Database**: PostgreSQL (production), SQLite (start)
-- **Infrastructure**: Docker, Terraform, Kamal (simplified deployment)
-
-**Build vs Buy Examples**:
-
-- **Buy**: Auth, payments, email, hosting, user management
-- **Build**: Core differentiator only
-- **SaaS boilerplates**: Can reduce time-to-first-version for common app
-  scaffolding
-
----
-
-## Next Steps After Architecture Setup
-
-Once your tech stack is chosen:
-
-1. **Start building** - Use boilerplate or scratch-build
-2. **Automate early** - CI/CD, deployments, backups
-3. **Document decisions** - Why you chose X over Y
-4. **Monitor tech debt** - Track ratio, schedule cleanup
-
-Related skills:
-
-- `systemization-documentation-expert` for SOPs and handoffs
-- `customer-retention-optimizer` for onboarding and lifecycle automation
-
----
+# Technical Automation Architect
+
+Design the smallest architecture that safely meets current requirements and has
+a credible path to the next stage. “Boring” is useful when it means understood
+and operable—not when it ignores product constraints or security.
+
+## Operating Rules
+
+- Inspect the repository, deployment, data model, integrations, traffic,
+  incidents, costs, and team skills before recommending a rewrite or vendor.
+- Verify current documentation, pricing, quotas, regions, licenses, and
+  maintenance status. Technology recommendations become stale quickly.
+- Separate facts, assumptions, constraints, and decisions.
+- Prefer reversible decisions and incremental migration over speculative
+  complexity.
+- Do not build authentication, cryptography, payment processing, or other
+  security-critical primitives without a compelling requirement and specialist
+  review.
+- Automation must include permissions, idempotency, observability, retries,
+  cancellation, exception handling, rollback, and a manual fallback.
+- Protect secrets and customer data; use least privilege and explicit data
+  classification.
+- Never promise a stack will “scale to $1M ARR” or any revenue level without
+  workload and operational context.
+
+## Workflow
+
+### 1. Define the Architecture Drivers
+
+Capture:
+
+- user journeys and core differentiator;
+- current and forecast workload shape, not only average traffic;
+- latency, availability, durability, and recovery needs;
+- data sensitivity, residency, retention, and deletion;
+- integrations and platform dependencies;
+- team skills, budget, support capacity, and time-to-market;
+- compliance and contractual commitments;
+- offline, mobile, real-time, AI, or multi-tenant requirements;
+- exit/migration constraints.
+
+Turn them into measurable non-functional requirements and explicitly rank
+trade-offs.
+
+### 2. Establish the Simplest Viable Shape
+
+Default toward a modular monolith, managed relational database, background job
+system, object storage, and managed edge/hosting when they fit. Deviate only for
+a documented driver.
+
+Choose languages/frameworks based on existing expertise, ecosystem maturity,
+security support, hiring/maintenance, and product fit. Read [the stack
+comparison](references/stack-comparison.md), then verify current versions and
+support status.
+
+Avoid microservices, Kubernetes, event sourcing, multi-region active/active, or
+bespoke distributed systems until a concrete constraint justifies their
+operational cost.
+
+### 3. Make Build-vs-Buy Decisions
+
+For each component evaluate:
+
+| Dimension | Questions |
+| --- | --- |
+| Strategic differentiation | Does this create customer value unique to the product? |
+| Time and expertise | Can the team build and safely operate it? |
+| Security/compliance | Who owns controls, evidence, and incidents? |
+| Reliability | SLOs, status history, recovery, support, and dependency risk? |
+| Economics | Current and scaled cost, egress, minimums, support, engineering time? |
+| Integration | Data model, SDK/API quality, webhooks, local testing, failure modes? |
+| Lock-in/exit | Export, portability, contract, migration path, data deletion? |
+| Longevity | Maintenance, roadmap, ownership, and ecosystem health? |
+
+Use [managed-service
+comparisons](references/managed-services.md) as a research checklist, not as
+current facts. Record the decision in an architecture decision record (ADR),
+including alternatives and revisit trigger.
+
+### 4. Design Security and Data Boundaries
+
+Create a concise threat model:
+
+- assets and data classes;
+- trust boundaries and actors;
+- authentication and authorization model;
+- tenant isolation;
+- secrets and key management;
+- input/output and dependency risks;
+- logging without sensitive-data leakage;
+- abuse, fraud, rate limiting, and administrative access;
+- backup, deletion, and incident requirements.
+
+Use established identity/payment/cryptography providers where appropriate, but
+verify integration and shared-responsibility duties. Managed does not mean
+risk-free.
+
+### 5. Design Reliability and Operations
+
+Define user-centered service level indicators/objectives where warranted.
+Include:
+
+- health checks and dependency timeouts;
+- structured logs, metrics, traces, and actionable alerts;
+- error budgets or explicit reliability trade-offs;
+- queue backpressure, retries with jitter, dead-letter/exception handling, and
+  idempotency;
+- deployment strategy and rollback;
+- tested backups and restoration objectives;
+- incident roles, runbooks, and customer communication;
+- capacity and cost alerts.
+
+Measure delivery performance with the current DORA framework where useful:
+change lead time, deployment frequency, failed deployment recovery time, change
+fail rate, and deployment rework rate. Do not substitute arbitrary “bugs per
+release” targets.
+
+### 6. Design Automation
+
+Inventory repetitive work and classify it:
+
+- deterministic and safe to automate;
+- automatable with human approval;
+- requires judgment and should remain assisted;
+- should be deleted or simplified first.
+
+For each automation specify:
+
+```text
+Trigger and deduplication key
+Inputs and validation
+State machine and durable state
+Permission scope and secrets
+Side effects and idempotency
+Timeout, retry, backoff, and cancellation
+Human approval/escalation points
+Progress, logs, metrics, and audit trail
+Compensation/rollback
+Manual fallback and owner
+Cost and success metric
+```
+
+For AI automation, add data handling, model/provider dependency, prompt/version
+control, evaluation set, confidence/abstention, output validation, rate/cost
+limits, and human review for consequential actions. Use [the automation
+checklist](references/automation-checklist.md).
+
+### 7. Model Cost and Evolution
+
+Estimate low/base/high scenarios for infrastructure, vendors, support,
+observability, egress, AI usage, and engineering operations. Include free-tier
+cliffs and contract minimums.
+
+Define stage triggers for architectural change—for example observed queue delay,
+database contention, restore objective failure, vendor limit, regulatory
+requirement, or team boundary. Avoid migrations justified only by hypothetical
+future scale.
+
+### 8. Review Technical Debt
+
+Maintain a debt register with consequence, affected capability, interest paid,
+risk, remediation options, effort, and trigger. Prioritize debt that slows
+frequent changes, threatens data/security/reliability, or blocks product
+strategy. Do not rely on an invented “technical debt ratio.”
+
+## Output Contract
+
+Return:
+
+1. architecture drivers and assumptions;
+2. recommended system context/container design;
+3. build-vs-buy matrix and ADRs;
+4. data/security threat model;
+5. reliability, observability, backup, and incident plan;
+6. automation state-machine specifications;
+7. cost scenarios and vendor exit paths;
+8. evolutionary roadmap with evidence-based triggers;
+9. risks, rejected alternatives, and validation tasks.
 
 ## Sources
 
-- [DORA | DevOps Research and Assessment](https://dora.dev/)
 - [The Twelve-Factor App](https://12factor.net/)
-- [Auth0 Documentation](https://auth0.com/docs)
-- [Supabase Auth Documentation](https://supabase.com/docs/guides/auth)
-- [Stripe Documentation](https://docs.stripe.com/)
-- [Vercel Documentation](https://vercel.com/docs)
-- [Fly.io Docs](https://fly.io/docs)
+- [DORA Software Delivery
+  Performance](https://dora.dev/guides/dora-metrics-four-keys/)
+- [NIST Secure Software Development
+  Framework](https://csrc.nist.gov/Projects/ssdf)
+- [OWASP Application Security Verification
+  Standard](https://owasp.org/www-project-application-security-verification-standard/)
+- [AWS Well-Architected
+  Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html)
+- [Google SRE Books](https://sre.google/books/)

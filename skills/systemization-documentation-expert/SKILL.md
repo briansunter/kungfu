@@ -1,276 +1,195 @@
 ---
 name: systemization-documentation-expert
-description: Create Standard Operating Procedures (SOPs) and document business processes for delegation and scaling. Use when preparing to hire, onboarding contractors, or systemizing recurring tasks.
+description: Capture, redesign, test, and govern repeatable business processes as SOPs, checklists, decision trees, runbooks, and training materials. Use whenever the user wants to delegate work, onboard a hire or contractor, reduce founder dependency, document a recurring workflow, prepare automation, create incident procedures, or improve an existing knowledge base.
 category: business
 license: MIT
 ---
 
-# When to Use This Skill
+# Systemization and Documentation Expert
 
-Use this skill when you need to:
+Create documentation that another authorized person can execute safely, verify,
+and improve. Do not merely transcribe a founder’s current habits; simplify the
+process and expose hidden decisions first.
 
-- **Prepare for first hire** by documenting all processes
-- **Delegate tasks** without being the bottleneck
-- **Systemize operations** for scalable business processes
-- **Onboard employees or contractors** effectively
-- **Scale beyond solo** without sacrificing quality
-- **Create training documentation** for repeatable processes
-- **Reduce founder dependency** on day-to-day operations
+## Operating Rules
 
-# Core Concepts
+- Observe real work, artifacts, exceptions, and failure cases before declaring a
+  process complete.
+- Match documentation depth to frequency, risk, complexity, and operator
+  experience.
+- Protect secrets, personal data, customer data, and privileged information.
+  Reference approved secret managers and access procedures; never paste
+  credentials into an SOP.
+- Include decision authority, escalation, rollback, and evidence of
+  completion—not only happy-path steps.
+- Test with a representative operator who did not write the procedure.
+- Treat screenshots and tool-specific UI as perishable; pair them with intent
+  and stable identifiers.
+- Version, own, review, and retire documentation explicitly.
 
-## Systemize Before You Hire
+## Workflow
 
-**The critical mistake**: Hiring before systemizing leads to founder dependency
-and chaos
+### 1. Build the Process Inventory
 
-**Practical approach**: Document most recurring tasks before the first hire
-(often targeting around 70-80% coverage for core workflows)
+For each recurring process record:
 
-**Case evidence**: Reilly Chase (HostiFi) has shared an SOP-first approach:
-recording support workflows, identifying patterns, and documenting repeatable
-playbooks before delegating more support work.
+- customer/business outcome;
+- trigger and frequency;
+- current owner and participants;
+- inputs, systems, permissions, and dependencies;
+- duration and variability;
+- failure impact and compliance/security risk;
+- current artifacts and tacit knowledge;
+- automation/delegation potential.
 
-**The E-Myth approach**: Create processes so almost anyone can produce
-consistent results, not clones of yourself
+Prioritize high-frequency/high-friction work and
+low-frequency/high-consequence work. Do not document obsolete work before asking
+whether it can be deleted or simplified.
 
-## 5 Types of SOPs
+### 2. Observe and Redesign
 
-1. **Checklists** - For experienced workers (fast, minimal context)
-2. **Decision Trees** - For complex troubleshooting (if/then flows)
-3. **How-To Guides** - Step-by-step instructions (detailed procedures)
-4. **Reference Guides** - Quick lookup tables (config options, error codes)
-5. **Foundational Articles** - Background context (why we do it this way)
+Use recordings, screen sharing, logs, tickets, examples, and interviews. Capture
+at least one normal case and relevant exception. Ask:
 
-# Step-by-Step SOP Creation Process
+- Why does each step exist?
+- What decision is being made?
+- What can be removed, combined, standardized, or automated?
+- What controls prevent irreversible harm?
+- What indicates success or failure?
 
-## Phase 1: Audit Your Processes (Week 1)
+Produce a lightweight current-state map and proposed future state before writing
+a long SOP.
 
-**Document everything you do for 1 week**:
+### 3. Choose the Right Artifact
 
-- Every task, meeting, email, decision
-- Time spent on each activity
-- Tasks that repeat daily/weekly/monthly
-- Knowledge that's only in your head
+Use:
 
-**Categorize tasks**:
+- **Checklist:** trained operator, stable sequence, low explanation need;
+- **How-to/SOP:** repeatable process requiring context and verification;
+- **Decision tree:** branching diagnosis or policy choices;
+- **Runbook:** time-sensitive operational or incident response;
+- **Reference guide:** facts, codes, commands, limits, and lookup tables;
+- **Foundational article:** principles and mental model;
+- **Training exercise:** practice with expected result and feedback.
 
-- **High frequency, low complexity**: Automate
-- **High frequency, high complexity**: Document first priority
-- **Low frequency, low complexity**: Quick SOP
-- **Low frequency, high complexity**: Video SOP or document
+See [SOP templates](references/sop-templates.md) for structures.
 
-**Deliverable**: Process inventory spreadsheet
+### 4. Write the Procedure Contract
 
-## Phase 2: Record and Document (Weeks 2-4)
+Every critical SOP should include:
 
-**For each recurring process**:
-
-**Step 1**: Record yourself solving the problem
-
-- Use Zoom/Loom to screen record
-- Narrate your thought process
-- Capture edge cases and troubleshooting
-
-**Step 2**: Identify patterns
-
-- Watch recordings for common steps
-- Extract repeatable framework
-- Note decision points and exceptions
-
-**Step 3**: Create written SOP
-
-- Choose SOP type (checklist/guide/tree)
-- Write clear, actionable steps
-- Include screenshots and examples
-- Test with someone unfamiliar with process
-
-**Deliverable**: 10-20 SOPs for critical processes
-
-## Phase 3: Organize and Store (Week 5)
-
-**Documentation tools**:
-
-- **Notion + AI**: Searchable, AI-queryable, collaborative
-- **ScreenSteps**: Purpose-built SOP software
-- **Google Drive**: Simple, accessible
-- **GitHub**: For technical documentation
-
-**Organization structure**:
-
-```
-SOPs/
-├── Customer Support/
-│   ├── refund-policy.md
-│   ├── technical-troubleshooting.md
-│   └── common-questions.md
-├── Operations/
-│   ├── daily-tasks.md
-│   ├── weekly-reviews.md
-│   └── monthly-reports.md
-├── Development/
-│   ├── deployment-process.md
-│   ├── bug-fixing-workflow.md
-│   └── code-review-checklist.md
-└── Marketing/
-    ├── social-media-posting.md
-    ├── email-sequences.md
-    └── content-calendar.md
+```text
+Title and stable ID
+Purpose and desired outcome
+Owner and backup owner
+Scope and non-goals
+Trigger/frequency
+Authorized roles and required access
+Inputs and preconditions
+Definitions
+Procedure steps
+Decision points and approval thresholds
+Validation/evidence of completion
+Exceptions and escalation
+Failure recovery/rollback
+Security, privacy, and compliance controls
+Expected duration/service level
+Related systems and documents
+Version, change log, and next review date
 ```
 
-**Deliverable**: Organized SOP library accessible to team
+Steps should begin with actions, identify the system/object, state the expected
+result, and explain how to verify it. Use real examples with sanitized data.
 
-## Phase 4: Validate and Iterate (Ongoing)
+### 5. Add Controls by Risk
 
-**Test SOPs**:
+For financial, production, security, privacy, legal, or destructive work,
+consider:
 
-- Give to employee/contractor
-- Observe them following process
-- Note gaps and confusion
-- Revise based on feedback
+- least privilege and temporary access;
+- separation of duties or approval;
+- dry run, preview, or test environment;
+- backups and restoration validation;
+- idempotency and duplicate prevention;
+- audit log and evidence retention;
+- stop conditions and emergency contacts;
+- explicit rollback authority.
 
-**Update frequency**:
+Do not make a dangerous process feel safe merely by adding more prose.
 
-- Initial version: Fast and imperfect
-- Version 2: After first use (fix gaps)
-- Version 3: After 3-5 uses (polish)
-- Ongoing: Quarterly review and update
+### 6. Test With an Operator
 
-**Deliverable**: Validated, tested SOPs
+Run a usability test:
 
-# Common Mistakes
+1. give the operator the trigger, inputs, and authorized access;
+2. observe without coaching unless safety requires intervention;
+3. record questions, deviations, time, errors, and missing decisions;
+4. verify the output independently;
+5. revise and repeat until the defined acceptance criteria are met.
 
-**Mistake 1: Perfectionism**
+Measure whether the process works, not whether the document looks polished.
 
-- **Problem**: Spending weeks perfecting SOPs before hiring
-- **Solution**: Done is better than perfect. Version 1 is rough but usable.
+### 7. Organize the Knowledge Base
 
-**Mistake 2: Narratives Over Checklists**
+Create a clear taxonomy, search terms, ownership, and lifecycle. Link rather than
+duplicate canonical policy and reference material. Read [documentation
+tools](references/documentation-tools.md) before choosing a platform.
 
-- **Problem**: Long-form documents when checklists work better
-- **Solution**: Use appropriate SOP type for the context
+Recommended metadata:
 
-**Mistake 3: No Screenshots or Examples**
+- status: draft, active, deprecated, archived;
+- owner and subject-matter reviewer;
+- audience and access classification;
+- system/process tags;
+- last validated and next review dates;
+- dependent SOPs and automation.
 
-- **Problem**: Text-only SOPs are hard to follow
-- **Solution**: Screenshots > text, video > screenshots
+### 8. Prepare Delegation and Automation
 
-**Mistake 4: Buried in Obscure Tools**
+Before delegation, confirm authority, expected output, quality checks,
+escalation, and feedback loop. Use [the hiring
+checklist](references/hiring-checklist.md) for onboarding readiness.
 
-- **Problem**: SOPs exist but no one can find them
-- **Solution**: Central, searchable location (Notion, Google Drive)
+Before automation, stabilize the process and document trigger, inputs,
+permissions, state transitions, retries, idempotency, monitoring, exception
+queue, rollback, and manual fallback. Automating a broken process scales the
+failure.
 
-**Mistake 5: Never Updating**
+## Metrics
 
-- **Problem**: SOPs become outdated and misleading
-- **Solution**: Quarterly reviews, version numbers, "last updated" dates
+Track by process risk and purpose:
 
-# Success Metrics
+- success/defect/rework rate;
+- cycle time and variance;
+- escalation and exception rate;
+- time to competency;
+- search success and document usefulness;
+- stale/overdue documents;
+- founder interventions;
+- incidents or control failures.
 
-**SOP Health Indicators** (directional targets):
+Avoid arbitrary coverage percentages. Document the processes whose risk and
+leverage justify maintenance.
 
-| Metric                  | Warning    | Healthy   | Optimal  |
-| ----------------------- | ---------- | --------- | -------- |
-| **SOP coverage**        | <50% tasks | 70-80%    | 90%+     |
-| **Founder dependency**  | High       | Medium    | Low      |
-| **Training time**       | >4 weeks   | 2-3 weeks | <2 weeks |
-| **Process consistency** | <70%       | 80-90%    | 95%+     |
-| **New hire autonomy**   | <50%       | 70-80%    | 90%+     |
+## Output Contract
 
-**Red flags**:
+Return:
 
-- ❌ Only founder knows how to do critical tasks
-- ❌ New hires need constant supervision
-- ❌ Processes vary depending who does them
-- ❌ No documentation for recurring tasks
-
-# Deep Dives
-
-For comprehensive SOP frameworks, templates, and systems, see the references:
-
-**[references/sop-templates.md](references/sop-templates.md)**
-
-- Templates for all 5 SOP types with examples
-- Checklist templates (fast, focused)
-- Decision tree frameworks (complex troubleshooting)
-- How-to guide structures (step-by-step)
-- Reference guide layouts (quick lookup)
-
-**[references/documentation-tools.md](references/documentation-tools.md)**
-
-- Notion + AI setup for searchable knowledge base
-- ScreenSteps for purpose-built SOP software
-- Video recording tools (Zoom, Loom)
-- Screenshot and annotation tools
-- Collaboration and version control
-
-**[references/hiring-checklist.md](references/hiring-checklist.md)**
-
-- Ready-to-hire benchmarks (revenue, profit, time, process)
-- First hire roles: Technical Support, Customer Success, Contractor
-- SOP coverage readiness guidance before hiring
-- Training and onboarding frameworks
-- HostiFi case study (SOP-heavy support documentation)
-
-## Research Notes
-
-This skill synthesizes findings from scaling and systemization research:
-
-**Primary Research**:
-
-- The E-Myth Revisited approach to process documentation
-
-**Key Principles**:
-
-- **Systemize before hiring**: Build broad process coverage before first
-  employee
-- **5 types of SOPs**: Checklists, decision trees, how-to guides, reference
-  guides, foundational articles
-- **HostiFi case study**: SOP-heavy support operations improved delegation speed
-- **E-Myth approach**: Create processes so "almost anyone" can produce
-  consistent results
-
-**Hiring Benchmarks**:
-
-- **Revenue/Profit**: consistent economics to support payroll and learning curve
-- **Time**: founder bandwidth is constrained despite prioritization
-- **Process**: recurring workflows are documented enough for safe delegation
-
-**First Hire Roles**:
-
-1. Technical Support Engineer (handle day-to-day inquiries)
-2. Customer Success Manager (onboarding, QBRs, retention)
-3. Contract Specialist (task-specific: UI, content, dev)
-
-**SOP Best Practices**:
-
-- Screenshots > text (visual is faster to follow)
-- Checklists > narratives (for experienced workers)
-- Video SOPs for complex processes
-- Quarterly reviews and updates
-- Version control and change logs
-
----
-
-## Next Steps After Systemization
-
-Once your SOPs are documented:
-
-1. **Validate processes** - Test SOPs with contractor or employee
-2. **Train and onboard** - Use SOPs for new hire training
-3. **Measure consistency** - Track process standardization
-4. **Iterate quarterly** - Update SOPs based on feedback and changes
-
-Related skills:
-
-- `solo-operations-manager` for weekly operating systems
-- `technical-automation-architect` for automation of documented processes
-
----
+1. prioritized process inventory;
+2. current/future-state process map;
+3. selected documentation type and rationale;
+4. complete SOP/runbook/checklist;
+5. exception, escalation, and rollback design;
+6. validation test and acceptance criteria;
+7. knowledge-base structure and governance;
+8. delegation/automation readiness assessment.
 
 ## Sources
 
-- [SOP Template | Confluence](https://www.atlassian.com/software/confluence/templates/sop)
-- [SOP Template and Guide | Asana](https://asana.com/resources/sop-template)
-- [Notion Help Center](https://www.notion.so/help)
-- [Loom Help Center](https://support.loom.com/hc/en-us)
+- [Standard Operating Procedure Template |
+  Atlassian](https://www.atlassian.com/software/confluence/templates/sop)
+- [Standard Operating Procedure Guide |
+  Asana](https://asana.com/resources/sop-template)
+- [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework)
+- [The Checklist Manifesto | Atul
+  Gawande](https://atulgawande.com/book/the-checklist-manifesto/)

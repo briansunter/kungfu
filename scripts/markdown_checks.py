@@ -13,6 +13,7 @@ MARKDOWN_LINK_PATTERN = re.compile(r"(?<!!)\[([^\]]*)\]\(([^)]+)\)")
 BACKTICK_REF_PATTERN = re.compile(
 	r"`([a-zA-Z0-9_\-./]+\.(?:md|py|ts|js|json|yaml|yml))`",
 )
+BACKTICK_LINK_LABEL_PATTERN = re.compile(r"\[`[^`\n]+`\]\([^)]+\)")
 FILE_REF_PATTERN = re.compile(
 	r'(?:^|[\s\'"`(])([a-zA-Z0-9_\-]+/[a-zA-Z0-9_\-./]+\.(?:md|py|ts|js|json|yaml|yml))(?:[\s\'"`)]|$)',
 )
@@ -20,6 +21,7 @@ FILE_REF_PATTERN = re.compile(
 SOURCES_HEADER_PATTERN = re.compile(r"^## Sources\s*$", re.MULTILINE)
 NEXT_H2_PATTERN = re.compile(r"^## ", re.MULTILINE)
 SOURCES_ITEM_PATTERN = re.compile(r"^\[([^\]]+)\]\(([^)]+)\)")
+SOURCE_BULLET_PATTERN = re.compile(r"^\s*-\s+(.*)$")
 
 
 def extract_markdown_links(content: str) -> list[tuple[str, str]]:
@@ -28,8 +30,15 @@ def extract_markdown_links(content: str) -> list[tuple[str, str]]:
 
 
 def extract_backtick_references(content: str) -> list[str]:
-	"""Extract backtick references that look like file paths."""
-	return BACKTICK_REF_PATTERN.findall(content)
+	"""Extract standalone backtick references that look like file paths.
+
+	A code-formatted markdown link label such as
+	``[`check-all.ts`](scripts/check-all.ts)`` is already validated through its
+	link target. Excluding that label prevents the shorter display name from being
+	incorrectly resolved relative to the skill root.
+	"""
+	without_link_labels = BACKTICK_LINK_LABEL_PATTERN.sub("", content)
+	return BACKTICK_REF_PATTERN.findall(without_link_labels)
 
 
 def extract_all_file_references(content: str) -> set[str]:
@@ -91,8 +100,39 @@ def find_broken_backtick_references(path: Path, content: str) -> list[str]:
 	return errors
 
 
+def _extract_source_items(section: str) -> list[str]:
+	"""Return logical source-list items, joining Prettier-wrapped lines."""
+	items: list[str] = []
+	current: list[str] = []
+
+	for line in section.splitlines():
+		bullet = SOURCE_BULLET_PATTERN.match(line)
+		if bullet:
+			if current:
+				items.append(" ".join(current))
+			current = [bullet.group(1).strip()]
+			continue
+
+		stripped = line.strip()
+		if current and stripped:
+			current.append(stripped)
+		elif current and not stripped:
+			items.append(" ".join(current))
+			current = []
+
+	if current:
+		items.append(" ".join(current))
+
+	return items
+
+
 def find_sources_section_issues(content: str) -> tuple[list[str], list[str]]:
-	"""Return (errors, warnings) for all `## Sources` sections in markdown."""
+	"""Return (errors, warnings) for all ``## Sources`` sections.
+
+	Markdown formatters legitimately wrap long link titles across multiple lines,
+	so validation operates on logical list items rather than individual physical
+	lines.
+	"""
 	errors: list[str] = []
 	warnings: list[str] = []
 	matches = list(SOURCES_HEADER_PATTERN.finditer(content))
@@ -103,19 +143,12 @@ def find_sources_section_issues(content: str) -> tuple[list[str], list[str]]:
 		end = start + next_heading.start() if next_heading else len(content)
 		section = content[start:end]
 
-		for line in section.split("\n"):
-			stripped = line.strip()
-			if not stripped:
-				continue
-			if not stripped.startswith("- "):
-				continue
-
-			item = stripped[2:].strip()
+		for item in _extract_source_items(section):
 			link = SOURCES_ITEM_PATTERN.match(item)
 			if not link:
 				errors.append(
 					"Sources section must use markdown link format [Title](url), "
-					f"found: {stripped[:50]}...",
+					f"found: - {item[:48]}...",
 				)
 				continue
 
@@ -155,4 +188,3 @@ def find_orphan_resource_files(skill_dir: Path) -> list[str]:
 				orphaned.append(relative_path)
 
 	return orphaned
-

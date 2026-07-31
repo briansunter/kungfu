@@ -1,222 +1,184 @@
 ---
 name: lead-research-assistant
-description: Identifies high-quality leads for your product or service. Use when analyzing target companies, building prospect lists, or planning sales outreach strategies.
+description: Build evidence-backed B2B account and prospect research for sales, partnerships, pilots, or customer discovery. Use whenever the user wants an ICP, target-account list, qualified leads, account scoring, buying signals, decision-maker roles, outreach angles, CRM-ready research, or deeper analysis of named companies.
 category: business
 license: MIT
+compatibility: Live web access is required for current company facts, public contacts, consent rules, and source verification.
 ---
 
 # Lead Research Assistant
 
-This skill helps you identify and qualify potential leads for the business by
-analyzing the product/service, understanding the ideal customer profile, and
-providing actionable outreach strategies.
+Find organizations with a credible, timely reason to care. Optimize for fit,
+evidence, and a respectful next step—not for the largest possible list.
 
-## When to Use This Skill
+## Safety and Data Rules
 
-- Finding potential customers or clients for the product/service
-- Building a list of companies to reach out to for partnerships
-- Identifying target accounts for sales outreach
-- Researching companies that match the ideal customer profile
-- Preparing for business development activities
+- Use public, lawful, business-relevant sources and respect site terms, robots
+  controls, access restrictions, and rate limits.
+- Do not obtain or infer sensitive personal traits, private contact details,
+  passwords, hidden data, or personal email addresses. Do not enrich people
+  through data breaches or deceptive pretexts.
+- Do not invent employee counts, funding, technology, budgets, contacts, or
+  buying intent.
+- Record a source URL and verification date for every material lead claim.
+- Prefer role-level targeting until a named person is verified from a current
+  public source.
+- Follow applicable marketing, privacy, telemarketing, and platform rules.
+  Provide research and compliant strategy; do not promise that outreach is
+  lawful in every jurisdiction.
+- Exclude obvious non-fit accounts and explain why.
 
-## What This Skill Does
+## Inputs and Defaults
 
-1. **Understands the Business**: Analyzes the product/service, value
-   proposition, and target market
-2. **Identifies Target Companies**: Finds companies that match the ideal
-   customer profile based on:
-   - Industry and sector
-   - Company size and location
-   - Technology stack and tools they use
-   - Growth stage and funding
-   - Pain points the product solves
+Inspect the repository, homepage, docs, pricing, and existing customers first.
+Establish:
 
-3. **Prioritizes Leads**: Ranks companies based on fit score and relevance
-4. **Provides Contact Strategies**: Suggests how to approach each lead with
-   personalized messaging
-5. **Enriches Data**: Gathers relevant information about decision-makers and
-   company context
+- product and measurable outcome;
+- target user, buyer, champion, and blocker;
+- company type, size, geography, maturity, and technology constraints;
+- triggering events or pain signals;
+- disqualifiers;
+- desired motion: discovery, pilot, self-serve sale, enterprise sale, or
+  partnership;
+- list size and required output format.
 
-## How to Use
+When the ICP is vague, produce an initial hypothesis and a small calibration set
+before scaling the search.
 
-### Basic Usage
+## Workflow
 
-Simply describe the product/service and what you're looking for:
+### 1. Define the ICP and Negative ICP
 
-```
-I'm building [product description]. Find me 10 companies in [location/industry]
-that would be good leads for this.
-```
+Create a one-page hypothesis:
 
-### With the Codebase
+- firmographic fit;
+- workflow/problem fit;
+- technical and compliance fit;
+- urgency/trigger fit;
+- ability to buy and implement;
+- reachable channel;
+- explicit exclusions.
 
-For even better results, run this from the product's source code directory:
+Separate `must-have`, `strong signal`, and `nice-to-have` criteria. A narrow
+segment with repeatable evidence is more useful than a broad category label.
 
-```
-Look at what I'm building in this repository and identify the top 10 companies
-in [location/industry] that would benefit from this product.
-```
+### 2. Create a Source Plan
 
-### Advanced Usage
+Use sources appropriate to the signal:
 
-For more targeted research:
+- company website, documentation, pricing, trust/security pages;
+- official job posts and careers pages;
+- filings, procurement notices, public budgets, and registries;
+- product changelogs, engineering blogs, repositories, and status pages;
+- current news and official announcements;
+- conference talks, podcasts, public interviews, and permissioned directories;
+- professional profiles for current roles, subject to platform terms.
 
-```
-My product: [description]
-Ideal customer profile:
-- Industry: [industry]
-- Company size: [size range]
-- Location: [location]
-- Current pain points: [pain points]
-- Technologies they use: [tech stack]
+Search results and aggregators are leads to verify, not final evidence. Prefer
+primary sources for company facts.
 
-Find me 20 qualified leads with contact strategies for each.
-```
+### 3. Build Account Evidence Cards
 
-## Instructions
+For each account capture:
 
-When a user requests lead research:
+| Field | Requirement |
+| --- | --- |
+| Company | Legal/common name and official website |
+| Fit evidence | Specific match to ICP with source |
+| Trigger | Current event or observable need with date |
+| Current approach | Known tool/workaround, or `unknown` |
+| Likely user/buyer | Role, not an invented person |
+| Value hypothesis | Outcome tied to observed context |
+| Risk/disqualifier | Reason it may not fit |
+| Confidence | High, medium, or low with explanation |
+| Next research | Missing fact that changes priority |
 
-1. **Understand the Product/Service**
+Do not claim a company “needs” the product merely because it belongs to an
+industry.
 
-- If in a code directory, analyze the codebase to understand the product
-- Ask clarifying questions about the value proposition
-- Identify key features and benefits
-- Understand what problems it solves
+### 4. Score Transparently
 
-2. **Define Ideal Customer Profile**
+Score 0 to 5 and cite the basis:
 
-- Determine target industries and sectors
-- Identify company size ranges
-- Consider geographic preferences
-- Understand relevant pain points
-- Note any technology requirements
+| Criterion | Weight |
+| --- | ---: |
+| Problem/workflow fit | 3 |
+| Trigger strength and recency | 3 |
+| Product/technical fit | 2 |
+| Economic value | 2 |
+| Buying/implementation plausibility | 2 |
+| Reachability | 1 |
+| Competitive lock-in | -2 |
+| Legal, reputation, or data risk | -2 |
 
-3. **Research and Identify Leads**
+Show raw scores, confidence, and missing data. Do not use a precise score to
+disguise weak research.
 
-- Search for companies matching the criteria
-- Look for signals of need (job postings, tech stack, recent news)
-- Consider growth indicators (funding, expansion, hiring)
-- Identify companies with complementary products/services
-- Check for budget indicators
+### 5. Identify the Buying Group
 
-4. **Prioritize and Score**
+Map likely roles:
 
-- Create a fit score (1-10) for each lead
-- Consider factors like:
-- Alignment with ICP
-- Signals of immediate need
-- Budget availability
-- Competitive landscape
-- Timing indicators
+- end user;
+- operational champion;
+- budget owner;
+- technical/security reviewer;
+- procurement/legal approver;
+- executive sponsor where relevant.
 
-5. **Provide Actionable Output**
+Only name individuals when their current role is verified publicly. Include the
+source and date, and avoid unnecessary personal details.
 
-For each lead, provide:
+### 6. Design the Contact Strategy
 
-- **Company Name** and website
-- **Why They're a Good Fit**: Specific reasons based on their business
-- **Priority Score**: 1-10 with explanation
-- **Decision Maker**: Role/title to target (e.g., "VP of Engineering")
-- **Contact Strategy**: Personalized approach suggestions
-- **Value Proposition**: How the product solves their specific problem
-- **Conversation Starters**: Specific points to mention in outreach
-- **LinkedIn URL**: If available, for easy connection
+For top accounts, create a concise, evidence-grounded approach:
 
-6. **Format the Output**
+- why this account now;
+- the observed context;
+- a cautious value hypothesis;
+- one low-friction question or offer;
+- the most appropriate channel;
+- follow-up cap and opt-out handling.
 
-Present results in a clear, scannable format:
+Personalization should use relevant business facts, not surveillance. Never
+fabricate familiarity, referrals, customer logos, or results. Avoid automated
+high-volume sequences until the segment and message are validated.
 
-```markdown
-# Lead Research Results
+### 7. Calibrate Before Scaling
 
-## Summary
+Review a small batch for:
 
-- Total leads found: [X]
-- High priority (8-10): [X]
-- Medium priority (5-7): [X]
-- Average fit score: [X]
+- false positives and missing disqualifiers;
+- source freshness;
+- response quality, not only response rate;
+- conversion to qualified conversation;
+- objections and segment differences;
+- complaints, opt-outs, blocks, or reputation damage.
 
----
+Update the ICP and scoring model before researching a larger list.
 
-## Lead 1: [Company Name]
+## Output Contract
 
-**Website**: [URL] **Priority Score**: [X/10] **Industry**: [Industry] **Size**:
-[Employee count/revenue range]
+Return:
 
-**Why They're a Good Fit**: [2-3 specific reasons based on their business]
-
-**Target Decision Maker**: [Role/Title] **LinkedIn**: [URL if available]
-
-**Value Proposition for Them**: [Specific benefit for this company]
-
-**Outreach Strategy**: [Personalized approach - mention specific pain points,
-recent company news, or relevant context]
-
-**Conversation Starters**:
-
-- [Specific point 1]
-- [Specific point 2]
-
----
-
-[Repeat for each lead]
-```
-
-7. **Offer Next Steps**
-
-- Suggest saving results to a CSV for CRM import
-- Offer to draft personalized outreach messages
-- Recommend prioritization based on timing
-- Suggest follow-up research for top leads
-
-## Examples
-
-### Example 1: From Lenny's Newsletter
-
-**User**: "I'm building a tool that masks sensitive data in AI coding assistant
-queries. Find potential leads."
-
-**Output**: Creates a prioritized list of companies that:
-
-- Use AI coding assistants (Copilot, Cursor, etc.)
-- Handle sensitive data (fintech, healthcare, legal)
-- Have evidence in their GitHub repos of using coding agents
-- May have accidentally exposed sensitive data in code
-- Includes LinkedIn URLs of relevant decision-makers
-
-### Example 2: Local Business
-
-**User**: "I run a consulting practice for remote team productivity. Find me 10
-companies in the Bay Area that recently went remote."
-
-**Output**: Identifies companies that:
-
-- Recently posted remote job listings
-- Announced remote-first policies
-- Are hiring distributed teams
-- Show signs of remote work challenges
-- Provide personalized outreach strategies for each
-
-## Tips for Best Results
-
-- **Be specific** about the product and its unique value
-- **Run from the codebase** if applicable for automatic context
-- **Provide context** about the ideal customer profile
-- **Specify constraints** like industry, location, or company size
-- **Request follow-up** research on promising leads for deeper insights
-
-## Related Use Cases
-
-- Drafting personalized outreach emails after identifying leads
-- Building a CRM-ready CSV of qualified prospects
-- Researching specific companies in detail
-- Analyzing competitor customer bases
-- Identifying partnership opportunities
+1. product and ICP summary;
+2. positive and negative ICP criteria;
+3. source methodology and research timestamp;
+4. ranked account table;
+5. evidence card for each high-priority account;
+6. buying-group role map;
+7. account-specific outreach hypothesis;
+8. CRM-ready CSV columns when requested;
+9. uncertainties, exclusions, and next research steps.
 
 ## Sources
 
-- [Market Research and Competitive Analysis | U.S. SBA](https://www.sba.gov/business-guide/plan-your-business/market-research-competitive-analysis)
-- [Statistics of U.S. Businesses (SUSB) | U.S. Census Bureau](https://www.census.gov/programs-surveys/susb.html)
-- [LinkedIn Sales Solutions](https://business.linkedin.com/sales-solutions)
-- [Crunchbase](https://www.crunchbase.com/)
+- [Market Research and Competitive Analysis | U.S. Small Business
+  Administration](https://www.sba.gov/business-guide/plan-your-business/market-research-competitive-analysis)
+- [CAN-SPAM Act Compliance Guide | U.S. Federal Trade
+  Commission](https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business)
+- [Direct Marketing Guidance | UK Information Commissioner's
+  Office](https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/)
+- [LinkedIn Professional Community
+  Policies](https://www.linkedin.com/legal/professional-community-policies)
+- [Data Minimisation | UK Information Commissioner's
+  Office](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-protection-principles/a-guide-to-the-data-protection-principles/data-minimisation/)

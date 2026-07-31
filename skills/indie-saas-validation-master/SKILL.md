@@ -1,208 +1,181 @@
 ---
 name: indie-saas-validation-master
-description: Guide the complete 18-month solo SaaS journey from validation to scaling decision point with phase-specific tactics, success metrics, and risk mitigation. Use when starting a new SaaS venture or planning any phase of the indie SaaS journey.
+description: Validate and de-risk an indie SaaS from problem discovery through paid pilot, MVP, retention, repeatable acquisition, and scaling decisions. Use whenever the user is evaluating a SaaS idea, planning an MVP, interviewing customers, pre-selling, running a fake-door test, seeking product-market fit, or deciding whether to persist, pivot, pause, or scale.
 category: business
 license: MIT
 ---
 
-# When to Use This Skill
+# Indie SaaS Validation Master
 
-Use this skill when you need to:
+Turn an idea into a sequence of falsifiable decisions. Progress by evidence and
+risk reduction, not by a fixed calendar, signup target, or MRR milestone.
 
-- **Plan the complete SaaS journey** from idea to sustainable business
-- **Test a new SaaS idea** before investing development time
-- **Prove market demand** exists before building the full product
-- **Launch an MVP** and get to first paying customers
-- **Grow to $10K MRR** with sustainable unit economics
-- **Decide between lifestyle and hypergrowth** at the scaling decision point
-- **Pre-sell a product concept** to gauge willingness to pay
-- **Validate with no-code tools** to test hypotheses quickly
-- **Avoid building in a vacuum** and ensure product-market fit
+## Operating Rules
 
-# The 4-Phase Framework Overview
+- Use the current conversation, repository, landing page, analytics, and prior
+  customer evidence before asking questions.
+- Identify the **riskiest assumption** first. Do not validate the easiest part
+  while ignoring the assumption that can kill the business.
+- Prefer observed behavior and costly commitment over stated enthusiasm.
+- Record counter-evidence and failed tests. Do not reinterpret every result as
+  validation.
+- Never fabricate customers, demand, market size, quotes, or conversion data.
+- Fake doors, pre-sales, deposits, and pilots must accurately disclose what
+  exists, what is planned, delivery timing, cancellation/refund terms, and how
+  data will be used.
+- Treat timelines and benchmarks as planning inputs, not universal pass/fail
+  rules.
 
-| Phase                         | Timeline    | Goal                      | Practical Checkpoint                               |
-| ----------------------------- | ----------- | ------------------------- | -------------------------------------------------- |
-| **Phase 1: Validation**       | Months 0-2  | Prove demand exists       | Early commitment signals (pre-orders/emails/calls) |
-| **Phase 2: MVP Launch**       | Months 2-6  | Launch to early adopters  | First paying users and repeat usage                |
-| **Phase 3: Growth**           | Months 6-18 | Reach sustainable revenue | Improving retention and repeatable acquisition     |
-| **Phase 4: Scaling Decision** | 18+ months  | Choose your path          | Clear choice: lifestyle optimization or scale push |
+## Evidence Ladder
 
-# Core Concepts
+Use the strongest evidence feasible:
 
-## The Idea-Seeking Approach
+1. target customer repeatedly experiences the problem;
+2. customer uses a costly workaround or pays an alternative;
+3. customer gives time, access, data, an introduction, or implementation effort;
+4. customer agrees to a concrete pilot or letter of intent;
+5. customer pays under clear terms;
+6. customer reaches value and returns;
+7. multiple customers in the same segment retain and refer;
+8. acquisition repeats with acceptable economics.
 
-**Don't start with an idea—start with a market.** The most successful indie SaaS
-founders follow the "idea-seeking" path: embed in a community, discover critical
-problems through active listening, validate demand exists, then build a
-laser-focused solution.
+A large low-intent waitlist can be weaker than three well-qualified paid pilots.
 
-**Why this matters**: Idea-first execution often burns time on low-signal work.
-Idea-seeking founders gather evidence earlier, before committing major build
-cycles.
+## Workflow
 
-## The Validation Hierarchy
+### 1. Create an Assumption Map
 
-Validation methods ranked by effectiveness:
+Summarize:
 
-1. **Pre-selling** (Highest confidence) - Get customers to pay before building
-2. **Fake door testing** - Landing pages collect emails to measure interest
-3. **No-code MVP** - Test with Bubble/Webflow in days not months
-4. **Community immersion** - Direct conversations in niche communities
-5. **Competitor gap analysis** - 3-star reviews reveal unmet needs
+- customer, user, and buyer;
+- painful job and triggering event;
+- current alternative and its cost;
+- promised outcome and differentiated wedge;
+- acquisition path and sales motion;
+- value metric and plausible price;
+- feasibility, data, regulatory, and platform dependencies.
 
-# Step-by-Step Validation Process
+Classify assumptions as desirability, viability, feasibility, usability,
+distribution, or compliance. Rank each by uncertainty × impact. Use [the
+validation checklist](references/validation-checklist.md) for a fuller
+inventory.
 
-## Phase 1: Problem Discovery (Week 1)
+### 2. Gather Problem Evidence
 
-1. **Choose your target community** - Where do your potential customers
-   congregate? (Indie Hackers, Reddit r/SaaS, niche Slack/Discord communities)
-2. **Listen for friction signals** - Look for complaints about "pain points" and
-   problems people want solved
-3. **Identify quantifiable pain** - Can customers say "this costs me $X and Y
-   hours/month"?
-4. **Research existing solutions** - What alternatives exist? What are people
-   complaining about?
+Research recent customer language and conduct interviews with people who match
+the target segment. Ask about the last real occurrence:
 
-## Phase 2: Validation Testing (Weeks 2-4)
+- What triggered the task?
+- What did they do step by step?
+- What did it cost in time, money, risk, or delay?
+- Who approved the current solution?
+- What have they already tried?
+- What would block switching?
 
-1. **Create fake door landing page** - Describe your solution, benefits, and
-   pricing
-2. **Drive traffic to landing page** - Share in target communities, run small
-   ads
-3. **Collect email addresses** - Measure conversion quality and follow-up
-   response, not just raw volume
-4. **Pre-sell to early adopters** - Offer discount for founding members
-5. **Conduct customer interviews** - Talk to 10-15 potential customers
+Do not lead with a feature pitch or ask only “Would you use this?” Summarize
+evidence by segment and explicitly note non-problems, low urgency, and
+inaccessible buyers.
 
-## Phase 3: Decision (Week 4-6)
+### 3. Test the Offer
 
-**Validation success criteria**:
+Create a narrow offer for one segment and one outcome. Include an actual price
+or pricing mechanism early enough to test willingness to pay.
 
-- ✅ Meaningful commitment signals (for example: pre-orders, qualified waitlist,
-  and interview demand)
-- ✅ Follow-up conversion from email to conversation shows real buyer intent
-- ✅ Clear willingness to pay at a price point that supports your economics
-- ✅ Specific pain points quantified by customers
-- ✅ Competitor gaps clearly identified
+Choose the smallest credible test:
 
-**If validated** → Proceed to MVP development (4-week build)
+- concierge/manual service;
+- clickable or coded prototype using realistic data;
+- design-partner agreement;
+- paid pilot with defined success criteria;
+- transparent waitlist or fake-door page;
+- outbound offer to a small, qualified account list.
 
-**If not validated** → Pivot to new concept or double down on problem discovery
+Use [fake-door templates](references/fake-door-templates.md) as scaffolding. Do
+not imply that an unavailable product is currently usable. Define pass, revise,
+and stop conditions before traffic arrives.
 
-# Common Mistakes
+### 4. Run a Decision Gate
 
-**Mistake 1: Building without talking to customers**
+Produce a gate memo:
 
-- **Symptom**: "I'm in stealth mode" or "I don't want to share my idea"
-- **Solution**: Share your idea widely and gather feedback immediately
+| Area | Evidence | Confidence | Main risk | Next test |
+| --- | --- | --- | --- | --- |
+| Problem | Observed behavior | High/medium/low | ... | ... |
+| Buyer and budget | Commitment or workaround | ... | ... | ... |
+| Solution | Prototype/pilot result | ... | ... | ... |
+| Distribution | Reach and response | ... | ... | ... |
+| Economics | Price, cost, support | ... | ... | ... |
+| Feasibility/compliance | Technical and legal review | ... | ... | ... |
 
-**Mistake 2: Validating with friends and family**
+Choose one: `proceed`, `proceed with constraint`, `revise`, `pivot
+segment/problem`, `pause`, or `stop`. State what evidence would reverse the
+decision.
 
-- **Symptom**: Positive feedback from people who won't buy
-- **Solution**: Only validate with potential customers in your target market
+### 5. Scope the Learning MVP
 
-**Mistake 3: Asking "Would you buy this?"**
+Build only what is necessary to deliver the promised outcome and measure whether
+users reach it repeatedly. Define:
 
-- **Symptom**: People say yes but don't actually pay
-- **Solution**: Ask for commitment (email address, pre-order, deposit)
+- target workflow and excluded use cases;
+- activation event and time-to-value;
+- must-have reliability, security, privacy, and support controls;
+- manual operations hidden behind the product where acceptable;
+- instrumentation and feedback capture;
+- rollback and customer communication plan;
+- explicit non-goals.
 
-**Mistake 4: Ignoring pricing signals**
+A four-week build can be useful, but scope should follow risk and safety rather
+than an arbitrary deadline.
 
-- **Symptom**: "I'll figure out pricing later"
-- **Solution**: Always include pricing in validation to test willingness to pay
+### 6. Validate Retention and Economics
 
-**Mistake 5: Falling in love with the solution**
+After launch, analyze cohorts rather than cumulative signups. Track:
 
-- **Symptom**: Refusing to pivot despite negative validation data
-- **Solution**: Stay objective—let data drive decisions, not ego
+- activation and time-to-first-value;
+- repeated use tied to the core job;
+- logo and revenue retention;
+- expansion, contraction, pauses, and reactivation;
+- support effort and gross margin;
+- acquisition source, sales time, and payback;
+- reasons for non-use and churn.
 
-# Success Metrics
+Do not claim product-market fit from launch traffic. Look for repeated value in
+a coherent segment and evidence that distribution can continue.
 
-**Validation Health Indicators**:
+### 7. Choose the Next Stage
 
-| Metric              | Weak Signal                       | Strong Signal                         |
-| ------------------- | --------------------------------- | ------------------------------------- |
-| Email signups       | Low conversion and poor follow-up | Good conversion plus interview demand |
-| Pre-orders          | No commitment behavior            | Repeated commitment signals           |
-| Customer interviews | <5 conversations                  | 10-15+ relevant conversations         |
-| Pricing acceptance  | "Too expensive"                   | "Where do I pay?"                     |
-| Competitor gaps     | "Everything's fine"               | "I wish X did Y"                      |
+Use [community platforms](references/community-platforms.md) and [growth
+phases](references/growth-phases.md) when the evidence supports expansion.
+Possible paths:
 
-**Red flags**:
+- deepen one segment and use case;
+- improve activation or retention before acquisition;
+- raise or restructure pricing;
+- add a second repeatable channel;
+- remain a profitable focused product;
+- hire or automate a proven bottleneck;
+- stop or sell when expected return no longer justifies attention.
 
-- ❌ Can't reach potential customers directly
-- ❌ Problem isn't quantifiable in time/money
-- ❌ No urgency (customers can wait months)
-- ❌ Buyers only engage at very low pricing that cannot support your model
-- ❌ Target market is B2C with no viral mechanism
+## Output Contract
 
-# Deep Dives
+Return:
 
-For comprehensive validation frameworks, templates, and case studies, see the
-references:
-
-**[references/validation-checklist.md](references/validation-checklist.md)**
-
-- Complete 5-point validation checklist with detailed criteria
-- Quantifiable pain assessment framework
-- Market reachability evaluation
-- MVP scoping guidelines (4-week target)
-- Pricing validation benchmarks
-
-**[references/fake-door-templates.md](references/fake-door-templates.md)**
-
-- Landing page copy templates (headline, benefits, CTA)
-- A/B testing framework for messaging variations
-- Traffic source strategies (organic vs paid)
-- Conversion rate benchmarks by channel
-- Real-world fake door case studies with results
-
-**[references/community-platforms.md](references/community-platforms.md)**
-
-- Community engagement strategy by platform and audience intent
-- Reddit niche community identification and engagement
-- 90/10 rule for community value vs promotion
-- 4-month community-building timeline
-- Multi-platform sequencing strategy
-
-## Research Notes
-
-This skill synthesizes findings from comprehensive indie SaaS research:
-
-**Primary Research**:
-
-**Key Case Studies**:
-
-- FeedbackPanda: launched via niche communities and documented a rapid bootstrap
-  trajectory
-- Formula Bot: community-led distribution drove large initial top-of-funnel
-- Geocodio: documented long-term growth from early community exposure
-
-**Validation Benchmarks**:
-
-- Multiple commitment signals (not one metric) should drive build/no-build calls
-- B2B problems preferred (businesses pay to save time)
-- Price point must support CAC, support burden, and desired margins
-- Keep MVP scope small enough to ship quickly and learn fast
-
----
-
-## Next Steps After Validation
-
-Once your idea validates successfully, proceed to Phase 2.
-
----
-
-## After Validation: Phases 2-4
-
-For detailed guidance on MVP launch, growth, scaling decisions, timeline
-expectations, and risk mitigation by phase, see
-[references/growth-phases.md](references/growth-phases.md).
+1. executive decision summary;
+2. assumption map ranked by risk;
+3. evidence ledger with sources and dates;
+4. customer/competitor/workaround findings;
+5. one or more validation experiment cards;
+6. gate memo with proceed/revise/stop logic;
+7. learning MVP scope and instrumentation;
+8. 30-day action plan based on the current stage.
 
 ## Sources
 
+- [How to Get Startup Ideas | Paul
+  Graham](https://paulgraham.com/startupideas.html)
+- [The Mom Test](https://www.momtestbook.com/)
 - [The Lean Startup](https://theleanstartup.com/)
-- [The Mom Test](https://momtestbook.com/)
-- [How to Get Startup Ideas | Paul Graham](https://paulgraham.com/startupideas.html)
-- [From Founding to Exit in Two Years: The FeedbackPanda Story | The Bootstrapped Founder](https://thebootstrappedfounder.com/from-founding-to-exit-in-two-years-the-feedbackpanda-story/)
+- [Testing Business Ideas |
+  Strategyzer](https://www.strategyzer.com/library/testing-business-ideas-book)
+- [Market Research and Competitive Analysis | U.S. Small Business
+  Administration](https://www.sba.gov/business-guide/plan-your-business/market-research-competitive-analysis)

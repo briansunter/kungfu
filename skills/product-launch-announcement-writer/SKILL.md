@@ -1,305 +1,192 @@
 ---
 name: product-launch-announcement-writer
-description: Write compelling product launch announcements by gathering product information through guided questions and analyzing repos/homepages. Use when launching products on GitHub, Product Hunt, Indie Hackers, or social platforms.
+description: Create fact-checked launch messaging and channel-native copy for Product Hunt, GitHub releases, Hacker News, Indie Hackers, Reddit, LinkedIn, X, Threads, blogs, and email. Use whenever the user needs a tagline, launch post, first comment, release notes, social thread, email, message map, headline variants, or launch copy adapted from a repository or website.
 category: business
 license: MIT
+compatibility: Live web access is required to verify current platform limits and rules when copy must fit a specific submission form.
 ---
 
-# When to Use This Skill
+# Product Launch Announcement Writer
+
+Turn product evidence into a coherent message system, then adapt it to each
+channel without changing the underlying facts. This skill owns messaging and
+copy; use `launch-guide` for readiness, assets, scheduling, operations, and
+analytics.
+
+## Operating Rules
+
+- Inspect the conversation, repository, README, homepage, docs, pricing,
+  changelog, screenshots, and existing copy before asking questions.
+- Ask only for facts that cannot be inferred and that materially affect the
+  copy.
+- Create a claim ledger before drafting. Every number, comparison, customer
+  quote, logo, superlative, security statement, and availability claim needs a
+  source or must be removed/qualified.
+- Never invent users, revenue, testimonials, rankings, urgency, scarcity,
+  integrations, performance, or roadmap commitments.
+- Do not copy competitor phrasing or customer quotes without permission and
+  accurate attribution.
+- Verify current platform fields, character limits, link rules, and promotional
+  policies on the execution date.
+- Use one primary action per asset. “Try, share, buy, star, comment, and book a
+  call” is not one CTA.
+
+## Inputs and Defaults
+
+Infer, then establish:
 
-Use this skill when you need to:
+- product name and canonical URL;
+- launch type: first release, beta, major version, feature, open source, or
+  relaunch;
+- audience, user, and buyer;
+- painful current workflow and trigger;
+- core outcome and differentiated mechanism;
+- two or three supporting capabilities;
+- proof, limitations, pricing, and availability;
+- selected channels and primary CTA;
+- founder voice and prohibited claims.
 
-- **Launch a new product** on GitHub, Product Hunt, Indie Hackers, or other
-  platforms
-- **Write launch announcements** that clearly communicate value and generate
-  interest
-- **Create compelling copy** for product releases, feature launches, or updates
-- **Draft launch emails** to customers, users, or followers
-- **Prepare social media posts** for product launches across multiple platforms
-- **Structure launch messaging** for maximum impact and clarity
+When proof is limited, use a concrete product demonstration and honest scope
+rather than inflated adjectives.
 
-# Core Concepts
+## Workflow
 
-## Effective Launch Announcements
+### 1. Build the Source Brief
 
-A great launch announcement does three things:
+Extract facts into:
 
-1. **Grabs attention** immediately with a compelling hook
-2. **Communicates value** clearly - what problem does it solve?
-3. **Motivates action** - try it, share it, buy it, or provide feedback
+| Field | Evidence |
+| --- | --- |
+| Audience and problem | User research, docs, or positioning |
+| Outcome | What the product demonstrably enables |
+| Mechanism | How it produces the outcome |
+| Differentiator | Specific contrast with current alternatives |
+| Proof | Metrics, demo, examples, or permissioned quote |
+| Boundaries | Beta status, missing features, supported platforms |
+| Offer | Price, trial, promo, or open-source license |
+| Action | Exact next step and destination |
 
-**Anatomy**: Headline → Hook → Solution → Key features (2-3) → Proof → CTA
+Resolve conflicts between README, website, pricing, and app behavior before
+publishing.
 
-## Platform-Specific Approaches
+### 2. Create the Claim Ledger
 
-Different platforms require different approaches:
+Label claims:
 
-- **GitHub**: Technical value, code quality, setup instructions
-- **Product Hunt**: Hook-driven, visual, benefit-focused, discussion engagement
-- **Indie Hackers**: Behind-the-scenes story, revenue/metrics, community
-  feedback
-- **X (Twitter)**: Thread-based, engaging, hashtag-rich, viral potential
-- **Threads**: Conversational, community-focused, discussion-driven
-- **LinkedIn**: Professional tone, business value, industry context
-- **Email**: Personal, detailed, exclusive insights or offers
+- `Verified`: supported by a current source;
+- `Qualified`: directionally true but needs careful wording;
+- `Unsupported`: remove or research;
+- `Prohibited`: legal, platform, confidentiality, or brand restriction.
 
-# Step-by-Step Process
+For quantitative claims record the baseline, time period, sample, method, and
+source. “10× faster” without a reproducible comparison is not a usable claim.
 
-## Phase 1: Information Gathering
+### 3. Choose the Message Spine
 
-Ask these questions to gather essential information:
+Write one sentence for each:
 
-### Product Basics
+1. **Audience:** who immediately recognizes the problem?
+2. **Problem:** what frustrating or costly situation occurs?
+3. **Outcome:** what becomes easier, faster, safer, or possible?
+4. **Mechanism:** how does the product create that outcome?
+5. **Difference:** why use this instead of the current approach?
+6. **Proof:** what makes the claim believable?
+7. **Action:** what should the reader do now?
 
-1. **What is your product name?**
-2. **What problem does it solve?** (Be specific)
-3. **Who is your target audience?**
-4. **What platform(s) are you launching on?**
+Then produce three angles—usually problem-led, outcome-led, and
+founder/story-led—and recommend one per channel.
 
-### Value Proposition
+### 4. Draft the Core Copy Deck
 
-5. **What is the main benefit?** (e.g., "Saves 10 hours per week")
-6. **What makes it different from alternatives?**
-7. **Can you share any metrics or early results?**
+Create:
 
-### Product Details
+- positioning statement;
+- one-sentence description;
+- tagline variants;
+- short, medium, and long descriptions;
+- benefit-led feature bullets;
+- founder/maker story;
+- proof block;
+- honest limitations/eligibility note;
+- CTA variants;
+- FAQ/objection answers.
 
-8. **What are the top 3 features?** (Prioritize impact over quantity)
-9. **Is there a demo, video, or screenshots?**
-10. **Is it free, paid, or freemium?** (If paid, what's the pricing?)
+Prioritize specificity over hype. Describe the user’s changed workflow, not a
+pile of features.
 
-### Source Material
+### 5. Adapt to the Channel
 
-11. **Do you have a GitHub repo?** (Provide URL for technical details)
-12. **Do you have a website/landing page?** (Provide URL for positioning)
-13. **Any existing descriptions or copy?** (About page, tagline, pitch)
+Do not merely truncate the same paragraph.
 
-### Launch Context
+#### Product Hunt
 
-14. **Is this a public launch, beta, or pre-launch?**
-15. **What's the primary call-to-action?** (Star, sign up, buy, share)
-16. **Any launch offer or incentive?**
+Provide tagline, short description, maker/first comment, feature bullets, and
+discussion prompts. Verify the live form. Current official guidance describes a
+260-character description, personal maker accounts, and authentic discussion;
+never ask directly for upvotes or coordinate manipulation.
 
-### Additional Context
+#### GitHub Release
 
-17. **Any interesting backstory?** (Why you built it, how long it took)
-18. **Tech stack or technical details?**
-19. **What's next after launch?** (Roadmap, plans, goals)
+Lead with user-visible changes. Include compatibility, installation/update
+steps, migration or breaking changes, fixes, known issues, contributors, and
+links. Keep marketing claims secondary to operational clarity.
 
-**If user provides a GitHub repo or homepage:**
+#### Hacker News / Reddit / Indie Hackers
 
-Use available web search and page-reading tools to analyze:
+Write a self-contained, candid post that explains what was built, why, what is
+unusual, and what feedback is useful. Disclose affiliation and follow each
+community’s current rules.
 
-- Repos: README, features, installation, examples
-- Homepages: Headline, value proposition, features, testimonials
-- Extract key messages, taglines, positioning, technical details
+#### LinkedIn / X / Threads
 
-## Phase 2: Analyze and Structure
+Create native posts, not hashtag stuffing. The first unit must stand alone;
+threads should add evidence, examples, or story rather than restating the hook.
+Use [social thread templates](references/social-thread-templates.md) as
+structure only.
 
-Based on gathered information, determine:
+#### Email
 
-### Angle and Tone
+Use one clear subject, preview text, audience-specific opening, core value,
+proof/demo, one CTA, and truthful conditions. Include required sender
+identification and unsubscribe mechanics through the sending system.
 
-- **Platform-appropriate tone**: Professional (LinkedIn), casual (X/Threads),
-  technical (GitHub), community-focused (Indie Hackers)
-- **Story angle**: Problem-solution, behind-the-scenes, technical, success
-- **Key differentiator**: Speed, simplicity, power, price, quality, innovation
+Use [platform templates](references/platform-templates.md) for complete
+scaffolds.
 
-### Messaging Priority
+### 6. Review as a Skeptical Reader
 
-Rank by impact:
+Check:
 
-1. **Primary benefit** (headline promise)
-2. **Supporting proof** (metrics, testimonials, demo)
-3. **Secondary benefits** (additional value)
-4. **Technical details** (for technical audiences)
-5. **Backstory** (if compelling and relevant)
+- Can the target user explain the product after one pass?
+- Does the opening communicate value before backstory?
+- Is every feature connected to an outcome?
+- Are comparisons fair and substantiated?
+- Are beta status, pricing, eligibility, and limitations clear?
+- Does each channel sound native?
+- Is the CTA singular and measurable?
+- Could any line be mistaken for a fabricated endorsement or guarantee?
 
-### Platform Adaptation
+## Output Contract
 
-Create platform-specific variations:
+Return:
 
-- **Short** (X/Threads): 1-2 sentences + link + hashtags
-- **Medium** (LinkedIn, Product Hunt): 2-3 paragraphs, structured
-- **Long** (GitHub, blog): Detailed, comprehensive
-- **Email**: Personalized, detailed, with clear CTA
-
-## Phase 3: Draft the Announcement
-
-### Headline/Hook Templates
-
-**Problem-focused**:
-
-- "Finally, a way to [solve problem] without [pain point]"
-- "Tired of [problem]? Meet [product name]."
-- "I built [product] because I couldn't find [solution]."
-
-**Benefit-focused**:
-
-- "[Product name] helps you [benefit] in [timeframe]."
-- "How I achieved [result] using [product name]."
-- "Announcing [product name]: [key benefit] for [audience]."
-
-**Story-focused**:
-
-- "After [time period] of building, I'm finally launching [product]."
-- "The story of how I built [product] to solve [problem]."
-- "Why I built [product] and how it helps [audience]."
-
-### Body Structure
-
-**Paragraph 1: The Hook** - State the problem/opportunity, make it relatable,
-create curiosity/urgency
-
-**Paragraph 2: The Solution** - Introduce product, explain how it solves the
-problem, include key benefit
-
-**Paragraph 3: Key Features** (2-3 bullet points) - Feature 1 → Benefit, Feature
-2 → Benefit, Feature 3 → Benefit
-
-**Paragraph 4: Social Proof** (if available) - "Already used by [number]
-people", "In beta, we saw [result]", "Users are saying [quote]"
-
-**Paragraph 5: Call-to-Action** - Clear next step (try it, share it, sign up),
-link to product, optional: request for feedback
-
-## Phase 4: Platform-Specific Optimization
-
-### Product Hunt
-
-**Structure**: One-line hook → Problem → Solution + 3 features → Who it's for →
-CTA → Gallery
-
-**Best practices**: Start with "Introducing" or "I built", keep conversational,
-engage with every comment in first hour, include demo video/GIF
-
-### GitHub Release
-
-**Structure**: Headline → Overview → Key features → Installation → Migration →
-Contributors → Links
-
-**Best practices**: Use semantic versioning, link to issues/PRs, include code
-examples, add visuals
-
-### Indie Hackers
-
-**Structure**: Catchy title → Backstory → Problem → Solution → Revenue/metrics →
-What's next → Ask the community
-
-**Best practices**: Share the journey, include revenue numbers (even if small),
-be transparent about challenges, ask for specific feedback
-
-### X (Twitter)
-
-**Structure**: 8-tweet thread (hook → problem → gap → solution → features →
-proof → CTA → engagement)
-
-**Best practices**: Use threads for storytelling, include visuals in every
-tweet, use 2-4 hashtags, tag relevant accounts, post at 9-11am or 6-8pm ET,
-engage with every reply
-
-**Thread template**: See
-[references/social-thread-templates.md](references/social-thread-templates.md)
-
-### Threads
-
-**Structure**: 8-post thread (hook + visual → problem → aha moment → solution →
-features → behind the scenes → feedback → CTA + discussion)
-
-**Best practices**: More conversational than X, first post needs strong visual,
-write like talking to friends, encourage discussion with questions, link in bio
-strategy
-
-**Thread template**: See
-[references/social-thread-templates.md](references/social-thread-templates.md)
-
-### LinkedIn
-
-**Structure**: Professional hook → Solution → Business impact → Who it's for →
-Personal story → CTA
-
-**Best practices**: Professional but authentic tone, focus on business value,
-tag relevant companies/people, include clear headline image
-
-### Email Launch
-
-**Structure**: Subject line → Opening → Problem → Solution → Demo → Offer → CTA
-→ P.S.
-
-**Best practices**: Make it personal not promotional, include clear single CTA,
-add scarcity/urgency, mobile-friendly formatting
-
-## Phase 5: Review and Refine
-
-**Review checklist**:
-
-- [ ] **Clear headline** that communicates benefit
-- [ ] **Problem statement** resonates with target audience
-- [ ] **Solution is clear** and differentiated
-- [ ] **2-3 key features** highlighted (not feature dump)
-- [ ] **Social proof or evidence** included (if available)
-- [ ] **Strong call-to-action** with clear next step
-- [ ] **Platform-appropriate** tone and format
-- [ ] **Link included** to product/repo/landing page
-- [ ] **Visuals mentioned** or embedded (if applicable)
-- [ ] **Typos and grammar** checked
-
-# Common Mistakes
-
-**Mistake 1: Feature Dumping** - Listing 10+ features overwhelms readers. Focus
-on 2-3 high-impact features with clear benefits.
-
-**Mistake 2: No Clear Problem** - Launching with "here's what I built" instead
-of "here's why it matters." Always start with the problem or opportunity.
-
-**Mistake 3: Weak Call-to-Action** - "Check it out" is vague and passive. Use
-specific, active CTAs ("Try it free," "Star the repo," "Join the waitlist").
-
-**Mistake 4: One-Size-Fits-All** - Using the same copy across all platforms.
-Adapt tone, format, and length for each platform.
-
-**Mistake 5: No Social Proof** - Launching without evidence of value. Include
-metrics, testimonials, early user feedback, or demo.
-
-**Mistake 6: Technical Jargon** - Using niche terminology that alienates broader
-audiences. Use simple, benefit-focused language (unless targeting technical
-audiences only).
-
-**Mistake 7: Buried Lead** - Important information is in paragraph 5 instead of
-paragraph 1. Lead with the most compelling benefit or hook.
-
-# Output Format
-
-After gathering information and analyzing the product, provide:
-
-1. **Platform-specific drafts** for each selected platform
-2. **Headline variations** (3-5 options) for A/B testing
-3. **Feature breakdown** prioritized by impact
-4. **Social proof suggestions** (metrics, testimonials to gather)
-5. **Visual recommendations** (screenshots, GIFs, videos to create)
-6. **Launch tips** for each platform (timing, engagement, follow-up)
-
-For complete platform-specific templates, see:
-
-- [references/platform-templates.md](references/platform-templates.md) - Product
-  Hunt, GitHub, Indie Hackers, LinkedIn, Email
-- [references/social-thread-templates.md](references/social-thread-templates.md)
-  - X (Twitter) and Threads thread templates
-
-# Next Steps
-
-After writing the launch announcement:
-
-1. **Use `community-growth-specialist` skill** - Plan launch day engagement,
-   community outreach, and follow-up strategy
-2. **Use `technical-automation-architect` skill** - Set up automated launch
-   workflows, notifications, or landing page optimization
-3. **Use `lead-research-assistant` skill** - Identify and reach out to
-   influencers, press, or early adopters for launch amplification
+1. source brief and unresolved fact conflicts;
+2. claim ledger;
+3. recommended message spine and alternatives;
+4. core copy deck;
+5. channel-native final drafts;
+6. three to five headline/tagline variants;
+7. visual/copy pairing notes;
+8. pre-publish fact and platform checklist.
 
 ## Sources
 
+- [How to Post a Product | Product Hunt Help
+  Center](https://help.producthunt.com/en/articles/479557-how-to-post-a-product)
 - [Product Hunt Launch Guide](https://www.producthunt.com/launch)
-- [How to Launch on Product Hunt](https://blog.producthunt.com/how-to-launch-on-product-hunt)
-- [Managing releases in a repository | GitHub Docs](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
-- [Reddit Content Policy](https://www.redditinc.com/policies/content-policy)
+- [Managing Releases in a Repository | GitHub
+  Docs](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+- [Hacker News Guidelines](https://news.ycombinator.com/newsguidelines.html)
+- [Reddit Content Policy](https://redditinc.com/policies/content-policy)
+- [FTC Advertising and Marketing
+  Basics](https://www.ftc.gov/business-guidance/advertising-marketing)

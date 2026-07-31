@@ -55,7 +55,9 @@
 	},
 	"include": [
 		"scripts/**/*.ts",
-		"scripts/**/*.tsx"
+		"scripts/**/*.tsx",
+		"skills/domain-name-finder/scripts/**/*.ts",
+		"skills/saas-legal-generator/scripts/**/*.ts"
 	],
 	"exclude": [
 		"node_modules/**",

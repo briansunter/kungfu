@@ -1,219 +1,181 @@
 ---
 name: domain-name-finder
-description: Find, validate, and register domain names through requirements gathering, brainstorming, trademark screening, availability checking, and registration guidance.
+description: Generate, research, verify, and rank domain names with current registration checks, trademark-risk screening, language and security review, social-handle research, and registration guidance. Use whenever the user needs a product, company, app, project, or personal-brand name or wants to compare domains.
 category: business
 license: MIT
+compatibility: Optional Bun scripts; live web access is required for current registration, trademark, price, and platform checks.
 ---
 
-# Domain Name Finder Skill
+# Domain Name Finder
 
-Find, validate, and register domain names through a structured 7-phase workflow.
+Produce names that fit the product and survive practical checks. Availability,
+trademark risk, reputation, pronunciation, and renewal cost are separate
+questions.
 
-## Utility Scripts
+## Non-Negotiable Rules
 
-Available in the `scripts/` directory:
+- Use live checks immediately before recommending registration. Domain status
+  and prices can change between research and checkout.
+- For generic top-level domains, prefer **RDAP, registry, registrar, and ICANN
+  Lookup**. Since January 28, 2025, RDAP is the definitive source for gTLD
+  registration data. DNS absence is only a heuristic; a registered domain may
+  have no DNS records.
+- Trademark searching requires official database and broader-use review.
+  Similarity in sound, appearance, meaning, and related goods/services can
+  matter even when the exact string is absent.
+- Never state “available,” “clear,” or “safe” from an error, timeout, missing
+  DNS response, or a single database.
+- Check the exact registrar checkout for premium status, first-year price,
+  renewal price, transfer price, and registry restrictions.
+- Do not register, bid, or spend money without explicit user authorization.
 
-| Script                        | Purpose                                     | When to Use                |
-| ----------------------------- | ------------------------------------------- | -------------------------- |
-| `scripts/check-all.ts`        | **Comprehensive** - All checks with scoring | **Default recommendation** |
-| `scripts/check-dns.ts`        | DNS availability only                       | Quick availability check   |
-| `scripts/check-whois.ts`      | WHOIS registration details                  | Get registrar/dates info   |
-| `scripts/check-trademarks.ts` | Trademark conflicts                         | Legal risk assessment      |
-| `scripts/check-social.ts`     | Social handle availability                  | Brand consistency check    |
+## Inputs
 
-## 7-Phase Workflow
+Infer from the product or repository, then establish:
 
-### Phase 1: Requirements Gathering
+- product, audience, positioning, and desired associations;
+- target countries and languages;
+- acceptable TLDs and annual renewal budget;
+- naming style, length, keywords, and words to avoid;
+- need for matching company name or social handles;
+- launch urgency and tolerance for premium/aftermarket domains.
 
-Understand project context and constraints.
+## Workflow
 
-**Gather these details:**
+### 1. Create a Naming Brief
 
-- **Project type**: SaaS, consumer app, e-commerce, personal brand, etc.
-- **Budget range**: $10-15 (budget) to $5000+ (premium domains)
-- **TLD preferences**: .com only, .io/.ai (tech), country-specific, open to
-  alternatives
-- **Naming style**: Descriptive, brandable, compound, playful, keyword-focused
-- **Length preference**: Short (4-6 letters), medium (7-10), longer (11+)
-- **Keywords**: Core terms related to the project
+Summarize the product in one line, then define three to five naming territories
+such as outcome, metaphor, category, invented word, founder story, or technical
+concept. Add objective constraints and a rejection list.
 
-**Output**: User requirements document summarizing preferences.
+### 2. Generate a Diverse Longlist
 
-### Phase 2: Brainstorm Domain Ideas
+Generate 30 to 60 candidates across multiple techniques:
 
-Generate 20-30 domain names using multiple techniques.
+- clear compounds and phrases;
+- evocative metaphors;
+- invented but pronounceable words;
+- roots from relevant languages, verified for meaning;
+- abbreviations only when naturally spoken;
+- modifier + category combinations.
 
-**Brainstorming techniques:**
+Avoid indiscriminate misspellings, hard-to-hear letter sequences, hyphens,
+numbers, accidental double letters, and names that depend on explaining the
+spelling.
 
-1. **Keyword combinations**: Combine 2-3 relevant words (e.g., TaskFlow,
-   ProjectMate)
-2. **Prefixes/Suffixes**: Add get-, go-, my-, -ify, -ly, -able, -io
-3. **Compound mashups**: Blend words (e.g., Pinterest = pin + interest)
-4. **Creative spellings**: Drop letters, use double letters (e.g., Flickr,
-   Tumblr)
-5. **Latin/Greek roots**: Use meaningful prefixes/suffixes (e.g., Nova, Zen,
-   Vel)
-6. **Industry metaphors**: Relate to field (e.g., Anchor for stability, Bolt for
-   speed)
+### 3. Run Fast Mechanical Checks
 
-**Example output:**
-
-```
-Descriptive: TaskFlow.com, ProjectManager.com
-Brandable: Velora.io, Zenify.app
-Compound: Notionly.com, ClickFlow.io
-Creative: Kreato.com, Desqgn.com
-```
-
-### Phase 3: Trademark Screening
-
-Check for potential conflicts using a combination of web signals and **assisted
-manual verification**.
-
-**Run trademark check:**
+Use the bundled scripts as aids:
 
 ```bash
-npx -y bun run scripts/check-trademarks.ts velora zenify taskflow
+bun run scripts/check-all.ts candidate.com another.app
+bun run scripts/check-dns.ts candidate.com
+bun run scripts/check-whois.ts candidate.com
+bun run scripts/check-social.ts candidate
 ```
 
-**Interpret results:**
+- [`check-all.ts`](scripts/check-all.ts) aggregates signals; inspect each
+  underlying result.
+- [`check-dns.ts`](scripts/check-dns.ts) reports DNS state, not registration
+  availability.
+- [`check-whois.ts`](scripts/check-whois.ts) is a compatibility/fallback check.
+  Prefer RDAP or registrar data when available.
+- [`check-social.ts`](scripts/check-social.ts) can produce false positives
+  because platforms rate-limit and change response behavior; verify finalists
+  manually.
 
-- **Web Activity**: High activity suggests the name is in use, though not
-  necessarily trademarked.
-- **Agent Action (REQUIRED)**: The script outputs an "AGENT HINT" with direct
-  links.
-  - **Action**: Use your `read_web_page` or `search_web` tool to visit these
-    links.
-  - **Goal**: Confirm if an exact match exists in the trademark database.
-  - **Fallback**: If the direct link fails, perform a web search for "USPTO
-    trademark search [name]" and browse manually.
+Record `registered`, `apparently unregistered`, `reserved/premium`, `unknown`,
+or `error` rather than collapsing uncertainty into yes/no.
 
-> [!IMPORTANT] **AGENTS**: You must not rely solely on the "Web Activity" score.
-> You are required to use your browser capabilities to verify the legal status
-> using the provided links.
+### 4. Screen Brand and Legal Risk
 
-**Output**: Web presence assessment + list of direct links for manual clearance.
-
-### Phase 4: Domain Availability Checking
-
-Identify which domains are available for registration.
-
-**Run availability check:**
+Run the helper, then verify official databases and broader use:
 
 ```bash
-# Quick DNS check (fast)
-npx -y bun run scripts/check-dns.ts velora.io zenify.app taskflow.com
-
-# Detailed WHOIS check (slower, more info)
-npx -y bun run scripts/check-whois.ts velora.io zenify.app taskflow.com
+bun run scripts/check-trademarks.ts candidate another
 ```
 
-**Interpret results:**
+[`check-trademarks.ts`](scripts/check-trademarks.ts) identifies search leads; it
+does not determine legal status. Review the [trademark search
+guide](references/trademark-search-guide.md), then search relevant official
+databases, state/company registries where appropriate, app stores, search
+engines, social platforms, and industry directories.
 
-- ✅ **Available**: No DNS/WHOIS records found
-- ❌ **Registered**: Domain has active records
-- ⚠️ **Error**: Check manually at registrar
+For each finalist record:
 
-**Output**: Availability table with status and registration details.
+- identical and similar marks;
+- goods/services and jurisdictions;
+- active businesses and common-law use;
+- similarity in sound, spelling, appearance, and meaning;
+- confidence and whether counsel review is warranted.
 
-### Phase 5: Analysis and Scoring
+### 5. Check Language, Voice, and Security
 
-Rank domains by overall fit using a scoring framework.
+For finalists:
 
-**Score each domain 1-10 across:**
+- say the name aloud and test phone/spoken recall;
+- check common misspellings and autocorrect;
+- review meanings and offensive associations in target languages;
+- inspect Unicode, IDN, and homograph risk;
+- check confusingly similar domains and impersonation potential;
+- review historical use, search reputation, spam/blocklists, and archived pages;
+- confirm email usability and whether the name looks credible in an invoice or
+  app store.
 
-1. **Brandability** (memorable, pronounceable, spellable)
-2. **Trademark risk** (based on Phase 3)
-3. **SEO potential** (keyword relevance, .com advantage)
-4. **Budget fit** (aligned with price range)
-5. **Marketing potential** (social handles, logo-friendly)
-6. **User preference** (matches style criteria)
+### 6. Verify Registration and Cost
 
-**Weighted scoring:**
+Use ICANN Lookup/RDAP plus at least one reputable registrar. Confirm:
 
-```
-Total = (Brandability × 2) + Trademark Risk + SEO + Budget + Marketing + Style
-```
+- exact domain and punycode representation;
+- registration status and registry restrictions;
+- premium/aftermarket status;
+- initial, renewal, and transfer price;
+- WHOIS/RDAP privacy behavior;
+- DNSSEC, account security, lock, and recovery options.
 
-**Output**: Ranked domain list with scores and rationale.
+Use [the registrar comparison](references/registrars-comparison-2025.md) only as
+a historical starting point; re-check current terms and pricing. Follow [the
+registration guide](references/registration-guide.md) and [DNS setup
+guide](references/dns-setup-guide.md) after purchase.
 
-### Phase 6: Deep Dive on Finalists
+### 7. Rank Finalists
 
-Comprehensive analysis of top 3-5 domains.
+Score 0 to 5 with evidence:
 
-**For each finalist, provide:**
+| Criterion | Weight |
+| --- | ---: |
+| Strategic fit and distinctiveness | 3 |
+| Pronunciation, spelling, and recall | 3 |
+| Legal/brand risk | 3 |
+| Verified registration and renewal cost | 2 |
+| Cross-language and reputation safety | 2 |
+| Search, social, and email usability | 1 |
+| Security and impersonation risk | 1 |
 
-- Name breakdown (pronunciation, meaning, associations)
-- Trademark risk summary
-- Domain history (Wayback Machine: https://web.archive.org/)
-- Social handle availability: `npx -y bun run scripts/check-social.ts velora`
-- Competitive landscape (similar domains in use)
-- Marketing angles and tagline suggestions
-- Registration recommendation
+Do not let availability dominate name quality. Include the best available option
+and the best overall option even when they differ.
 
-**Output**: Detailed dossier for each finalist domain.
+## Output Contract
 
-### Phase 7: Registration and Next Steps
+Return:
 
-Guide through registration process and setup.
+1. naming brief and territories;
+2. longlist grouped by style;
+3. shortlist table with exact check time and sources;
+4. detailed dossier for three to five finalists;
+5. trademark-risk caveat and counsel triggers;
+6. registration recommendation and backup choices;
+7. next-step checklist.
 
-**See references:**
-
-- `references/registrars-comparison-2025.md` - Compare pricing and features
-- `references/registration-guide.md` - Step-by-step registration walkthrough
-- `references/dns-setup-guide.md` - Configure A/CNAME/MX records
-
-**Key considerations:**
-
-- **Registrar choice**: Cloudflare (free WHOIS privacy), Porkbun (low prices),
-  Namecheap (support)
-- **Defensive registrations**: Consider .com + primary TLD + typos
-- **Trademark filing**: Consult attorney before significant investment
-- **DNS setup**: Point to hosting provider, configure email
-- **Social profiles**: Secure matching handles on key platforms
-
-**Output**: Actionable registration checklist.
-
-## Quick Reference
-
-**Project type examples:**
-
-- SaaS: .com, .io, .ai - brandable, compound words
-- Consumer app: .com, .app - short, memorable
-- E-commerce: .com, .shop - descriptive, keyword-rich
-- Personal brand: .com, .me - name-based, professional
-
-**TLD pricing (2025):**
-
-- .com: $10-15/year (standard), $100+ (premium)
-- .io: $35-50/year
-- .ai: $80-100/year
-- .app: $15-20/year
-
-**Common pitfalls:**
-
-- Numbers (hard to remember)
-- Hyphens (confusing, seen as spammy)
-- Double letters (typos: Flicker vs Flickr)
-- Trendy misspellings (may age poorly)
-- Long names (>15 characters)
-
-## References
-
-- `references/trademark-search-guide.md` - USPTO/EUIPO/UKIPO database links
-- `references/registrars-comparison-2025.md` - Pricing, features, pros/cons
-- `references/registration-guide.md` - Step-by-step registration
-- `references/dns-setup-guide.md` - A/CNAME/MX records
-
-## Examples
-
-See `examples/EXAMPLES.md` for real-world walkthroughs.
+See [worked examples](examples/EXAMPLES.md).
 
 ## Sources
 
 - [ICANN Lookup](https://lookup.icann.org/en)
-- [IANA Root Zone Database](https://www.iana.org/domains/root/db)
-- [Create DNS Records | Cloudflare Docs](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/)
+- [RDAP Is Now the Definitive Source for gTLD Registration Data |
+  ICANN](https://www.icann.org/en/announcements/details/rdap-is-now-the-definitive-source-for-gtld-registration-data-27-01-2025-en)
 - [Search Trademarks | USPTO](https://www.uspto.gov/trademarks/search)
+- [Likelihood of Confusion |
+  USPTO](https://www.uspto.gov/trademarks/search/likelihood-confusion)
 - [Global Brand Database | WIPO](https://branddb.wipo.int/)
-- [Search for a Trademark | GOV.UK](https://www.gov.uk/search-for-trademark)
+- [Unicode Security Considerations](https://www.unicode.org/reports/tr36/)

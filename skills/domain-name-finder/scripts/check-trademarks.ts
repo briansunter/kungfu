@@ -1,153 +1,94 @@
 #!/usr/bin/env bun
 /**
- * Trademark Checker
+ * Preliminary trademark research helper.
  *
- * Performs a preliminary web search for potential business conflicts
- * and generates direct links to official trademark databases for manual verification.
+ * This script creates reproducible search plans and official database links. It
+ * does not query every jurisdiction, evaluate confusing similarity, identify
+ * common-law rights, or provide legal clearance.
  *
  * Usage:
- *   bun run scripts/check-trademarks.ts velora zenify taskflow
- *   bun run check-trademarks $(cat names.txt)
+ *   bun run scripts/check-trademarks.ts velora "task flow"
  */
 
-import * as cheerio from 'cheerio';
-
-export { };
-
-interface TrademarkResult {
-  name: string;
-  webResults?: number;
-  riskLevel: 'low' | 'medium' | 'high'; // Based ONLY on web presence
-  links: {
-    uspto: string;
-    euipo: string;
-    wipo: string;
-  };
-  error?: string;
+export interface TrademarkSearchPlan {
+	name: string;
+	status: "manual-review-required";
+	checkedAt: string;
+	searchTerms: string[];
+	links: {
+		uspto: string;
+		euipo: string;
+		wipo: string;
+		ukipo: string;
+		webSearch: string;
+	};
+	checks: string[];
+	note: string;
 }
 
-const results: TrademarkResult[] = [];
-const names = process.argv.slice(2);
-
-if (names.length === 0) {
-  console.error('Usage: check-trademarks.ts <name1> <name2> ...');
-  process.exit(1);
+function cleanName(input: string): string {
+	const name = input.trim().replace(/\s+/g, " ");
+	if (!name) throw new Error("Name cannot be empty");
+	if (name.length > 200) throw new Error("Name is too long for a useful screening query");
+	return name;
 }
 
-console.log(`Generating trademark search links for ${names.length} name(s)...\n`);
+export function createTrademarkSearchPlan(input: string): TrademarkSearchPlan {
+	const name = cleanName(input);
+	const unspaced = name.replace(/[\s_-]+/g, "");
+	const spaced = name.replace(/[-_]+/g, " ");
+	const searchTerms = [...new Set([name, spaced, unspaced])].filter(Boolean);
+	const quotedQuery = searchTerms.map((term) => `"${term}"`).join(" OR ");
 
-/**
- * Perform web search for active businesses using the name
- */
-async function webSearch(query: string): Promise<number> {
-  try {
-    // Use DuckDuck Go HTML version (no API key needed)
-    const url = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query + ' "business" OR "software" OR "app"')}`;
-    const response = await fetch(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-      },
-    });
-
-    if (!response.ok) {
-      return 0;
-    }
-
-    const html = await response.text();
-    const $ = cheerio.load(html);
-
-    // Count web results
-    return $('.result').length;
-  } catch {
-    return 0;
-  }
+	return {
+		name,
+		status: "manual-review-required",
+		checkedAt: new Date().toISOString(),
+		searchTerms,
+		links: {
+			uspto: "https://tmsearch.uspto.gov/",
+			euipo: "https://euipo.europa.eu/eSearch/",
+			wipo: "https://branddb.wipo.int/",
+			ukipo: "https://trademarks.ipo.gov.uk/ipo-tmtext",
+			webSearch: `https://www.google.com/search?q=${encodeURIComponent(`${quotedQuery} business OR software OR app`)}`,
+		},
+		checks: [
+			"Search exact and similar spellings, spacing, plurals, phonetic equivalents, translations, and dominant word elements.",
+			"Review live and pending marks in relevant jurisdictions and related goods/services classes.",
+			"Search company registries, app stores, domains, industry directories, news, and the wider web for unregistered/common-law use.",
+			"Record owner, mark, status, filing/registration number, goods/services, jurisdiction, source URL, and review date.",
+			"Escalate close calls, launch-critical names, and significant brand investment to qualified trademark counsel.",
+		],
+		note: "No automated result can establish trademark availability. Absence of an exact match is not clearance; confusing similarity and related goods/services may still create risk.",
+	};
 }
 
-/**
- * Generate deep links to trademark databases
- */
-function generateLinks(name: string) {
-  return {
-    // USPTO Basic Word Mark Search (TESS substitute)
-    // Note: USPTO URLs change often, pointing to the main search hub is safest, but we try a search query if possible.
-    // As of 2025, CloudSearch is the new system.
-    uspto: `https://tmsearch.uspto.gov/search/search-results?searchType=basic&query=${encodeURIComponent(name)}`,
+async function main(): Promise<void> {
+	const names = process.argv.slice(2);
+	if (names.length === 0) {
+		console.error("Usage: check-trademarks.ts <name1> <name2> ...");
+		process.exit(1);
+	}
 
-    // EUIPO eSearch
-    euipo: `https://euipo.europa.eu/eSearch/#/trademark/search?find=${encodeURIComponent(name)}`,
+	const results = names.map((name) => {
+		try {
+			return createTrademarkSearchPlan(name);
+		} catch (error) {
+			return {
+				name,
+				status: "error",
+				checkedAt: new Date().toISOString(),
+				error: error instanceof Error ? error.message : "Unknown error",
+			};
+		}
+	});
 
-    // WIPO Global Brand Database
-    wipo: `https://www3.wipo.int/branddb/en/#{"keys":"${name}"}`
-  };
+	console.log(JSON.stringify(results, null, 2));
+	console.error(
+		"\nThis is preliminary research support, not legal advice or trademark clearance.",
+	);
 }
 
-// Check each name
-for (const name of names) {
-  try {
-    console.log(`Processing "${name}"...`);
-
-    const result: TrademarkResult = {
-      name,
-      riskLevel: 'low',
-      links: generateLinks(name)
-    };
-
-    // Run web search
-    const webCount = await webSearch(name);
-    result.webResults = webCount;
-
-    // Determine preliminary risk level based on WEB presence only
-    if (webCount > 20) {
-      result.riskLevel = 'high';
-    } else if (webCount > 5) {
-      result.riskLevel = 'medium';
-    } else {
-      result.riskLevel = 'low';
-    }
-
-    results.push(result);
-  } catch (error) {
-    results.push({
-      name,
-      riskLevel: 'low',
-      links: generateLinks(name),
-      error: error instanceof Error ? error.message : 'Unknown error',
-    });
-  }
-
-  // Delay to avoid rate limiting on DuckDuckGo
-  await new Promise(resolve => setTimeout(resolve, 1000));
+if (import.meta.main) {
+	await main();
 }
-
-// Display results
-console.log('\nResults:');
-console.log('─'.repeat(80));
-
-for (const result of results) {
-  const icon = result.riskLevel === 'low' ? '✅' :
-    result.riskLevel === 'medium' ? '⚠️' : 'hz'; // High web presence doesn't mean trademark, but it's a signal
-
-  console.log(`${icon} ${result.name.padEnd(30)} WEB ACTIVITY: ${result.riskLevel.toUpperCase()}`);
-
-  if (result.webResults !== undefined) {
-    console.log(`  Web Matches: ~${result.webResults} (DuckDuckGo hit count)`);
-  }
-
-  console.log(`  \n  🤖 AGENT HINT: Use your browser tool to protect the user.`);
-  console.log(`  1. Open these URLs to check for direct conflicts.`);
-  console.log(`  2. If blocked, search google for "trademark search [name]" and browse manually.`);
-  console.log(`  USPTO (US):  ${result.links.uspto}`);
-  console.log(`  EUIPO (EU):  ${result.links.euipo}`);
-  console.log(`  WIPO (Intl): ${result.links.wipo}`);
-
-  if (result.error) {
-    console.log(`  Error: ${result.error}`);
-  }
-  console.log();
-}
-
-// Output JSON for programmatic use
-console.log('\n--- JSON OUTPUT ---');
-console.log(JSON.stringify(results, null, 2));
-
-console.log('\n⚠️  IMPORTANT: "Web Activity" is just a hint. You MUST check the links above for actual legal trademarks.');

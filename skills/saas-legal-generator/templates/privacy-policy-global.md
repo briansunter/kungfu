@@ -3,11 +3,6 @@
 **Version:** [VERSION]  
 **Effective date:** [EFFECTIVE_DATE]
 
-> **Drafting note:** Delete this note before publication. This notice must match
-> the deployed product, contracts, data inventory, consent flows, rights
-> workflows, and applicable law. Do not retain optional sections merely because
-> they appear in the template.
-
 ## 1. Who We Are
 
 [COMPANY_NAME] operates [DOMAIN] and the service described below:
@@ -30,8 +25,7 @@ processing activities; explain those distinctions where relevant.
 This notice applies to the people, products, websites, applications, and
 processing activities listed here:
 
-[[REVIEW: IDENTIFY THE PEOPLE, SERVICES, DOMAINS, APPS, AND PROCESSING ACTIVITIES
-IN SCOPE, PLUS MATERIAL EXCLUSIONS]]
+[[REVIEW: IDENTIFY THE PEOPLE, SERVICES, DOMAINS, APPS, AND PROCESSING ACTIVITIES IN SCOPE, PLUS MATERIAL EXCLUSIONS]]
 
 If we process customer-submitted personal data only on a business customer's
 instructions, the customer's privacy notice may govern that activity and our
@@ -154,9 +148,7 @@ security documentation, actual architecture, and vendor responsibilities.
 
 ## 13. Automated Decision-Making and AI
 
-[[REVIEW: DISCLOSE MATERIAL PROFILING, AUTOMATED DECISIONS, GENERATIVE-AI DATA
-USE, MODEL PROVIDERS, HUMAN REVIEW, TRAINING/RETENTION CHOICES, AND AVAILABLE
-RIGHTS IF RELEVANT; OTHERWISE REMOVE THIS SECTION]]
+[[REVIEW: DISCLOSE MATERIAL PROFILING, AUTOMATED DECISIONS, GENERATIVE-AI DATA USE, MODEL PROVIDERS, HUMAN REVIEW, TRAINING/RETENTION CHOICES, AND AVAILABLE RIGHTS IF RELEVANT; OTHERWISE REMOVE THIS SECTION]]
 
 ## 14. Changes to This Notice
 
@@ -174,5 +166,4 @@ Questions or requests may be sent to:
 - Address: [COMPANY_ADDRESS]
 - Rights-request method: [RIGHTS_REQUEST_PROCESS]
 
-[[REVIEW: ADD THE RELEVANT DATA PROTECTION OFFICER, REPRESENTATIVE, REGULATOR,
-AND APPEAL/COMPLAINT INFORMATION IF REQUIRED]]
+[[REVIEW: ADD THE RELEVANT DATA PROTECTION OFFICER, REPRESENTATIVE, REGULATOR, AND APPEAL/COMPLAINT INFORMATION IF REQUIRED]]

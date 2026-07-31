@@ -1,6 +1,6 @@
 ---
 name: saas-legal-generator
-description: Create an attorney-review-ready SaaS legal drafting package from an evidence-based data and product inventory. Use whenever the user needs a privacy notice, terms of service, cookie notice, acceptable use policy, DPA, CCPA/CPRA notice, vendor disclosure, or a gap analysis of existing legal pages. This skill flags issues and drafts language; it never guarantees legal compliance.
+description: Create an attorney-review-ready SaaS legal drafting package from an evidence-based data and product inventory. Use whenever the user needs a privacy notice, terms of service, cookie notice, acceptable use policy, DPA, CCPA/CPRA notice, vendor disclosure, or a gap analysis of existing legal pages. This skill flags issues and drafts language for review.
 category: business
 license: MIT
 compatibility: Optional Bun generator; live legal research and qualified counsel review are required before publication.
@@ -9,9 +9,8 @@ compatibility: Optional Bun generator; live legal research and qualified counsel
 # SaaS Legal Drafting Assistant
 
 Generate tailored drafts and an issue list for professional review. Laws,
-thresholds, contracts, and enforcement guidance change. This skill provides
-information and drafting support—not legal advice, legal representation, or a
-compliance certification.
+thresholds, contracts, and enforcement guidance change; use current official
+sources for the selected jurisdiction.
 
 ## Hard Rules
 
@@ -144,7 +143,7 @@ Return both redlines and a concise issue list:
 
 Return:
 
-1. disclaimer and scope;
+1. scope;
 2. verified legal/data inventory;
 3. jurisdiction and obligation matrix;
 4. missing decisions and counsel triggers;

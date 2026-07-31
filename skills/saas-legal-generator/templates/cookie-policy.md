@@ -3,18 +3,13 @@
 **Version:** [VERSION]  
 **Effective date:** [EFFECTIVE_DATE]
 
-> **Drafting note:** Delete this note before publication. Generate the inventory
-> from the deployed product, tag manager, SDKs, network activity, storage APIs,
-> and vendor configuration. A generic category list is not an adequate audit.
-
 ## 1. Scope
 
 This notice explains how [COMPANY_NAME] uses cookies, pixels, SDKs, local
 storage, device identifiers, and similar technologies on [DOMAIN] and the
 following products or applications:
 
-[[REVIEW: LIST THE WEBSITES, SUBDOMAINS, APPS, EMBEDS, AND EMAIL TECHNOLOGIES IN
-SCOPE]]
+[[REVIEW: LIST THE WEBSITES, SUBDOMAINS, APPS, EMBEDS, AND EMAIL TECHNOLOGIES IN SCOPE]]
 
 ## 2. Actual Technology Inventory
 
@@ -44,8 +39,7 @@ Explain only categories actually used:
 - **Other:** describe the specific purpose rather than forcing it into an
   inaccurate category.
 
-[[REVIEW: MAP EACH INVENTORY ITEM TO ITS VERIFIED PURPOSE, LEGAL CONDITION, AND
-CONSENT/OPT-OUT BEHAVIOR]]
+[[REVIEW: MAP EACH INVENTORY ITEM TO ITS VERIFIED PURPOSE, LEGAL CONDITION, AND CONSENT/OPT-OUT BEHAVIOR]]
 
 ## 4. Your Choices
 
@@ -53,9 +47,7 @@ Cookie and privacy settings: [COOKIE_SETTINGS_URL]
 
 Describe the deployed choice flow accurately:
 
-[[REVIEW: EXPLAIN WHICH TECHNOLOGIES ARE OFF BY DEFAULT, HOW USERS ACCEPT OR
-REJECT BY PURPOSE, HOW THE CHOICE IS STORED, HOW OFTEN IT IS RENEWED, AND HOW TO
-WITHDRAW OR CHANGE IT]]
+[[REVIEW: EXPLAIN WHICH TECHNOLOGIES ARE OFF BY DEFAULT, HOW USERS ACCEPT OR REJECT BY PURPOSE, HOW THE CHOICE IS STORED, HOW OFTEN IT IS RENEWED, AND HOW TO WITHDRAW OR CHANGE IT]]
 
 Where prior consent is required, nonessential technologies must remain blocked
 until a valid affirmative choice. Rejecting should be as easy and prominent as
@@ -68,9 +60,7 @@ preference and cause the banner to reappear.
 
 ## 5. Opt-Out Preference Signals
 
-[[REVIEW: EXPLAIN WHETHER AND HOW THE SERVICE PROCESSES GLOBAL PRIVACY CONTROL OR
-OTHER LEGALLY RECOGNIZED OPT-OUT PREFERENCE SIGNALS. DO NOT CLAIM SUPPORT UNTIL
-IT HAS BEEN TESTED END TO END]]
+[[REVIEW: EXPLAIN WHETHER AND HOW THE SERVICE PROCESSES GLOBAL PRIVACY CONTROL OR OTHER LEGALLY RECOGNIZED OPT-OUT PREFERENCE SIGNALS. DO NOT CLAIM SUPPORT UNTIL IT HAS BEEN TESTED END TO END]]
 
 ## 6. Vendors and Cross-Site Processing
 
@@ -82,9 +72,7 @@ processing is a sale, sharing, joint controllership, or exempt processing.
 
 ## 7. Email and Mobile Technologies
 
-[[REVIEW: DISCLOSE EMAIL PIXELS/LINK TRACKING, MOBILE SDKs, DEVICE IDENTIFIERS,
-APP PERMISSIONS, AND PLATFORM PRIVACY CHOICES IF USED; OTHERWISE REMOVE THIS
-SECTION]]
+[[REVIEW: DISCLOSE EMAIL PIXELS/LINK TRACKING, MOBILE SDKs, DEVICE IDENTIFIERS, APP PERMISSIONS, AND PLATFORM PRIVACY CHOICES IF USED; OTHERWISE REMOVE THIS SECTION]]
 
 ## 8. Consequences of a Choice
 
@@ -115,5 +103,4 @@ choice or notice, and how the version history is maintained.
 - Privacy notice: [DOMAIN]/privacy
 - Cookie settings: [COOKIE_SETTINGS_URL]
 
-[[REVIEW: ADD JURISDICTION-SPECIFIC COMPLAINT OR REGULATOR INFORMATION IF
-REQUIRED]]
+[[REVIEW: ADD JURISDICTION-SPECIFIC COMPLAINT OR REGULATOR INFORMATION IF REQUIRED]]

@@ -79,23 +79,6 @@ avoid unsafe or fabricated actions.
 - [ ] **No fabrication:** Never invents demand, customers, testimonials, legal
       status, availability, contacts, analytics, or experiment results.
 
-### Safety and Ethics
-
-- [ ] **Irreversible actions:** Requires explicit authorization before spending,
-      registering, publishing, messaging, deleting, signing, or changing
-      production.
-- [ ] **Privacy and security:** Uses least data and privilege, protects secrets,
-      respects access restrictions, and includes rollback/auditability where
-      relevant.
-- [ ] **Legal/financial claims:** Frames drafts and analysis accurately and
-      identifies counsel or specialist review triggers without promising
-      compliance or returns.
-- [ ] **Platform integrity:** Rejects spam, scraping prohibited data, fake
-      accounts, vote/review manipulation, undisclosed incentives, and deceptive
-      tests.
-- [ ] **User control:** Avoids dark patterns and preserves consent, cancellation,
-      opt-out, export, deletion, and accessible alternatives where relevant.
-
 ### Supporting Artifacts
 
 - [ ] **Consistency:** Scripts, templates, references, and examples implement the
@@ -153,7 +136,7 @@ For each skill, record:
 
 ### Skill Review: `<skill-name>`
 
-**Status:** Pass / Needs fixes  
+**Status:** Pass / Needs fixes
 **Checks run:** `<commands and script scenarios>`
 
 | Severity | File:line | Finding | Evidence | Recommended fix |

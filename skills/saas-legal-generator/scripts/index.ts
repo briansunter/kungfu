@@ -453,7 +453,7 @@ class LegalGenerator {
 		);
 		const securitySummary = this.config.security_summary?.length
 			? this.config.security_summary.map((control) => `- ${control}`).join("\n")
-			: "[[REVIEW: DESCRIBE ONLY VERIFIED SECURITY CONTROLS WITHOUT CREATING A GUARANTEE]]";
+			: "[[REVIEW: DESCRIBE ONLY VERIFIED SECURITY CONTROLS]]";
 		const californiaDisclosure = california
 			? `Applicability: **${california.applies ?? "unknown"}**  \nSale: **${california.sells ?? "unknown"}**  \nSharing: **${california.shares ?? "unknown"}**  \nSensitive-personal-information limitation relevant: **${california.uses_sensitive_personal_information ?? "unknown"}**  \nGPC operationally honored: **${california.honors_gpc ?? "unknown"}**  \nRights request: ${placeholder("CALIFORNIA RIGHTS REQUEST URL", california.request_url)}  \nOpt-out: ${placeholder("DO NOT SELL OR SHARE URL", california.opt_out_url)}  \nLimit-use request: ${placeholder("LIMIT USE URL IF APPLICABLE", california.limit_use_url)}`
 			: "[[REVIEW: ASSESS CCPA/CPRA APPLICABILITY, SALE, SHARING, SENSITIVE DATA, AND GPC BEFORE PUBLISHING]]";
@@ -508,8 +508,6 @@ class LegalGenerator {
 		let content = await readFile(templatePath, "utf8");
 		for (const [token, value] of this.replacements()) content = content.replaceAll(token, value);
 
-		const banner = `> [!WARNING]\n> **DRAFT FOR FACTUAL AND QUALIFIED LEGAL REVIEW.** This generated text is informational drafting support, not legal advice or a compliance certification. Remove this banner only after the document matches the deployed product, contracts, data flows, and applicable law.\n\n`;
-		content = `${banner}${content}`;
 		return { content, unresolved: unresolvedMarkers(content) };
 	}
 
@@ -532,13 +530,11 @@ class LegalGenerator {
 			"",
 			`Generated: ${new Date().toISOString()}`,
 			"",
-			"> These drafts are not approved for publication. Resolve every factual marker, test the product-to-policy behavior, verify current law from official sources, and obtain qualified legal review.",
-			"",
 			"## Configuration Warnings",
 			"",
 			...(this.warnings.length > 0
 				? this.warnings.map((warning) => `- ${warning}`)
-				: ["- No generator-level warnings; this does not establish completeness or legal sufficiency."]),
+				: ["- No generator-level warnings."]),
 			"",
 			"## Unresolved Markers",
 			"",
@@ -569,7 +565,7 @@ class LegalGenerator {
 
 	async run(configPath?: string): Promise<void> {
 		console.log("\nSaaS legal drafting assistant");
-		console.log("Drafts are not legal advice and are never automatically publication-ready.\n");
+		console.log();
 		try {
 			if (configPath) await this.loadConfig(configPath);
 			else await this.collectInteractiveConfig();
@@ -580,7 +576,6 @@ class LegalGenerator {
 			const files = await this.generateAll();
 			await this.writeReviewReport(files);
 			console.log(`\nGenerated ${files.length} draft(s) and REVIEW-REPORT.md in ${this.outputDir}`);
-			console.log("Do not publish or sign them until all markers and review items are resolved.");
 		} finally {
 			this.rl.close();
 		}

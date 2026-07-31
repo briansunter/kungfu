@@ -1,6 +1,6 @@
 ---
 name: lead-research-assistant
-description: Build evidence-backed B2B account and prospect research for ethical sales, partnerships, pilots, or customer discovery. Use whenever the user wants an ICP, target-account list, qualified leads, account scoring, buying signals, decision-maker roles, outreach angles, CRM-ready research, or deeper analysis of named companies.
+description: Build evidence-backed B2B account and prospect research for sales, partnerships, pilots, or customer discovery. Use whenever the user wants an ICP, target-account list, qualified leads, account scoring, buying signals, decision-maker roles, outreach angles, CRM-ready research, or deeper analysis of named companies.
 category: business
 license: MIT
 compatibility: Live web access is required for current company facts, public contacts, consent rules, and source verification.

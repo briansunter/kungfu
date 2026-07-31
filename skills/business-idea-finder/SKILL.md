@@ -39,7 +39,7 @@ Infer what you can, then establish:
 
 When the request is broad, default to opportunities that a small technical team
 can test within two weeks and build an initial paid solution for within roughly
-one to three months. Treat that as a constraint, not a success guarantee.
+one to three months. Use that as a planning constraint.
 
 ## Workflow
 

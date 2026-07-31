@@ -3,10 +3,8 @@
  * Registration data checker.
  *
  * Uses IANA's RDAP bootstrap registry first and falls back to the system WHOIS
- * command only when no RDAP service is published for the TLD. A result of
- * "apparently-unregistered" is not a purchase guarantee: registries and
- * registrars may reserve names, classify them as premium, or change state
- * before checkout.
+ * command only when no RDAP service is published for the TLD. Confirm status
+ * and pricing with the registry or registrar.
  *
  * Usage:
  *   bun run scripts/check-whois.ts example.com example.io
@@ -191,7 +189,7 @@ async function queryRdap(
 			source: "rdap",
 			checkedAt,
 			rdapUrl,
-			note: "RDAP lookup failed; do not infer availability from this error.",
+			note: "RDAP lookup failed.",
 			error: error instanceof Error ? error.message : "Unknown RDAP error",
 		};
 	}
@@ -267,7 +265,7 @@ async function queryWhois(domain: string, asciiDomain: string): Promise<Registra
 			nameservers,
 			note: registered
 				? "WHOIS returned registration indicators. Verify at the registry or registrar."
-				: "WHOIS output was inconclusive; do not infer availability.",
+				: "WHOIS output was inconclusive.",
 		};
 	} catch (error) {
 		const stderr =
@@ -290,7 +288,7 @@ async function queryWhois(domain: string, asciiDomain: string): Promise<Registra
 			status: "error",
 			source: "whois",
 			checkedAt,
-			note: "WHOIS lookup failed; do not infer availability from this error.",
+			note: "WHOIS lookup failed.",
 			error: stderr || (error instanceof Error ? error.message : "Unknown WHOIS error"),
 		};
 	}
@@ -323,7 +321,7 @@ export async function checkRegistration(input: string): Promise<RegistrationResu
 			status: "error",
 			source: "none",
 			checkedAt,
-			note: "Registration lookup failed; do not infer availability.",
+			note: "Registration lookup failed.",
 			error: error instanceof Error ? error.message : "Unknown lookup error",
 		};
 	}
@@ -343,9 +341,6 @@ async function main(): Promise<void> {
 	}
 
 	console.log(JSON.stringify(results, null, 2));
-	console.error(
-		"\nVerify apparently unregistered names, premium/reserved status, and exact renewal pricing at a reputable registrar before purchase.",
-	);
 }
 
 if (import.meta.main) {

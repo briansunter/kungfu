@@ -132,9 +132,6 @@ async function main(): Promise<void> {
 	}
 
 	console.log(JSON.stringify(reports, null, 2));
-	console.error(
-		"\nNo automatic report can guarantee registration availability, trademark clearance, handle availability, or suitability. Verify finalists manually before spending money or launching.",
-	);
 }
 
 if (import.meta.main) {

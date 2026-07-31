@@ -1,13 +1,13 @@
 ---
 name: community-growth-specialist
-description: Design ethical, repeatable community-led growth systems. Use whenever the user wants to grow an audience, build in public, launch in Reddit, Hacker News, Product Hunt, Discord, Slack, or niche groups, improve community engagement, or turn participation into qualified demand without spam.
+description: Design repeatable community-led growth systems. Use whenever the user wants to grow an audience, build in public, launch in Reddit, Hacker News, Product Hunt, Discord, Slack, or niche groups, improve community engagement, or turn participation into qualified demand.
 category: business
 license: MIT
 ---
 
 # Community Growth Specialist
 
-Build trust and distribution by helping a specific community accomplish
+Build distribution by helping a specific community accomplish
 something it already values. Treat community as a relationship and learning
 system, not a list of places to drop links.
 
@@ -17,14 +17,9 @@ system, not a list of places to drop links.
   asking questions.
 - Verify current community rules and platform mechanics before recommending
   tactics.
-- Never recommend vote manipulation, brigading, purchased engagement,
-  undisclosed incentives, sockpuppets, scraped private groups, or mass
-  unsolicited messages.
 - Distinguish platform metrics from business outcomes. Upvotes and followers are
   weak unless they lead to qualified conversations, activation, retention,
   referrals, or revenue.
-- Quote community members accurately and protect private or sensitive
-  information.
 - Adapt to each community; there is no universal posting ratio, cadence, or
   “best time.”
 
@@ -90,7 +85,7 @@ Create two to four repeatable formats, such as:
 - reusable template, calculator, checklist, or open-source tool;
 - synthesis of recurring questions;
 - office hours or structured feedback thread;
-- customer story centered on the customer’s work, with permission.
+- customer story centered on the customer’s work.
 
 For every format define the audience problem, proof required, effort, native
 call-to-action, and follow-up. Use [post
@@ -112,7 +107,7 @@ Tag links only where permitted. Combine link attribution with self-reported
 discovery and downstream product analytics; dark social and cross-device
 journeys make exact attribution incomplete.
 
-### 5. Convert Without Breaking Trust
+### 5. Convert
 
 Match the ask to the relationship:
 
@@ -121,10 +116,6 @@ Match the ask to the relationship:
 3. Offer a resource when it directly solves the topic.
 4. Invite a relevant person to a call, pilot, or product only after fit is
    clear.
-
-Disclose affiliations. Give enough context that readers can evaluate the
-contribution without clicking. Follow up on every substantive response, but do
-not manufacture urgency or pressure members to promote.
 
 ### 6. Launch and Continue
 
@@ -136,10 +127,6 @@ A launch is a concentrated community event, not the strategy itself. Prepare:
 - product analytics and feedback capture;
 - four weeks of useful follow-up content;
 - a post-launch retrospective.
-
-For Product Hunt, follow its current official rules: ask supporters to visit and
-join the discussion, not to upvote; avoid paid or coordinated manipulation; use
-a personal maker account where required.
 
 Use [the content calendar](references/content-calendar.md) to schedule a
 sustainable cadence rather than filling every slot.
@@ -153,7 +140,6 @@ Report trends by community and content format:
 - activation and retained users by source;
 - member-created referrals or content;
 - response time and unresolved questions;
-- removals, complaints, opt-outs, or reputation risks;
 - founder time per qualified outcome.
 
 Set baselines from the user’s own data before declaring a metric healthy.

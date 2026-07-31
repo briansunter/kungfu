@@ -59,7 +59,7 @@ export function createTrademarkSearchPlan(input: string): TrademarkSearchPlan {
 			"Record owner, mark, status, filing/registration number, goods/services, jurisdiction, source URL, and review date.",
 			"Escalate close calls, launch-critical names, and significant brand investment to qualified trademark counsel.",
 		],
-		note: "No automated result can establish trademark availability. Absence of an exact match is not clearance; confusing similarity and related goods/services may still create risk.",
+		note: "Review official databases and related uses before deciding.",
 	};
 }
 
@@ -84,9 +84,6 @@ async function main(): Promise<void> {
 	});
 
 	console.log(JSON.stringify(results, null, 2));
-	console.error(
-		"\nThis is preliminary research support, not legal advice or trademark clearance.",
-	);
 }
 
 if (import.meta.main) {

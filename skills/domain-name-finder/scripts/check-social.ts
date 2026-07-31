@@ -2,10 +2,8 @@
 /**
  * Social-handle evidence checker.
  *
- * Platform responses, redirects, reserved names, suspensions, and rate limits
- * make automated availability checks approximate. Treat every result as a lead
- * for manual verification inside the platform immediately before claiming or
- * publishing a handle.
+ * Platform responses vary with redirects, reserved names, suspensions, and
+ * rate limits.
  *
  * Usage:
  *   bun run scripts/check-social.ts velora taskflow
@@ -175,7 +173,7 @@ async function checkPlatform(
 			status: "unknown",
 			confidence: "low",
 			checkedAt,
-			note: "The automated check failed; do not infer availability.",
+			note: "The automated check failed.",
 			error: error instanceof Error ? error.message : "Unknown network error",
 		};
 	}
@@ -189,7 +187,7 @@ export async function checkSocialName(input: string): Promise<SocialResult> {
 	return {
 		name,
 		handles,
-		note: "All results are approximate. Search for impersonators and confusing variants, then verify and claim handles directly on each platform.",
+		note: "Automated responses are approximate.",
 	};
 }
 
@@ -213,7 +211,6 @@ async function main(): Promise<void> {
 	}
 
 	console.log(JSON.stringify(results, null, 2));
-	console.error("\nVerify every handle directly on the platform before relying on it.");
 }
 
 if (import.meta.main) {

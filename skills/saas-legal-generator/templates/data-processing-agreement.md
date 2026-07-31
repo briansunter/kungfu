@@ -1,13 +1,6 @@
 # Data Processing Agreement
 
-**Status:** Draft for factual, security, commercial, and qualified legal
-review  
 **Effective date:** [EFFECTIVE_DATE]
-
-> **Drafting note:** This template is intended for a verified
-> controller–processor relationship. It must be aligned with the main agreement,
-> actual processing, security measures, subprocessors, transfer mechanisms,
-> service levels, and governing law. Delete this note before signature.
 
 This Data Processing Agreement (the **DPA**) forms part of
 [[REVIEW: IDENTIFY THE MAIN AGREEMENT, ORDER FORM, AND PRECEDENCE RULE]]
@@ -30,9 +23,7 @@ The subject matter, duration, nature, purpose, data types, and data-subject
 categories are described in Annex 1. Processing outside that scope requires a
 lawful documented instruction or an agreed contract change.
 
-[[REVIEW: IDENTIFY WHICH EU, EEA, UK, SWISS, US STATE, OR OTHER PROCESSOR TERMS
-THIS DPA IS INTENDED TO SATISFY. DO NOT LABEL THE DPA “GDPR COMPLIANT” WITHOUT A
-JURISDICTION-SPECIFIC REVIEW]]
+[[REVIEW: IDENTIFY WHICH EU, EEA, UK, SWISS, US STATE, OR OTHER PROCESSOR TERMS THIS DPA IS INTENDED TO SATISFY. DO NOT LABEL THE DPA “GDPR COMPLIANT” WITHOUT A JURISDICTION-SPECIFIC REVIEW]]
 
 ## 2. Documented Instructions
 
@@ -55,8 +46,7 @@ The Processor will ensure that authorized personnel:
 - receive role-appropriate privacy and security training; and
 - have access removed when no longer required.
 
-[[REVIEW: ALIGN THIS CLAUSE WITH ACTUAL HR, ACCESS, CONTRACTOR, AND OFFBOARDING
-CONTROLS]]
+[[REVIEW: ALIGN THIS CLAUSE WITH ACTUAL HR, ACCESS, CONTRACTOR, AND OFFBOARDING CONTROLS]]
 
 ## 4. Security
 
@@ -76,10 +66,7 @@ aware of a Personal Data Breach affecting Controller Personal Data and will
 provide available information reasonably necessary for the Controller's legal
 assessment and notifications.
 
-[[REVIEW: NEGOTIATE THE CONTRACTUAL NOTICE CHANNEL, INITIAL TARGET, UPDATE
-CADENCE, REQUIRED CONTENT, COOPERATION, FORENSICS, PRESERVATION, COSTS, AND
-PUBLIC-COMMUNICATION RULES. DO NOT MISSTATE THE CONTROLLER'S REGULATORY 72-HOUR
-DEADLINE AS A UNIVERSAL PROCESSOR-TO-CONTROLLER DEADLINE]]
+[[REVIEW: NEGOTIATE THE CONTRACTUAL NOTICE CHANNEL, INITIAL TARGET, UPDATE CADENCE, REQUIRED CONTENT, COOPERATION, FORENSICS, PRESERVATION, COSTS, AND PUBLIC-COMMUNICATION RULES. DO NOT MISSTATE THE CONTROLLER'S REGULATORY 72-HOUR DEADLINE AS A UNIVERSAL PROCESSOR-TO-CONTROLLER DEADLINE]]
 
 The Processor will not notify regulators or affected individuals on the
 Controller's behalf unless authorized or legally required.
@@ -92,8 +79,7 @@ The Processor will impose data-protection obligations on each Subprocessor that
 provide the protection required for the covered processing and will remain
 responsible as required by the applicable law and contract.
 
-[[REVIEW: DEFINE NOTICE METHOD/PERIOD, REASONABLE OBJECTION STANDARD, REMEDIES,
-EMERGENCY CHANGES, AFFILIATES, AND CURRENT SUBPROCESSOR LIST URL]]
+[[REVIEW: DEFINE NOTICE METHOD/PERIOD, REASONABLE OBJECTION STANDARD, REMEDIES, EMERGENCY CHANGES, AFFILIATES, AND CURRENT SUBPROCESSOR LIST URL]]
 
 ## 7. Assistance to the Controller
 
@@ -105,8 +91,7 @@ Processor will provide the assistance required by applicable law for:
 - data-protection impact assessments and prior consultation;
 - records, inquiries, and regulator cooperation.
 
-[[REVIEW: DEFINE REQUEST CHANNELS, RESPONSE TARGETS, INCLUDED SUPPORT, EXCESSIVE
-REQUESTS, COSTS, AND LIMITS CONSISTENT WITH THE LAW]]
+[[REVIEW: DEFINE REQUEST CHANNELS, RESPONSE TARGETS, INCLUDED SUPPORT, EXCESSIVE REQUESTS, COSTS, AND LIMITS CONSISTENT WITH THE LAW]]
 
 The Processor will not independently respond to a data-subject request for
 Controller Personal Data unless instructed or legally required, but will route
@@ -119,8 +104,7 @@ return or delete covered Personal Data after the services end. Annex 1 must
 state production deletion timing, backup expiry, export format, legal holds, and
 any retained data that becomes isolated from further ordinary processing.
 
-[[REVIEW: ALIGN THIS CLAUSE WITH THE ACTUAL ACCOUNT-DELETION, BACKUP,
-SUBPROCESSOR, LOG, AND DISASTER-RECOVERY DESIGN]]
+[[REVIEW: ALIGN THIS CLAUSE WITH THE ACTUAL ACCOUNT-DELETION, BACKUP, SUBPROCESSOR, LOG, AND DISASTER-RECOVERY DESIGN]]
 
 ## 9. Demonstrating Compliance and Audits
 
@@ -130,9 +114,7 @@ The parties should prioritize current independent reports, certifications,
 questionnaires, and documentation before on-site inspection where legally and
 commercially appropriate.
 
-[[REVIEW: NEGOTIATE AUDIT SCOPE, FREQUENCY, NOTICE, CONFIDENTIALITY, INDEPENDENT
-AUDITOR, COSTS, SECURITY/OTHER-CUSTOMER PROTECTIONS, REMEDIATION, AND REGULATOR
-RIGHTS WITHOUT IMPERMISSIBLY LIMITING STATUTORY OBLIGATIONS]]
+[[REVIEW: NEGOTIATE AUDIT SCOPE, FREQUENCY, NOTICE, CONFIDENTIALITY, INDEPENDENT AUDITOR, COSTS, SECURITY/OTHER-CUSTOMER PROTECTIONS, REMEDIATION, AND REGULATOR RIGHTS WITHOUT IMPERMISSIBLY LIMITING STATUTORY OBLIGATIONS]]
 
 ## 10. International Transfers
 
@@ -153,10 +135,7 @@ reduce any independent duty of the Processor.
 
 ## 12. Liability, Priority, and Term
 
-[[REVIEW: HAVE COUNSEL ALIGN LIABILITY, INDEMNITY, EXCLUSIONS, INSURANCE,
-GOVERNING LAW, DISPUTE TERMS, ORDER OF PRECEDENCE, AMENDMENT, TERMINATION, AND
-SURVIVAL WITH THE MAIN AGREEMENT AND NON-WAIVABLE LAW. DO NOT USE A GENERIC CAP
-WITHOUT COMMERCIAL AND LEGAL APPROVAL]]
+[[REVIEW: HAVE COUNSEL ALIGN LIABILITY, INDEMNITY, EXCLUSIONS, INSURANCE, GOVERNING LAW, DISPUTE TERMS, ORDER OF PRECEDENCE, AMENDMENT, TERMINATION, AND SURVIVAL WITH THE MAIN AGREEMENT AND NON-WAIVABLE LAW. DO NOT USE A GENERIC CAP WITHOUT COMMERCIAL AND LEGAL APPROVAL]]
 
 ## Annex 1 — Processing Details
 
@@ -192,9 +171,7 @@ location, transfer mechanism, and notice source.
 
 ## Annex 4 — Transfer Terms
 
-[[REVIEW: ATTACH OR INCORPORATE THE CORRECT TRANSFER INSTRUMENTS, MODULES,
-DOCKING/UK ADDENDUM OR IDTA TERMS, LOCAL-LAW SUPPLEMENTS, AND PARTY DETAILS AFTER
-COUNSEL REVIEW]]
+[[REVIEW: ATTACH OR INCORPORATE THE CORRECT TRANSFER INSTRUMENTS, MODULES, DOCKING/UK ADDENDUM OR IDTA TERMS, LOCAL-LAW SUPPLEMENTS, AND PARTY DETAILS AFTER COUNSEL REVIEW]]
 
 ## Signatures
 

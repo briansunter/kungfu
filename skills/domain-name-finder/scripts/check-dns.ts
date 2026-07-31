@@ -2,9 +2,8 @@
 /**
  * DNS evidence checker.
  *
- * DNS records can prove that a domain is configured, but the absence of DNS
- * records does not prove that the domain is available to register. Use the
- * RDAP-first registration checker for registration status.
+ * DNS lookups report configuration evidence. Use the RDAP-first registration
+ * checker for registration status.
  *
  * Usage:
  *   bun run scripts/check-dns.ts example.com example.io
@@ -87,7 +86,7 @@ export async function checkDns(input: string): Promise<DnsResult> {
 				checkedAt,
 				recordTypes,
 				nameservers,
-				note: "DNS configuration was found. This is evidence of use, not a complete registration record.",
+				note: "DNS configuration was found.",
 			};
 		}
 
@@ -103,8 +102,8 @@ export async function checkDns(input: string): Promise<DnsResult> {
 			status: noRecords ? "no-records" : "error",
 			checkedAt,
 			note: noRecords
-				? "No DNS records were observed. The domain may still be registered, reserved, premium, or temporarily misconfigured."
-				: "DNS lookup was inconclusive; do not infer registration status.",
+				? "No DNS records were observed."
+				: "DNS lookup was inconclusive.",
 			error: noRecords ? undefined : errors.map(describeError).join("; "),
 		};
 	} catch (error) {
@@ -113,7 +112,7 @@ export async function checkDns(input: string): Promise<DnsResult> {
 			asciiDomain,
 			status: "error",
 			checkedAt,
-			note: "DNS lookup failed; do not infer registration status.",
+			note: "DNS lookup failed.",
 			error: error instanceof Error ? error.message : "Unknown DNS error",
 		};
 	}
@@ -128,9 +127,6 @@ async function main(): Promise<void> {
 
 	const results = await Promise.all(domains.map(checkDns));
 	console.log(JSON.stringify(results, null, 2));
-	console.error(
-		"\nDNS absence is not domain availability. Verify registration through RDAP and a registrar.",
-	);
 }
 
 if (import.meta.main) {

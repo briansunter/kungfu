@@ -10,7 +10,7 @@ compatibility: Optional Bun scripts; live web access is required for current reg
 
 Produce names that fit the product and survive practical checks. Availability,
 trademark risk, reputation, pronunciation, and renewal cost are separate
-questions; no single script proves a domain is safe to use.
+questions.
 
 ## Non-Negotiable Rules
 
@@ -20,7 +20,7 @@ questions; no single script proves a domain is safe to use.
   Lookup**. Since January 28, 2025, RDAP is the definitive source for gTLD
   registration data. DNS absence is only a heuristic; a registered domain may
   have no DNS records.
-- Trademark searching is preliminary risk screening, not legal clearance.
+- Trademark searching requires official database and broader-use review.
   Similarity in sound, appearance, meaning, and related goods/services can
   matter even when the exact string is absent.
 - Never state “available,” “clear,” or “safe” from an error, timeout, missing

@@ -39,6 +39,16 @@ function errorCode(error: unknown): string | undefined {
 	return undefined;
 }
 
+function describeError(error: unknown): string {
+	const code = errorCode(error);
+	const message = error instanceof Error ? error.message : String(error);
+	return code && !message.includes(code) ? `${code}: ${message}` : message;
+}
+
+function isDefinitiveRecordAbsence(error: unknown): boolean {
+	return ["ENODATA", "ENOTFOUND"].includes(errorCode(error) ?? "");
+}
+
 export async function checkDns(input: string): Promise<DnsResult> {
 	const checkedAt = new Date().toISOString();
 	let asciiDomain: string;
@@ -84,24 +94,18 @@ export async function checkDns(input: string): Promise<DnsResult> {
 		const errors = [
 			recordsResult.status === "rejected" ? recordsResult.reason : undefined,
 			nameserverResult.status === "rejected" ? nameserverResult.reason : undefined,
-		].filter(Boolean);
-		const expectedMiss = errors.every((error) =>
-			["ENODATA", "ENOTFOUND", "ESERVFAIL"].includes(errorCode(error) ?? ""),
-		);
+		].filter((error): error is NonNullable<typeof error> => error !== undefined);
+		const noRecords = errors.length === 0 || errors.every(isDefinitiveRecordAbsence);
 
 		return {
 			domain: input,
 			asciiDomain,
-			status: expectedMiss ? "no-records" : "error",
+			status: noRecords ? "no-records" : "error",
 			checkedAt,
-			note: expectedMiss
+			note: noRecords
 				? "No DNS records were observed. The domain may still be registered, reserved, premium, or temporarily misconfigured."
 				: "DNS lookup was inconclusive; do not infer registration status.",
-			error: expectedMiss
-				? undefined
-				: errors
-						.map((error) => (error instanceof Error ? error.message : String(error)))
-						.join("; "),
+			error: noRecords ? undefined : errors.map(describeError).join("; "),
 		};
 	} catch (error) {
 		return {

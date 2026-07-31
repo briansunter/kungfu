@@ -1,117 +1,181 @@
 ---
 name: community-growth-specialist
-description: Build and engage communities for sustainable customer acquisition. Use when growing audience without paid ads, launching on community platforms, or implementing build-in-public strategies.
+description: Design ethical, repeatable community-led growth systems. Use whenever the user wants to grow an audience, build in public, launch in Reddit, Hacker News, Product Hunt, Discord, Slack, or niche groups, improve community engagement, or turn participation into qualified demand without spam.
 category: business
 license: MIT
 ---
 
-# When to Use This Skill
+# Community Growth Specialist
 
-Use this skill when you need to:
+Build trust and distribution by helping a specific community accomplish
+something it already values. Treat community as a relationship and learning
+system, not a list of places to drop links.
 
-- Build an audience from scratch without paid advertising
-- Launch on community platforms (Indie Hackers, Reddit, Hacker News, Product
-  Hunt)
-- Turn build-in-public updates into qualified signups
-- Create repeatable community workflows instead of one-off promotion bursts
-- Design a post-launch engagement plan so momentum does not collapse
+## Operating Rules
 
-# Evidence-Checked Principles
+- Inspect the product, audience, existing channels, and prior posts before
+  asking questions.
+- Verify current community rules and platform mechanics before recommending
+  tactics.
+- Never recommend vote manipulation, brigading, purchased engagement,
+  undisclosed incentives, sockpuppets, scraped private groups, or mass
+  unsolicited messages.
+- Distinguish platform metrics from business outcomes. Upvotes and followers are
+  weak unless they lead to qualified conversations, activation, retention,
+  referrals, or revenue.
+- Quote community members accurately and protect private or sensitive
+  information.
+- Adapt to each community; there is no universal posting ratio, cadence, or
+  “best time.”
 
-## Community Is a System, Not a Single Post
+## Inputs
 
-Treat community growth as a compounding process: consistent value contribution,
-consistent interaction, and consistent follow-through.
+Establish or infer:
 
-## Product Hunt Is a Launch Event, Not a Full GTM Strategy
+- ideal member and buyer;
+- problem the product solves;
+- communities already used by the audience;
+- founder credibility and useful expertise;
+- desired conversion event;
+- time available for participation;
+- launch date, if any.
 
-Product Hunt itself recommends launching when you are prepared, and highlights
-that maker engagement matters on launch day. Their launch guide notes that maker
-first comments are strongly associated with top launches.
+When data is missing, proceed with explicit assumptions and identify the one or
+two assumptions most worth validating.
 
-## Promotion Without Context Underperforms
+## Workflow
 
-Across founder communities, low-context self-promotion is often ignored or
-removed. Use a value-first ratio as a rule of thumb (for example, roughly 80-90%
-value and 10-20% promotion), then adapt to each community's norms.
+### 1. Map Community Fit
 
-# Step-by-Step Community Building Process
+Create a short map for candidate communities:
 
-## Phase 1: Foundation (Weeks 1-2)
+| Field | Question |
+| --- | --- |
+| Member fit | Are target users active here? |
+| Intent | Learning, peer support, entertainment, buying, or discovery? |
+| Norms | What earns trust and what gets removed? |
+| Access | Public, invite-only, paid, or relationship-based? |
+| Contribution fit | What can the founder contribute repeatedly? |
+| Conversion path | What next step is acceptable in this context? |
+| Risk | Moderation, reputation, platform dependency, or privacy concerns? |
 
-1. Choose 2-3 communities where your ideal customer is active.
-2. Read rules and moderation patterns before posting.
-3. Build a swipe file of high-performing posts in each community.
-4. Document audience pains in their own words.
+Choose one primary and at most two secondary communities. Depth usually beats
+shallow presence everywhere.
 
-Deliverable: community map (platform, audience, rules, content patterns).
+Read [platform guidelines](references/platform-guidelines.md) before drafting
+platform-specific actions.
 
-## Phase 2: Credibility (Weeks 3-6)
+### 2. Listen Before Publishing
 
-1. Post helpful replies daily or near-daily.
-2. Publish practical posts: breakdowns, lessons learned, failure analyses.
-3. Avoid direct product promotion until you have interaction history.
-4. Respond to every substantive comment.
+Review recent high-quality posts, comments, rules, moderator guidance, recurring
+questions, language, and unresolved disputes. Build a voice-of-community ledger
+with source, date, problem, wording, and observed response.
 
-Deliverable: repeatable posting cadence and response SLA.
+Identify:
 
-## Phase 3: Validation and Soft Launch (Weeks 7-10)
+- repeated questions worth answering;
+- templates, tools, data, or examples members lack;
+- credible founder experiences that match current conversations;
+- objections and misconceptions about the problem;
+- members who consistently improve the discussion.
 
-1. Run problem-focused posts and collect intent signals.
-2. Share a fake-door or waitlist page with clear positioning.
-3. Ask for concrete actions (email signup, call, pilot interest).
-4. Segment responders by urgency and fit.
+Do not treat one viral post as a durable pattern.
 
-Deliverable: qualified waitlist and top objections list.
+### 3. Design Value Loops
 
-## Phase 4: Launch and Continuity (Week 11+)
+Create two to four repeatable formats, such as:
 
-1. Launch where your warm audience already exists.
-2. Post launch context, not just links.
-3. Keep publishing updates after launch day.
-4. Feed user feedback directly into roadmap and follow-up content.
+- teardown or audit with actionable fixes;
+- transparent experiment with data and limitations;
+- reusable template, calculator, checklist, or open-source tool;
+- synthesis of recurring questions;
+- office hours or structured feedback thread;
+- customer story centered on the customer’s work, with permission.
 
-Deliverable: 4-week post-launch content and engagement plan.
+For every format define the audience problem, proof required, effort, native
+call-to-action, and follow-up. Use [post
+templates](references/post-templates.md) as scaffolding, then rewrite in the
+community’s language.
 
-# Community Scorecard (Use as Internal Targets)
+### 4. Run Small Experiments
 
-These are operating targets, not universal benchmarks.
+Use a simple experiment card:
 
-| Signal                    | Weak     | Healthy        |
-| ------------------------- | -------- | -------------- |
-| Meaningful comments/post  | Very low | Consistent     |
-| Inbound DMs per week      | Rare     | Regular        |
-| Waitlist-to-conversation  | Low      | Improving      |
-| Post consistency          | Sporadic | Weekly cadence |
-| Response time to comments | Slow     | Same-day       |
+- **Hypothesis:** what behavior should change and why;
+- **Audience:** exact community and segment;
+- **Contribution:** post, reply series, event, or resource;
+- **Primary outcome:** one meaningful behavior;
+- **Guardrails:** removals, negative feedback, unsubscribes, support burden;
+- **Decision:** repeat, revise, or stop.
 
-# Common Mistakes
+Tag links only where permitted. Combine link attribution with self-reported
+discovery and downstream product analytics; dark social and cross-device
+journeys make exact attribution incomplete.
 
-- Launch-and-leave behavior: posting once, then disappearing.
-- Platform mismatch: posting where target buyers are not present.
-- Promotion-first writing: asking for attention before providing value.
-- No follow-up system: collecting interest without next steps.
-- Ignoring moderators and rules: getting posts removed and accounts restricted.
+### 5. Convert Without Breaking Trust
 
-# Deep Dives
+Match the ask to the relationship:
 
-For templates and execution details, use:
+1. No ask when a helpful answer is complete by itself.
+2. Ask for discussion or examples when learning is the goal.
+3. Offer a resource when it directly solves the topic.
+4. Invite a relevant person to a call, pilot, or product only after fit is
+   clear.
 
-- [references/post-templates.md](references/post-templates.md)
-- [references/platform-guidelines.md](references/platform-guidelines.md)
-- [references/content-calendar.md](references/content-calendar.md)
+Disclose affiliations. Give enough context that readers can evaluate the
+contribution without clicking. Follow up on every substantive response, but do
+not manufacture urgency or pressure members to promote.
 
-## Next Steps After Community Building
+### 6. Launch and Continue
 
-1. Use `product-launch-announcement-writer` to draft channel-specific launch
-   copy.
-2. Use `launch-guide` to coordinate launch-day operations.
-3. Use `pricing-strategy-designer` to align offer and packaging before scaling
-   traffic.
+A launch is a concentrated community event, not the strategy itself. Prepare:
+
+- channel-specific message and asset;
+- rules/compliance check completed on the execution date;
+- response owner and escalation plan;
+- product analytics and feedback capture;
+- four weeks of useful follow-up content;
+- a post-launch retrospective.
+
+For Product Hunt, follow its current official rules: ask supporters to visit and
+join the discussion, not to upvote; avoid paid or coordinated manipulation; use
+a personal maker account where required.
+
+Use [the content calendar](references/content-calendar.md) to schedule a
+sustainable cadence rather than filling every slot.
+
+## Scorecard
+
+Report trends by community and content format:
+
+- meaningful replies and repeat participants;
+- qualified conversations or demo requests;
+- activation and retained users by source;
+- member-created referrals or content;
+- response time and unresolved questions;
+- removals, complaints, opt-outs, or reputation risks;
+- founder time per qualified outcome.
+
+Set baselines from the user’s own data before declaring a metric healthy.
+
+## Output Contract
+
+Return:
+
+1. community map and recommended focus;
+2. voice-of-community findings with sources;
+3. three repeatable value loops;
+4. a four-week experiment calendar;
+5. channel-native drafts with rule notes;
+6. measurement plan and decision thresholds;
+7. risks, assumptions, and next review date.
 
 ## Sources
 
 - [Product Hunt Launch Guide](https://www.producthunt.com/launch)
-- [Prepare for your Product Hunt launch](https://www.producthunt.com/launch/preparing-for-launch)
-- [How to schedule a post | Product Hunt Help Center](https://help.producthunt.com/en/articles/2724119-how-to-schedule-a-post)
-- [Reddit Content Policy](https://www.redditinc.com/policies/content-policy)
+- [How Product Hunt
+  Works](https://help.producthunt.com/en/articles/479557-how-does-product-hunt-work)
+- [Reddit Content Policy](https://redditinc.com/policies/content-policy)
+- [Hacker News Guidelines](https://news.ycombinator.com/newsguidelines.html)
+- [FTC Endorsement
+  Guides](https://www.ftc.gov/business-guidance/advertising-marketing/endorsements-influencers-reviews)

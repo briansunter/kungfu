@@ -1,20 +1,14 @@
 {
-  "name": "domain-name-finder",
-  "version": "1.0.0",
-  "description": "Domain name availability, trademark, and social media checking utilities",
-  "type": "module",
-  "scripts": {
-    "check-all": "bun run check-all.ts",
-    "check-dns": "bun run check-dns.ts",
-    "check-whois": "bun run check-whois.ts",
-    "check-trademarks": "bun run check-trademarks.ts",
-    "check-social": "bun run check-social.ts"
-  },
-  "dependencies": {
-    "cheerio": "^1.0.0",
-    "whoiser": "^1.17.0"
-  },
-  "devDependencies": {
-    "@types/bun": "^1.0.0"
-  }
+	"name": "domain-name-finder-scripts",
+	"version": "1.1.0",
+	"private": true,
+	"description": "Conservative RDAP, DNS, trademark-research, and social-handle evidence helpers",
+	"type": "module",
+	"scripts": {
+		"check-all": "bun run check-all.ts",
+		"check-dns": "bun run check-dns.ts",
+		"check-whois": "bun run check-whois.ts",
+		"check-trademarks": "bun run check-trademarks.ts",
+		"check-social": "bun run check-social.ts"
+	}
 }

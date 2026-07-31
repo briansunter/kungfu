@@ -22,9 +22,8 @@ If [COMPANY_NAME] sells personal information or shares it for cross-context
 behavioral advertising as those terms apply to the business, provide the
 frictionless opt-out method here:
 
-- Opt-out page or control: [[REVIEW: INSERT THE DEPLOYED DO NOT SELL OR SHARE
-  CONTROL OR URL]]
-- Privacy settings: [[REVIEW: INSERT ANY ACCOUNT-LEVEL CONTROL]]
+- Opt-out page or control: [[REVIEW: INSERT CONTROL OR URL]]
+- Privacy settings: [[REVIEW: INSERT ACCOUNT-LEVEL CONTROL]]
 - Assistance/contact: [CCPA_AGENT_EMAIL]
 
 The opt-out must be available without requiring an account. Do not require more
@@ -90,8 +89,7 @@ categories of personal information, purposes, retention, and applicable sale,
 sharing, and sensitive-data practices before or at collection.
 
 - Privacy notice: [DOMAIN]/privacy
-- Notice at collection: [[REVIEW: INSERT LOCATIONS OR LINKS FOR EACH MATERIAL
-  COLLECTION CONTEXT]]
+- Notice at collection: [[REVIEW: INSERT COLLECTION LINKS]]
 
 This page is not a substitute for those disclosures.
 

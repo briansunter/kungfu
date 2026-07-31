@@ -248,9 +248,9 @@ async function queryWhois(domain: string, asciiDomain: string): Promise<Registra
 			/^Expiry Date:\s*(.+)$/im,
 			/^Expiration Date:\s*(.+)$/im,
 		]);
-		const nameservers = [...text.matchAll(/^(?:Name Server|nserver):\s*(\S+)/gim)].map(
-			(match) => match[1],
-		);
+		const nameservers = [...text.matchAll(/^(?:Name Server|nserver):\s*(\S+)/gim)]
+			.map((match) => match[1])
+			.filter((value): value is string => value !== undefined);
 		const registered = Boolean(
 			registrar || createdDate || expirationDate || nameservers.length > 0,
 		);

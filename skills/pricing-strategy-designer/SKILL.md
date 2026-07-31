@@ -1,259 +1,195 @@
 ---
 name: pricing-strategy-designer
-description: Design strategic pricing models for SaaS products with tiered structures, psychological pricing tactics, and A/B testing frameworks. Use when launching new pricing pages, optimizing ARPU, or reducing churn.
+description: Design and test SaaS pricing, packaging, value metrics, tiers, trials, freemium, usage-based models, discounts, and price migrations. Use whenever the user is choosing launch pricing, revising a pricing page, raising prices, improving ARPU or conversion, reducing plan confusion, or evaluating willingness to pay and unit economics.
 category: business
 license: MIT
 ---
 
-# When to Use This Skill
+# Pricing Strategy Designer
+
+Design a pricing system that aligns customer value, product usage, unit
+economics, and go-to-market motion. Do not default to three tiers, charm
+pricing, or competitor averages.
 
-Use this skill when you need to:
+## Operating Rules
 
-- **Design initial pricing** for a new SaaS product launch
-- **Optimize ARPU** (Average Revenue Per User) through tiered structures
-- **Reduce churn** by fixing pricing misalignment
-- **A/B test pricing changes** without alienating existing customers
-- **Raise prices** strategically without losing customers
-- **Choose between freemium, free trial, or paid-only models**
-- **Apply psychological pricing tactics** (anchoring, charm pricing, decoy
-  effects)
+- Inspect the product, current pricing, usage, customer segments, sales process,
+  costs, and retention before asking questions.
+- Separate pricing (amount), packaging (what is included), and metric (what
+  scales the bill).
+- Use current competitor data with source and date, but do not copy a competitor
+  whose segment or economics differ.
+- Treat willingness-to-pay research and experiments as uncertain evidence, not
+  mathematical truth.
+- Do not invent conversion lifts, survey results, customer quotes, or
+  statistical significance.
+- Preserve transparent billing, easy cancellation, clear renewal terms, and fair
+  migration. Avoid hidden fees, preselected paid options, fake scarcity, and
+  confusing negative-option flows.
+- Consider currency, tax, invoicing, refunds, procurement, accessibility, and
+  regional constraints.
 
-# Core Concepts
+## Inputs
+
+Establish or infer:
 
-## Tiered Pricing Often Outperforms Flat Pricing
+- target segments and use cases;
+- measurable customer outcome and alternatives;
+- current plans, prices, discounts, and contract terms;
+- usage distribution and cost-to-serve;
+- acquisition and sales motion;
+- activation, retention, expansion, contraction, and support burden;
+- strategic goal: adoption, cash flow, ARPU, expansion, enterprise readiness, or
+  simplicity.
 
-**Practical pattern**: Flat pricing can cap revenue potential and make packaging
-less flexible. Tiered pricing (often 2-4 plans) can better match willingness to
-pay and create natural upgrade paths.
+## Workflow
 
-**Why tiered works**:
+### 1. Segment by Value and Buying Motion
 
-- **Captures willingness to pay**: Different customers value features
-  differently
-- **Upsell path**: Customers start low but upgrade as needs grow
-- **Pricing psychology**: Anchoring makes mid-tier feel reasonable
-- **Clear differentiation**: Each tier serves specific customer segments
+Group customers by meaningful differences in outcome, budget, procurement,
+service requirement, and usage—not arbitrary company-size labels. Identify the
+user, buyer, budget owner, and approval process for each segment.
 
-## Real-World Pricing Impact (Reported Examples)
+### 2. Choose a Value Metric
 
-**Sean M Clancy's SaaS** (self-reported):
+Evaluate candidate metrics such as seats, usage, records, revenue processed,
+locations, projects, or a hybrid base + usage model.
 
-- Flat pricing: $29/month, 12% churn, thin margins
-- Tiered pricing: $29/$59/$99 with materially improved ARPU
-- Result: clearer segmentation and better margin structure
+A strong metric should:
 
-**Liam Derbyshire (Influize)** (self-reported):
+- track value reasonably well;
+- be understandable and forecastable;
+- be measurable and hard to game;
+- allow expansion without punishing healthy use;
+- align with marginal cost and gross margin;
+- avoid perverse product behavior.
 
-- Flat pricing: £49/month, declining revenue
-- Tiered pricing: £29/£79/£199 with improved ARPU and packaging clarity
-- Result: premium tier contributed meaningful revenue despite lower adoption
+Score candidates and test them against real account examples, including
+high-use/low-value and low-use/high-value edge cases.
 
-# Step-by-Step Pricing Design Process
+### 3. Design Packaging
 
-## Phase 1: Customer Research (Week 1)
+Start with customer jobs and required outcomes. Create the fewest packages that
+make segment differences clear. One plan, two plans, modular add-ons, usage
+pricing, or negotiated enterprise terms may outperform the familiar three-column
+page.
 
-1. **Identify customer segments** - Who are your different buyer personas?
-2. **Map feature value** - Which features matter most to each segment?
-3. **Research competitors** - What are they charging for similar features?
-4. **Test willingness to pay** - Include pricing in validation tests
+For each package specify:
 
-**Deliverable**: Customer segmentation matrix with feature priorities
+- target customer and outcome;
+- included capabilities and limits;
+- value metric and overage behavior;
+- service, support, security, and compliance level;
+- upgrade/downgrade path;
+- monthly, annual, and contract terms;
+- who should not buy it.
 
-## Phase 2: Design Tier Structure (Week 2)
+Use [pricing-page templates](references/pricing-page-templates.md) after the
+structure is decided.
 
-1. **Choose 3 tiers** - Basic, Pro, Enterprise (or equivalent)
-2. **Assign feature differentiation** - What separates each tier?
-3. **Set price points** - Anchor to customer value and competitor alternatives,
-   then pressure-test with real buyer conversations
-4. **Apply psychological tactics** - Anchoring, charm pricing, decoy effects
+### 4. Establish a Price Range
 
-**Deliverable**: Pricing table with clear tier differentiation
+Triangulate:
 
-## Phase 3: Build Pricing Page (Week 3)
+- economic value and avoided alternative cost;
+- current customer behavior and deal history;
+- competitor and substitute pricing;
+- willingness-to-pay interviews;
+- Van Westendorp or Gabor-Granger surveys when sample and question design are
+  credible;
+- sales objections and win/loss evidence;
+- gross margin, support, payment fees, taxes, and acquisition payback.
 
-1. **Write benefit-focused copy** - Outcomes, not features
-2. **Design visual hierarchy** - Make target tier stand out
-3. **Add social proof** - Testimonials, usage numbers, logos
-4. **Create FAQ section** - Address objections proactively
+Do not infer the final price from one method. Report range, confidence, and the
+assumptions that drive it.
 
-**Deliverable**: Live pricing page ready for A/B testing
+### 5. Choose the Entry Model
 
-## Phase 4: A/B Test and Iterate (Weeks 4-8)
+Evaluate paid-only, reverse trial, time-limited trial, usage-limited trial,
+freemium, demo/sales-led, and hybrid paths.
 
-1. **Test headline variations** - Benefit vs problem vs outcome framing
-2. **Test price presentation** - Annual vs monthly, discount framing
-3. **Test tier names** - Descriptive vs aspirational
-4. **Measure impact** - ARPU, conversion rate, churn
+Choose based on:
 
-**Deliverable**: Data-driven pricing optimizations
+- how quickly value can be experienced;
+- setup and integration effort;
+- variable cost and abuse risk;
+- collaboration or viral loops;
+- buyer approval process;
+- support burden;
+- whether free use naturally creates qualified expansion.
 
-# Common Mistakes
+A free plan is a product and support commitment, not merely a marketing tactic.
 
-**Mistake 1: Starting with flat pricing**
+### 6. Model Economics and Scenarios
 
-- **Problem**: Leaves money on table, attracts bargain hunters
-- **Solution**: Start with 2-3 clear tiers once you can articulate segment
-  differences
+For each candidate structure model:
 
-**Mistake 2: Underpricing to "get customers"**
+- customer distribution by plan/usage;
+- MRR/ARR and expansion potential;
+- gross margin and variable cost;
+- discounts, failed payments, refunds, and taxes;
+- acquisition payback and sales capacity;
+- downgrade/churn sensitivity;
+- annual cash-flow effect.
 
-- **Problem**: Attracts wrong customers, drains support resources, high churn
-- **Solution**: Price for your ideal customer, not bargain seekers
+Use ranges and sensitivity analysis rather than a single optimistic forecast.
 
-**Mistake 3: Too many tiers (5+)**
+### 7. Test Without Confounding Everything
 
-- **Problem**: Decision paralysis, lower conversion
-- **Solution**: Stick to 3-4 tiers maximum
+Select the lowest-risk method appropriate to traffic and sales volume:
 
-**Mistake 4: No clear differentiation between tiers**
+- new-customer cohort with a documented start date;
+- sales quote test across comparable accounts;
+- landing-page or checkout test with consistent traffic allocation;
+- qualitative price/packaging interviews;
+- staged rollout by segment or geography;
+- shadow billing or invoice preview for a new usage metric.
 
-- **Problem**: Customers can't decide which tier to choose
-- **Solution**: Each tier needs 2-3 must-have features not in lower tiers
+Change one coherent hypothesis at a time when possible. Define exposure, sample,
+primary metric, guardrails, observation window, and decision rule. Read [the A/B
+testing framework](references/ab-testing-framework.md); low traffic may require
+sequential learning rather than a conventional significance test.
 
-**Mistake 5: Raising prices without adding value**
+### 8. Plan the Migration
 
-- **Problem**: Customers churn, negative backlash
-- **Solution**: Ship requested features first, then raise prices
+For price changes, decide:
 
-**Mistake 6: Hidden pricing until signup**
+- new customers only, grandfathering, sunset, or phased migration;
+- notice period and contract constraints;
+- customer-specific impact analysis;
+- downgrade, pause, credit, or transition offer;
+- billing and entitlement implementation;
+- support scripts and escalation authority;
+- rollback criteria.
 
-- **Problem**: Wastes time on unqualified leads, lower trust
-- **Solution**: Always show pricing publicly to test willingness to pay
+Explain the customer value and exact effect. Do not force migration through
+ambiguity or cancellation friction.
 
-# Success Metrics
+Review [pricing case studies](references/pricing-case-studies.md) for patterns,
+not promises.
 
-**Pricing Health Indicators** (directional, adapt by market and deal size):
+## Output Contract
 
-| Metric                      | Warning         | Healthy          | Excellent       |
-| --------------------------- | --------------- | ---------------- | --------------- |
-| **ARPU trend**              | Declining       | Flat/Slow growth | Growing         |
-| **Churn rate**              | >5% monthly     | 2-5% monthly     | <2% monthly     |
-| **Tier distribution**       | 90% lowest tier | 60/30/10 split   | 50/35/15 split  |
-| **Upgrade rate**            | <5% convert up  | 5-15% convert up | 15%+ convert up |
-| **Pricing page conversion** | <2%             | 2-5%             | 5%+             |
+Return:
 
-**Red flags**:
-
-- ❌ ARPU declining or flat for 3+ months
-- ❌ >80% of customers in lowest tier (no upgrades)
-- ❌ Churn spikes after pricing changes
-- ❌ "Too expensive" feedback from qualified prospects
-
-# Entry Strategy: Freemium vs Free Trial vs Paid-Only
-
-## Decision Framework
-
-| Strategy       | When to Use                                | Strength                                    | Risk                                           |
-| -------------- | ------------------------------------------ | ------------------------------------------- | ---------------------------------------------- |
-| **Freemium**   | Product used daily, natural upgrade nudges | Creates large user base, network effects    | Free users who never convert drag growth       |
-| **Free Trial** | Product requires time to experience value  | Proves value before commitment              | If not sticky (Slack/Asana), trial users churn |
-| **Paid-Only**  | Niche B2B audience, clear pain point       | Filters out tire-kickers, sets expectations | Riskier upfront, fewer signups                 |
-
-## When Each Strategy Works
-
-**Use Freemium if**:
-
-- Product has viral mechanisms (invite teams, share content)
-- Daily usage creates habit (communication, collaboration)
-- Free tier has limitations that encourage upgrade (storage, usage caps)
-- Examples: Slack, Dropbox, Mailchimp
-
-**Use Free Trial if**:
-
-- Product requires setup/integration time
-- Value realized over days/weeks (analytics, automation)
-- B2B buyers need approval process
-- Typical trial: 14-30 days for B2B
-- Examples: Salesforce, HubSpot, most B2B SaaS
-
-**Use Paid-Only if**:
-
-- Niche B2B audience with clear pain point
-- High-value tool with clear ROI and shorter sales cycles
-- Low-volume, high-touch sales model
-- Examples: Close.io, Drip, Proponent
-
-# Deep Dives
-
-For comprehensive pricing frameworks, templates, and case studies, see the
-references:
-
-**[references/pricing-page-templates.md](references/pricing-page-templates.md)**
-
-- Complete pricing page copy templates
-- Benefit-focused headline examples
-- Tier differentiation frameworks
-- Social proof and FAQ sections
-- Visual hierarchy best practices
-
-**[references/ab-testing-framework.md](references/ab-testing-framework.md)**
-
-- A/B testing methodology for pricing
-- What variables to test and in what order
-- Sample size calculations
-- Statistical significance guidelines
-- Real A/B test results with numbers
-
-**[references/pricing-case-studies.md](references/pricing-case-studies.md)**
-
-- Sean M Clancy: reported ARPU gains after tiered pricing
-- Liam Derbyshire: reported ARPU lift strategy
-- Jon Yongfook: Price raise from $9 to $49 (churn went down)
-- Inkdrop: Doubling price from $4.90 to $9.98
-- Nick Mikhalenkov: reported ARPU rise after repricing
-
-## Research Notes
-
-This skill synthesizes findings from indie SaaS pricing research and operator
-case studies:
-
-**Primary Research**:
-
-**Key Case Studies**:
-
-- **Sean M Clancy**: reported ARPU growth and lower churn after moving to tiers
-- **Liam Derbyshire**: reported ARPU gains after packaging/pricing redesign
-- **Jon Yongfook (Bannerbear)**: reported successful repricing from low to
-  premium positioning
-- **Inkdrop**: documented price increase journey with retention monitoring
-
-**Pricing Benchmarks**:
-
-- Tiered pricing can improve ARPU when segmentation and packaging are clear.
-- Higher-ACV B2B models can reach revenue goals with fewer customers, but
-  require stronger positioning and sales execution.
-- LTV:CAC targets vary by stage and growth strategy; many teams use ~3:1 to 5:1
-  as an operating band.
-- Healthy churn depends heavily on segment (SMB vs mid-market vs enterprise).
-
-**Psychological Tactics**:
-
-- Anchoring: Showing premium context can shift perceived value of middle tiers.
-- Charm pricing: End with 9 ($49 vs $50)
-- Decoy effect: Unappealing plan steers to target choice
-- Social proof: "Most Popular" labels boost conversion
-
----
-
-## Next Steps After Pricing Design
-
-Once your pricing strategy is set:
-
-1. **Build pricing page** - Use templates from pricing-page-templates.md
-2. **Run A/B tests** - Follow framework from ab-testing-framework.md
-3. **Monitor metrics** - Track ARPU, conversion, churn weekly
-4. **Iterate based on data** - Make quarterly pricing optimizations
-
-Related skills:
-
-- `customer-retention-optimizer` for churn reduction strategy
-- `solo-operations-manager` for metrics routines and operating cadence
-
----
+1. pricing diagnosis and strategic objective;
+2. segment/value map;
+3. value-metric scorecard;
+4. two to four packaging/pricing options;
+5. unit-economics and sensitivity model;
+6. recommended structure with rationale and risks;
+7. research/experiment plan;
+8. pricing-page information architecture;
+9. migration and communication plan when applicable.
 
 ## Sources
 
-- [Pricing Strategy: How To Price a SaaS Product | Paddle](https://www.paddle.com/resources/pricing-strategy)
-- [SaaS Benchmarks Report | OpenView](https://openviewpartners.com/saas-benchmarks/)
-- [Statistical Significance | Optimizely Glossary](https://www.optimizely.com/optimization-glossary/statistical-significance/)
-- [A/B Test Sample Size Calculator | VWO](https://vwo.com/tools/ab-test-sample-size-calculator/)
+- [SaaS Pricing Strategy |
+  Paddle](https://www.paddle.com/resources/saas-pricing)
+- [Van Westendorp Pricing Model |
+  Qualtrics](https://www.qualtrics.com/experience-management/product/how-to-use-the-van-westendorp-pricing-model/)
+- [A/B Test Sample Size Calculator |
+  Optimizely](https://www.optimizely.com/sample-size-calculator/)
+- [Negative Option Rule | U.S. Federal Trade
+  Commission](https://www.ftc.gov/legal-library/browse/rules/negative-option-rule)
+- [Stripe Billing Documentation](https://docs.stripe.com/billing)

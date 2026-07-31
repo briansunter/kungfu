@@ -1,370 +1,184 @@
 ---
 name: saas-metrics-analyzer
-description: Analyze SaaS business health across all critical metrics (MRR, ARR, churn, LTV:CAC, NRR, ARPU, growth rate) with benchmarks and actionable recommendations. Use for monthly business reviews, health checks, or diagnosing growth problems.
+description: Reconcile and analyze SaaS revenue, growth, retention, cohorts, unit economics, margins, and efficiency. Use whenever the user mentions MRR, ARR, churn, GRR, NRR, ARPU, CAC, LTV, payback, cohort retention, growth rate, burn, Rule of 40, fundraising metrics, or a monthly business review.
 category: business
 license: MIT
 ---
 
-# When to Use This Skill
+# SaaS Metrics Analyzer
 
-Use this skill when you need to:
+Build a trustworthy metric model before judging performance. Definitions,
+cohorts, segments, billing terms, and data quality matter more than a universal
+“health score.”
 
-- **Run monthly business health checks** to track progress
-- **Benchmark metrics** against relevant peer ranges for your segment
-- **Diagnose growth problems** (stuck at plateau, high churn, poor unit
-  economics)
-- **Calculate missing metrics** from partial data
-- **Identify red flags** requiring immediate attention
-- **Get actionable recommendations** for metric improvement
-- **Prepare for fundraising or acquisition** (know your numbers)
+## Operating Rules
 
-# Core Concepts
+- State the reporting period, currency, timezone, data sources, exclusions, and
+  whether values are recognized revenue, billings, cash, or recurring run rate.
+- Reconcile source data before calculating ratios.
+- Never invent missing values or silently turn estimates into facts.
+- Show formulas, units, counts, and denominators. Distinguish logo, revenue,
+  account, seat, and user metrics.
+- Analyze trends and cohorts before applying benchmarks. Benchmarks must match
+  stage, ACV, segment, geography, billing model, and definition.
+- Report uncertainty and sample size; avoid false precision for small cohorts.
+- Do not imply causal diagnosis from correlation alone.
 
-## The 5 Metric Categories
+## Metric Dictionary
 
-1. **Revenue Health** (25% weight): MRR, ARR, ARPU
-2. **Unit Economics** (25% weight): LTV, CAC, LTV:CAC, payback period
-3. **Retention Health** (25% weight): Monthly/annual churn, NRR
-4. **Efficiency** (15% weight): Gross margin, profit margin
-5. **Growth** (10% weight): MoM growth, viral coefficient
+Define each metric in the user’s model. Recommended core definitions:
 
-## Quick Health Assessment
-
-| Score  | Rating    | Interpretation                          |
-| ------ | --------- | --------------------------------------- |
-| 90-100 | Excellent | Best-in-class across most metrics       |
-| 70-89  | Healthy   | Solid business, room for optimization   |
-| 50-69  | Warning   | Some red flags, needs attention         |
-| <50    | Critical  | Major issues, immediate action required |
-
-# Step-by-Step Analysis Process
-
-## Step 1: Gather Your Metrics
-
-Collect any of these you have available:
-
-- Monthly Recurring Revenue (MRR)
-- Customer count
-- Monthly churn rate
-- Customer Acquisition Cost (CAC)
-- Average Revenue Per User (ARPU)
-- Gross margin percentage
-
-## Step 2: Calculate Missing Metrics
-
-**ARPU** (if you have MRR and customers):
-
-```
-ARPU = MRR ÷ Total customers
+```text
+Closing MRR = Opening MRR + New + Expansion + Reactivation - Contraction - Churn
+ARR = MRR × 12  # only when MRR is a valid recurring run rate
+ARPA = MRR / active paying accounts
+Logo churn = lost accounts / opening accounts
+GRR = (Opening MRR - Contraction - Churn) / Opening MRR
+NRR = (Opening MRR + Expansion + Reactivation - Contraction - Churn) / Opening MRR
+CAC = attributable sales and marketing cost / new customers acquired
+CAC payback months = CAC / monthly gross profit from the acquired customer
 ```
 
-**LTV** (if you have ARPU, margin, churn):
+Specify whether reactivation belongs in NRR for the chosen reporting convention.
+Keep the convention consistent.
 
-```
-LTV = (ARPU × Gross Margin %) ÷ Monthly churn rate
-```
+A simple steady-state LTV estimate is sometimes written as:
 
-**LTV:CAC** (if you have LTV and CAC):
-
-```
-LTV:CAC = LTV ÷ CAC
+```text
+LTV ≈ ARPA × gross margin / monthly revenue churn
 ```
 
-**CAC Payback** (if you have CAC, ARPU, margin):
+Use it only when churn is positive and reasonably stable. It can be misleading
+with heterogeneous cohorts, expansion, annual contracts, changing retention, or
+small samples. Prefer cohort contribution margin or survival-based models when
+data supports them.
 
-```
-Payback = CAC ÷ (ARPU × Gross Margin %)
-```
+## Workflow
 
-**Annual churn** (if you have monthly; use monthly churn as decimal):
+### 1. Audit and Normalize Data
 
-```
-Annual = (1 - (1 - Monthly)^12) × 100
-```
+Check:
 
-## Step 3: Benchmark Against Peer Ranges
+- duplicate accounts, test users, internal plans, and one-time charges;
+- taxes, refunds, credits, discounts, pauses, and failed payments;
+- annual/multi-year contracts and normalization to MRR;
+- upgrades, downgrades, reactivations, and backdated changes;
+- currency conversion policy;
+- beginning/ending population consistency;
+- event and subscription status definitions.
 
-Use the benchmark ranges below as directional guidance, not universal truth.
-Segment (SMB vs enterprise), price point, geography, and channel mix all matter.
+Produce a data-quality report and identify which conclusions are blocked or
+tentative.
 
-## Step 4: Identify Red Flags and Strengths
+### 2. Reconcile MRR
 
-Flag metrics outside healthy ranges and highlight areas of strength.
+Create an MRR bridge by month and verify that components equal closing MRR.
+Separate:
 
-## Step 5: Generate Recommendations
+- new;
+- expansion;
+- contraction;
+- churn;
+- reactivation;
+- price/currency/accounting adjustments.
 
-Prioritize actions by impact: churn → pricing → acquisition → operations.
+Investigate unexplained residuals instead of hiding them in “other.”
 
----
+### 3. Analyze Growth Composition
 
-# Metric Deep Dives
+Calculate net new MRR and growth rate, then explain what produced growth.
+Compare new acquisition with expansion and losses. A high headline growth rate
+supported by a small base or temporary annual-plan conversion should be labeled
+accordingly.
 
-## Revenue Metrics
+Analyze by customer segment, plan, acquisition channel, geography, and cohort
+where sample size permits.
 
-### Monthly Recurring Revenue (MRR)
+### 4. Analyze Retention
 
-**What it measures**: Predictable monthly revenue from subscriptions
+Build cohort tables or curves for activation, logo retention, revenue retention,
+and repeated core-value behavior. Distinguish voluntary and involuntary churn.
+Examine:
 
-**Benchmarks** (directional for subscription SaaS):
+- first-week/month drop-off;
+- retention curve shape and stabilization;
+- GRR versus NRR;
+- concentration of expansion;
+- reasons and timing of contraction/churn;
+- retention by acquisition source and customer fit.
 
-| Stage          | MRR Range   | Timeline    |
-| -------------- | ----------- | ----------- |
-| Early stage    | $1K-$3K     | 0-6 months  |
-| Growth stage   | $3K-$15K    | 6-18 months |
-| Sustainable    | $10K+       | 18+ months  |
-| Top performers | $30K-$100K+ | Varies      |
+### 5. Analyze Unit Economics
 
-**Red flags**:
+Calculate CAC by channel and acquisition cohort, not only as a blended average.
+Define included spend and attribution window. Report:
 
-- ❌ Below $1K MRR after 6 months (possible PMF or distribution issues)
-- ❌ Stuck at $3K-$5K for 3+ months (growth plateau)
-- ❌ Declining for 2+ consecutive months
+- CAC and sales cycle;
+- gross-margin-adjusted payback;
+- contribution margin by segment;
+- LTV range and model assumptions;
+- LTV:CAC only when both measures are comparable;
+- support/implementation burden;
+- cash impact of annual prepayment.
 
-**Strengths**:
+A very high LTV:CAC ratio can indicate strong economics, underinvestment, or an
+overstated LTV. Investigate rather than celebrating automatically.
 
-- ✅ Reaching $10K MRR in <18 months
-- ✅ Consistent month-over-month growth
+### 6. Analyze Efficiency and Risk
 
----
+Where data is available, assess:
 
-### Average Revenue Per User (ARPU)
+- gross margin and major variable-cost drivers;
+- operating margin, burn, runway, and cash conversion;
+- revenue/customer concentration;
+- discount and contract exposure;
+- infrastructure cost per active account or unit of value;
+- sales and support capacity;
+- dependency and seasonality risk.
 
-**What it measures**: Average monthly revenue per customer
+Use Rule of 40 or other composite metrics only when relevant to the company’s
+stage and with the exact growth and margin definitions stated.
 
-**Benchmarks** (segment-sensitive):
+### 7. Benchmark Carefully
 
-| Range          | Assessment                                          |
-| -------------- | --------------------------------------------------- |
-| <$30/month     | Low-ticket model; requires strong volume/efficiency |
-| $30-$300/month | Common SMB SaaS pricing band                        |
-| $300+/month    | Higher-ACV model (often more sales/support)         |
+Read [metric benchmarks](references/metric-benchmarks.md), then verify current
+primary or reputable benchmark sources. Present peer ranges with report year,
+sample, segment, and definition. Use benchmarks to generate questions, not to
+override company-specific economics.
 
-**Red flags**:
+### 8. Prioritize Actions
 
-- ❌ ARPU low relative to CAC and support burden
-- ❌ ARPU declining over time
+For each finding provide:
 
-**Improvement levers**:
-
-- Introduce tiered packaging and pricing
-- Add annual payment discounts
-- Implement usage-based pricing
-- Raise prices on new customers first
-
-**Related skill**: `pricing-strategy-designer`
-
----
-
-## Unit Economics
-
-### Customer Acquisition Cost (CAC)
-
-**What it measures**: Cost to acquire one new customer
-
-**Benchmarks** (highly channel-dependent):
-
-| CAC Range   | Assessment                              |
-| ----------- | --------------------------------------- |
-| <$200       | Efficient for many SMB/self-serve       |
-| $200-$500   | Common in mixed inbound/outbound models |
-| $500-$1,000 | Requires stronger payback economics     |
-| >$1,000     | Often risky without high ACV/margins    |
-
-**Formula**:
-
-```
-CAC = (Sales + Marketing costs) ÷ New customers acquired
-```
-
-**Red flags**:
-
-- ❌ CAC rising while ARPU and retention are flat
-- ❌ CAC rising over time
-- ❌ CAC > LTV × 0.33
-
-**Improvement levers**:
-
-- Focus on community-led growth
-- Implement product-led growth
-- Optimize onboarding conversion
-- Build SEO/content for organic traffic
-
----
-
-### Customer Lifetime Value (LTV)
-
-**What it measures**: Total revenue from average customer
-
-**Formula**:
-
-```
-LTV = (ARPU × Gross Margin %) ÷ Monthly churn rate
-```
-
-**Benchmarks** (LTV:CAC ratio, directional):
-
-| Ratio   | Assessment                                     |
-| ------- | ---------------------------------------------- |
-| <1:1    | Unsustainable                                  |
-| 1:1-3:1 | Needs improvement for most SaaS models         |
-| 3:1-5:1 | Common target range                            |
-| >5:1    | Strong economics (or possible under-investing) |
-
-**Red flags**:
-
-- ❌ LTV:CAC persistently below ~3:1
-- ❌ LTV <$500
-- ❌ LTV declining over time
-
-**Improvement levers**:
-
-- Reduce churn (biggest lever)
-- Increase ARPU through pricing
-- Improve onboarding
-- Add expansion revenue
-
----
-
-### CAC Payback Period
-
-**What it measures**: Months to recover acquisition cost
-
-**Benchmarks** (stage-dependent):
-
-| Months | Assessment                                    |
-| ------ | --------------------------------------------- |
-| <6     | Very efficient                                |
-| 6-12   | Healthy for many self-serve products          |
-| 12-18  | Often acceptable for sales-assisted SaaS      |
-| >18    | Usually a warning sign (unless very high ACV) |
-
----
-
-## Retention Metrics
-
-### Monthly Churn Rate
-
-**What it measures**: Percentage of customers canceling each month
-
-**Benchmarks** (segment-sensitive):
-
-| Rate | Assessment               |
-| ---- | ------------------------ |
-| <2%  | Strong for many B2B SaaS |
-| 2-5% | Common SMB range         |
-| >5%  | Warning zone             |
-
-**Formula**:
-
-```
-Monthly Churn = (Customers lost ÷ Total customers) × 100
-```
-
-**Red flags**:
-
-- ❌ Monthly churn >5%
-- ❌ Churn increasing over time
-- ❌ Early customers churning fast
-
-**Improvement tactics**:
-
-- Improve onboarding and shorten time-to-value
-- Implement customer success
-- Build in-product stickiness
-- Exit surveys to identify causes
-
-**Related skill**: `customer-retention-optimizer`
-
----
-
-### Net Revenue Retention (NRR)
-
-**What it measures**: Revenue retention including expansion
-
-**Formula**:
-
-```
-NRR = ((Starting MRR + Expansion - Churn - Downgrades) ÷ Starting MRR) × 100
-```
-
-**Benchmarks** (directional):
-
-| NRR      | Assessment                     |
-| -------- | ------------------------------ |
-| <90%     | Significant contraction        |
-| 90-100%  | Net contraction                |
-| 100-110% | Healthy to strong              |
-| 110-120% | Excellent                      |
-| 120%+    | Exceptional (often enterprise) |
-
-**Red flags**:
-
-- ❌ NRR <100%
-- ❌ NRR declining
-
-**Improvement tactics**:
-
-- Implement expansion strategies
-- Use tiered pricing to encourage upgrades
-- Build usage-based pricing
-- Proactive customer success
-
----
-
-For efficiency metrics (gross/profit margin), growth metrics (MoM, K-factor),
-and a sample analysis walkthrough, see
-[references/metric-benchmarks.md](references/metric-benchmarks.md).
-
----
-
-# Common Mistakes
-
-**Mistake 1: Ignoring Churn**
-
-- **Problem**: Churn compounds - 5% monthly = 46% annually
-- **Solution**: Measure weekly, then improve onboarding, fit, and lifecycle
-  engagement before pushing harder on acquisition
-
-**Mistake 2: Vanity Metrics**
-
-- **Problem**: Tracking signups instead of revenue metrics
-- **Solution**: Focus on MRR, churn, LTV:CAC
-
-**Mistake 3: Outdated Benchmarks**
-
-- **Problem**: Using generic benchmarks without segment context
-- **Solution**: Compare against peers by model, stage, and ACV; many teams use
-  3:1-5:1 as a working LTV:CAC band
-
-**Mistake 4: Measuring Infrequently**
-
-- **Problem**: Quarterly reviews miss trends
-- **Solution**: Weekly metrics review, monthly deep analysis
-
----
-
-## Next Steps
-
-After running your metrics checkup:
-
-1. **Address red flags first** - Focus on critical metrics
-2. **Use related skills** - Deep-dive into problem areas
-3. **Track monthly** - Re-run this analysis every month
-4. **Celebrate strengths** - Don't fix what isn't broken
-
-**Recommended skills by problem area**:
-
-- Churn issues → `customer-retention-optimizer`
-- Pricing issues → `pricing-strategy-designer`
-- Acquisition issues → `community-growth-specialist`
-- Operations issues → `solo-operations-manager`
-
----
+- evidence and confidence;
+- financial/customer impact;
+- likely mechanisms and counter-hypotheses;
+- next analysis or experiment;
+- owner, cadence, and decision threshold.
+
+Prioritize data integrity, retention/product fit, pricing/packaging,
+acquisition, and cost work according to actual constraints—not a fixed universal
+order.
+
+## Output Contract
+
+Return:
+
+1. executive summary with confidence;
+2. metric dictionary and data-quality report;
+3. MRR bridge and growth composition;
+4. cohort and retention analysis;
+5. unit-economics model with sensitivity ranges;
+6. efficiency and concentration risks;
+7. contextual benchmark comparison;
+8. ranked actions and unresolved questions;
+9. reproducible formulas or query specification.
 
 ## Sources
 
-- [SaaS Benchmarks Report | OpenView](https://openviewpartners.com/saas-benchmarks/)
-- [State of the Cloud 2024 | Bessemer Venture Partners](https://www.bvp.com/atlas/state-of-the-cloud-2024)
-- [SaaS Metrics: What to Track and Why | Paddle](https://www.paddle.com/resources/saas-metrics)
-- [Net MRR Retention | ChartMogul Help](https://help.chartmogul.com/article/163-net-mrr-retention)
-- [Churn Rate Benchmarks 2025 | Recurly Research](https://www.recurly.com/research/churn-rate-benchmarks/)
+- [SaaS Metrics | ChartMogul](https://chartmogul.com/resources/saas-metrics/)
+- [Net MRR Retention | ChartMogul Help
+  Center](https://help.chartmogul.com/article/163-net-mrr-retention)
+- [SaaS Benchmarks | OpenView](https://openviewpartners.com/saas-benchmarks/)
+- [State of the Cloud | Bessemer Venture
+  Partners](https://www.bvp.com/atlas/state-of-the-cloud)
+- [SaaS Metrics | Paddle](https://www.paddle.com/resources/saas-metrics)

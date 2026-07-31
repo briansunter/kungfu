@@ -12,8 +12,8 @@ change the skill's scope or exposure.
 
 ## Operating Rules
 
-- Inspect `CLAUDE.md`, the closest comparable skills, repository validators, and
-  plugin structure before writing.
+- Inspect [CLAUDE.md](../../../CLAUDE.md), the closest comparable skills,
+  repository validators, and plugin structure before writing.
 - Never overwrite or rename an existing skill silently. If the requested name
   collides, report the conflict and propose a distinct name or an in-place
   improvement.

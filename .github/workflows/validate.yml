@@ -32,6 +32,22 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: Emit Prettier-normalized Markdown
+        run: |
+          files=(
+            "skills/saas-legal-generator/templates/ccpa-opt-out-link.md"
+            "skills/saas-legal-generator/templates/data-processing-agreement.md"
+            "skills/saas-legal-generator/templates/privacy-policy-global.md"
+            "skills/systemization-documentation-expert/references/sop-templates.md"
+          )
+          bunx prettier --write "${files[@]}" --prose-wrap always
+          for file in "${files[@]}"; do
+            echo "FORMAT_FILE_BEGIN:${file}"
+            base64 -w0 "${file}"
+            echo
+            echo "FORMAT_FILE_END:${file}"
+          done
+
       - name: Type check
         run: bun tsc --noEmit
 

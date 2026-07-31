@@ -4,397 +4,594 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { createInterface } from "node:readline/promises";
 
-// --- Types ---
+const DOCUMENT_KEYS = [
+	"privacy_policy",
+	"terms",
+	"cookies",
+	"aup",
+	"dpa",
+	"ccpa_opt_out",
+] as const;
+
+type DocumentKey = (typeof DOCUMENT_KEYS)[number];
+type YesNoUnknown = "yes" | "no" | "unknown";
+
+interface DataInventoryItem {
+	category: string;
+	examples?: string;
+	source?: string;
+	purpose?: string;
+	legal_basis?: string;
+	recipients?: string;
+	retention?: string;
+}
+
+interface VendorItem {
+	name: string;
+	purpose?: string;
+	data?: string;
+	role?: string;
+	locations?: string;
+	privacy_url?: string;
+}
+
+interface CookieItem {
+	name: string;
+	provider?: string;
+	purpose?: string;
+	category?: string;
+	duration?: string;
+	first_or_third_party?: string;
+}
+
+interface CaliforniaConfig {
+	applies?: YesNoUnknown;
+	sells?: YesNoUnknown;
+	shares?: YesNoUnknown;
+	uses_sensitive_personal_information?: YesNoUnknown;
+	honors_gpc?: YesNoUnknown;
+	request_url?: string;
+	opt_out_url?: string;
+	limit_use_url?: string;
+}
 
 interface Config {
-    company_name?: string;
-    domain?: string;
-    contact_email?: string;
-    support_email?: string;
-    address?: string;
-    jurisdiction?: string;
-    currency?: string;
-    service_description?: string;
-    features?: string[];
-    service_type?: string;
-    min_age?: string;
-    has_free_tier?: boolean;
-    billing_cycle?: string;
-    refund_policy?: string;
-    refund_days?: string;
-    collects_email?: boolean;
-    collects_payment?: boolean;
-    collects_usage?: boolean;
-    uses_cookies?: boolean;
-    cookie_categories?: string[];
-    data_retention_days?: string;
-    jurisdictions?: string[];
-    gdpr_rep_email?: string;
-    ccpa_agent_email?: string;
-    third_parties?: {
-        payment?: string;
-        hosting?: string;
-        analytics?: string;
-        email?: string;
-        support?: string;
-    };
-    documents?: string[];
+	company_name?: string;
+	domain?: string;
+	contact_email?: string;
+	support_email?: string;
+	address?: string;
+	jurisdiction?: string;
+	currency?: string;
+	effective_date?: string;
+	version?: string;
+	service_description?: string;
+	features?: string[];
+	service_type?: string;
+	min_age?: string;
+	has_free_tier?: boolean;
+	billing_cycle?: string;
+	refund_policy?: string;
+	refund_days?: string;
+	processing_role?: "controller" | "processor" | "both" | "unknown";
+	data_inventory?: DataInventoryItem[];
+	vendors?: VendorItem[];
+	cookies?: CookieItem[];
+	uses_cookies?: boolean;
+	cookie_categories?: string[];
+	cookie_settings_url?: string;
+	data_retention_schedule?: string;
+	data_retention_days?: string;
+	rights_request_process?: string;
+	international_transfer_details?: string;
+	security_summary?: string[];
+	children_position?: string;
+	jurisdictions?: string[];
+	gdpr_rep_email?: string;
+	ccpa_agent_email?: string;
+	california?: CaliforniaConfig;
+	third_parties?: {
+		payment?: string;
+		hosting?: string;
+		analytics?: string;
+		email?: string;
+		support?: string;
+	};
+	documents?: DocumentKey[];
 }
 
-const ALL_DOCUMENTS = [
-    { name: "Privacy Policy", key: "privacy_policy", default: true },
-    { name: "Terms of Service", key: "terms", default: true },
-    { name: "Cookie Policy", key: "cookies", condition: (c: Config) => c.uses_cookies },
-    { name: "Acceptable Use Policy", key: "aup", default: true },
-    { name: "Data Processing Agreement (GDPR)", key: "dpa", condition: (c: Config) => c.jurisdictions?.includes("gdpr") },
-    { name: "CCPA 'Do Not Sell' Link", key: "ccpa_opt_out", condition: (c: Config) => c.jurisdictions?.includes("ccpa") },
+interface DocumentDefinition {
+	name: string;
+	key: DocumentKey;
+	default?: boolean;
+	condition?: (config: Config) => boolean;
+}
+
+interface GeneratedFile {
+	filename: string;
+	unresolved: string[];
+}
+
+const DOCUMENTS: DocumentDefinition[] = [
+	{ name: "Privacy Notice", key: "privacy_policy", default: true },
+	{ name: "Terms of Service", key: "terms", default: true },
+	{
+		name: "Cookie Notice",
+		key: "cookies",
+		condition: (config) => Boolean(config.uses_cookies || config.cookies?.length),
+	},
+	{ name: "Acceptable Use Policy", key: "aup", default: false },
+	{
+		name: "Data Processing Agreement",
+		key: "dpa",
+		condition: (config) => ["processor", "both"].includes(config.processing_role ?? ""),
+	},
+	{
+		name: "California Opt-Out Notice",
+		key: "ccpa_opt_out",
+		condition: (config) =>
+			config.california?.applies === "yes" &&
+			(config.california.sells === "yes" || config.california.shares === "yes"),
+	},
 ];
 
-const TEMPLATE_MAP: Record<string, string> = {
-    privacy_policy: "privacy-policy-global.md",
-    terms: "terms-of-service-saas.md",
-    cookies: "cookie-policy.md",
-    aup: "acceptable-use-policy.md",
-    dpa: "data-processing-agreement.md",
-    ccpa_opt_out: "ccpa-opt-out-link.md",
+const TEMPLATE_MAP: Record<DocumentKey, string> = {
+	privacy_policy: "privacy-policy-global.md",
+	terms: "terms-of-service-saas.md",
+	cookies: "cookie-policy.md",
+	aup: "acceptable-use-policy.md",
+	dpa: "data-processing-agreement.md",
+	ccpa_opt_out: "ccpa-opt-out-link.md",
 };
 
-const OUTPUT_FILENAMES: Record<string, string> = {
-    privacy_policy: "privacy-policy.md",
-    terms: "terms-of-service.md",
-    cookies: "cookie-policy.md",
-    aup: "acceptable-use-policy.md",
-    dpa: "data-processing-agreement.md",
-    ccpa_opt_out: "do-not-sell-my-information.md",
+const OUTPUT_FILENAMES: Record<DocumentKey, string> = {
+	privacy_policy: "privacy-notice.md",
+	terms: "terms-of-service.md",
+	cookies: "cookie-notice.md",
+	aup: "acceptable-use-policy.md",
+	dpa: "data-processing-agreement.md",
+	ccpa_opt_out: "california-opt-out-notice.md",
 };
 
-
-// --- Generator Class ---
-
-class LegalGenerator {
-    private outputDir: string;
-    private templateDir: string;
-    private config: Config = {};
-    private rl = createInterface({
-        input: process.stdin,
-        output: process.stdout,
-    });
-
-    constructor() {
-        this.outputDir = join(import.meta.dir, "../output");
-        this.templateDir = join(import.meta.dir, "../templates");
-    }
-
-    async loadConfig(path: string) {
-        try {
-            const content = await readFile(path, 'utf8');
-            const loadedConfig = JSON.parse(content);
-            this.config = { ...this.config, ...loadedConfig };
-            console.log(`Loaded configuration from ${path}`);
-        } catch (error) {
-            throw new Error(`Failed to load config from ${path}: ${error}`);
-        }
-    }
-
-    private async getInput(prompt: string, defaultValue: string = "", required: boolean = true): Promise<string> {
-        const promptText = defaultValue ? `${prompt} [${defaultValue}]: ` : `${prompt}: `;
-        while (true) {
-            const answer = await this.rl.question(promptText);
-            const trimmed = answer.trim();
-            if (trimmed) return trimmed;
-            if (defaultValue) return defaultValue;
-            if (!required) return "";
-            console.log("This field is required. Please enter a value.");
-        }
-    }
-
-    private async getMultiline(prompt: string): Promise<string> {
-        console.log(`${prompt} (press Enter twice to finish):`);
-        const lines: string[] = [];
-        while (true) {
-            const line = await this.rl.question("");
-            if (line === "") break;
-            lines.push(line);
-        }
-        return lines.join("\n");
-    }
-
-    private async getChoice(prompt: string, choices: string[]): Promise<string> {
-        console.log(`\n${prompt}`);
-        choices.forEach((c, i) => console.log(`  ${i + 1}. ${c}`));
-
-        while (true) {
-            const answer = await this.rl.question("\nEnter choice (number): ");
-            const idx = parseInt(answer.trim()) - 1;
-            if (!isNaN(idx) && idx >= 0 && idx < choices.length) {
-                const choice = choices[idx];
-                if (choice !== undefined) {
-                    return choice;
-                }
-            }
-            console.log(`Please enter a number between 1 and ${choices.length}`);
-        }
-    }
-
-    private async getYesNo(prompt: string, defaultValue: boolean = false): Promise<boolean> {
-        const defaultStr = defaultValue ? "Y/n" : "y/N";
-        const answer = await this.rl.question(`${prompt} [${defaultStr}]: `);
-        const trimmed = answer.trim().toLowerCase();
-        if (!trimmed) return defaultValue;
-        return ["y", "yes"].includes(trimmed);
-    }
-
-    async collectCompanyInfo() {
-        console.log("\n" + "=".repeat(60));
-        console.log("COMPANY INFORMATION");
-        console.log("=".repeat(60));
-
-        this.config.company_name = await this.getInput("Company Name");
-        this.config.domain = await this.getInput("Website Domain", "example.com");
-        this.config.contact_email = await this.getInput("Contact Email", `legal@${this.config.domain}`);
-        this.config.support_email = await this.getInput("Support Email", `support@${this.config.domain}`);
-        this.config.address = await this.getMultiline("Company Address");
-        this.config.jurisdiction = await this.getInput("Governing Law Jurisdiction", "Delaware, USA");
-        this.config.currency = await this.getInput("Currency", "USD");
-    }
-
-    async collectServiceInfo() {
-        console.log("\n" + "=".repeat(60));
-        console.log("SERVICE INFORMATION");
-        console.log("=".repeat(60));
-
-        this.config.service_description = await this.getMultiline("Describe your service (one sentence)");
-
-        console.log("\nKey Features (enter each feature, empty line to finish):");
-        const features: string[] = [];
-        while (true) {
-            const feature = await this.rl.question(`  Feature ${features.length + 1}: `);
-            if (!feature) break;
-            features.push(feature);
-        }
-        this.config.features = features;
-
-        this.config.service_type = await this.getChoice("Service Type:", [
-            "B2B SaaS", "B2C SaaS", "Marketplace", "Platform", "Other"
-        ]);
-
-        this.config.min_age = await this.getInput("Minimum User Age", "13");
-    }
-
-    async collectBillingInfo() {
-        console.log("\n" + "=".repeat(60));
-        console.log("BILLING INFORMATION");
-        console.log("=".repeat(60));
-
-        this.config.has_free_tier = await this.getYesNo("Do you offer a free tier?");
-        this.config.billing_cycle = await this.getChoice("Billing Cycle:", [
-            "Monthly", "Annual", "Quarterly", "One-time"
-        ]);
-        this.config.refund_policy = await this.getMultiline("Refund Policy Description");
-        this.config.refund_days = await this.getInput("Refund Period (days)", "30");
-    }
-
-    async collectDataPractices() {
-        console.log("\n" + "=".repeat(60));
-        console.log("DATA PRACTICES");
-        console.log("=".repeat(60));
-
-        this.config.collects_email = await this.getYesNo("Collect email addresses?", true);
-        this.config.collects_payment = await this.getYesNo("Collect payment information?", true);
-        this.config.collects_usage = await this.getYesNo("Collect usage analytics?", true);
-        this.config.uses_cookies = await this.getYesNo("Use cookies?", true);
-
-        this.config.cookie_categories = [];
-        if (this.config.uses_cookies) {
-            console.log("\nCookie Categories:");
-            if (await this.getYesNo("Essential cookies?", true)) this.config.cookie_categories.push("essential");
-            if (await this.getYesNo("Analytics cookies?")) this.config.cookie_categories.push("analytics");
-            if (await this.getYesNo("Marketing cookies?")) this.config.cookie_categories.push("marketing");
-            if (await this.getYesNo("Functionality cookies?")) this.config.cookie_categories.push("functionality");
-        }
-
-        this.config.data_retention_days = await this.getInput("Data Retention Period (days)", "365");
-    }
-
-    async collectJurisdictions() {
-        console.log("\n" + "=".repeat(60));
-        console.log("COMPLIANCE JURISDICTIONS");
-        console.log("=".repeat(60));
-
-        this.config.jurisdictions = [];
-        if (await this.getYesNo("Target European Union (GDPR)?")) {
-            this.config.jurisdictions.push("gdpr");
-            this.config.gdpr_rep_email = await this.getInput("GDPR Representative Email", this.config.contact_email);
-        }
-        if (await this.getYesNo("Target California (CCPA/CPRA)?")) {
-            this.config.jurisdictions.push("ccpa");
-            this.config.ccpa_agent_email = await this.getInput("CCPA Agent Email", this.config.contact_email);
-        }
-        if (await this.getYesNo("Target Canada (PIPEDA)?")) this.config.jurisdictions.push("pipeda");
-        if (await this.getYesNo("Target Brazil (LGPD)?")) this.config.jurisdictions.push("lgpd");
-        if (await this.getYesNo("Target United Kingdom (UK GDPR)?")) this.config.jurisdictions.push("uk-gdpr");
-    }
-
-    async collectThirdPartyServices() {
-        console.log("\n" + "=".repeat(60));
-        console.log("THIRD-PARTY SERVICES");
-        console.log("=".repeat(60));
-
-        this.config.third_parties = {};
-        this.config.third_parties.payment = await this.getInput("Payment Processor (e.g., Stripe, PayPal)", "Stripe");
-        this.config.third_parties.hosting = await this.getInput("Hosting Provider (e.g., AWS, GCP, Azure)", "AWS");
-        this.config.third_parties.analytics = await this.getInput("Analytics Provider (e.g., Google Analytics)", "Google Analytics");
-        this.config.third_parties.email = await this.getInput("Email Service (e.g., SendGrid, Mailgun)", "SendGrid");
-        this.config.third_parties.support = await this.getInput("Support Tool (e.g., Intercom, Zendesk)", "Intercom");
-    }
-
-    async selectDocuments(): Promise<void> {
-        console.log("\n" + "=".repeat(60));
-        console.log("SELECT DOCUMENTS TO GENERATE");
-        console.log("=".repeat(60));
-
-        this.config.documents = [];
-        for (const doc of ALL_DOCUMENTS) {
-            const shouldOffer = doc.condition ? doc.condition(this.config) : doc.default !== false;
-            if (shouldOffer) {
-                if (await this.getYesNo(`Generate ${doc.name}?`, true)) {
-                    this.config.documents.push(doc.key);
-                }
-            }
-        }
-
-        if (this.config.documents.length === 0) {
-            console.log("\n⚠️  No documents selected. Please select at least one document.");
-            return this.selectDocuments();
-        }
-    }
-
-    private async generateDocument(docType: string): Promise<string> {
-        const templateFile = TEMPLATE_MAP[docType];
-        if (!templateFile) return `Error: Unknown document type ${docType}`;
-
-        const templatePath = join(this.templateDir, templateFile);
-        if (!existsSync(templatePath)) {
-            return `# ${docType}\n\nDocument template not found. Please add templates/${docType}.md`;
-        }
-
-        let content = await readFile(templatePath, 'utf8');
-
-        // Replacements
-        const replacements: [string, string][] = [
-            ["[COMPANY_NAME]", this.config.company_name || ""],
-            ["[DOMAIN]", this.config.domain || ""],
-            ["[CONTACT_EMAIL]", this.config.contact_email || ""],
-            ["[SUPPORT_EMAIL]", this.config.support_email || this.config.contact_email || ""],
-            ["[COMPANY_ADDRESS]", this.config.address || ""],
-            ["[JURISDICTION]", this.config.jurisdiction || ""],
-            ["[CURRENCY]", this.config.currency || ""],
-            ["[EFFECTIVE_DATE]", new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })],
-            ["[VERSION]", "1.0"],
-            ["[SERVICE_DESCRIPTION]", this.config.service_description || ""],
-            ["[MIN_AGE]", this.config.min_age || ""],
-            ["[RETENTION_PERIOD]", this.config.data_retention_days || ""],
-            ["[REFUND_PERIOD]", this.config.refund_days || ""],
-            ["[BILLING_CYCLE]", this.config.billing_cycle || ""],
-            ["[PAYMENT_PROCESSOR]", this.config.third_parties?.payment || ""],
-            ["[HOSTING_PROVIDER]", this.config.third_parties?.hosting || ""],
-            ["[ANALYTICS_PROVIDER]", this.config.third_parties?.analytics || ""],
-            ["[EMAIL_PROVIDER]", this.config.third_parties?.email || ""],
-            ["[SUPPORT_TOOL]", this.config.third_parties?.support || ""],
-        ];
-
-        if (this.config.gdpr_rep_email) replacements.push(["[GDPR_REP_EMAIL]", this.config.gdpr_rep_email]);
-        if (this.config.ccpa_agent_email) replacements.push(["[CCPA_AGENT_EMAIL]", this.config.ccpa_agent_email]);
-
-        if (this.config.features) {
-            replacements.push(["[FEATURE_1]", this.config.features[0] || ""]);
-            replacements.push(["[FEATURE_2]", this.config.features[1] || ""]);
-            replacements.push(["[FEATURE_3]", this.config.features[2] || ""]);
-        }
-
-        for (const [placeholder, value] of replacements) {
-            content = content.replaceAll(placeholder, value);
-        }
-
-        return content;
-    }
-
-    async generateAll() {
-        console.log("\n" + "=".repeat(60));
-        console.log("GENERATING DOCUMENTS");
-        console.log("=".repeat(60));
-
-        if (!existsSync(this.outputDir)) {
-            await mkdir(this.outputDir, { recursive: true });
-        }
-
-        const generatedFiles: string[] = [];
-        for (const docType of this.config.documents || []) {
-            const content = await this.generateDocument(docType);
-            const filename = OUTPUT_FILENAMES[docType] || `${docType}.md`;
-            const filepath = join(this.outputDir, filename);
-            await writeFile(filepath, content);
-            generatedFiles.push(filename);
-            console.log(`✓ Generated: ${filename}`);
-        }
-        return generatedFiles;
-    }
-
-    async run(configPath?: string) {
-        console.log("\n" + "=".repeat(60));
-        console.log("SAAS LEGAL BOILERPLATE GENERATOR");
-        console.log("=".repeat(60));
-
-        try {
-            if (configPath) {
-                await this.loadConfig(configPath);
-            } else {
-                console.log("\nThis tool will help you generate legal documents for your SaaS product.");
-                console.log("Please answer the following questions to customize your documents.");
-                console.log("\n⚠️  DISCLAIMER: These templates are for informational purposes only.");
-                console.log("Always consult with a qualified attorney before publishing legal documents.\n");
-
-                await this.collectCompanyInfo();
-                await this.collectServiceInfo();
-                await this.collectBillingInfo();
-                await this.collectDataPractices();
-                await this.collectJurisdictions();
-                await this.collectThirdPartyServices();
-                await this.selectDocuments();
-            }
-
-            const files = await this.generateAll();
-
-            console.log("\n" + "=".repeat(60));
-            console.log("GENERATION COMPLETE");
-            console.log("=".repeat(60));
-            console.log(`\nGenerated ${files.length} documents in:`);
-            console.log(`  ${this.outputDir}/\n`);
-            files.forEach(f => console.log(`  - ${f}`));
-
-            console.log("\n" + "=".repeat(60));
-            console.log("NEXT STEPS");
-            console.log("=".repeat(60));
-            console.log(`
-1. Review each generated document carefully
-2. Customize for your specific data practices and business model
-3. Consult with a qualified attorney for legal review
-4. Deploy to your website (link from footer)
-5. Track changes and version dates
-6. Review and update at least annually
-`);
-            console.log(`📂 Output directory: ${this.outputDir}`);
-
-        } catch (error) {
-            console.error("\n\n❌ Error:", error);
-        } finally {
-            this.rl.close();
-        }
-    }
+function isDocumentKey(value: string): value is DocumentKey {
+	return (DOCUMENT_KEYS as readonly string[]).includes(value);
 }
 
-// Helper to check if run directly
+function escapeCell(value: unknown): string {
+	return String(value ?? "")
+		.replaceAll("|", "\\|")
+		.replaceAll("\n", "<br>")
+		.trim();
+}
+
+function markdownTable(headers: string[], rows: unknown[][], missingLabel: string): string {
+	if (rows.length === 0) return `[[REVIEW: ${missingLabel}]]`;
+	const header = `| ${headers.join(" | ")} |`;
+	const divider = `| ${headers.map(() => "---").join(" | ")} |`;
+	const body = rows.map((row) => `| ${row.map(escapeCell).join(" | ")} |`).join("\n");
+	return `${header}\n${divider}\n${body}`;
+}
+
+function placeholder(label: string, value?: string): string {
+	const trimmed = value?.trim();
+	return trimmed || `[[REVIEW: SUPPLY ${label}]]`;
+}
+
+function unresolvedMarkers(content: string): string[] {
+	const tokens = [
+		...content.matchAll(/\[[A-Z][A-Z0-9_/-]{2,}\]/g),
+		...content.matchAll(/\[\[REVIEW:[^\]]+\]\]/g),
+	].map((match) => match[0]);
+	return [...new Set(tokens)].sort();
+}
+
+class LegalGenerator {
+	private readonly outputDir = join(import.meta.dir, "../output");
+	private readonly templateDir = join(import.meta.dir, "../templates");
+	private config: Config = {};
+	private readonly warnings: string[] = [];
+	private readonly rl = createInterface({ input: process.stdin, output: process.stdout });
+
+	async loadConfig(path: string): Promise<void> {
+		const content = await readFile(path, "utf8");
+		const parsed: unknown = JSON.parse(content);
+		if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+			throw new Error("Configuration must be a JSON object");
+		}
+		this.config = parsed as Config;
+		if (this.config.documents) {
+			const invalid = this.config.documents.filter((key) => !isDocumentKey(String(key)));
+			if (invalid.length > 0) throw new Error(`Unknown document keys: ${invalid.join(", ")}`);
+		}
+		console.log(`Loaded configuration from ${path}`);
+	}
+
+	private async getInput(
+		prompt: string,
+		options: { required?: boolean; defaultValue?: string } = {},
+	): Promise<string> {
+		const { required = false, defaultValue } = options;
+		const suffix = defaultValue ? ` [${defaultValue}]` : required ? " [required]" : " [optional]";
+		while (true) {
+			const answer = (await this.rl.question(`${prompt}${suffix}: `)).trim();
+			if (answer) return answer;
+			if (defaultValue) return defaultValue;
+			if (!required) return "";
+			console.log("This field is required; do not invent a value.");
+		}
+	}
+
+	private async getMultiline(prompt: string): Promise<string> {
+		console.log(`${prompt} (blank line to finish):`);
+		const lines: string[] = [];
+		while (true) {
+			const line = await this.rl.question("");
+			if (!line.trim()) break;
+			lines.push(line.trim());
+		}
+		return lines.join("\n");
+	}
+
+	private async getChoice<T extends string>(prompt: string, choices: readonly T[]): Promise<T> {
+		console.log(`\n${prompt}`);
+		choices.forEach((choice, index) => console.log(`  ${index + 1}. ${choice}`));
+		while (true) {
+			const answer = await this.rl.question("Enter choice (number): ");
+			const index = Number.parseInt(answer.trim(), 10) - 1;
+			const choice = choices[index];
+			if (choice) return choice;
+			console.log(`Enter a number between 1 and ${choices.length}.`);
+		}
+	}
+
+	private async getYesNo(prompt: string, defaultValue = false): Promise<boolean> {
+		const answer = (await this.rl.question(`${prompt} [${defaultValue ? "Y/n" : "y/N"}]: `))
+			.trim()
+			.toLowerCase();
+		if (!answer) return defaultValue;
+		return answer === "y" || answer === "yes";
+	}
+
+	private async collectInteractiveConfig(): Promise<void> {
+		console.log("\nCreate an evidence-based draft. Leave uncertain legal or operational facts blank.");
+		this.config.company_name = await this.getInput("Legal entity/company name", {
+			required: true,
+		});
+		this.config.domain = await this.getInput("Canonical website domain", { required: true });
+		this.config.contact_email = await this.getInput("Privacy/legal contact email", {
+			required: true,
+		});
+		this.config.support_email = await this.getInput("Support email");
+		this.config.address = await this.getMultiline("Legal/business address, if publishable");
+		this.config.effective_date = await this.getInput(
+			"Intended effective date (for example, 2026-08-01)",
+		);
+		this.config.jurisdiction = await this.getInput(
+			"Proposed governing law/forum (leave blank for counsel)",
+		);
+		this.config.service_description = await this.getMultiline(
+			"Describe the service and intended users",
+		);
+		this.config.min_age = await this.getInput(
+			"Minimum age only if supported by product design and counsel",
+		);
+		this.config.processing_role = await this.getChoice(
+			"Privacy role for customer data (select unknown if not assessed)",
+			["controller", "processor", "both", "unknown"] as const,
+		);
+		this.config.data_retention_schedule = await this.getMultiline(
+			"Actual retention schedule by data category, including backups",
+		);
+		this.config.uses_cookies = await this.getYesNo(
+			"Does the deployed product use cookies or similar device storage?",
+		);
+		this.config.cookie_settings_url = await this.getInput(
+			"Cookie/preference settings URL, if implemented",
+		);
+
+		const lawSelections: string[] = [];
+		for (const [label, key] of [
+			["EU GDPR", "gdpr"],
+			["UK GDPR/PECR", "uk-gdpr"],
+			["Canada privacy law", "pipeda"],
+			["Brazil LGPD", "lgpd"],
+		] as const) {
+			if (await this.getYesNo(`Has applicability of ${label} been assessed as relevant?`)) {
+				lawSelections.push(key);
+			}
+		}
+		this.config.jurisdictions = lawSelections;
+		const californiaApplies = await this.getChoice(
+			"Has CCPA/CPRA applicability been assessed?",
+			["yes", "no", "unknown"] as const,
+		);
+		this.config.california = { applies: californiaApplies };
+		if (californiaApplies === "yes") {
+			this.config.california.sells = await this.getChoice(
+				"Does the assessed practice constitute a sale?",
+				["yes", "no", "unknown"] as const,
+			);
+			this.config.california.shares = await this.getChoice(
+				"Does the assessed practice constitute sharing for cross-context behavioral advertising?",
+				["yes", "no", "unknown"] as const,
+			);
+			this.config.california.honors_gpc = await this.getChoice(
+				"Does the deployed product honor applicable Global Privacy Control signals?",
+				["yes", "no", "unknown"] as const,
+			);
+			this.config.california.request_url = await this.getInput(
+				"California rights request URL",
+			);
+			this.config.california.opt_out_url = await this.getInput(
+				"Do Not Sell or Share URL, if applicable and implemented",
+			);
+		}
+
+		this.config.third_parties = {
+			payment: await this.getInput("Payment processor actually used"),
+			hosting: await this.getInput("Hosting provider actually used"),
+			analytics: await this.getInput("Analytics provider actually used"),
+			email: await this.getInput("Email provider actually used"),
+			support: await this.getInput("Support provider actually used"),
+		};
+		await this.selectDocuments();
+	}
+
+	private async selectDocuments(): Promise<void> {
+		this.config.documents = [];
+		for (const document of DOCUMENTS) {
+			const relevant = document.condition ? document.condition(this.config) : true;
+			if (!relevant && !document.default) continue;
+			if (await this.getYesNo(`Generate ${document.name}?`, document.default ?? true)) {
+				this.config.documents.push(document.key);
+			}
+		}
+		if (this.config.documents.length === 0) {
+			throw new Error("No documents selected");
+		}
+	}
+
+	private validateConfiguration(): void {
+		for (const [label, value] of [
+			["company_name", this.config.company_name],
+			["domain", this.config.domain],
+			["contact_email", this.config.contact_email],
+			["service_description", this.config.service_description],
+		] as const) {
+			if (!value?.trim()) this.warnings.push(`Missing core field: ${label}`);
+		}
+
+		if (!this.config.data_inventory?.length) {
+			this.warnings.push("No data inventory supplied; privacy disclosures require manual completion.");
+		}
+		if (!this.config.vendors?.length) {
+			this.warnings.push("No verified vendor/subprocessor inventory supplied.");
+		}
+		if (!this.config.data_retention_schedule?.trim() && !this.config.data_retention_days) {
+			this.warnings.push("No evidence-based retention schedule supplied.");
+		}
+		if (this.config.documents?.includes("dpa") && !["processor", "both"].includes(this.config.processing_role ?? "")) {
+			this.warnings.push("DPA selected without a confirmed processor role.");
+		}
+		if (this.config.documents?.includes("ccpa_opt_out")) {
+			if (this.config.california?.applies !== "yes") {
+				this.warnings.push("California opt-out notice selected without confirmed CCPA/CPRA applicability.");
+			}
+			if (
+				this.config.california?.sells !== "yes" &&
+				this.config.california?.shares !== "yes"
+			) {
+				this.warnings.push("California opt-out notice selected without a confirmed sale or sharing practice.");
+			}
+			if (this.config.california?.honors_gpc !== "yes") {
+				this.warnings.push("GPC implementation is not verified as operational.");
+			}
+		}
+	}
+
+	private replacements(): Map<string, string> {
+		const retention =
+			this.config.data_retention_schedule?.trim() ||
+			(this.config.data_retention_days
+				? `${this.config.data_retention_days} days (legacy global value; replace with category-specific periods)`
+				: undefined);
+		const vendors = this.config.vendors ?? [];
+		const legacyVendors: VendorItem[] = Object.entries(this.config.third_parties ?? {})
+			.filter((entry): entry is [string, string] => Boolean(entry[1]?.trim()))
+			.map(([purpose, name]) => ({ name, purpose }));
+		const vendorRows = [...vendors, ...legacyVendors];
+		const dataInventory = this.config.data_inventory ?? [];
+		const cookies = this.config.cookies ?? [];
+		const california = this.config.california;
+
+		const dataTable = markdownTable(
+			["Category", "Examples", "Source", "Purpose", "Legal basis", "Recipients", "Retention"],
+			dataInventory.map((item) => [
+				item.category,
+				item.examples,
+				item.source,
+				item.purpose,
+				item.legal_basis,
+				item.recipients,
+				item.retention,
+			]),
+			"ADD THE VERIFIED DATA INVENTORY",
+		);
+		const purposeTable = markdownTable(
+			["Purpose", "Data", "Legal basis/condition", "Outcome"],
+			dataInventory.map((item) => [
+				item.purpose,
+				item.category,
+				item.legal_basis,
+				"[[REVIEW: EXPLAIN THE OPERATIONAL OUTCOME]]",
+			]),
+			"ADD PURPOSES AND APPLICABLE LEGAL BASES",
+		);
+		const vendorTable = markdownTable(
+			["Provider", "Purpose", "Data", "Role", "Locations", "Privacy information"],
+			vendorRows.map((vendor) => [
+				vendor.name,
+				vendor.purpose,
+				vendor.data,
+				vendor.role,
+				vendor.locations,
+				vendor.privacy_url,
+			]),
+			"ADD VERIFIED VENDORS, ROLES, DATA, LOCATIONS, AND LINKS",
+		);
+		const cookieTable = markdownTable(
+			["Technology", "Provider", "Purpose", "Category", "Duration", "Party"],
+			cookies.map((cookie) => [
+				cookie.name,
+				cookie.provider,
+				cookie.purpose,
+				cookie.category,
+				cookie.duration,
+				cookie.first_or_third_party,
+			]),
+			"ADD AN ACTUAL COOKIE AND SIMILAR-TECHNOLOGY INVENTORY",
+		);
+		const securitySummary = this.config.security_summary?.length
+			? this.config.security_summary.map((control) => `- ${control}`).join("\n")
+			: "[[REVIEW: DESCRIBE ONLY VERIFIED SECURITY CONTROLS WITHOUT CREATING A GUARANTEE]]";
+		const californiaDisclosure = california
+			? `Applicability: **${california.applies ?? "unknown"}**  \nSale: **${california.sells ?? "unknown"}**  \nSharing: **${california.shares ?? "unknown"}**  \nSensitive-personal-information limitation relevant: **${california.uses_sensitive_personal_information ?? "unknown"}**  \nGPC operationally honored: **${california.honors_gpc ?? "unknown"}**  \nRights request: ${placeholder("CALIFORNIA RIGHTS REQUEST URL", california.request_url)}  \nOpt-out: ${placeholder("DO NOT SELL OR SHARE URL", california.opt_out_url)}  \nLimit-use request: ${placeholder("LIMIT USE URL IF APPLICABLE", california.limit_use_url)}`
+			: "[[REVIEW: ASSESS CCPA/CPRA APPLICABILITY, SALE, SHARING, SENSITIVE DATA, AND GPC BEFORE PUBLISHING]]";
+
+		return new Map([
+			["[COMPANY_NAME]", placeholder("LEGAL ENTITY NAME", this.config.company_name)],
+			["[DOMAIN]", placeholder("CANONICAL DOMAIN", this.config.domain)],
+			["[CONTACT_EMAIL]", placeholder("PRIVACY/LEGAL CONTACT EMAIL", this.config.contact_email)],
+			["[SUPPORT_EMAIL]", placeholder("SUPPORT EMAIL", this.config.support_email)],
+			["[COMPANY_ADDRESS]", placeholder("COMPANY ADDRESS", this.config.address)],
+			["[JURISDICTION]", placeholder("GOVERNING LAW/FORUM AFTER COUNSEL REVIEW", this.config.jurisdiction)],
+			["[CURRENCY]", placeholder("CURRENCY", this.config.currency)],
+			["[EFFECTIVE_DATE]", placeholder("EFFECTIVE DATE", this.config.effective_date)],
+			["[VERSION]", this.config.version?.trim() || "DRAFT"],
+			["[SERVICE_DESCRIPTION]", placeholder("SERVICE DESCRIPTION", this.config.service_description)],
+			["[MIN_AGE]", placeholder("AGE POSITION AFTER PRODUCT AND LEGAL REVIEW", this.config.min_age)],
+			["[RETENTION_PERIOD]", placeholder("RETENTION SCHEDULE", retention)],
+			["[RETENTION_SCHEDULE]", placeholder("RETENTION SCHEDULE", retention)],
+			["[REFUND_PERIOD]", placeholder("REFUND PERIOD", this.config.refund_days)],
+			["[REFUND_POLICY]", placeholder("REFUND POLICY", this.config.refund_policy)],
+			["[BILLING_CYCLE]", placeholder("BILLING TERMS", this.config.billing_cycle)],
+			["[PAYMENT_PROCESSOR]", placeholder("PAYMENT PROCESSOR", this.config.third_parties?.payment)],
+			["[HOSTING_PROVIDER]", placeholder("HOSTING PROVIDER", this.config.third_parties?.hosting)],
+			["[ANALYTICS_PROVIDER]", placeholder("ANALYTICS PROVIDER", this.config.third_parties?.analytics)],
+			["[EMAIL_PROVIDER]", placeholder("EMAIL PROVIDER", this.config.third_parties?.email)],
+			["[SUPPORT_TOOL]", placeholder("SUPPORT PROVIDER", this.config.third_parties?.support)],
+			["[GDPR_REP_EMAIL]", placeholder("EU/UK REPRESENTATIVE DETAILS IF REQUIRED", this.config.gdpr_rep_email)],
+			["[CCPA_AGENT_EMAIL]", placeholder("CALIFORNIA REQUEST CONTACT", this.config.ccpa_agent_email ?? this.config.contact_email)],
+			["[FEATURE_1]", placeholder("FEATURE 1", this.config.features?.[0])],
+			["[FEATURE_2]", placeholder("FEATURE 2", this.config.features?.[1])],
+			["[FEATURE_3]", placeholder("FEATURE 3", this.config.features?.[2])],
+			["[DATA_INVENTORY_TABLE]", dataTable],
+			["[PROCESSING_PURPOSE_TABLE]", purposeTable],
+			["[VENDOR_TABLE]", vendorTable],
+			["[COOKIE_INVENTORY_TABLE]", cookieTable],
+			["[CALIFORNIA_DISCLOSURE]", californiaDisclosure],
+			["[RIGHTS_REQUEST_PROCESS]", placeholder("RIGHTS REQUEST AND APPEAL PROCESS", this.config.rights_request_process)],
+			["[TRANSFER_DETAILS]", placeholder("INTERNATIONAL TRANSFER LOCATIONS AND MECHANISMS", this.config.international_transfer_details)],
+			["[SECURITY_SUMMARY]", securitySummary],
+			["[CHILDREN_POSITION]", placeholder("CHILDREN/AGE POSITION", this.config.children_position)],
+			["[COOKIE_SETTINGS_URL]", placeholder("COOKIE SETTINGS URL", this.config.cookie_settings_url)],
+			["[PROCESSING_ROLE]", this.config.processing_role ?? "unknown"],
+			["[PROCESSING_DETAILS_TABLE]", dataTable],
+			["[SUBPROCESSOR_TABLE]", vendorTable],
+			["[TOM_SUMMARY]", securitySummary],
+		]);
+	}
+
+	private async generateDocument(key: DocumentKey): Promise<{ content: string; unresolved: string[] }> {
+		const templatePath = join(this.templateDir, TEMPLATE_MAP[key]);
+		if (!existsSync(templatePath)) throw new Error(`Missing template: ${templatePath}`);
+		let content = await readFile(templatePath, "utf8");
+		for (const [token, value] of this.replacements()) content = content.replaceAll(token, value);
+
+		const banner = `> [!WARNING]\n> **DRAFT FOR FACTUAL AND QUALIFIED LEGAL REVIEW.** This generated text is informational drafting support, not legal advice or a compliance certification. Remove this banner only after the document matches the deployed product, contracts, data flows, and applicable law.\n\n`;
+		content = `${banner}${content}`;
+		return { content, unresolved: unresolvedMarkers(content) };
+	}
+
+	private async generateAll(): Promise<GeneratedFile[]> {
+		await mkdir(this.outputDir, { recursive: true });
+		const generated: GeneratedFile[] = [];
+		for (const key of this.config.documents ?? []) {
+			const { content, unresolved } = await this.generateDocument(key);
+			const filename = OUTPUT_FILENAMES[key];
+			await writeFile(join(this.outputDir, filename), content, "utf8");
+			generated.push({ filename, unresolved });
+			console.log(`Generated draft: ${filename}`);
+		}
+		return generated;
+	}
+
+	private async writeReviewReport(files: GeneratedFile[]): Promise<void> {
+		const lines = [
+			"# Legal Draft Review Report",
+			"",
+			`Generated: ${new Date().toISOString()}`,
+			"",
+			"> These drafts are not approved for publication. Resolve every factual marker, test the product-to-policy behavior, verify current law from official sources, and obtain qualified legal review.",
+			"",
+			"## Configuration Warnings",
+			"",
+			...(this.warnings.length > 0
+				? this.warnings.map((warning) => `- ${warning}`)
+				: ["- No generator-level warnings; this does not establish completeness or legal sufficiency."]),
+			"",
+			"## Unresolved Markers",
+			"",
+		];
+		for (const file of files) {
+			lines.push(`### ${file.filename}`, "");
+			lines.push(
+				...(file.unresolved.length > 0
+					? file.unresolved.map((marker) => `- \`${marker}\``)
+					: ["- No syntactic markers found; perform substantive factual and legal review."]),
+				"",
+			);
+		}
+		lines.push(
+			"## Required Product-to-Policy Tests",
+			"",
+			"- Verify every SDK, cookie, storage mechanism, data category, purpose, recipient, role, location, and retention rule.",
+			"- Test consent and preference withdrawal before and after nonessential technology loads.",
+			"- Test access, correction, deletion, export, objection/opt-out, appeal, and identity-verification workflows that are actually offered or required.",
+			"- Verify Global Privacy Control handling when California opt-out obligations apply.",
+			"- Reconcile trials, renewal, refunds, cancellation, suspension, deletion, and user-content terms with the deployed product.",
+			"- Review international-transfer mechanisms, vendor contracts, subprocessors, security statements, age design, regulated data, and incident obligations.",
+			"- Obtain qualified counsel review before publication or customer signature.",
+			"",
+		);
+		await writeFile(join(this.outputDir, "REVIEW-REPORT.md"), `${lines.join("\n")}\n`, "utf8");
+	}
+
+	async run(configPath?: string): Promise<void> {
+		console.log("\nSaaS legal drafting assistant");
+		console.log("Drafts are not legal advice and are never automatically publication-ready.\n");
+		try {
+			if (configPath) await this.loadConfig(configPath);
+			else await this.collectInteractiveConfig();
+			if (!this.config.documents?.length) {
+				throw new Error("Configuration must select at least one document");
+			}
+			this.validateConfiguration();
+			const files = await this.generateAll();
+			await this.writeReviewReport(files);
+			console.log(`\nGenerated ${files.length} draft(s) and REVIEW-REPORT.md in ${this.outputDir}`);
+			console.log("Do not publish or sign them until all markers and review items are resolved.");
+		} finally {
+			this.rl.close();
+		}
+	}
+}
+
 if (import.meta.main) {
-    const configPath = process.argv[2];
-    new LegalGenerator().run(configPath);
+	try {
+		await new LegalGenerator().run(process.argv[2]);
+	} catch (error) {
+		console.error("\nGeneration failed:", error);
+		process.exitCode = 1;
+	}
 }

@@ -1,273 +1,119 @@
-# Cookie Policy
+# Cookie and Similar Technologies Notice
 
-**Last Updated:** [EFFECTIVE_DATE]
+**Version:** [VERSION]  
+**Effective date:** [EFFECTIVE_DATE]
 
-## 1. What Are Cookies
+> **Drafting note:** Delete this note before publication. Generate the inventory
+> from the deployed product, tag manager, SDKs, network activity, storage APIs,
+> and vendor configuration. A generic category list is not an adequate audit.
 
-Cookies are small text files that are placed on your device when you visit our
-website **[DOMAIN]**. They are widely used to make websites work more
-efficiently and to provide information to website owners.
+## 1. Scope
 
-## 2. How We Use Cookies
+This notice explains how [COMPANY_NAME] uses cookies, pixels, SDKs, local
+storage, device identifiers, and similar technologies on [DOMAIN] and the
+following products or applications:
 
-We use cookies for the following purposes:
+[[REVIEW: LIST THE WEBSITES, SUBDOMAINS, APPS, EMBEDS, AND EMAIL TECHNOLOGIES IN
+SCOPE]]
 
-### 2.1 Essential Cookies (Required)
+## 2. Actual Technology Inventory
 
-These cookies are necessary for the website to function and cannot be switched
-off.
+[COOKIE_INVENTORY_TABLE]
 
-- **Authentication:** Remember your login status
-- **Security:** Protect against fraud and ensure security
-- **Preferences:** Remember your settings and preferences
+For each technology, verify its exact name, provider, purpose, data collected,
+first- or third-party status, lifespan, domain/path, trigger, and whether it is
+blocked until the required choice is obtained. Include dynamically created and
+server-side tracking where relevant.
 
-**Duration:** Session-based or [RETENTION_PERIOD] days
+Do not call a technology “strictly necessary” merely because it is useful to the
+business. Document the legal exemption and technical necessity for the service
+requested by the user.
 
-### 2.2 Analytics Cookies
+## 3. Purposes and Categories
 
-These cookies help us understand how visitors interact with our website.
+Explain only categories actually used:
 
-- **Usage Statistics:** Pages visited, time spent, features used
-- **Performance Monitoring:** Website speed and error tracking
-- **User Behavior:** Navigation patterns and user flows
+- **Strictly necessary:** technology required to deliver a service explicitly
+  requested by the user, maintain security, or preserve a requested setting,
+  where the applicable law provides an exemption.
+- **Preferences/functionality:** optional personalization or convenience.
+- **Analytics/performance:** measurement, diagnostics, experimentation, or
+  product analysis.
+- **Advertising/targeting:** advertising selection, measurement, profiling, or
+  cross-context behavioral advertising.
+- **Other:** describe the specific purpose rather than forcing it into an
+  inaccurate category.
 
-**Provider:** [ANALYTICS_PROVIDER] **Duration:** [RETENTION_PERIOD] days
+[[REVIEW: MAP EACH INVENTORY ITEM TO ITS VERIFIED PURPOSE, LEGAL CONDITION, AND
+CONSENT/OPT-OUT BEHAVIOR]]
 
-### 2.3 Functionality Cookies
+## 4. Your Choices
 
-These cookies enable enhanced functionality and personalization.
+Cookie and privacy settings: [COOKIE_SETTINGS_URL]
 
-- **Language Settings:** Remember your preferred language
-- **Regional Settings:** Remember your location for relevant content
-- **Customization:** Save your preferences and customizations
+Describe the deployed choice flow accurately:
 
-**Duration:** [RETENTION_PERIOD] days
+[[REVIEW: EXPLAIN WHICH TECHNOLOGIES ARE OFF BY DEFAULT, HOW USERS ACCEPT OR
+REJECT BY PURPOSE, HOW THE CHOICE IS STORED, HOW OFTEN IT IS RENEWED, AND HOW TO
+WITHDRAW OR CHANGE IT]]
 
-### 2.4 Marketing/Targeting Cookies
+Where prior consent is required, nonessential technologies must remain blocked
+until a valid affirmative choice. Rejecting should be as easy and prominent as
+accepting. Withdrawal must take effect for future processing and propagate to
+the relevant vendors.
 
-These cookies are used to deliver relevant advertisements and measure campaign
-effectiveness.
+Browser controls may supplement but should not replace an in-product choice
+mechanism when the law requires one. Browser deletion may also remove the stored
+preference and cause the banner to reappear.
 
-- **Ad Tracking:** Serve ads relevant to your interests
-- **Campaign Measurement:** Track marketing campaign performance
-- **Retargeting:** Show ads based on your website visits
+## 5. Opt-Out Preference Signals
 
-**Duration:** [RETENTION_PERIOD] days
+[[REVIEW: EXPLAIN WHETHER AND HOW THE SERVICE PROCESSES GLOBAL PRIVACY CONTROL OR
+OTHER LEGALLY RECOGNIZED OPT-OUT PREFERENCE SIGNALS. DO NOT CLAIM SUPPORT UNTIL
+IT HAS BEEN TESTED END TO END]]
 
-## 3. Third-Party Cookies
+## 6. Vendors and Cross-Site Processing
 
-We allow trusted third parties to set cookies on your device for the services
-described above:
+[VENDOR_TABLE]
 
-### 3.1 Analytics Services
+Link to current vendor privacy information and explain each vendor's role. A
+vendor contract or “service provider” label does not by itself determine whether
+processing is a sale, sharing, joint controllership, or exempt processing.
 
-- **[ANALYTICS_PROVIDER]** - Website analytics and user behavior tracking
-- **Privacy Policy:** [Link to third-party privacy policy]
-- **Opt-Out:** [Link to opt-out instructions]
+## 7. Email and Mobile Technologies
 
-### 3.2 Payment Processors
+[[REVIEW: DISCLOSE EMAIL PIXELS/LINK TRACKING, MOBILE SDKs, DEVICE IDENTIFIERS,
+APP PERMISSIONS, AND PLATFORM PRIVACY CHOICES IF USED; OTHERWISE REMOVE THIS
+SECTION]]
 
-- **[PAYMENT_PROCESSOR]** - Secure payment processing
-- **Privacy Policy:** [Link to third-party privacy policy]
+## 8. Consequences of a Choice
 
-### 3.3 Other Services
+Explain any genuine feature impact of disabling optional technology. Do not
+suggest that core service access will fail unless that is technically true and
+lawful.
 
-- **[EMAIL_PROVIDER]** - Email delivery and tracking
-- **[SUPPORT_TOOL]** - Customer support and live chat
-- **Other Third Parties:** [List additional services]
+[[REVIEW: DESCRIBE VERIFIED FEATURE EFFECTS BY CATEGORY]]
 
-## 4. Managing Cookies
+## 9. Retention
 
-### 4.1 Browser Settings
+[RETENTION_SCHEDULE]
 
-You can manage or disable cookies through your browser settings:
+The inventory's lifespan and the server-side retention of data derived from a
+technology are different concepts. State both where relevant.
 
-- **Chrome:** Settings > Privacy and security > Cookies and other site data
-- **Firefox:** Options > Privacy & Security > Cookies and Site Data
-- **Safari:** Preferences > Privacy > Manage Website Data
-- **Edge:** Settings > Cookies and site permissions > Manage cookies
+## 10. Updates
 
-### 4.2 Browser-Specific Instructions
+Explain how the inventory is monitored, how material changes trigger renewed
+choice or notice, and how the version history is maintained.
 
-**Google Chrome:**
+[[REVIEW: INSERT THE ACTUAL COOKIE-AUDIT AND CHANGE-NOTICE PROCESS]]
 
-1. Click the three-dot menu in the top-right corner
-2. Select "Settings"
-3. Click "Privacy and security"
-4. Select "Cookies and other site data"
-5. Choose your preferred option
+## 11. Contact
 
-**Mozilla Firefox:**
+- Privacy/legal email: [CONTACT_EMAIL]
+- Postal address: [COMPANY_ADDRESS]
+- Privacy notice: [DOMAIN]/privacy
+- Cookie settings: [COOKIE_SETTINGS_URL]
 
-1. Click the hamburger menu in the top-right corner
-2. Select "Options"
-3. Click "Privacy & Security"
-4. Scroll to "Cookies and Site Data"
-5. Choose your preferred option
-
-**Safari (macOS/iOS):**
-
-1. Open Safari Preferences (iOS: Settings > Safari)
-2. Select "Privacy" tab
-3. Click "Manage Website Data"
-4. Remove individual cookies or all data
-
-**Microsoft Edge:**
-
-1. Click the three-dot menu in the top-right corner
-2. Select "Settings"
-3. Click "Cookies and site permissions"
-4. Select "Manage cookies"
-5. Choose your preferred option
-
-### 4.3 Cookie Consent Manager
-
-We provide a cookie consent banner that allows you to:
-
-- **Accept All Cookies:** Enable all cookie categories
-- **Accept Essential Only:** Enable only essential cookies
-- **Customize:** Choose which cookie categories to accept
-
-You can change your cookie preferences at any time by:
-
-- Clicking the "Cookie Settings" link in the footer
-- Updating your browser settings as described above
-
-## 5. What Happens If You Disable Cookies
-
-If you disable cookies, some features of our website may not function properly:
-
-- **Login Issues:** Unable to stay logged in
-- **Personalization:** Cannot remember preferences
-- **Shopping Cart:** Items may not be saved
-- **Analytics:** Reduced ability to improve user experience
-
-However, essential functionality will remain available.
-
-## 6. Local Storage and Similar Technologies
-
-In addition to cookies, we use similar technologies such as:
-
-- **Local Storage:** Stores data on your browser for enhanced functionality
-- **Session Storage:** Temporary storage during a browser session
-- **IndexedDB:** Client-side database for certain features
-- **Web Beacons:** Small images to track email opens and page views
-
-These technologies are governed by this Cookie Policy.
-
-## 7. Cookies on Mobile Devices
-
-Our mobile applications and mobile-optimized website may also use cookies and
-similar technologies. Mobile browser settings apply to mobile websites.
-
-For mobile apps, we may use device identifiers for analytics and
-personalization. You can manage these in your device settings.
-
-## 8. Third-Party Links
-
-Our website may contain links to third-party websites. We are not responsible
-for the cookie practices of these third parties. We encourage you to review the
-cookie policies of any third-party sites you visit.
-
-## 9. Updates to This Cookie Policy
-
-We may update this Cookie Policy from time to time. The updated version will be
-indicated by a revised "Last Updated" date.
-
-We will notify you of material changes by:
-
-- Posting a notice on our website
-- Updating the "Last Updated" date
-- Sending an email notification for significant changes
-
-## 10. GDPR and Cookie Consent
-
-### 10.1 Your Rights (GDPR)
-
-If you are located in the European Economic Area (EEA), you have the right to:
-
-- **Withdraw Consent:** Remove your consent for non-essential cookies at any
-  time
-- **Access:** Request information about cookies we use
-- **Object:** Object to certain types of cookies
-- **Complain:** Lodge a complaint with your local data protection authority
-
-### 10.2 Consent Requirements
-
-Under GDPR and the ePrivacy Directive, we require your consent for:
-
-- Analytics cookies
-- Marketing cookies
-- Functionality cookies
-
-Essential cookies do not require consent as they are necessary for the website
-to function.
-
-## 11. CCPA and Cookie Information
-
-### 11.1 California Residents
-
-If you are a California resident, we may share information with third parties
-for targeted advertising. This may constitute a "sale" under the California
-Consumer Privacy Act (CCPA).
-
-You can opt-out of the sale of your personal information by:
-
-- Using our cookie consent manager
-- Enabling "Do Not Sell or Share" in your account settings
-- Visiting: [DOMAIN]/do-not-sell
-
-## 12. Children and Cookies
-
-Our services are not directed to children under the age of [MIN_AGE]. We do not
-knowingly target or collect information from children under this age.
-
-## 13. Contact Us
-
-If you have questions about this Cookie Policy or our use of cookies and
-tracking technologies, please contact us:
-
-- **Email:** [CONTACT_EMAIL]
-- **Website:** [DOMAIN]/contact
-- **Address:** [COMPANY_NAME] [COMPANY_ADDRESS] [CITY], [STATE/REGION]
-  [POSTAL_CODE] [COUNTRY]
-
-## 14. Cookie Audit
-
-As of [EFFECTIVE_DATE], we use the following cookies on our website:
-
-| Cookie Name     | Type          | Purpose          | Duration                | Provider             |
-| --------------- | ------------- | ---------------- | ----------------------- | -------------------- |
-| `[COOKIE_NAME]` | Essential     | Authentication   | Session                 | [COMPANY_NAME]       |
-| `[COOKIE_NAME]` | Analytics     | Usage tracking   | [RETENTION_PERIOD] days | [ANALYTICS_PROVIDER] |
-| `[COOKIE_NAME]` | Functionality | User preferences | [RETENTION_PERIOD] days | [COMPANY_NAME]       |
-| `[COOKIE_NAME]` | Marketing     | Ad targeting     | [RETENTION_PERIOD] days | [AD_PROVIDER]        |
-
-_Note: This table is a template. Replace with actual cookies used on your
-website._
-
----
-
-**Cookie Policy Version:** [VERSION] **Effective Date:** [EFFECTIVE_DATE]
-
-**[COMPANY_NAME]** is committed to transparency about how we use cookies and
-similar technologies. We regularly review our cookie practices to ensure
-compliance with applicable laws and regulations.
-
----
-
-## Quick Reference
-
-**Essential Cookies:** Required - Cannot be disabled **Analytics Cookies:** Can
-be disabled in browser settings or cookie consent manager **Marketing Cookies:**
-Can be disabled in browser settings or cookie consent manager **Functionality
-Cookies:** Can be disabled in browser settings or cookie consent manager
-
-**Your Cookie Choices:**
-
-- Accept All Cookies
-- Accept Essential Only
-- Customize Preferences
-
-**Cookie Consent Manager:** [DOMAIN]/cookie-settings **Do Not Sell (CCPA):**
-[DOMAIN]/do-not-sell **Privacy Policy:** [DOMAIN]/privacy
+[[REVIEW: ADD JURISDICTION-SPECIFIC COMPLAINT OR REGULATOR INFORMATION IF
+REQUIRED]]

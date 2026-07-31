@@ -1,102 +1,134 @@
 #!/usr/bin/env bun
 /**
- * DNS Availability Checker
+ * DNS evidence checker.
  *
- * Performs DNS lookups to check if domains are registered.
- * If no DNS records are found, the domain is likely available.
+ * DNS records can prove that a domain is configured, but the absence of DNS
+ * records does not prove that the domain is available to register. Use the
+ * RDAP-first registration checker for registration status.
  *
  * Usage:
- *   bun run scripts/check-dns.ts example.com example.io ...
- *   bun run check-dns $(cat domains.txt)
+ *   bun run scripts/check-dns.ts example.com example.io
  */
 
-import { resolve4, resolveCname } from 'dns/promises';
+import { resolveAny, resolveNs } from "node:dns/promises";
+import { domainToASCII } from "node:url";
 
-export {};
+export type DnsStatus = "records-found" | "no-records" | "error";
 
-interface DomainResult {
-  domain: string;
-  status: 'available' | 'registered' | 'error';
-  records?: string[];
-  error?: string;
+export interface DnsResult {
+	domain: string;
+	asciiDomain?: string;
+	status: DnsStatus;
+	checkedAt: string;
+	recordTypes?: string[];
+	nameservers?: string[];
+	note: string;
+	error?: string;
 }
 
-const results: DomainResult[] = [];
-const domains = process.argv.slice(2);
-
-if (domains.length === 0) {
-  console.error('Usage: check-dns.ts <domain1> <domain2> ...');
-  process.exit(1);
+function normalizeDomain(input: string): string {
+	const ascii = domainToASCII(input.trim().toLowerCase().replace(/\.$/, ""));
+	if (!ascii || !ascii.includes(".")) throw new Error(`Invalid domain: ${input}`);
+	return ascii;
 }
 
-console.log(`Checking ${domains.length} domain(s)...\n`);
-
-// Check each domain
-for (const domain of domains) {
-  try {
-    const result: DomainResult = { domain, status: 'available' };
-
-    // Try to resolve A record
-    try {
-      const addresses = await resolve4(domain);
-      if (addresses && addresses.length > 0) {
-        result.status = 'registered';
-        result.records = addresses;
-      }
-    } catch {
-      // No A record found
-    }
-
-    // Also check CNAME
-    if (result.status === 'available') {
-      try {
-        const cnames = await resolveCname(domain);
-        if (cnames && cnames.length > 0) {
-          result.status = 'registered';
-          result.records = [...cnames];
-        }
-      } catch {
-        // No CNAME found
-      }
-    }
-
-    results.push(result);
-  } catch (error) {
-    results.push({
-      domain,
-      status: 'error',
-      error: error instanceof Error ? error.message : 'Unknown error',
-    });
-  }
+function errorCode(error: unknown): string | undefined {
+	if (typeof error === "object" && error !== null && "code" in error) {
+		return String((error as { code?: unknown }).code ?? "");
+	}
+	return undefined;
 }
 
-// Display results
-console.log('Results:');
-console.log('─'.repeat(80));
+export async function checkDns(input: string): Promise<DnsResult> {
+	const checkedAt = new Date().toISOString();
+	let asciiDomain: string;
+	try {
+		asciiDomain = normalizeDomain(input);
+	} catch (error) {
+		return {
+			domain: input,
+			status: "error",
+			checkedAt,
+			note: "Invalid domain input.",
+			error: error instanceof Error ? error.message : "Invalid domain",
+		};
+	}
 
-for (const result of results) {
-  const icon = result.status === 'available' ? '✅' :
-               result.status === 'registered' ? '❌' : '⚠️';
-  console.log(`${icon} ${result.domain.padEnd(30)} ${result.status.toUpperCase().padEnd(12)}`);
+	try {
+		const [recordsResult, nameserverResult] = await Promise.allSettled([
+			resolveAny(asciiDomain),
+			resolveNs(asciiDomain),
+		]);
+		const records = recordsResult.status === "fulfilled" ? recordsResult.value : [];
+		const nameservers = nameserverResult.status === "fulfilled" ? nameserverResult.value : [];
+		const recordTypes = [
+			...new Set(
+				records
+					.map((record) => ("type" in record ? String(record.type) : "unknown"))
+					.filter(Boolean),
+			),
+		];
 
-  if (result.records && result.records.length > 0) {
-    console.log(`  Records: ${result.records.slice(0, 3).join(', ')}${result.records.length > 3 ? '...' : ''}`);
-  }
+		if (records.length > 0 || nameservers.length > 0) {
+			return {
+				domain: input,
+				asciiDomain,
+				status: "records-found",
+				checkedAt,
+				recordTypes,
+				nameservers,
+				note: "DNS configuration was found. This is evidence of use, not a complete registration record.",
+			};
+		}
 
-  if (result.error) {
-    console.log(`  Error: ${result.error}`);
-  }
-  console.log();
+		const errors = [
+			recordsResult.status === "rejected" ? recordsResult.reason : undefined,
+			nameserverResult.status === "rejected" ? nameserverResult.reason : undefined,
+		].filter(Boolean);
+		const expectedMiss = errors.every((error) =>
+			["ENODATA", "ENOTFOUND", "ESERVFAIL"].includes(errorCode(error) ?? ""),
+		);
+
+		return {
+			domain: input,
+			asciiDomain,
+			status: expectedMiss ? "no-records" : "error",
+			checkedAt,
+			note: expectedMiss
+				? "No DNS records were observed. The domain may still be registered, reserved, premium, or temporarily misconfigured."
+				: "DNS lookup was inconclusive; do not infer registration status.",
+			error: expectedMiss
+				? undefined
+				: errors
+						.map((error) => (error instanceof Error ? error.message : String(error)))
+						.join("; "),
+		};
+	} catch (error) {
+		return {
+			domain: input,
+			asciiDomain,
+			status: "error",
+			checkedAt,
+			note: "DNS lookup failed; do not infer registration status.",
+			error: error instanceof Error ? error.message : "Unknown DNS error",
+		};
+	}
 }
 
-// Summary
-const available = results.filter(r => r.status === 'available').length;
-const registered = results.filter(r => r.status === 'registered').length;
-const errors = results.filter(r => r.status === 'error').length;
+async function main(): Promise<void> {
+	const domains = process.argv.slice(2);
+	if (domains.length === 0) {
+		console.error("Usage: check-dns.ts <domain1> <domain2> ...");
+		process.exit(1);
+	}
 
-console.log('─'.repeat(80));
-console.log(`Summary: ${available} available, ${registered} registered, ${errors} errors`);
+	const results = await Promise.all(domains.map(checkDns));
+	console.log(JSON.stringify(results, null, 2));
+	console.error(
+		"\nDNS absence is not domain availability. Verify registration through RDAP and a registrar.",
+	);
+}
 
-// Output JSON for programmatic use
-console.log('\n--- JSON OUTPUT ---');
-console.log(JSON.stringify(results, null, 2));
+if (import.meta.main) {
+	await main();
+}

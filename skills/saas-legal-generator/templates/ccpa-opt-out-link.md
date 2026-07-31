@@ -1,273 +1,118 @@
-# Do Not Sell or Share My Personal Information
+# California Privacy Choices
 
-**Under the California Consumer Privacy Act (CCPA) and California Privacy Rights
-Act (CPRA)**
+**Version:** [VERSION]  
+**Effective date:** [EFFECTIVE_DATE]
 
----
+> **Conditional template:** Publish this page only after a documented assessment
+> concludes that the relevant California requirements apply and the deployed
+> practices trigger the choices described. Delete this note before publication.
 
-## Your Privacy Rights
+## 1. Assessed Practices
 
-California residents have the right to opt-out of the "sale" or "sharing" of
-their personal information.
+[CALIFORNIA_DISCLOSURE]
 
-At **[COMPANY_NAME]**, we respect your privacy and provide you with the ability
-to opt-out of the sale or sharing of your personal information.
+The final page must use the statutory terminology that matches the company's
+actual practices. Do not say “we do not sell” merely because no money changes
+hands; do not say “we share” merely because any vendor receives data. Review the
+contracts, purposes, and legal definitions.
 
----
+## 2. Do Not Sell or Share My Personal Information
 
-## What Does "Sale" or "Sharing" Mean?
+If [COMPANY_NAME] sells personal information or shares it for cross-context
+behavioral advertising as those terms apply to the business, provide the
+frictionless opt-out method here:
 
-Under the CCPA/CPRA:
+- Opt-out page or control: [[REVIEW: INSERT THE DEPLOYED DO NOT SELL OR SHARE
+  CONTROL OR URL]]
+- Privacy settings: [[REVIEW: INSERT ANY ACCOUNT-LEVEL CONTROL]]
+- Assistance/contact: [CCPA_AGENT_EMAIL]
 
-- **"Sale"** means transferring personal information to another business or
-  third party for valuable consideration.
-- **"Sharing"** means transferring personal information to another business or
-  third party for cross-context behavioral advertising purposes.
+The opt-out must be available without requiring an account. Do not require more
+information than reasonably necessary to apply the preference. State how the
+preference applies to the browser/device and, when the user is known, the
+account. Explain any lawful request to opt back in and any waiting period before
+asking again.
 
-### Our Practices
+[[REVIEW: EXPLAIN THE ACTUAL SALE/SHARING CATEGORIES, RECIPIENT CATEGORIES,
+LOOK-BACK PERIOD, AND HOW THE OPT-OUT IS APPLIED]]
 
-At [COMPANY_NAME], we [DO/DO NOT] sell your personal information. We [MAY/MAY
-NOT] share certain information with third parties for advertising purposes.
+## 3. Global Privacy Control
 
-See our [Privacy Policy]([DOMAIN]/privacy) for details about:
+Where required, [COMPANY_NAME] treats a recognized Global Privacy Control (GPC)
+signal as a valid request to opt out of sale or sharing for the browser or
+device and, when known, the associated consumer.
 
-- What personal information we collect
-- How we use and share your information
-- Categories of third parties with whom we share information
+[[REVIEW: KEEP THE PRECEDING SENTENCE ONLY AFTER TESTING GPC BEFORE TAGS LOAD,
+AFTER LOGIN, ACROSS SUBDOMAINS, WITH CONSENT/CMP AND AD VENDORS, AND IN SERVER-SIDE
+PROCESSING. OTHERWISE REPLACE IT WITH AN ACCURATE IMPLEMENTATION STATUS AND FIX
+THE PRODUCT BEFORE CLAIMING COMPLIANCE]]
 
----
+A user should not need to submit a second request to make an applicable GPC
+signal effective.
 
-## How to Opt-Out
+## 4. Limit the Use and Disclosure of Sensitive Personal Information
 
-You can opt-out of the sale or sharing of your personal information by:
+[[REVIEW: ASSESS WHETHER THE COMPANY USES OR DISCLOSES SENSITIVE PERSONAL
+INFORMATION FOR PURPOSES THAT TRIGGER A LIMIT-USE RIGHT. IF YES, INSERT THE
+DEPLOYED CONTROL AND REQUIRED DISCLOSURES. IF NO, REMOVE THIS SECTION OR STATE THE
+ASSESSED PRACTICE ACCURATELY]]
 
-### Option 1: Use Our Opt-Out Form (Preferred)
+## 5. Other California Requests
 
-Complete the form below and we will process your request within [TIMEFRAME]
-days.
+Rights may include access/know, deletion, correction, portability, and appeal or
+other mechanisms depending on the applicable law and facts.
 
-**Your Information:**
+Rights-request method: [RIGHTS_REQUEST_PROCESS]
 
-- Name: `_________________`
-- Email: `_________________`
-- State: `_________________` (must be California)
+Explain:
 
-**Opt-Out Request:**
+- available request methods;
+- what information is needed for the request type;
+- identity and authorized-agent verification proportionate to risk;
+- response and appeal process;
+- circumstances in which a request may be denied or limited;
+- non-discrimination protections;
+- accessibility and language assistance.
 
-- [ ] Do not sell my personal information
-- [ ] Do not share my personal information
+Do not use the identity-verification process for access or deletion as an
+unnecessary barrier to an opt-out request.
 
-**Additional Comments:**
+## 6. Authorized Agents
 
----
+[[REVIEW: DESCRIBE THE ACTUAL AUTHORIZED-AGENT PROCESS AND THE EVIDENCE REQUIRED
+UNDER CURRENT RULES. REQUEST ONLY WHAT IS NECESSARY TO VERIFY AUTHORITY AND APPLY
+THE REQUEST]]
 
----
+## 7. Notice at Collection and Full Privacy Notice
 
----
+The point-of-collection notice and full privacy notice must describe the
+categories of personal information, purposes, retention, and applicable sale,
+sharing, and sensitive-data practices before or at collection.
 
-**Submit to:** [CONTACT_EMAIL] **Subject:** CCPA Opt-Out Request
+- Privacy notice: [DOMAIN]/privacy
+- Notice at collection: [[REVIEW: INSERT LOCATIONS OR LINKS FOR EACH MATERIAL
+  COLLECTION CONTEXT]]
 
-### Option 2: Email Us
+This page is not a substitute for those disclosures.
 
-Send an email to [CONTACT_EMAIL] with the subject line "CCPA Opt-Out Request"
-and include:
+## 8. Contact
 
-- Your name
-- Email address associated with your account
-- State of residence (must be California)
-- Specific request (opt-out of sale, sharing, or both)
-
-### Option 3: Account Settings
-
-If you have an account with [COMPANY_NAME], you can opt-out by:
-
-1. Logging into your account
-2. Navigating to "Settings" → "Privacy"
-3. Selecting "Do Not Sell or Share My Personal Information"
-4. Clicking "Save Preferences"
-
-### Option 4: Browser Opt-Out Signals
-
-We support Global Privacy Control (GPC) signals, which allow you to communicate
-your opt-out preference through your browser.
-
-**To enable GPC:**
-
-- **Chrome:** Install a GPC browser extension
-- **Firefox:** Enable "Tell websites not to sell or share my data" in Privacy &
-  Security settings
-- **Safari:** Enable "Hide IP address from trackers" in Privacy settings
-- **Brave:** Enable "Global Privacy Control" in Shields settings
-
-When we detect a GPC signal, we will treat it as a valid opt-out request.
-
----
-
-## Verification Process
-
-To protect your privacy, we may request additional information to verify your
-identity before processing your opt-out request, including:
-
-- Confirmation of your email address
-- Verification of account access
-- Additional documentation if needed
-
-We will only use the information provided for verification purposes and will not
-retain it longer than necessary.
-
----
-
-## Processing Time
-
-We will process your opt-out request within **[TIMEFRAME] days** of receipt. You
-will receive a confirmation email once your request has been processed.
-
----
-
-## Effect of Opt-Out
-
-Once you opt-out:
-
-- We will stop selling or sharing your personal information
-- Your opt-out preference will apply to your account and linked devices
-- You may still receive personalized advertising based on your use of our
-  service
-- Your use of our service will not be affected
-
-### Exceptions
-
-Opting out does not prevent:
-
-- Essential data processing for service provision
-- Sharing with service providers who process data on our behalf
-- Sharing required by law
-- Sharing during a business transfer (merger, acquisition)
-
----
-
-## Non-Discrimination
-
-**We will not discriminate against you** for exercising your privacy rights.
-
-You will not be denied:
-
-- Goods or services
-- Different prices or rates
-- Different quality of goods or services
-
-You will not be penalized for exercising your CCPA rights.
-
----
-
-## Authorized Agents
-
-You may designate an **authorized agent** to submit an opt-out request on your
-behalf.
-
-Your authorized agent must provide:
-
-- Proof of your written authorization
-- Your name and contact information
-- Their name and contact information
-- Documentation verifying their authority to act on your behalf
-
----
-
-## Changes to Your Opt-Out Preference
-
-You may change your opt-out preference at any time by:
-
-1. Submitting a new opt-out request using the methods above
-2. Changing your account settings
-3. Disabling GPC in your browser settings
-
-Changes will take effect within [TIMEFRAME] days.
-
----
-
-## Authorized Agent Contact
-
-If you have questions about this opt-out page or need assistance with your
-request, please contact our **CCPA Agent**:
-
-**[COMPANY_NAME]** Attn: CCPA Agent [COMPANY_ADDRESS] [CITY], [STATE]
-[POSTAL_CODE] Email: [CCPA_AGENT_EMAIL]
-
----
-
-## Additional Resources
-
-### Your CCPA/CPRA Rights
-
-As a California resident, you have additional rights under the CCPA and CPRA:
-
-- **Right to Know:** What personal information we collect, use, and share
-- **Right to Delete:** Request deletion of your personal information
-- **Right to Correct:** Request correction of inaccurate personal information
-- **Right to Opt-Out:** Opt-out of the sale or sharing of your personal
-  information
-- **Right to Non-Discrimination:** Not be discriminated against for exercising
-  your rights
-- **Right to Limit Use:** Limit the use of sensitive personal information
-
-### Exercise Your Rights
-
-To exercise these rights, visit:
-
-- **[DOMAIN]/privacy-rights** - Submit a rights request
-- **[DOMAIN]/privacy** - View our full Privacy Policy
-- **Contact us:** [CONTACT_EMAIL]
-
-### California Privacy Agency
-
-For more information about your rights under California law, or to file a
-complaint, contact:
-
-**California Privacy Protection Agency** [Agency Address] [Website] [Phone]
-
----
-
-## Acknowledgment
-
-By submitting this opt-out request, you acknowledge that:
-
-1. You are a California resident (or are acting on behalf of one)
-2. You understand the effect of opting out
-3. You may revoke or modify your opt-out preference at any time
-4. You have read and understood this opt-out page
-
----
-
-**Last Updated:** [EFFECTIVE_DATE] **Effective Date:** [EFFECTIVE_DATE]
-
----
-
-**[COMPANY_NAME]** respects your privacy and is committed to complying with the
-CCPA and CPRA. We regularly review and update our practices to ensure ongoing
-compliance with California privacy laws.
-
----
-
-## Quick Reference
-
-**Opt-Out Email:** [CONTACT_EMAIL] **CCPA Agent Email:** [CCPA_AGENT_EMAIL]
-**Processing Time:** [TIMEFRAME] days **Verification:** May be required
-
-**Your Rights:**
-
-- ✓ Opt-out of sale or sharing
-- ✓ Right to know what we collect
-- ✓ Right to delete your information
-- ✓ Right to correct inaccurate information
-- ✓ Right to non-discrimination
-
-**Submit Opt-Out Request:**
-
-1. Email: [CONTACT_EMAIL]
-2. Subject: "CCPA Opt-Out Request"
-3. Include: Name, email, state (California)
-
-**Account Settings:** [DOMAIN]/account/settings/privacy
-
-**Global Privacy Control (GPC):** Enable in your browser settings to signal
-opt-out preference
+- California/privacy email: [CCPA_AGENT_EMAIL]
+- General privacy email: [CONTACT_EMAIL]
+- Postal address: [COMPANY_ADDRESS]
+- Rights-request method: [RIGHTS_REQUEST_PROCESS]
+
+[[REVIEW: ADD CURRENT CALIFORNIA PRIVACY PROTECTION AGENCY INFORMATION OR OTHER
+REQUIRED CONTACT/COMPLAINT DETAILS FROM AN OFFICIAL SOURCE]]
+
+## 9. Implementation Validation
+
+Before publication, retain evidence that:
+
+- opt-out controls work before and after login;
+- GPC is recognized where required;
+- downstream vendors and server-side systems receive and honor the preference;
+- the preference is not overridden by a consent banner or account change;
+- the company does not require unnecessary verification or account creation;
+- notices, contracts, data maps, and product behavior use consistent categories;
+- accessibility, language, recordkeeping, and staff procedures are operational.

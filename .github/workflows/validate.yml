@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [master, main]
 
+permissions:
+  contents: write
+
 jobs:
   validate:
     name: Validate
@@ -13,6 +16,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
@@ -34,25 +40,32 @@ jobs:
 
       - name: Normalize Markdown
         run: |
-          files=(
-            "skills/saas-legal-generator/templates/ccpa-opt-out-link.md"
-            "skills/saas-legal-generator/templates/data-processing-agreement.md"
-            "skills/saas-legal-generator/templates/privacy-policy-global.md"
-            "skills/systemization-documentation-expert/references/sop-templates.md"
-          )
-          for pass in 1 2 3; do
-            bunx prettier --write "${files[@]}" --prose-wrap always
-          done
+          bunx prettier --write \
+            skills/saas-legal-generator/templates/ccpa-opt-out-link.md \
+            skills/saas-legal-generator/templates/data-processing-agreement.md \
+            skills/saas-legal-generator/templates/privacy-policy-global.md \
+            skills/systemization-documentation-expert/references/sop-templates.md \
+            --prose-wrap always
 
-      - name: Upload normalized Markdown
-        uses: actions/upload-artifact@v4
-        with:
-          name: normalized-markdown
-          path: |
-            skills/saas-legal-generator/templates/ccpa-opt-out-link.md
-            skills/saas-legal-generator/templates/data-processing-agreement.md
-            skills/saas-legal-generator/templates/privacy-policy-global.md
+      - name: Commit normalized Markdown
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          if git diff --quiet -- \
+            skills/saas-legal-generator/templates/ccpa-opt-out-link.md \
+            skills/saas-legal-generator/templates/data-processing-agreement.md \
+            skills/saas-legal-generator/templates/privacy-policy-global.md \
+            skills/systemization-documentation-expert/references/sop-templates.md; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            skills/saas-legal-generator/templates/ccpa-opt-out-link.md \
+            skills/saas-legal-generator/templates/data-processing-agreement.md \
+            skills/saas-legal-generator/templates/privacy-policy-global.md \
             skills/systemization-documentation-expert/references/sop-templates.md
+          git commit -m "Format Markdown"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
 
       - name: Type check
         run: bun tsc --noEmit
